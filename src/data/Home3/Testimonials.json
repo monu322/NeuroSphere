@@ -1,0 +1,37 @@
+{
+  "numbers": [
+    {
+      "title": "Happy Clients",
+      "number": "3",
+      "operator": "K"
+    },
+    {
+      "title": "Success Projects",
+      "number": "14",
+      "operator": "K"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "content": "Nulla metus metus ullamcorper vel tincidunt sed euismod nibh volutpat velit class aptent taciti sociosqu ad litora.",
+      "img": "/assets/img/clients/1.jpg",
+      "name": "Alex Regelman",
+      "details": "Co-founder, Colabrio"
+    },
+    {
+      "id": 2,
+      "content": "Nulla metus metus ullamcorper vel tincidunt sed euismod nibh volutpat velit class aptent taciti sociosqu ad litora.",
+      "img": "/assets/img/clients/1.jpg",
+      "name": "Alex Regelman",
+      "details": "Co-founder, Colabrio"
+    },
+    {
+      "id": 3,
+      "content": "Nulla metus metus ullamcorper vel tincidunt sed euismod nibh volutpat velit class aptent taciti sociosqu ad litora.",
+      "img": "/assets/img/clients/1.jpg",
+      "name": "Alex Regelman",
+      "details": "Co-founder, Colabrio"
+    }
+  ]
+}

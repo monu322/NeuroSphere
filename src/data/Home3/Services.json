@@ -1,0 +1,20 @@
+[
+  {
+    "iconClass": "pe-7s-paint-bucket",
+    "lettrBg": "U",
+    "title": "UI & UX Design",
+    "desc": "Nullam imperdiet, sem at fringilla lobortis, sem nibhfiah ingilt dictum nisi maimp erdiet, sem at fringilnibhfiah ingilt"
+  },
+  {
+    "iconClass": "pe-7s-gleam",
+    "lettrBg": "W",
+    "title": "Web Development",
+    "desc": "Nullam imperdiet, sem at fringilla lobortis, sem nibhfiah ingilt dictum nisi maimp erdiet, sem at fringilnibhfiah ingilt"
+  },
+  {
+    "iconClass": "pe-7s-graph1",
+    "lettrBg": "B",
+    "title": "Business Analysis",
+    "desc": "Nullam imperdiet, sem at fringilla lobortis, sem nibhfiah ingilt dictum nisi maimp erdiet, sem at fringilnibhfiah ingilt"
+  }
+]

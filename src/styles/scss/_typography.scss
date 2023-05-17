@@ -1,0 +1,189 @@
+
+/* ====================== [ Start Typography   110e21 0e0d13  ] ====================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
+  list-style: none;
+}
+
+body {
+  color: #222733;
+  line-height: 1.5;
+  font-weight: 400;
+  overflow-x: hidden !important;
+  font-family: 'Poppins', sans-serif;
+
+  &.bg-gr{
+    background: #0a131a;
+    color: #fff;
+
+    .nav-scroll{
+      background: #121a21;
+    }
+
+    .bg-gray{
+      background: #121a21;
+    }
+
+    h1,h2,h3,h4,h5,h6{
+      font-weight: 500;
+    }
+
+    p{
+      color: #a3a3a3;
+    }
+
+    .gr-text{
+      color: $main-color;
+      background: linear-gradient(90deg,#e7a28f 1.59%,#fbddb0 50%,#fbfefd 98.41%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .blog-grid .item:after{
+      background: #121a21;
+    }
+
+  }
+
+  &.d3-dark{
+    background: #000;
+    color: #fff;
+
+    .nav-scroll{
+      background: #111;
+    }
+
+    .bg-gray{
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    p{
+      color: #a7ada6;
+    }
+
+    .gr-text{
+        color: $main-color;
+        background: linear-gradient(20deg, #2ed47c 0, #e8bf47 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+span, a, a:hover {
+  display: inline-block;
+  color: inherit;
+}
+
+h1 {
+  font-size: 55px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 35px;
+}
+
+h4 {
+  font-size: 30px;
+}
+
+h5 {
+  font-size: 25px;
+}
+
+h6 {
+  font-size: 18px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+p {
+  color: $pcolor;
+  font-size: 16px;
+  line-height: 2;
+  margin: 0;
+}
+
+a, span{
+  display: inline-block;
+  
+  &:hover{
+    text-decoration: none;
+  }
+}
+
+.container{
+  max-width: 1170px;
+}
+
+.custom-font{
+	font-family: 'Barlow Condensed', sans-serif;
+}
+
+.gr-text{
+    color: $main-color;
+    background: linear-gradient(to right,#556fff,#e05fc4,#ff798e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.borders{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1170px;
+    transform: translateX(-50%);
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    z-index: -1;
+
+    &:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 33.33333333%;
+        height: 100%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        border-left: 1px solid rgba(0, 0, 0, 0.05);
+        border-right: 1px solid rgba(0, 0, 0, 0.05);
+    }
+}
+
+.bg-dark{
+  background: #17191f !important;
+
+  .borders{
+    z-index: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+
+    &:after{
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  }
+}
+
+/* ====================== [ End Typography  ] ====================== */

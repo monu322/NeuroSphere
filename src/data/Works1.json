@@ -1,0 +1,64 @@
+{
+  "filters": [
+    {
+      "operator": "*",
+      "title": "All"
+    },
+    {
+      "operator": ".brand",
+      "title": "Branding"
+    },
+    {
+      "operator": ".web",
+      "title": "Mobile App"
+    },
+    {
+      "operator": ".graphic",
+      "title": "Creative"
+    }
+  ],
+  "works": [
+    {
+      "id": 1,
+      "type": "graphic",
+      "img": "/assets/img/portfolio/mas/01.jpg",
+      "title": "Creativity Demand",
+      "tags": ["Design", "WordPress"]
+    },
+    {
+      "id": 2,
+      "type": "web",
+      "img": "/assets/img/portfolio/mas/02.jpg",
+      "title": "Through The Breaking",
+      "tags": ["Design", "WordPress"]
+    },
+    {
+      "id": 3,
+      "type": "brand",
+      "img": "/assets/img/portfolio/mas/03.jpg",
+      "title": "Create With Creatives",
+      "tags": ["Design", "WordPress"]
+    },
+    {
+      "id": 4,
+      "type": "brand",
+      "img": "/assets/img/portfolio/mas/06.jpg",
+      "title": "Blast From The Past",
+      "tags": ["Design", "WordPress"]
+    },
+    {
+      "id": 5,
+      "type": "web",
+      "img": "/assets/img/portfolio/mas/05.jpg",
+      "title": "See It Yourself",
+      "tags": ["Design", "WordPress"]
+    },
+    {
+      "id": 6,
+      "type": "graphic",
+      "img": "/assets/img/portfolio/mas/04.jpg",
+      "title": "Energies of Love",
+      "tags": ["Design", "WordPress"]
+    }
+  ]
+}

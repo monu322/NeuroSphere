@@ -1,0 +1,20 @@
+{
+  "video": {
+    "channel": "vimeo",
+    "id": "127203262"
+  },
+  "stauts": [
+    {
+      "id": 1,
+      "title": "Happy Clients",
+      "number": 3,
+      "numberOperator": "K"
+    },
+    {
+      "id": 2,
+      "title": "Success Projects",
+      "number": 14,
+      "numberOperator": "K"
+    }
+  ]
+}

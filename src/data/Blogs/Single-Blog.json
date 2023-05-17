@@ -1,0 +1,43 @@
+{
+  "title": "Build a Beautiful Blog With Ease",
+  "img": "/assets/img/blog/single.jpg",
+  "author": {
+    "img": "/assets/img/blog/01.jpg",
+    "name": "Jorden Griffin",
+    "brief": "the main component of a healthy environment for self esteem is that it needs be nurturing. The main compont of a healthy environment."
+  },
+  "tags": [
+    "Web",
+    "Themeforest",
+    "Design-Stoty"
+  ],
+  "comments": [
+    {
+      "author": {
+        "img": "/assets/img/blog/01.jpg",
+        "name": "Jorden Griffin"
+      },
+      "date": "6 Aug 2019",
+      "replay": false,
+      "content": "the main component of a healthy environment for self esteem is that it needs be nurturing. The main compont of a healthy environment."
+    },
+    {
+      "author": {
+        "img": "/assets/img/blog/01.jpg",
+        "name": "Jorden Griffin"
+      },
+      "date": "6 Aug 2019",
+      "replay": true,
+      "content": "the main component of a healthy environment for self esteem is that it needs be nurturing. The main compont of a healthy environment."
+    },
+    {
+      "author": {
+        "img": "/assets/img/blog/01.jpg",
+        "name": "Jorden Griffin"
+      },
+      "date": "6 Aug 2019",
+      "replay": false,
+      "content": "the main component of a healthy environment for self esteem is that it needs be nurturing. The main compont of a healthy environment."
+    }
+  ]
+}

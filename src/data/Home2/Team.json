@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Alex Smith",
+    "desc": "Melissa is a force of nature on setbold and multitalented.",
+    "shapeClass": "square",
+    "img": "agency-2/img/team/1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Alex Smith",
+    "desc": "Melissa is a force of nature on setbold and multitalented.",
+    "shapeClass": "circle",
+    "img": "agency-2/img/team/2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Alex Smith",
+    "desc": "Melissa is a force of nature on setbold and multitalented.",
+    "shapeClass": "triangle",
+    "img": "agency-2/img/team/3.jpg"
+  }
+]

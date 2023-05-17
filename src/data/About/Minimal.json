@@ -1,0 +1,20 @@
+{
+  "aboutUs": "Our creative Ad agency is ranked among the finest in the US. We cultivate smart ideas for start-ups and seasoned players.",
+  "minimals": [
+    {
+      "id": 1,
+      "title": "Our Mission",
+      "details": "luctus massa ipsum at tempus eleifend congue lectus bibendum"
+    },
+    {
+      "id": 2,
+      "title": "Our Goals",
+      "details": "luctus massa ipsum at tempus eleifend congue lectus bibendum"
+    },
+    {
+      "id": 3,
+      "title": "Why Us?",
+      "details": "luctus massa ipsum at tempus eleifend congue lectus bibendum"
+    }
+  ]
+}

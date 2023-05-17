@@ -1,0 +1,265 @@
+
+
+
+/* ====================== [ Start Preloader ] ====================== */
+
+.pace {
+	pointer-events: none;
+	user-select: none;
+	z-index: 99999999999999;
+	position: fixed;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 400px;
+	border: 0px;
+	height: 1px;
+	overflow: hidden;
+	background: rgba(255,255,255,.05);
+	transition: all 1s;
+
+	.pace-progress {
+		transform: translate3d(0, 0, 0);
+		max-width: 300px;
+		position: fixed;
+		z-index: 99999999999999;
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 100%;
+		height: 100%;
+		width: 100%;
+		background: $main-color;
+	}
+}
+
+.pace.pace-inactive {
+	width: 100vw;
+	opacity: 0;
+
+	.pace-progress{
+		max-width: 100vw;
+	}
+}
+
+#preloader{
+	width:100%;
+	height:100vh;
+	overflow:hidden;
+	position:fixed;
+	z-index: 9999999;
+
+	&:after, &:before{
+		content: '';
+		position: fixed;
+		left: 0;
+		height: 50%;
+		width: 100%;
+		background: #252531;
+		transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+	}
+
+	&:before{
+		top: 0;
+	}
+
+	&:after{
+		bottom: 0;
+	}
+
+	&.isdone{
+		visibility: hidden;
+		transition-delay: 1.5s;
+		
+		&:after, &:before{
+			height: 0;
+			transition: all .7s cubic-bezier(1, 0, 0.55, 1);
+			transition-delay: 1s;
+		}
+	}
+}
+
+.loading-text {
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 10px;
+	position: absolute;
+	top: calc(50% - 30px);
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: $main-color;
+	font-family: 'Teko', sans-serif;
+	z-index: 9999;
+
+	&.isdone{
+		top: 50%;
+		opacity: 0;
+		transition: all .8s cubic-bezier(0.19, 1, 0.22, 1);
+		transition-delay: .5s;
+	}
+}
+
+/* ====================== [ End Preloader ] ====================== */
+
+
+/* ====================== [ Start Text Animation & Images ] ====================== */
+
+.splitting.animated .char {
+	animation: fadeInUp .4s cubic-bezier(.3, 0, .7, 1) both;
+	animation-delay: calc(30ms * var(--char-index));
+}
+
+.splitting .whitespace{
+	width: 5px;
+}
+
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.splitting.txt.animated .char {
+	animation: fadeIn .3s cubic-bezier(.3, 0, .7, 1) both;
+	animation-delay: calc(10ms * var(--char-index));
+}
+
+.splitting.txt .whitespace{
+	width: 5px;
+}
+
+@keyframes fadeIn {
+	0% {opacity: 0;}	
+	100% {opacity: 1;}
+}
+
+.imago{
+	clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+	transition: all .8s;
+	transition-delay: .3s;
+
+	&.animated{
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+	}	
+}
+
+/* ====================== [ End Text Animation & Images ] ====================== */
+
+
+/* ====================== [ Start Cursor Style ] ====================== */
+
+body{
+	cursor: none;
+}
+
+.mouse-cursor { 
+	position: fixed;
+	left: 0;
+	top: 0;
+	pointer-events: none;
+	border-radius: 50%;
+	transform: translateZ(0);
+	visibility: hidden;
+}
+.cursor-inner { 
+	margin-left: 2px; 
+	margin-top: 2px;
+	width: 6px; 
+	height: 6px; 
+	z-index: 10000001;
+	background-color: $main-color;
+	transition: width .3s ease-in-out,
+				height .3s ease-in-out,
+				margin .3s ease-in-out,
+				opacity .3s ease-in-out;
+}
+.cursor-inner.cursor-hover { 
+	margin-left: -40px;
+	margin-top: -40px;
+	width: 80px;
+	height: 80px;
+	background-color: $main-color;
+	opacity: .3;
+}
+.cursor-outer { 
+	margin-left: -15px;
+	margin-top: -15px; 
+	width: 40px;
+	height: 40px; 
+	border: 1px solid $main-color;
+	box-sizing: border-box;
+	z-index: 10000000;
+	opacity: .5;
+	transition: all .08s ease-out;
+
+	&.cursor-hover{
+		opacity: 0;
+	}
+}
+
+/* ====================== [ End Cursor Style ] ====================== */
+
+
+/* ====================== [ Start progress-wrap ] ====================== */
+
+.progress-wrap {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	height: 44px;
+	width: 44px;
+	cursor: pointer;
+	display: block;
+	border-radius: 50px;
+	z-index: 100;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(20px);
+    transition: all 400ms linear;
+}
+
+.progress-wrap.active-progress {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+.progress-wrap::after {
+	position: absolute;
+	font-family: 'Font Awesome 5 Free';
+	content: '\f077';
+	text-align: center;
+	line-height: 44px;
+	font-size: 13px;
+	font-weight: 900;
+	color: $main-color;
+	left: 0;
+	top: 0;
+	height: 44px;
+	width: 44px;
+	cursor: pointer;
+	display: block;
+	z-index: 1;
+    transition: all 400ms linear;
+}
+
+.progress-wrap svg path { 
+	fill: none; 
+}
+
+.progress-wrap svg.progress-circle path {
+	stroke: $main-color;
+	stroke-width: 4;
+	box-sizing: border-box;
+    transition: all 400ms linear;
+}
+
+/* ====================== [ End progress-wrap ] ====================== */

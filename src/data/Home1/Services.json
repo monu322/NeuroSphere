@@ -1,0 +1,20 @@
+[
+  {
+    "letr-bg": "U",
+    "numb": "01",
+    "title": "UI & UX Design",
+    "description": "Nullam imperdiet, sem at fringilla lobortis, sem nibhfiah ingilt dictum nisi maimp erdiet, sem at fringilnibhfiah ingilt"
+  },
+  {
+    "letr-bg": "W",
+    "numb": "02",
+    "title": "Web Development",
+    "description": "Nullam imperdiet, sem at fringilla lobortis, sem nibhfiah ingilt dictum nisi maimp erdiet, sem at fringilnibhfiah ingilt"
+  },
+  {
+    "letr-bg": "B",
+    "numb": "03",
+    "title": "Business Analysis",
+    "description": "Nullam imperdiet, sem at fringilla lobortis, sem nibhfiah ingilt dictum nisi maimp erdiet, sem at fringilnibhfiah ingilt"
+  }
+]

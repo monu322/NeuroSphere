@@ -1,0 +1,30 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "content": "Nulla metus metus ullamcorper vel tincidunt sed euismod nibh volutpat velit class aptent taciti sociosqu ad litora.",
+      "img": "/assets/img/clients/1.jpg",
+      "name": "Alex Regelman",
+      "details": "Co-founder, Colabrio"
+    },
+    {
+      "id": 2,
+      "content": "Nulla metus metus ullamcorper vel tincidunt sed euismod nibh volutpat velit class aptent taciti sociosqu ad litora.",
+      "img": "/assets/img/clients/1.jpg",
+      "name": "Alex Regelman",
+      "details": "Co-founder, Colabrio"
+    },
+    {
+      "id": 3,
+      "content": "Nulla metus metus ullamcorper vel tincidunt sed euismod nibh volutpat velit class aptent taciti sociosqu ad litora.",
+      "img": "/assets/img/clients/1.jpg",
+      "name": "Alex Regelman",
+      "details": "Co-founder, Colabrio"
+    }
+  ],
+  "video": {
+    "channel": "vimeo",
+    "id": "127203262"
+  },
+  "videoText": "So that's us. There's no other way to put it."
+}

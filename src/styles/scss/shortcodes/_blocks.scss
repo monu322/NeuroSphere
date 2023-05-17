@@ -1,0 +1,81 @@
+
+
+/* ====================== [ Start Blocks  ] ====================== */
+
+.ui-block{
+    position: relative;
+
+    .cont{
+        padding-left: 10%;
+        padding-right: 5%;
+        min-height: 70vh;
+
+        h3{
+            font-size: 60px;
+        }
+
+        .btn-curve{
+            z-index: 9;
+        }
+    }
+
+    .shadows{
+        left: 25%;
+    }
+}
+
+.shadows{
+    position: absolute;
+    width: 320px;
+    height: 100%;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    pointer-events: none;
+    opacity: .3;
+
+    .shadow{
+        position: absolute;
+        width: 47px;
+        height: 100%;
+    }
+
+    .sh-left{
+        right: 100%;
+        transform: scale(-1);
+    }
+
+    .sh-right{
+        left: 100%;
+    }
+}
+
+
+.promo-carousel {
+    padding-bottom: 0;
+    overflow: hidden;
+  }
+  
+.promo-carousel .item-wrap {
+    transform: translateX(0px);
+    width: 400%;
+    position: relative;
+    white-space: nowrap;
+    display: flex;
+
+    .items {
+        color: #eee;
+        font-size: 10vw;
+        font-weight: 700;
+        display: flex;
+        padding: 0 100px;
+    }
+    
+    @media (min-width: 768px) {
+    
+    .promo-carousel .item-wrap { width: 200%; }
+    
+    }
+}
+
+/* ====================== [ End Blocks  ] ====================== */

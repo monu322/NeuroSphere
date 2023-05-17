@@ -1,0 +1,485 @@
+
+
+/* ====================== [ Start Team ] ====================== */
+
+.team{
+
+    .container-fluid{
+        padding: 0 50px;
+    }
+
+    .item{
+        padding-left: 2px;
+        padding-right: 2px;
+        margin-bottom: 4px;
+        position: relative;
+
+        .info{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 0 30px;
+            opacity: 0;
+            color: #fff;
+            transition: all .4s;
+            visibility: hidden;
+            z-index: 4;
+
+            h6{
+                font-weight: 500;
+                margin-bottom: 10px;
+            }
+
+            p{
+                color: #eee;
+                font-size: 13px;
+                margin-bottom: 10px;
+            }
+
+            .social{
+
+                a{
+                    width: 40px;
+                    height: 40px;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    border-radius: 50%;
+                    line-height: 40px;
+                    font-size: 12px;
+                    text-align: center;
+                }
+            }
+        }
+
+        &:after,
+        &:before{
+            opacity: 0;
+            visibility: hidden;
+            transition: all .4s;
+            pointer-events: none;
+        }
+
+        &:hover{
+
+            .info,
+            &:after,
+            &:before{
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        &.square{
+
+            &:after{
+                content: '';
+                position: absolute;
+                top: calc(50% - 17vw);
+                left: calc(50% - 17vw);
+                width: 34vw;
+                height: 34vw;
+                background: #121212;
+                transform: rotate(30deg);
+                border: 2px solid $main-color;
+                z-index: 2;
+            }
+        }
+
+        &.triangle{
+
+            &:after{
+                content: '';
+                position: absolute;
+                top: 5%;
+                left: -80%;
+                width: 0;
+                height: 0;
+                transform: rotate(20deg);
+                border-left: 30vw solid transparent;
+                border-right: 30vw solid transparent;
+                border-top: 40vw solid #121212;
+                z-index: 2;
+            }
+
+            &:before{
+                content: '';
+                position: absolute;
+                top: 5%;
+                left: -80%;
+                width: 0;
+                height: 0;
+                transform: rotate(20deg) scale(1.01);
+                border-left: 30vw solid transparent;
+                border-right: 30vw solid transparent;
+                border-top: 40vw solid $main-color;
+                z-index: 2;
+            }
+        }
+
+        &.circle{
+
+            &:after{
+                content: '';
+                position: absolute;
+                top: calc(50% - 20vw);
+                left: calc(50% - 20vw);
+                width: 40vw;
+                height: 40vw;
+                background: #121212;
+                border-radius: 50%;
+                border: 2px solid $main-color;
+                z-index: 2;
+            }
+        }
+
+        &.octagon{
+
+            .shape{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 36vw;
+                height: 18vw;
+                transform: rotate(45deg);
+                background: #000;
+                z-index: 6;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: -18vw;
+                    left: 0;
+                    width: 0;
+                    height: 0;
+                    border-left: 18vw solid transparent;
+                    border-right: 18vw solid transparent;
+                    border-bottom: 18vw solid #000;
+                    z-index: 6;
+                }
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    bottom: -18vw;
+                    left: 0;
+                    width: 0;
+                    height: 0;
+                    border-left: 18vw solid transparent;
+                    border-right: 18vw solid transparent;
+                    border-top: 18vw solid #000;
+                    z-index: 6;
+                }
+            }
+        }
+    }
+
+    .join{
+        display: flex;
+
+        .icon{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #eee;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 200px;
+
+            img{
+                width: 100px;
+                opacity: .1;
+            }
+        }
+        
+        .link-go{
+            line-height: 200px;
+            margin-left: 30px;
+
+            a{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.team-ui{
+
+    .container-fluid{
+        padding: 0 80px;
+    }
+
+    .item{
+        position: relative;
+        padding: 0 25px;
+
+        .info{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding-left: 15%;
+            padding-right: 30px;
+            opacity: 0;
+            color: #fff;
+            transition: all .4s;
+            visibility: hidden;
+            z-index: 4;
+
+            h6{
+                font-weight: 500;
+                margin-bottom: 10px;
+            }
+
+            p{
+                color: #eee;
+                font-size: 13px;
+                margin-bottom: 10px;
+            }
+
+            .social{
+
+                a{
+                    width: 40px;
+                    height: 40px;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    border-radius: 50%;
+                    line-height: 40px;
+                    font-size: 12px;
+                    text-align: center;
+                }
+            }
+        }
+
+        &:after,
+        &:before{
+            opacity: 0;
+            visibility: hidden;
+            transition: all .4s;
+            pointer-events: none;
+        }
+
+        &:hover{
+
+            .info,
+            &:after,
+            &:before{
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        &.square{
+
+            &:after{
+                content: '';
+                position: absolute;
+                top: calc(50% - 17vw);
+                left: calc(50% - 17vw);
+                width: 34vw;
+                height: 34vw;
+                background: #121a21;
+                transform: rotate(30deg);
+                border: 2px solid $main-color;
+                z-index: 2;
+            }
+        }
+
+        &.triangle{
+
+            &:after{
+                content: '';
+                position: absolute;
+                top: 5%;
+                left: -70%;
+                width: 0;
+                height: 0;
+                transform: rotate(20deg);
+                border-left: 30vw solid transparent;
+                border-right: 30vw solid transparent;
+                border-top: 40vw solid #121a21;
+                z-index: 2;
+            }
+
+            &:before{
+                content: '';
+                position: absolute;
+                top: 5%;
+                left: -70%;
+                width: 0;
+                height: 0;
+                transform: rotate(20deg) scale(1.01);
+                border-left: 30vw solid transparent;
+                border-right: 30vw solid transparent;
+                border-top: 40vw solid $main-color;
+                z-index: 2;
+            }
+        }
+
+        &.circle{
+
+            &:after{
+                content: '';
+                position: absolute;
+                top: calc(50% - 20vw);
+                left: calc(50% - 20vw);
+                width: 40vw;
+                height: 40vw;
+                background: #121a21;
+                border-radius: 50%;
+                border: 2px solid $main-color;
+                z-index: 2;
+            }
+        }
+    }
+
+    .join{
+        display: flex;
+
+        .icon{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #eee;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 200px;
+
+            img{
+                width: 100px;
+                opacity: .1;
+            }
+        }
+        
+        .link-go{
+            line-height: 200px;
+            margin-left: 30px;
+
+            a{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.team-crs{
+	position: relative;
+
+	.team-container{
+		width: 140%;
+		position: relative;
+
+		&:after{
+			content: '';
+			position: absolute;
+			top: -120px;
+			bottom: -120px;
+			right: 0;
+			width: 80%;
+			background: #1a1e25;
+			z-index: -1;
+		}
+	}
+
+	.item{
+		padding: 0 15px;
+
+		.info{
+			padding: 15px;
+			background: #11141b;
+			text-align: center;
+			position: relative;
+			overflow: hidden;
+
+			h5{
+				font-size: 18px;
+				margin-bottom: 2px;
+				transition: all .3s;
+			}
+
+			span{
+				color: #999;
+				font-size: 14px;
+				transition: all .3s;
+			}
+
+			.social{
+				position: absolute;
+				bottom: -300px;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				padding: 30px 5px 0;
+				z-index: 2;
+				opacity: 0;
+				transition: all .4s;
+
+				a{
+					font-size: 13px;
+					margin: 0 8px;
+					color: $main-color;
+				}
+			}
+		}
+
+		&:hover{
+
+			.info{
+
+				h5,span{
+					opacity: 0;
+				}
+
+				.social{
+					bottom: 0;
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.navs{
+
+		.prev,.next{
+			color: #ccc;
+			font-size: 13px;
+			width: 55px;
+			height: 55px;
+			line-height: 55px;
+			text-align: center;
+			border-radius: 50%;
+			border: 1px solid rgba(255, 255, 255, 0.3);
+			position: static;
+		}
+	}
+
+	.slick-dots{
+		bottom: -40px;
+	}
+
+	.slick-dots li.slick-active button{
+		background: $main-color;
+	}
+
+	.slick-dots li button{
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		opacity: .8;
+
+		&:before{
+			content: '';
+			width: 4px;
+			height: 4px;
+			border-radius: 50%;
+			position: absolute;
+			top: 4px;
+			left: 4px;
+			line-height: 1;
+			background: $main-color;
+			opacity: 1;
+		}
+	}
+
+}
+
+/* ====================== [ End Team ] ====================== */

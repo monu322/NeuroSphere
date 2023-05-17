@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": { "first": "Unique", "second": " brand Stories" },
+    "content": "If you need to redesign your new project, new visual strategy, ux structure or you do have some cool ideas for collaboration.",
+    "image": "/agency-1/img/slid/1.jpg"
+  },
+  {
+    "id": 2,
+    "title": { "first": "Digital", "second": " Design Awards" },
+    "content": "If you need to redesign your new project, new visual strategy, ux structure or you do have some cool ideas for collaboration.",
+    "image": "/agency-1/img/slid/3.jpg"
+  },
+  {
+    "id": 3,
+    "title": { "first": "Original Solutions" },
+    "content": "If you need to redesign your new project, new visual strategy, ux structure or you do have some cool ideas for collaboration.",
+    "image": "/agency-1/img/slid/2.jpg"
+  }
+]

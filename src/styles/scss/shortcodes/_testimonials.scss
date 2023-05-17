@@ -1,0 +1,466 @@
+
+
+/* ====================== [ Start Testimonials ] ====================== */
+
+.testimonials{
+
+    .item{
+        position: relative;
+
+        .text-bg{
+            position: absolute;
+            bottom: -30px;
+            right: 0;
+            font-size: 9vw;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
+            line-height: 1;
+            z-index: -1;
+        }
+
+        p{
+            font-size: 24px;
+        }
+
+        h6{
+            position: relative;
+            padding-left: 50px;
+            font-weight: 500;
+            margin-top: 15px;
+
+            &:after{
+                content: '';
+                width: 40px;
+                height: 1px;
+                background: #fff;
+                position: absolute;
+                left: 0;
+                top: 50%;
+            }
+        }
+    }
+
+    .quote-icon{
+        width: 240px;
+        height: 240px;
+        text-align: center;
+        line-height: 240px;
+        border-radius: 50%;
+        border: 1px solid #fff;
+
+        img{
+            width: 50px;
+            margin: auto;
+        }
+    }
+
+    .controls{
+
+        .float-right{
+            float: right;
+        }
+
+        span{
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            border: 1px solid #eee;
+            display: block;
+            margin: 15px 0;
+        }
+    }
+}
+
+.stauts-testim{
+    position: relative;
+    padding-bottom: 60px;
+    margin-top: 80px;
+
+    &:after{
+        content: '';
+        position: absolute;
+        top: -80px;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba(255,255,255,.03);
+        z-index: -1;
+    }
+
+    .img-stauts{
+        position: absolute;
+        top: 0;
+        height: 100%;
+        left: 100px;
+        right: 100px;
+        border-radius: 30px;
+        overflow: hidden;
+
+        &:after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to bottom,rgba(0,0,0,.2) 0%,rgba(43,47,53,.7) 100%);
+            background-repeat: repeat-x;
+        }
+
+        .stauts{
+            position: absolute;
+            bottom: 0;
+            left: 100px;
+            display: flex;
+            z-index: 2;
+
+            .item{
+                padding: 30px 40px;
+                min-width: 200px;
+                background: #121212;
+                margin-right: 30px;
+
+                &:last-of-type{
+                    background: #fff;
+                    color: #121212;
+                }
+
+                h4{
+
+                    span{
+                        font-size: 20px;
+                        margin-left: 2px;
+                    }
+                }
+
+                h6{
+                    font-size: 15px;
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+
+    .testimonials-gr{
+		position: relative;
+		background: linear-gradient(20deg, #2ed47c 0, #e8bf47 100%);
+        border-radius: 30px;
+		padding: 120px 80px;
+        margin-top: -80px;
+        width: 100%;
+
+		.head-box{
+
+			h6{
+				color: #0c0f16;
+				font-size: 12px;
+				font-weight: 300;
+				text-transform: uppercase;
+				letter-spacing: 4px;
+				margin-bottom: 10px;
+			}
+
+			h4{
+				color: #0c0f16;
+				margin-bottom: 40px;
+			}
+		}
+
+		.item{
+
+			p{
+				color: #333;
+				font-size: 17px;
+				margin-bottom: 30px;
+				padding-bottom: 30px;
+				border-bottom: 1px solid rgba(0,0,0,0.05);
+			}
+
+			.info{
+
+				.img{
+					display: table-cell;
+					vertical-align: middle;
+
+					.img-box{
+						width: 70px;
+						height: 70px;
+						border-radius: 50%;
+						overflow: hidden;
+					}
+				}
+
+				.cont{
+					display: table-cell;
+					vertical-align: middle;
+					padding-left: 15px;
+
+					.author-name{
+						color: #0c0f16;
+						font-size: 16px;
+						margin-bottom: 5px;
+						letter-spacing: 2px;
+						text-transform: uppercase;
+					}
+
+					.author-details{
+						color: #0c0f16;
+						font-size: 13px;
+						font-weight: 300;
+						text-transform: uppercase;
+					}
+				}
+			}
+		}
+
+		.slick-dots{
+			text-align: right;
+		}
+
+		.slick-dots li{
+			width: 7px;
+			height: 7px;
+			border-radius: 50%;
+			border: 1px solid #0c0f16;
+
+			&.slick-active{
+				background: #0c0f16;
+			}
+
+			button{
+				display: none;
+			}
+		}
+	}
+}
+
+.block-sec{
+
+	.video-box{
+
+		.img{
+			position: relative;
+
+			&:after{
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: $sub-bg;
+				opacity: .4;
+			}
+		}
+	}
+
+	.vid-area{
+
+		.vid-icon{
+
+			.vid{
+				width: 80px;
+				height: 80px;
+				background: #fff;
+				border-radius: 50%;
+				text-align: center;
+				line-height: 80px;
+				position: relative;
+
+				&:after{
+					content: '';
+					position: absolute;
+					top: -10px;
+					left: -10px;
+					right: -10px;
+					bottom: -10px;
+					background: #fff;
+					border-radius: 50%;
+					opacity: .1;
+				}
+				
+				span{
+					font-size: 30px;
+					color: $main-color;
+				}
+			}
+		}
+
+		.cont{
+			margin-top: 40px;
+
+			h6{
+				text-transform: uppercase;
+				font-weight: 300;
+				margin-bottom: 15px;
+			}
+
+			h3{
+				font-size: 45px;
+				font-weight: 700;
+			}
+		}
+	}
+
+	.testim-box{
+		position: relative;
+		background: $main-color;
+		padding: 80px 40px;
+		margin-bottom: -120px;
+
+		.head-box{
+
+			h6{
+				color: #0c0f16;
+				font-size: 12px;
+				font-weight: 300;
+				text-transform: uppercase;
+				letter-spacing: 4px;
+				margin-bottom: 10px;
+			}
+
+			h4{
+				color: #0c0f16;
+				margin-bottom: 40px;
+			}
+		}
+
+		.item{
+
+			p{
+				color: #333;
+				font-size: 17px;
+				margin-bottom: 30px;
+				padding-bottom: 30px;
+				border-bottom: 1px solid rgba(0,0,0,0.05);
+			}
+
+			.info{
+
+				.img{
+					display: table-cell;
+					vertical-align: middle;
+
+					.img-box{
+						width: 70px;
+						height: 70px;
+						border-radius: 50%;
+						overflow: hidden;
+					}
+				}
+
+				.cont{
+					display: table-cell;
+					vertical-align: middle;
+					padding-left: 15px;
+
+					.author-name{
+						color: #0c0f16;
+						font-size: 16px;
+						margin-bottom: 5px;
+						letter-spacing: 2px;
+						text-transform: uppercase;
+					}
+
+					.author-details{
+						color: #0c0f16;
+						font-size: 13px;
+						font-weight: 300;
+						text-transform: uppercase;
+					}
+				}
+			}
+		}
+
+		.slick-dots{
+			text-align: right;
+		}
+
+		.slick-dots li{
+			width: 7px;
+			height: 7px;
+			border-radius: 50%;
+			border: 1px solid #0c0f16;
+
+			&.slick-active{
+				background: #0c0f16;
+			}
+
+			button{
+				display: none;
+			}
+		}
+	}
+
+	.showreel{
+
+		.video-box{
+			margin-top: 200px;
+			position: relative;
+			margin-bottom: -100px;
+			z-index: 2;
+
+			&:after, &:before{
+				content: '';
+				position: absolute;
+				width: 20%;
+				height: 100%;
+				top: 0;
+				border-right: 1px solid #eee;
+				border-left: 1px solid #eee;
+				opacity: .2;
+				z-index: 3;
+			}
+
+			&:after{
+				left: 20%;
+			}
+
+			&:before{
+				right: 20%;
+			}
+
+			.tit-text{
+				position: absolute;
+				top: -100px;
+				width: 100%;
+				text-align: center;
+				z-index: -1;
+
+				h3{
+					font-size: 100px;
+					font-weight: 700;
+					text-transform: uppercase;
+					color: transparent;
+    				-webkit-text-stroke: 1px rgba(255,255,255,.1);
+				}
+			}
+
+			.vid{
+				width: 140px;
+				height: 140px;
+				line-height: 140px;
+				text-align: center;
+				font-size: 20px;
+				border-radius: 50%;
+				background: rgba(255,255,255,.15);
+				border: 1px solid #fff;
+				position: absolute;
+				top: calc(50% - 70px);
+				left: calc(50% - 70px);
+				z-index: 4;
+			}
+
+			.img{
+				box-shadow: 0px 10px 30px -5px rgba(52, 60, 70, 0.5);
+				border-radius: 5px;
+				overflow: hidden;
+			}
+		}
+	}
+}
+
+/* ====================== [ End Testimonials ] ====================== */

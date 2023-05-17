@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Alex Smith",
+    "description": "Melissa is a force of nature on setbold and multitalented.",
+    "img": "agency-1/img/team/1.jpg",
+    "hoverClass": "square"
+  },
+  {
+    "name": "Alex Smith",
+    "description": "Melissa is a force of nature on setbold and multitalented.",
+    "img": "agency-1/img/team/2.jpg",
+    "hoverClass": "circle"
+  },
+  {
+    "name": "Alex Smith",
+    "description": "Melissa is a force of nature on setbold and multitalented.",
+    "img": "agency-1/img/team/3.jpg",
+    "hoverClass": "triangle"
+  },
+  {
+    "name": "Alex Smith",
+    "description": "Melissa is a force of nature on setbold and multitalented.",
+    "img": "agency-1/img/team/4.jpg",
+    "hoverClass": "square"
+  },
+  {
+    "name": "Alex Smith",
+    "description": "Melissa is a force of nature on setbold and multitalented.",
+    "img": "agency-1/img/team/5.jpg",
+    "hoverClass": "circle"
+  },
+  {
+    "name": "Alex Smith",
+    "description": "Melissa is a force of nature on setbold and multitalented.",
+    "img": "agency-1/img/team/6.jpg",
+    "hoverClass": "triangle"
+  }
+]

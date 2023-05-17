@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "author": "David Faber",
+    "date": "14 august",
+    "title": "Why do we love our gadgets so much",
+    "img": "agency-1/img/blog/1.jpg",
+    "tag": "Branding"
+  },
+  {
+    "id": 2,
+    "author": "David Faber",
+    "date": "14 august",
+    "title": "Why do we love our gadgets so much",
+    "img": "agency-1/img/blog/2.jpg",
+    "tag": "Branding"
+  },
+  {
+    "id": 3,
+    "author": "David Faber",
+    "date": "14 august",
+    "title": "Why do we love our gadgets so much",
+    "img": "agency-1/img/blog/3.jpg",
+    "tag": "Branding"
+  }
+]

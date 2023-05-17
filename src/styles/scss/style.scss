@@ -1,0 +1,64 @@
+/*-----------------------------------------------------------------------------------
+
+    Theme Name: Ruko
+    Theme URI: http://
+    Description: Creative Agency & Portfolio
+    Author: Design-Story
+    Author URI: http://themeforest.net/user/Design_story
+    Version: 1.0
+
+-----------------------------------------------------------------------------------*/
+
+/* ----------------------------------------------------------------
+
+== Table Of Content
+
+    |--- BASE
+
+        |- typography
+        |- helper classes
+
+    |--- SHORTCODES
+
+        |- extra
+        |- overlay
+        |- section-heading
+        |- buttons
+        |- navbar
+        |- sliders
+        |- intro
+        |- feature-box
+        |- clients
+        |- counter
+        |- portfolio
+        |- process
+        |- progress-bar
+        |- tabs
+        |- team
+        |- testimonials
+        |- blog
+        |- contact-form
+        |- footers
+
+    |--- BASE
+
+        |- responsive
+	
+
+
+---------------------------------------------------------------- */
+
+
+
+// Initialize
+@import "variables.scss";
+
+// Core CSS
+@import "typography.scss";
+@import "helper.scss";
+
+// Shortcodes
+@import "shortcodes.scss";
+
+// responsive
+@import "responsive.scss";

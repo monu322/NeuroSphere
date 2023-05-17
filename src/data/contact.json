@@ -1,0 +1,13 @@
+{
+  "email": "Email@example.com",
+  "phone": "+4.930.705.5448",
+  "address": {
+    "street": "295 Witting Streets Suite 666",
+    "city": "Melbourne",
+    "country": "Australia"
+  },
+  "map": {
+    "lat": 34.0937459,
+    "lng": -118.3614978
+  }
+}

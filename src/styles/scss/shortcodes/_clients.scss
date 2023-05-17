@@ -1,0 +1,85 @@
+
+/* ====================== [ Start brands ] ====================== */
+
+.clients{
+
+    .box{
+        border-top: 1px solid rgba(0,0,0,.03);
+        border-left: 1px solid rgba(0,0,0,.03);
+        display: flex;
+    }
+
+    .item{
+        width: 100%;
+        padding: 50px 15px;
+        text-align: center;
+        border-right: 1px solid rgba(0,0,0,.03);
+
+        img{
+            max-width: 80px;
+        }
+    }
+
+    &.light{
+
+        .box{
+            border-top: 1px solid rgba(255,255,255,.03);
+
+            &:first-of-type{
+                border-top: 0;
+            }
+        }
+
+        .item{
+            border-right: 1px solid rgba(255,255,255,.03);
+
+            &:last-of-type{
+                border-right: 0;
+            }
+        }
+
+        .item .img img{
+            filter: invert(1);
+        }
+    }
+}
+
+.clients-ui{
+
+    .item{
+        padding: 0;
+        text-align: center;
+        border: 1px solid rgba(255,255,255,.03);
+        border-right: 0;
+
+        &:last-of-type{
+            border-right: 1px solid rgba(255,255,255,.03);
+        }
+
+        .img{
+            padding: 40px 10px;
+            border-bottom: 1px solid rgba(255,255,255,.03);
+
+            img{
+                width: 80px;
+                filter: invert(1);
+            }
+
+            &:last-of-type{
+                border: 0;
+            }
+        }
+
+        .exp{
+            width: 100%;
+
+            h2{
+                font-size: 9vw;
+                line-height: 1;
+            }
+        }
+    }
+
+}
+
+/* ====================== [ End brands ] ====================== */

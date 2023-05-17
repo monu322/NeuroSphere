@@ -1,0 +1,138 @@
+a, .nav-link, .works.filter-img .filtering .filter span {
+  cursor: pointer;
+}
+
+.lightbox-container {
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 9999!important;
+}
+
+.lightBox_prev, .lightBox_next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 60px;
+  z-index: 99999!important;
+}
+
+.lightBox_prev {
+  left: 30px;
+}
+
+.lightBox_next {
+  right: 30px;
+}
+
+.lightbox-image-pager {
+  padding: 0 5px;
+}
+
+.lightbox-image-pager > div > div {
+  flex-direction: column;
+}
+
+.lightbox-image-pager-number {
+  text-align: right;
+  font-size: 12px;
+  padding: 5px 0;
+  color: #ccc;
+  width: 100%;
+  display: block;
+}
+
+.lightbox-image-pager-close {
+  text-align: right;
+  font-size: 18px;
+  color: #ccc;
+  padding: 10px 0;
+  cursor: pointer;
+  width: 100%;
+}
+
+.lightbox-image-pager-close:hover {
+  color: #fff;
+}
+
+.vid.valign {
+  cursor: pointer;
+}
+
+.modal-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+.modal-video-close {
+  -webkit-animation: fadeOut 1s;
+  animation: fadeOut 1s;
+}
+
+.modal-video-body {
+  width: 50%;
+  height: 50%;
+}
+
+@media screen and (max-width: 1024px) {
+  .modal-video-body {
+    width: 75%;
+    height: 75%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .modal-video-body {
+    width: 95%;
+    height: 95%;
+  }
+}
+
+.modal-video-inner {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-video-movie-wrap {
+  padding-bottom: 0!important;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-video-close-btn {
+  display: none;
+}
+
+.modal-video-movie-wrap iframe {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

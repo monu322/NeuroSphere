@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "iconClass": "pe-7s-paint-bucket",
+    "title": "Interface Design",
+    "desc": "All the Lorem Ipsum generators on the Internet tend to repeat duos on predefined chunks as necessary."
+  },
+  {
+    "id": 2,
+    "iconClass": "pe-7s-vector",
+    "title": "Graphic Solution",
+    "desc": "All the Lorem Ipsum generators on the Internet tend to repeat duos on predefined chunks as necessary."
+  },
+  {
+    "id": 3,
+    "iconClass": "pe-7s-gleam",
+    "title": "Digital Strategy",
+    "desc": "All the Lorem Ipsum generators on the Internet tend to repeat duos on predefined chunks as necessary."
+  },
+  {
+    "id": 4,
+    "iconClass": "pe-7s-drop",
+    "title": "Typography",
+    "desc": "All the Lorem Ipsum generators on the Internet tend to repeat duos on predefined chunks as necessary."
+  },
+  {
+    "id": 5,
+    "iconClass": "pe-7s-glasses",
+    "title": "Brand Identity",
+    "desc": "All the Lorem Ipsum generators on the Internet tend to repeat duos on predefined chunks as necessary."
+  }
+]

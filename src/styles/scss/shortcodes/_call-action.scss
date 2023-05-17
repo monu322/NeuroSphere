@@ -1,0 +1,253 @@
+
+
+/* ====================== [ Start Call To Action  ] ====================== */
+
+.video{
+    position: relative;
+
+    &:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to bottom,rgba(0,0,0,.2) 0%,rgba(43,47,53,.7) 100%);
+        background-repeat: repeat-x;
+    }
+
+    .vid{
+        position: absolute;
+        left: calc(50% - 50px);
+        top: calc(50% - 50px);
+        text-align: center;
+        z-index: 8;
+
+        .vid-butn{
+            width: 100%;
+
+            &:hover{
+
+                .icon{
+                    color: #fff;
+
+                    &:before{
+                        transform: scale(0);
+                    }
+                }
+            }
+            
+            .icon{
+                color: #212529;
+                width: 100px;
+                height: 100px;
+                border: 1px solid rgba(255,255,255,.2);
+                border-radius: 50%;
+                line-height: 100px;
+                text-align: center;
+                font-size: 17px;
+                position: relative;
+                transition: all .5s;
+
+                &:after{
+                    content: '';
+                    position: absolute;
+                    top: 5px;
+                    bottom: 5px;
+                    right: 5px;
+                    left: 5px;
+                    border: 1px solid #eee;
+                    border-radius: 50%;
+                    z-index: -1;
+                }
+
+                &:before{
+                    content: '';
+                    position: absolute;
+                    top: 5px;
+                    bottom: 5px;
+                    right: 5px;
+                    left: 5px;
+                    background: #fff;
+                    border-radius: 50%;
+                    z-index: -1;
+                    transition: all .5s cubic-bezier(1, 0, 0, 1);
+                }
+            }
+        }
+    }
+
+    .container{
+        position: relative;
+        height: 80vh;
+        padding: 80px 0;
+        z-index: 2;
+
+        .stauts{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            display: flex;
+
+            .item{
+                padding: 30px 40px;
+                min-width: 200px;
+                background: #121a21;
+                margin-right: 30px;
+
+                &:last-of-type{
+                    background: #fff;
+                    color: #121a21;
+                }
+
+                h4{
+
+                    span{
+                        font-size: 20px;
+                        margin-left: 2px;
+                    }
+                }
+
+                h6{
+                    font-size: 15px;
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}
+
+.call-action{
+
+	.content{
+
+		h6{
+			color: $main-color;
+			font-size: 13px;
+			font-weight: 400;
+			text-transform: uppercase;
+			letter-spacing: 4px;
+			margin-bottom: 30px;
+
+			span{
+				color: $main-color;
+			}
+		}
+
+		h2{
+			font-weight: 800;
+			font-size: 4vw;
+			line-height: 1.2;
+			margin-bottom: 10px;
+			-webkit-text-stroke-width: 1px;
+			-webkit-text-stroke-color: #fff;
+			color: transparent;
+			
+			span{
+				color: transparent;
+			}
+
+			b{
+				font-weight: 800;
+				
+				span{
+					color: #fff;
+					-webkit-text-stroke-width: 0;
+				}
+			}
+		}
+
+		h3{
+			color: $main-color;
+			
+			a{
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.btn-curve{
+		border: 2px solid;
+		line-height: 2;
+		
+		span{
+			font-size: 15px;
+			font-weight: 700;
+			text-transform: capitalize;
+		}
+
+		&:hover{
+
+			span{
+				color: #0c0f16;
+			}
+		}
+	}
+
+	.tlink{
+		margin-left: auto;
+		border-bottom: 1px solid #eee;
+	}
+
+	&.next{
+		position: relative;
+		z-index: 2;
+		overflow: hidden;
+
+		&:after{
+			display: none;
+		}
+
+		&:before{
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			display: block;
+			background: #0a0a0a;
+			opacity: 1;
+			transition: all .5s;
+		}
+
+		.content{
+
+			h2{
+				font-size: 5vw;
+				font-weight: 700;
+
+				b{
+					font-weight: 700;
+				}
+			}
+		}
+
+		.nxt-img{
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			transform: scale(1.4);
+			background-size: cover;
+			background-position: center;
+			z-index: -1;
+			transition: all 1s linear;
+		}
+
+		&:hover{
+
+			&:before{
+				opacity: .9;
+			}
+
+			.nxt-img{
+				transform: scale(1);
+				transition: all 10s linear;
+			}
+		}
+	}
+}
+
+/* ====================== [ End Call To Action  ] ====================== */

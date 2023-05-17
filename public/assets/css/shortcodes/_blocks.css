@@ -1,0 +1,87 @@
+/* ====================== [ Start Blocks  ] ====================== */
+.ui-block {
+  position: relative;
+}
+
+.ui-block .cont {
+  padding-left: 10%;
+  padding-right: 5%;
+  min-height: 70vh;
+}
+
+.ui-block .cont h3 {
+  font-size: 60px;
+}
+
+.ui-block .cont .btn-curve {
+  z-index: 9;
+}
+
+.ui-block .shadows {
+  left: 25%;
+}
+
+.shadows {
+  position: absolute;
+  width: 320px;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  pointer-events: none;
+  opacity: .5;
+}
+
+.shadows .shadow {
+  position: absolute;
+  width: 47px;
+  height: 100%;
+}
+
+.shadows .sh-left {
+  right: 100%;
+  -webkit-transform: scale(-1);
+  -ms-transform: scale(-1);
+  transform: scale(-1);
+}
+
+.shadows .sh-right {
+  left: 100%;
+}
+
+.promo-carousel {
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.promo-carousel .item-wrap {
+  -webkit-transform: translateX(0px);
+  -ms-transform: translateX(0px);
+  transform: translateX(0px);
+  width: 400%;
+  position: relative;
+  white-space: nowrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.promo-carousel .item-wrap .items {
+  color: #eee;
+  font-size: 10vw;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 100px;
+}
+
+@media (min-width: 768px) {
+  .promo-carousel .item-wrap .promo-carousel .item-wrap {
+    width: 200%;
+  }
+}
+
+/* ====================== [ End Blocks  ] ====================== */

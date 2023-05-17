@@ -1,0 +1,27 @@
+{
+  "title": "About Us",
+  "text": "Creative Experiences.",
+  "desc": "We design brand, digital experience that engage the right customers",
+  "skills": [
+    {
+      "title": "Marketing",
+      "value": 90
+    },
+    {
+      "title": "Web Design",
+      "value": 75
+    }
+  ],
+  "features": [
+    {
+      "img": "agency-2/img/intro01.png",
+      "title": "Unique Experiences",
+      "desc": "Improve him believe opinion offered met and end cheered forbade."
+    },
+    {
+      "img": "agency-2/img/intro02.png",
+      "title": "Digital Innovation",
+      "desc": "Improve him believe opinion offered met and end cheered forbade."
+    }
+  ]
+}

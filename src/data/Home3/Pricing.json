@@ -1,0 +1,35 @@
+[
+  {
+    "title": "Free",
+    "amount": "0",
+    "plan_type": "Yearly",
+    "features": [
+      "300 GB Storage",
+      "Unlimited Photos",
+      "Exclusive Support",
+      "Custom Branding"
+    ]
+  },
+  {
+    "title": "popular",
+    "amount": "49",
+    "plan_type": "Yearly",
+    "features": [
+      "300 GB Storage",
+      "Unlimited Photos",
+      "Exclusive Support",
+      "Custom Branding"
+    ]
+  },
+  {
+    "title": "Exclusive",
+    "amount": "99",
+    "plan_type": "Yearly",
+    "features": [
+      "300 GB Storage",
+      "Unlimited Photos",
+      "Exclusive Support",
+      "Custom Branding"
+    ]
+  }
+]
