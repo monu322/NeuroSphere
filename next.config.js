@@ -6,15 +6,6 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, "assets/css")],
   },
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/home1',
-        permanent: true
-      },
-    ]
-  },
   devIndicators: {
     buildActivity: false,
   },
