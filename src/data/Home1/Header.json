@@ -1,20 +1,26 @@
 [
   {
     "id": 1,
-    "title": { "first": "Unique", "second": " brand Stories" },
-    "content": "If you need to redesign your new project, new visual strategy, ux structure or you do have some cool ideas for collaboration.",
+    "title": { "first": "Your trusted development partner", "second": " " },
+    "content": "Our team of expert developers makes sure your projects and completed on time and run perfectly",
     "image": "/agency-1/img/slid/1.jpg"
   },
   {
     "id": 2,
-    "title": { "first": "Digital", "second": " Design Awards" },
-    "content": "If you need to redesign your new project, new visual strategy, ux structure or you do have some cool ideas for collaboration.",
+    "title": { "first": "Innovative and powerful solutions", "second": " " },
+    "content": "We use the latest and battle-tested technologies to develop web, mobile and AI solutions",
     "image": "/agency-1/img/slid/3.jpg"
   },
   {
     "id": 3,
-    "title": { "first": "Original Solutions" },
-    "content": "If you need to redesign your new project, new visual strategy, ux structure or you do have some cool ideas for collaboration.",
+    "title": { "first": "AI-driven Business Intelligence" },
+    "content": "Find out how we help brands take their business to the next level using AI",
     "image": "/agency-1/img/slid/2.jpg"
+  },
+  {
+    "id": 4,
+    "title": { "first": "Amazing digital journeys" },
+    "content": "Our team of UX enginners make sure your ideas are turned into exceptional digital journeys",
+    "image": ""
   }
 ]

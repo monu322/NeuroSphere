@@ -1,8 +1,8 @@
 [
   {
-    "letr-bg": "U",
+    "letr-bg": "A",
     "numb": "01",
-    "title": "UI & UX Design",
+    "title": "App Development",
     "description": "Nullam imperdiet, sem at fringilla lobortis, sem nibhfiah ingilt dictum nisi maimp erdiet, sem at fringilnibhfiah ingilt"
   },
   {
@@ -12,9 +12,28 @@
     "description": "Nullam imperdiet, sem at fringilla lobortis, sem nibhfiah ingilt dictum nisi maimp erdiet, sem at fringilnibhfiah ingilt"
   },
   {
-    "letr-bg": "B",
+    "letr-bg": "U",
     "numb": "03",
-    "title": "Business Analysis",
+    "title": "UI & UX Design",
+    "description": "Nullam imperdiet, sem at fringilla lobortis, sem nibhfiah ingilt dictum nisi maimp erdiet, sem at fringilnibhfiah ingilt"
+  },
+  {
+    "letr-bg": "I",
+    "numb": "04",
+    "title": "AI Development",
+    "description": "Nullam imperdiet, sem at fringilla lobortis, sem nibhfiah ingilt dictum nisi maimp erdiet, sem at fringilnibhfiah ingilt"
+  },
+  {
+    "letr-bg": "B",
+    "numb": "05",
+    "title": "Branding",
+    "description": "Nullam imperdiet, sem at fringilla lobortis, sem nibhfiah ingilt dictum nisi maimp erdiet, sem at fringilnibhfiah ingilt"
+  },
+  {
+    "letr-bg": "D",
+    "numb": "06",
+    "title": "Digital Marketing",
     "description": "Nullam imperdiet, sem at fringilla lobortis, sem nibhfiah ingilt dictum nisi maimp erdiet, sem at fringilnibhfiah ingilt"
   }
+  
 ]
