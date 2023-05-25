@@ -1,17 +1,22 @@
 [
   {
     "textBg": "01",
-    "text": "It was nice working with your creative team. I look forward to doing more interesting projects in the future! Thanks for the great experience and the opportunities that you give to the new generation of designers!<",
-    "person": "Mike Walker"
+    "text": "The team at this company did an amazing job developing our mobile app. Their attention to detail and commitment to delivering a high-quality product was impressive. I highly recommend their app development services.",
+    "person": "Sheikh Abdulsaud, CEO of EziClean Pvt Ltd"
   },
   {
     "textBg": "02",
-    "text": "It was nice working with your creative team. I look forward to doing more interesting projects in the future! Thanks for the great experience and the opportunities that you give to the new generation of designers!<",
-    "person": "Mike Walker"
+    "text": "We were blown away by the website that this company created for us. It was exactly what we were looking for and has helped us attract more customers and grow our business. Their web development team is top-notch.",
+    "person": "Renzel Holbun, Founder, Creed Real Estate"
   },
   {
     "textBg": "03",
-    "text": "It was nice working with your creative team. I look forward to doing more interesting projects in the future! Thanks for the great experience and the opportunities that you give to the new generation of designers!<",
-    "person": "Mike Walker"
+    "text": "The AI development services that this company provided were game-changing for our business. They helped us automate several processes and improve our decision-making capabilities. We're now able to provide a better customer experience thanks to their work.",
+    "person": "Lufta Chen, Head of IT, Hamley's"
+  },
+  {
+    "textBg": "04",
+    "text": "The UI/UX design work that this company did for our platform was outstanding. They really understood our target audience and created a user interface that was intuitive and engaging. We've received a lot of positive feedback from our users.",
+    "person": "Tim Davidson, Head of IT, Hamley's"
   }
 ]

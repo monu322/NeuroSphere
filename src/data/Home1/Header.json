@@ -1,20 +1,20 @@
 [
   {
     "id": 1,
-    "title": { "first": "Nueuroshe", "second": " brand Stories" },
-    "content": "If you need to redesign your new project, new visual strategy, ux structure or you do have some cool ideas for collaboration.",
-    "image": "/agency-1/img/slid/1.jpg"
+    "title": { "first": "Your trusted", "second": "development partner" },
+    "content": "Our team of expert developers makes sure your projects and completed on time and run perfectly.",
+    "image": "/assets/img/slides/1.jpg"
   },
   {
     "id": 2,
-    "title": { "first": "Digital", "second": " Design Awards" },
-    "content": "If you need to redesign your new project, new visual strategy, ux structure or you do have some cool ideas for collaboration.",
-    "image": "/agency-1/img/slid/3.jpg"
+    "title": { "first": "Innovative &", "second": "scalable solutions" },
+    "content": "We use the latest technologies and battle-tested architecture patterns to develop your solutions.",
+    "image": "/assets/img/slides/2.jpg"
   },
   {
     "id": 3,
-    "title": { "first": "Original Solutions" },
-    "content": "If you need to redesign your new project, new visual strategy, ux structure or you do have some cool ideas for collaboration.",
-    "image": "/agency-1/img/slid/2.jpg"
+    "title": { "first": "Amazing digital journeys" },
+    "content": " Our team of UX engineers make sure your ideas are turned into exceptional digital journeys",
+    "image": "/assets/img/slides/3.png"
   }
 ]
