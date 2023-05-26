@@ -5,60 +5,85 @@
       "title": "All"
     },
     {
-      "operator": ".brand",
-      "title": "Branding"
+      "operator": ".mob",
+      "title": "Mobile"
     },
     {
       "operator": ".web",
-      "title": "Mobile App"
+      "title": "Web"
     },
     {
-      "operator": ".graphic",
-      "title": "Creative"
+      "operator": ".ai",
+      "title": "AI"
+    },
+    {
+      "operator": ".branding",
+      "title": "Branding"
     }
   ],
   "works": [
     {
       "id": 1,
-      "type": "graphic",
-      "img": "/agency-3/img/works/1.jpg",
-      "title": "Creativity Demand",
-      "tags": ["Design", "WordPress"]
+      "type": "mob",
+      "img": "/assets/img/works/1.jpg",
+      "title": "Agent Pet",
+      "tags": ["E-com App", "Android", "iOS"]
     },
     {
       "id": 2,
-      "type": "web",
-      "img": "/agency-3/img/works/2.jpg",
-      "title": "Through The Breaking",
-      "tags": ["Design", "WordPress"]
+      "type": "mob",
+      "img": "/assets/img/works/2.jpg",
+      "title": "Tracker Chat",
+      "tags": ["Chat App", "Android", "iOS"]
     },
     {
       "id": 3,
-      "type": "brand",
-      "img": "/agency-3/img/works/3.jpg",
-      "title": "Create With Creatives",
-      "tags": ["Design", "WordPress"]
+      "type": "mob",
+      "img": "/assets/img/works/3.jpg",
+      "title": "EziClean",
+      "tags": ["Utility Aoo", "Android", "iOS"]
     },
     {
       "id": 4,
-      "type": "graphic",
-      "img": "/agency-3/img/works/4.jpg",
-      "title": "Energies of Love",
-      "tags": ["Design", "WordPress"]
+      "type": "web",
+      "img": "/assets/img/works/4.jpg",
+      "title": "Mar Theophilus College",
+      "tags": ["CMS Website", "Branding"]
     },
     {
       "id": 5,
       "type": "web",
-      "img": "/agency-3/img/works/5.jpg",
-      "title": "See It Yourself",
-      "tags": ["Design", "WordPress"]
+      "img": "/assets/img/works/5.jpg",
+      "title": "Creed Real Estate",
+      "tags": ["NextJs", "Property CMS"]
     },
     {
       "id": 6,
-      "type": "brand",
-      "img": "/agency-3/img/works/6.jpg",
-      "title": "Blast From The Past",
-      "tags": ["Design", "WordPress"]
+      "type": "ai",
+      "img": "/assets/img/works/6.jpg",
+      "title": "Hamley's Toy Store",
+      "tags": ["Order Prediction", "Customer Classification"]
+    },
+    {
+      "id": 7,
+      "type": "ai",
+      "img": "/assets/img/works/7.jpg",
+      "title": "The People's Supermarket",
+      "tags": ["Order Prediction", "Process Automation"]
+    },
+    {
+      "id": 8,
+      "type": "ai",
+      "img": "/assets/img/works/7.jpg",
+      "title": "NHS Foundation",
+      "tags": ["Data Analysis", "Model Creation"]
+    },
+    {
+      "id": 9,
+      "type": "branding",
+      "img": "/assets/img/works/7.jpg",
+      "title": "Pre London",
+      "tags": ["Web Development", "Web Development", "Branding"]
     }
   ]
 }

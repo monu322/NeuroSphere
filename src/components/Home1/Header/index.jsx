@@ -76,7 +76,7 @@ const Header = () => {
                     <div className="bg-img valign" style={{ backgroundImage: `url(${slide.image})` }} data-overlay-dark="6">
                       <div className="container">
                         <div className="row">
-                          <div className="col-lg-7 col-md-9">
+                          <div className="col-lg-12 col-md-12">
                             <div className="caption center">
                               <h1 data-splitting>
                                 {slide.title.first}
@@ -93,7 +93,7 @@ const Header = () => {
                               </p>
                               <Link href="/about">
                                 <a className="btn-curve btn-lit mt-30">
-                                  <span>Look More</span>
+                                  <span>Learn More</span>
                                 </a>
                               </Link>
                             </div>
@@ -118,12 +118,12 @@ const Header = () => {
         </div>
         <div className="swiper-pagination top botm custom-font" ref={paginationRef}></div>
 
-        <div className="social-icon">
+        {/* <div className="social-icon">
           <a href="#0"><i className="fab fa-facebook-f"></i></a>
           <a href="#0"><i className="fab fa-twitter"></i></a>
           <a href="#0"><i className="fab fa-behance"></i></a>
           <a href="#0"><i className="fab fa-pinterest-p"></i></a>
-        </div>
+        </div> */}
       </div>
     </header>
   );

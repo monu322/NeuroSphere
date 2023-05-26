@@ -8,7 +8,7 @@ const Services = () => {
           {
             ServicesData.map((service, index) => {
               return (
-                <div className="col-lg-4" key={index}>
+                <div className="col-lg-4 services-div" key={index}>
                   <div className="item">
                     <div className="letr-bg">{ service["letr-bg"] }</div>
                     <span className="numb">{ service.numb }</span>

@@ -4,7 +4,7 @@ import MainLayout from "../../layouts/main";
 import Header from "../../components/Home1/Header";
 import Services from "../../components/Home1/Services";
 import Block from "../../components/Home1/Block";
-import Works from "../../components/Home1/Works";
+import Works from "../../components/Home3/Works";
 import Testimonials from "../../components/Home1/Testimonials";
 import Clients from "../../components/Home1/Clients";
 import Team from "../../components/Home1/Team";
