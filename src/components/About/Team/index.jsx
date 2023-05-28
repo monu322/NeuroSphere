@@ -7,7 +7,7 @@ import TeamData from '../../../data/About/Team.json';
 const teamSliderSettings = {
   dots: false,
   infinite: true,
-  speed: 500,
+  speed: 1000,
   autoplay: true,
   slidesToShow: 4,
   slidesToScroll: 1,
@@ -35,7 +35,7 @@ const Team = () => {
   const previous = () => sliderRef.current.slickPrev();
 
   return (
-    <section className="team-crs section-padding">
+    <section className="team-crs section-padding team-section-dark-bg">
       <div className="container">
         <div className="row">
           <div className="col-lg-4 valign">
@@ -59,8 +59,8 @@ const Team = () => {
               {
                 TeamData.map((teamMember, index) => (
                   <div className="item wow fadeInUp" data-wow-delay=".3s" key={index}>
-                    <div className="img wow imago">
-                      <img src={teamMember.img} alt="" />
+                    <div className="img wow imago team-img-holder">
+                      <img className="team-img" src={teamMember.img} alt="" />
                     </div>
                     <div className="info">
                       <h5>{ teamMember.name }</h5>

@@ -25,65 +25,66 @@
     {
       "id": 1,
       "type": "mob",
-      "img": "/assets/img/works/1.jpg",
+      "img": "/assets/img/works/dog.jpg",
       "title": "Agent Pet",
       "tags": ["E-com App", "Android", "iOS"]
     },
     {
       "id": 2,
-      "type": "mob",
-      "img": "/assets/img/works/2.jpg",
-      "title": "Tracker Chat",
-      "tags": ["Chat App", "Android", "iOS"]
+      "type": "ai",
+      "img": "/assets/img/works/nhs.jpg",
+      "title": "NHS Foundation UK",
+      "tags": ["Data Analysis", "Model Creation"]
+    },
+    {
+      "id": 9,
+      "type": "branding",
+      "img": "/assets/img/works/pre.jpg",
+      "title": "Pre London",
+      "tags": ["Ecommerce", "Branding", "Marketing"]
     },
     {
       "id": 3,
       "type": "mob",
-      "img": "/assets/img/works/3.jpg",
-      "title": "EziClean",
-      "tags": ["Utility Aoo", "Android", "iOS"]
+      "img": "/assets/img/works/eeziclean.png",
+      "title": "EeziClean",
+      "tags": ["Utility App", "Android", "iOS"]
     },
     {
       "id": 4,
       "type": "web",
-      "img": "/assets/img/works/4.jpg",
+      "img": "/assets/img/works/mttc.png",
       "title": "Mar Theophilus College",
       "tags": ["CMS Website", "Branding"]
     },
     {
       "id": 5,
       "type": "web",
-      "img": "/assets/img/works/5.jpg",
+      "img": "/assets/img/works/creed.png",
       "title": "Creed Real Estate",
-      "tags": ["NextJs", "Property CMS"]
+      "tags": ["Web", "Branding", "Property CMS"]
     },
     {
       "id": 6,
       "type": "ai",
-      "img": "/assets/img/works/6.jpg",
+      "img": "/assets/img/works/hamleys.png",
       "title": "Hamley's Toy Store",
-      "tags": ["Order Prediction", "Customer Classification"]
+      "tags": ["Data", "AI", "Automation"]
     },
     {
       "id": 7,
       "type": "ai",
-      "img": "/assets/img/works/7.jpg",
+      "img": "/assets/img/works/tps.jpg",
       "title": "The People's Supermarket",
       "tags": ["Order Prediction", "Process Automation"]
     },
+    
     {
       "id": 8,
-      "type": "ai",
-      "img": "/assets/img/works/7.jpg",
-      "title": "NHS Foundation",
-      "tags": ["Data Analysis", "Model Creation"]
-    },
-    {
-      "id": 9,
-      "type": "branding",
-      "img": "/assets/img/works/7.jpg",
-      "title": "Pre London",
-      "tags": ["Web Development", "Web Development", "Branding"]
+      "type": "mob",
+      "img": "/assets/img/works/trackerchat.jpg",
+      "title": "Tracker Chat",
+      "tags": ["Chat App", "Android", "iOS"]
     }
   ]
 }

@@ -27,7 +27,7 @@ const Navbar = ({ navbarRef, logoRef }) => {
             {/* Logo  */}
             <Link href="/">
               <a className="logo">
-                <img src="/assets/img/logo-dark.png" alt="logo" ref={logoRef} />
+                <img src="/assets/img/neurosphere-logo.svg" alt="logo" ref={logoRef} />
               </a>
             </Link>
             

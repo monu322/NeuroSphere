@@ -1,38 +1,32 @@
 [
   {
-    "name": "Alex Smith",
-    "description": "Melissa is a force of nature on setbold and multitalented.",
-    "img": "agency-1/img/team/1.jpg",
+    "name": "Mahesh Kumar",
+    "description": "Founder & Head of Operations",
+    "img": "assets/img/team/1.jpg",
     "hoverClass": "square"
   },
   {
-    "name": "Alex Smith",
-    "description": "Melissa is a force of nature on setbold and multitalented.",
+    "name": "Vinu Zachariah",
+    "description": "Head of Engineering",
     "img": "agency-1/img/team/2.jpg",
     "hoverClass": "circle"
   },
   {
-    "name": "Alex Smith",
-    "description": "Melissa is a force of nature on setbold and multitalented.",
+    "name": "Rijo C R",
+    "description": "Head of Finance",
     "img": "agency-1/img/team/3.jpg",
     "hoverClass": "triangle"
   },
   {
-    "name": "Alex Smith",
-    "description": "Melissa is a force of nature on setbold and multitalented.",
+    "name": "Emil Mathew",
+    "description": "Head od Design",
     "img": "agency-1/img/team/4.jpg",
     "hoverClass": "square"
   },
   {
-    "name": "Alex Smith",
-    "description": "Melissa is a force of nature on setbold and multitalented.",
+    "name": "Ajo T P",
+    "description": "Head of Content & Marketing",
     "img": "agency-1/img/team/5.jpg",
     "hoverClass": "circle"
-  },
-  {
-    "name": "Alex Smith",
-    "description": "Melissa is a force of nature on setbold and multitalented.",
-    "img": "agency-1/img/team/6.jpg",
-    "hoverClass": "triangle"
   }
 ]
