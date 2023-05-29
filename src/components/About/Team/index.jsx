@@ -67,7 +67,7 @@ const Team = () => {
                       <span>{ teamMember.postition }</span>
                       <div className="social">
                         {
-                          teamMember.fb?<a href={teamMember.fb} target="_blank"><i className="fab fa-facebook-f"></i></a>:''
+                          teamMember.fb?<a rel="noreferrer" href={teamMember.fb} target="_blank"><i className="fab fa-facebook-f"></i></a>:''
                         }
                         {
                           teamMember.twitter?<Link href="#0">
