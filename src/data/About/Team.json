@@ -2,26 +2,43 @@
   {
     "name": "Mahesh Kumar",
     "postition": "Chief of Operations",
-    "img": "/assets/img/team/01.jpg"
+    "img": "/assets/img/team/01.jpg",
+    "fb":"https://www.facebook.com/mahesh.s.kumar.7/",
+    "twitter":"",
+    "linkedin":"",
+    "insta":""
   },
   {
     "name": "Vinu Zachariah",
     "postition": "Head of Engineering",
-    "img": "/assets/img/team/02.jpg"
+    "img": "/assets/img/team/02.jpg",
+    "github":"",
+    "twitter":"",
+    "linkedin":"",
+    "insta":""
   },
   {
     "name": "Emil Mathew Sam",
     "postition": "Head of Design",
-    "img": "/assets/img/team/4.jpg"
+    "img": "/assets/img/team/4.jpg",
+    "fb":"",
+    "twitter":"",
+    "dribble":"",
+    "insta":""
   },
   {
     "name": "Ajo T P",
     "postition": "Full-stack Developer",
-    "img": "/assets/img/team/5.jpg"
+    "img": "/assets/img/team/5.jpg",
+    "fb":"",
+    "twitter":"",
+    "github":"",
+    "insta":""
   },
   {
     "name": "Join our team",
     "postition": "See Open Positions",
-    "img": "/assets/img/team/6.jpg"
+    "img": "/assets/img/team/6.jpg",
+    "link":""
   }
 ]

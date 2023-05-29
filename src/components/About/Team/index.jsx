@@ -66,17 +66,25 @@ const Team = () => {
                       <h5>{ teamMember.name }</h5>
                       <span>{ teamMember.postition }</span>
                       <div className="social">
+                        {
+                          teamMember.fb?<a href={teamMember.fb} target="_blank"><i className="fab fa-facebook-f"></i></a>:''
+                        }
+                        {
+                          teamMember.twitter?<Link href="#0">
+                            <a><i className="fab fa-twitter"></i></a>
+                          </Link>:''
+                        }
+                        {
+                          teamMember.instagram?<Link href="#0">
+                            <a><i className="fab fa-instagram"></i></a>
+                          </Link>:''
+                        }
+                        {
+
+                        }
+                        
                         <Link href="#0">
-                          <a><i className="fab fa-facebook-f"></i></a>
-                        </Link>
-                        <Link href="#0">
-                          <a><i className="fab fa-twitter"></i></a>
-                        </Link>
-                        <Link href="#0">
-                          <a><i className="fab fa-instagram"></i></a>
-                        </Link>
-                        <Link href="#0">
-                          <a><i className="fab fa-youtube"></i></a>
+                          <a><i className="fab fa-linkedin"></i></a>
                         </Link>
                       </div>
                     </div>
