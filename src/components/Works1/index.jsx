@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, Fragment } from "react";
 import Link from 'next/link';
-import WorksData from '../../data/Works1.json';
+import WorksData from '../../data/Home3/Works.json';
 import initIsotope from "../../common/initIsotope";
 
 const Works = () => {
@@ -31,9 +31,9 @@ const Works = () => {
               WorksData.works.map((work, index) => (
                 <div className={`col-lg-4 col-md-6 items ${work.type} ${(index === 0 || index === 2) && 'lg-mr'}`} key={index}>
                   <div className="item-img wow fadeInUp" data-wow-delay=".4s">
-                    <Link href='/project-details'>
+                    {/* <Link href='/project-details'> */}
                       <a><img src={work.img} alt="image" /></a>
-                    </Link>
+                    {/* </Link> */}
                   </div>
                   <div className="cont">
                     <h6>{ work.title }</h6>
@@ -41,9 +41,9 @@ const Works = () => {
                       {
                         work.tags.map((tag, idx) => (
                           <Fragment key={idx}>
-                            <Link href="#0">
+                            {/* <Link href="#0"> */}
                               <a>{ tag }</a>
-                            </Link>
+                            {/* </Link> */}
                             { idx !== work.tags.length - 1 && <>, </> }
                           </Fragment>
                         ))
