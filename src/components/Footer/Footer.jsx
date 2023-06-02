@@ -8,7 +8,7 @@ const Footer = ({ classText }) => {
     <footer className={ classText ? classText : '' }>
       <div className="container">
           <div className="row">
-              <div className="col-lg-4">
+              <div className="col-lg-8">
                   <div className="item md-mb50">
                       <div className="title">
                           <h5>Contact Us</h5>
@@ -38,7 +38,7 @@ const Footer = ({ classText }) => {
                       </ul>
                   </div>
               </div>
-              <div className="col-lg-4">
+              {/* <div className="col-lg-4">
                   <div className="item md-mb50">
                       <div className="title">
                         <h5>Recent Articles</h5>
@@ -67,7 +67,7 @@ const Footer = ({ classText }) => {
                           </li>
                       </ul>
                   </div>
-              </div>
+              </div> */}
               <div className="col-lg-4">
                   <div className="item">
                       <div className="logo">
