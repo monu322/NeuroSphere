@@ -23,6 +23,7 @@ const Minimal = () => {
           <div className="col-lg-6">
             <div className="img">
               <img className="thumparallax-down" src="/assets/img/min-area.jpg" alt="" ref={imageRef} />
+              <small className='img-subtext'>*An AI generated Syntetic Art, MidJorney</small>
             </div>
           </div>
           <div className="col-lg-6 valign">

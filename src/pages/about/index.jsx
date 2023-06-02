@@ -27,7 +27,7 @@ const Index = () => {
       <Skills />
       <Team />
       <Minimal />
-      <Clients />
+      {/* <Clients /> */}
       <CallAction />
     </MainLayout>
   )

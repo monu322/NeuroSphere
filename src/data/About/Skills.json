@@ -1,14 +1,20 @@
 [
   {
     "id": 1,
-    "title": "Project",
-    "subtitle": "Consulting",
+    "title": "Mobile App",
+    "subtitle": "Development",
     "value": 90
   },
   {
     "id": 2,
-    "title": "App",
+    "title": "Web App",
     "subtitle": "Development",
-    "value": 75
+    "value": 95
+  },
+  {
+    "id": 3,
+    "title": "AI & Data",
+    "subtitle": "Consulting",
+    "value": 85
   }
 ]

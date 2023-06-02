@@ -1,20 +1,20 @@
 {
-  "aboutUs": "Our creative Ad agency is ranked among the finest in the US. We cultivate smart ideas for start-ups and seasoned players.",
+  "aboutUs": "We are on our journey to be one of the most advanced and reliable development agencies in the world, one project at a time. We aim to combine our creative and innovative minds to build value to the world.",
   "minimals": [
     {
       "id": 1,
       "title": "Our Mission",
-      "details": "luctus massa ipsum at tempus eleifend congue lectus bibendum"
+      "details": "Our mission is to combine our expertise, cutting-edge technologies, and client-centric approach to deliver high-quality, customized solutions."
     },
     {
       "id": 2,
       "title": "Our Goals",
-      "details": "luctus massa ipsum at tempus eleifend congue lectus bibendum"
+      "details": "Our goal is to empower businesses by creating innovative web, mobile, and AI solutions that drive growth and enhance user experiences."
     },
     {
       "id": 3,
       "title": "Why Us?",
-      "details": "luctus massa ipsum at tempus eleifend congue lectus bibendum"
+      "details": "With our deep understanding of industry best practices, vast experience, and unwavering commitment to our clients' success, we are the trusted choice for businesses seeking a reliable and innovative technology partner."
     }
   ]
 }

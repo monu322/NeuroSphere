@@ -6262,3 +6262,11 @@ footer .item .copy-right p a {
   width: 100%;
   height: 400px;
 }
+
+.img-subtext {
+  color: #848484;
+  font-style: italic;
+  padding-top: 10px;
+  /* background: red; */
+  display: block;
+}
