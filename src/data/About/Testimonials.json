@@ -2,24 +2,24 @@
   "testimonials": [
     {
       "id": 1,
-      "content": "Nulla metus metus ullamcorper vel tincidunt sed euismod nibh volutpat velit class aptent taciti sociosqu ad litora.",
       "img": "/assets/img/clients/1.jpg",
-      "name": "Alex Regelman",
-      "details": "Co-founder, Colabrio"
+      "content": "The team at this company did an amazing job developing our mobile app. Their attention to detail and commitment to delivering a high-quality product was impressive. I highly recommend their app development services.",
+      "name": "Sheikh Abdulsaud",
+      "details": "CEO, EziClean Pvt Ltd, UAE"
     },
     {
       "id": 2,
-      "content": "Nulla metus metus ullamcorper vel tincidunt sed euismod nibh volutpat velit class aptent taciti sociosqu ad litora.",
-      "img": "/assets/img/clients/1.jpg",
-      "name": "Alex Regelman",
-      "details": "Co-founder, Colabrio"
+      "content": "We were blown away by the website that this company created for us. It was exactly what we were looking for and has helped us attract more customers and grow our business. Their web development team is top-notch.",
+      "img": "/assets/img/clients/3.jpg",
+      "name": "Renzel Holbun",
+      "details": "Co-founder, Creed Real Estate, London"
     },
     {
       "id": 3,
-      "content": "Nulla metus metus ullamcorper vel tincidunt sed euismod nibh volutpat velit class aptent taciti sociosqu ad litora.",
-      "img": "/assets/img/clients/1.jpg",
-      "name": "Alex Regelman",
-      "details": "Co-founder, Colabrio"
+      "content": "The UI/UX design work that this company did for our platform was outstanding. They really understood our target audience and created a user interface that was intuitive and engaging. We've received a lot of positive feedback from our users.",
+      "img": "/assets/img/clients/4.jpg",
+      "name": "Ashon Washington",
+      "details": "Owner & CEO, Pre London Ltd"
     }
   ],
   "video": {
