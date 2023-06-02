@@ -1,20 +1,50 @@
 [
   {
     "id": 1,
-    "iconClass": "pe-7s-gleam",
-    "title": "Digital Marketing",
-    "details": "Tempore corrupti temporibus fuga earum asperiores fugit laudantium."
+    "iconClass": "pe-7s-phone",
+    "letr-bg": "M",
+    "numb": "01",
+    "title": "Mobile Development",
+    "description": "We create custom mobile applications that are tailored to your business needs and providing a seamless user experience."
   },
   {
     "id": 2,
-    "iconClass": "pe-7s-phone",
-    "title": "Web & App Development",
-    "details": "Tempore corrupti temporibus fuga earum asperiores fugit laudantium."
+    "iconClass": "pe-7s-airplay",
+    "letr-bg": "W",
+    "numb": "02",
+    "title": "Web Development",
+    "description": "We build custom, responsive database driven web solutions that are optimized for speed, security, and user engagement."
   },
   {
     "id": 3,
     "iconClass": "pe-7s-magic-wand",
-    "title": "Graphic Design",
-    "details": "Tempore corrupti temporibus fuga earum asperiores fugit laudantium."
+    "letr-bg": "X",
+    "numb": "03",
+    "title": "UI & UX Design",
+    "description": "We design intuitive and visually appealing interfaces that enhance user experience and drive engagement."
+  },
+  {
+    "id": 4,
+    "iconClass": "pe-7s-look",
+    "letr-bg": "A",
+    "numb": "04",
+    "title": "AI Consulting",
+    "description": "Our AI solutions are designed to automate processes, improve efficiency, and provide valuable insights for your business."
+  },
+  {
+    "id": 3,
+    "iconClass": "pe-7s-paint",
+    "letr-bg": "B",
+    "numb": "05",
+    "title": "Branding",
+    "description": "We help you establish a strong brand identity that resonates with your target audience and sets you apart from the competition."
+  },
+  {
+    "id": 3,
+    "iconClass": "pe-7s-speaker",
+    "letr-bg": "D",
+    "numb": "06",
+    "title": "Digital Marketing",
+    "description": "Our data-driven approach to digital marketing helps you reach your target audience, increase brand awareness, and drive conversions."
   }
 ]
