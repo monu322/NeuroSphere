@@ -13,8 +13,8 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-          <meta name="keywords" content="React Nextjs template ruko onepage themeforest" />
-          <meta name="description" content="ruko - Onepage Multi-Purpose Reactjs Template" />
+          <meta name="keywords" content="NeuroSphere, software development, agency, mobile app development, website development, artificial intelligence, web app development, digital marketing, branding" />
+          <meta name="description" content="NeuroSphere: Web, Mobile & Artificial Intelligence development and consulting. Innovative solutions to challenging problems. Turning ideas to into scalable digital products." />
           <meta name="author" content="" />
 
           <link rel="shortcut icon" href="/assets/img/favicon.ico" />

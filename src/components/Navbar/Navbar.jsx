@@ -50,29 +50,19 @@ const Navbar = ({ navbarRef, logoRef }) => {
             {/* navbar links */}
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav ml-auto">
-                <li className="nav-item dropdown" onClick={handleDropdown}>
-                  <span className="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <Link href="/"><li className="nav-item">
+                  <span className="nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     Home
                   </span>
-                  <div className="dropdown-menu">
-                    <Link href="/home1">
-                      <a className="dropdown-item">Main Home</a>
-                    </Link>
-                    <Link href="/home2">
-                      <a className="dropdown-item">Creative Studio</a>
-                    </Link>
-                    <Link href="/home3">
-                      <a className="dropdown-item">Business Startup</a>
-                    </Link>
-                  </div>
-                </li>
+                  
+                </li></Link>
                 <li className="nav-item">
                   <Link href="/about">
                     <a className="nav-link">About</a>
                   </Link>
                 </li>
-                <li className="nav-item dropdown" onClick={handleDropdown}>
-                  <span className="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Portfolio</span>
+                <Link href="/works1"><li className="nav-item">
+                  <span className="nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Portfolio</span>
                   <div className="dropdown-menu">
                     <Link href="/works1">
                       <a className="dropdown-item">Masonry 3 Columns</a>
@@ -84,10 +74,10 @@ const Navbar = ({ navbarRef, logoRef }) => {
                       <a className="dropdown-item">Pinterest List</a>
                     </Link>
                   </div>
-                </li>
+                </li></Link>
                 <li className="nav-item">
                   <Link href="/blog">
-                    <a className="nav-link">Blogs</a>
+                    <a className="nav-link">Blog</a>
                   </Link>
                 </li>
                 <li className="nav-item">

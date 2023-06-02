@@ -18,7 +18,7 @@ const Works = () => {
           <div className="col-lg-7">
             <div className="main-header">
               <h6>Our Portfolio</h6>
-              <h3>Unlimited experience.</h3>
+              <h3>Check out our work.</h3>
             </div>
           </div>
         </div>

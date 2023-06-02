@@ -1,11 +1,22 @@
 [
   {
     "id": 1,
-    "author": "David Faber",
-    "date": "14 august",
-    "title": "Why do we love our gadgets so much",
-    "img": "agency-1/img/blog/1.jpg",
-    "tag": "Branding"
+    "author": "Vinu Zachariah",
+    "date": "14 May 2023",
+    "title": "The Future of AI in Software Development",
+    "img": "assets/img/blog/1.jpg",
+    "tag": "AI",
+    "postDescriptions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis et sem sed sollicitudin. Donec non odio neque. Aliquam hendrerit sollicitudin purus, quis rutrum mi accumsan nec. Quisque bibendum orci ac nibh facilisis, at malesuada orci congue. Nullam tempus sollicitudin cursus. Ut et adipiscing erat. Curabitur this is a text link libero tempus congue.:",
+    "postContent":[
+      {
+        "heading":"",
+        "paragraphs":[
+          "The United Kingdom offers a diverse and dynamic real estate market, presenting numerous opportunities for investors seeking to enter the property market. From bustling cities to scenic coastal towns, the UK offers a range of locations that boast strong rental yields and potential for capital appreciation. In this article, we present the top 10 places to invest in real estate in the UK, highlighting key factors such as economic growth, rental demand, affordability, and investment potential."
+        ],
+        "images": ["/assets/images/blog/1.jpg"]
+      }
+         
+    ]
   },
   {
     "id": 2,

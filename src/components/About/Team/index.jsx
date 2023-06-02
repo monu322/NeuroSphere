@@ -67,25 +67,29 @@ const Team = () => {
                       <span>{ teamMember.postition }</span>
                       <div className="social">
                         {
+                          teamMember.linkedin?<a rel="noreferrer" href={teamMember.linkedin} target="_blank"><i className="fab fa-linkedin"></i></a>:''
+                        }
+                        {
                           teamMember.fb?<a rel="noreferrer" href={teamMember.fb} target="_blank"><i className="fab fa-facebook-f"></i></a>:''
                         }
                         {
-                          teamMember.twitter?<Link href="#0">
-                            <a><i className="fab fa-twitter"></i></a>
-                          </Link>:''
+                          teamMember.twitter?
+                            <a rel="noreferrer" href={teamMember.twitter} target="_blank"><i className="fab fa-twitter"></i></a>:''
                         }
                         {
-                          teamMember.instagram?<Link href="#0">
-                            <a><i className="fab fa-instagram"></i></a>
-                          </Link>:''
+                          teamMember.insta?<a rel="noreferrer" href={teamMember.insta} target="_blank"><i className="fab fa-instagram"></i></a>:''
                         }
                         {
-
+                          teamMember.github?<a rel="noreferrer" href={teamMember.github} target="_blank"><i className="fab fa-github"></i></a>:''
+                        }
+                        {
+                          teamMember.dribble?<a rel="noreferrer" href={teamMember.dribble} target="_blank"><i className="fab fa-dribbble"></i></a>:''
+                        }
+                        {
+                          teamMember.link?<a rel="noreferrer" href={teamMember.link} target="_blank">Click Here</a>:''
                         }
                         
-                        <Link href="#0">
-                          <a><i className="fab fa-linkedin"></i></a>
-                        </Link>
+                        
                       </div>
                     </div>
                   </div>

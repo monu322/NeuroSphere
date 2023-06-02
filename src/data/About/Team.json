@@ -6,7 +6,7 @@
     "fb":"https://www.facebook.com/mahesh.s.kumar.7/",
     "twitter":"",
     "linkedin":"https://www.linkedin.com/in/mahesh-sanal-kumar-46b9ba27",
-    "insta":""
+    "insta":"https://instagram.com/mahesh_sanal_kumar?igshid=MzRlODBiNWFlZA=="
   },
   {
     "name": "Vinu Zachariah",
@@ -14,31 +14,31 @@
     "img": "/assets/img/team/02.jpg",
     "github":"",
     "twitter":"",
-    "linkedin":"",
+    "linkedin":"https://www.linkedin.com/in/vinu-p-zachariah-a63496125/",
     "insta":""
   },
   {
     "name": "Emil Mathew Sam",
     "postition": "Head of Design",
     "img": "/assets/img/team/4.jpg",
-    "fb":"",
-    "twitter":"",
-    "dribble":"",
-    "insta":""
+    "fb":"https://www.facebook.com/emil.evo10/",
+    "linkedin":"https://www.linkedin.com/in/emilmathewsam",
+    "dribble":"https://instagram.com/emilandlife",
+    "insta":"https://instagram.com/emilandlife"
   },
   {
     "name": "Ajo T P",
     "postition": "Full-stack Developer",
     "img": "/assets/img/team/5.jpg",
-    "fb":"",
+    "fb":"https://www.facebook.com/ajo.tpanthezham",
     "twitter":"",
-    "github":"",
+    "github":"https://github.com/AjoPanthezham",
     "insta":""
   },
   {
     "name": "Join our team",
     "postition": "See Open Positions",
     "img": "/assets/img/team/6.jpg",
-    "link":""
+    "link":"/openings"
   }
 ]

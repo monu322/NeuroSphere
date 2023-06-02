@@ -1,10 +1,10 @@
 {
-  "email": "Email@example.com",
-  "phone": "+4.930.705.5448",
+  "email": "contact@neurosphere.tech",
+  "phone": "+91 9746203887",
   "address": {
-    "street": "295 Witting Streets Suite 666",
-    "city": "Melbourne",
-    "country": "Australia"
+    "street": "B-HUB, Mar Ivanios Vidya Nagar",
+    "city": "Trivandrum, Kerala",
+    "country": "India"
   },
   "map": {
     "lat": 34.0937459,
