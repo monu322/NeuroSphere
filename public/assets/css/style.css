@@ -6270,3 +6270,7 @@ footer .item .copy-right p a {
   /* background: red; */
   display: block;
 }
+
+.service-box {
+  margin-bottom: 30px;
+}

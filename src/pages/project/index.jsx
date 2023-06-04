@@ -1,11 +1,8 @@
 import { useEffect } from "react";
-import BlogLayout from "../../layouts/blog";
-
-import Details from "../../components/Blog/Blog-Details/Details";
+import Works from "../../components/Works1";
+import WorksLayout from "../../layouts/works";
 
 const Index = () => {
-
-  
   useEffect(() => {
     let body = document.querySelector("body");
     body.classList.add("bg-gr");
@@ -13,9 +10,9 @@ const Index = () => {
   }, []);
 
   return (
-    <BlogLayout footerClass="bg-gray">
-      <Details/>
-    </BlogLayout>
+    <WorksLayout footerClass="bg-gray">
+      <Works />
+    </WorksLayout>
   )
 }
 
