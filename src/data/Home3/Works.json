@@ -25,8 +25,9 @@
     {
       "id": 1,
       "type": "mob",
-      "img": "/assets/img/works/dog.jpg",
+      "img": "/assets/img/works/1/wide.jpg",
       "title": "Agent Pet",
+      "description": "Your Ultimate Platform for Buying and Selling Pets and Pet Supplies! Released as Android, iOS and Web Apps.",
       "tags": ["E-com App", "Android", "iOS"]
     },
     {
