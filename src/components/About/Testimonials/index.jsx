@@ -33,13 +33,13 @@ const Testimonials = () => {
               <div className="col-lg-6">
                 <div className="vid-area">
                   <div className="vid-icon">
-                    <div className="vid" onClick={() => setIsOpen(true)}>
+                    {/* <div className="vid" onClick={() => setIsOpen(true)}>
                       <div className="vid-butn">
                         <span className="icon">
                           <i className="fas fa-play"></i>
                         </span>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
 
                   <div className="cont">

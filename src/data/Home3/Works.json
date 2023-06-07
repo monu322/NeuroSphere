@@ -25,10 +25,82 @@
     {
       "id": 1,
       "type": "mob",
-      "img": "/assets/img/works/1/wide.jpg",
+      "link":"https://www.agentpet.com/",
+      "img": "/assets/img/works/dog.jpg",
+      "wideImg": "/assets/img/works/1/wide.jpg",
       "title": "Agent Pet",
       "description": "Your Ultimate Platform for Buying and Selling Pets and Pet Supplies! Released as Android, iOS and Web Apps.",
-      "tags": ["E-com App", "Android", "iOS"]
+      "tags": ["E-com App", "Android", "iOS"],
+      "objective":"The primary objective of the Agent Pet project is to create a comprehensive platform that facilitates the buying and selling of pets and pet supplies, catering to the needs of both pet enthusiasts and pet suppliers.",
+      "servicesIntro":"To achieve the objectives of the Agent Pet project, the development process involved several stages, including mobile and web app development, testing, and launch.",
+      "services":[
+        {
+          "id": 1,
+          "iconClass": "pe-7s-way",
+          "title": "Planning",
+          "description": "Conducted thorough market research and analysis to understand user needs, market trends, and competition."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-magic-wand",
+          "title": "UI/UX",
+          "description": "Ensured seamless navigation, easy search and filtering options, and engaging user interactions."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-plugin",
+          "title": "Development",
+          "description": "Developed the Android and iOS apps using appropriate programming languages, frameworks, and tools such as Java/Kotlin for Android and Swift for iOS"
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-look",
+          "title": "Testing and QA",
+          "description": "Tested the compatibility and responsiveness of the app and website on various devices, browsers, and operating systems."
+        },
+        {
+          "id": 5,
+          "iconClass": "pe-7s-rocket",
+          "title": "Deployment",
+          "description": "Launched the mobile apps and website to the public, making them available for download and use."
+        },
+        {
+          "id": 6,
+          "iconClass": "pe-7s-like2",
+          "title": "Maintenance",
+          "description": "Conducted ongoing maintenance, security updates, and optimizations to ensure a smooth and secure user experience."
+        }
+      ],
+      "testimonialShortText":"",
+      "testimonials":[
+        {
+          "id": 1,
+          "img": "/assets/img/clients/1.jpg",
+          "content": "The team at this company did an amazing job developing our mobile app. Their attention to detail and commitment to delivering a high-quality product was impressive. I highly recommend their app development services.",
+          "name": "Sheikh Abdulsaud",
+          "details": "CEO, EziClean Pvt Ltd, UAE"
+        }
+      ],
+      "skills":[
+        {
+          "id": 1,
+          "title": "Mobile App",
+          "subtitle": "Development",
+          "value": 90
+        },
+        {
+          "id": 2,
+          "title": "Web App",
+          "subtitle": "Development",
+          "value": 95
+        },
+        {
+          "id": 3,
+          "title": "UI/UX",
+          "subtitle": "Design",
+          "value": 85
+        }
+      ]
     },
     {
       "id": 2,
