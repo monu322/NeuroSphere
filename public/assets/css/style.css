@@ -6286,3 +6286,8 @@ footer .item .copy-right p a {
 .execution-row {
   margin-top: 60px;
 }
+
+.blog-header.blg .cont {
+  padding-bottom: 30px !important;
+  text-align: left !important;
+}
