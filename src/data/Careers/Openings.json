@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Full-Stack Developer",
+    "location": "San Francisco, CA",
+    "description": "We are seeking a skilled software engineer...",
+    "requirements": [
+      "Bachelor's degree in Computer Science or related field",
+      "Experience with JavaScript and web development frameworks",
+      "Strong problem-solving skills"
+    ]
+  },
+  {
+    "title": "Data Analyst",
+    "location": "New York, NY",
+    "description": "We are looking for a data analyst with a passion for...",
+    "requirements": [
+      "Bachelor's degree in Statistics, Mathematics, or related field",
+      "Proficiency in SQL and data visualization tools",
+      "Strong analytical and problem-solving skills"
+    ]
+  },
+  {
+    "title": "Marketing Specialist",
+    "location": "Chicago, IL",
+    "description": "We are seeking a marketing specialist to...",
+    "requirements": [
+      "Bachelor's degree in Marketing or related field",
+      "Experience in digital marketing and social media management",
+      "Excellent communication and creative thinking skills"
+    ]
+  },
+  {
+    "title": "UX Designer",
+    "location": "Seattle, WA",
+    "description": "We are looking for a talented UX designer to...",
+    "requirements": [
+      "3+ years of experience in UX design",
+      "Proficiency with design tools like Sketch or Figma",
+      "Strong portfolio showcasing user-centered design"
+    ]
+  },
+  {
+    "title": "Customer Support Representative",
+    "location": "Austin, TX",
+    "description": "We are hiring a customer support representative...",
+    "requirements": [
+      "Excellent verbal and written communication skills",
+      "Experience in customer service or helpdesk support",
+      "Ability to troubleshoot and solve problems efficiently"
+    ]
+  },
+  {
+    "title": "Project Manager",
+    "location": "Boston, MA",
+    "description": "We are seeking an experienced project manager...",
+    "requirements": [
+      "Bachelor's degree in Business Administration or related field",
+      "Proven experience in project management",
+      "Strong organizational and leadership skills"
+    ]
+  }
+]

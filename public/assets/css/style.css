@@ -6286,3 +6286,18 @@ footer .item .copy-right p a {
 .execution-row {
   margin-top: 60px;
 }
+
+.openings-box {
+  /* margin-bottom: 50px; */
+  box-shadow: 0 -1px 0 0 gray;
+  padding: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.openings-box:hover {
+  box-shadow: 0 0 0 1px gray;
+  transition: box-shadow 0.2s ease-in-out;
+  border-radius: 2px;
+}
