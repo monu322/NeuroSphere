@@ -5,7 +5,7 @@ const Careers = () => {
       <div className="container">
         <h4>Open Positions</h4>
         <p className="mb-10">
-          We're currently hiring for the following positions
+          We&apos;re currently hiring for the following positions
         </p>
         <OpenPositions />
       </div>

@@ -6,8 +6,8 @@ const index = ({ data }) => {
     <div className="container">
       <div className="crs item">
         <h5>About Neurosphere</h5>
-        {CareerSection.about.map((about) => {
-          return <p>{about}</p>;
+        {CareerSection.about.map((about, i) => {
+          return <p key={i}>{about}</p>;
         })}
       </div>
       {data ? (
@@ -18,26 +18,22 @@ const index = ({ data }) => {
           </div>
           <div className="crs item">
             <h5>Requirements</h5>
-            {data.requirements.map((require) => {
-              return (
-                <ul>
-                  <li>{require}</li>
-                </ul>
-              );
-            })}
+            <ul>
+              {data.requirements.map((require, i) => {
+                return <li key={i}>{require}</li>;
+              })}
+            </ul>
           </div>
         </>
       ) : null}
 
       <div className="crs item">
         <h5>Benefits</h5>
-        {CareerSection.benefits.map((benefits) => {
-          return (
-            <ul>
-              <li>{benefits}</li>
-            </ul>
-          );
-        })}
+        <ul>
+          {CareerSection.benefits.map((benefits, i) => {
+            return <li key={i}>{benefits}</li>;
+          })}
+        </ul>
       </div>
     </div>
   );
