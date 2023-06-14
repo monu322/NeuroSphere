@@ -6329,3 +6329,7 @@ footer .item .copy-right p a {
   transition: box-shadow 0.2s ease-in-out;
   border-radius: 2px;
 }
+.blog-header.blg .cont {
+  padding-bottom: 30px !important;
+  text-align: left !important;
+}

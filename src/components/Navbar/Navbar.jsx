@@ -103,11 +103,11 @@ const Navbar = ({ navbarRef, logoRef }) => {
                 <a className="nav-link">Blog</a>
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link href="/careers">
                 <a className="nav-link">Careers</a>
               </Link>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link href="/contact">
                 <a className="nav-link">Contact</a>

@@ -20,51 +20,53 @@ export async function getServerSideProps() {
 
 const Details = ({context}) => {
 
-  //const slug = router.query.id;
+  const router = useRouter();
+  const slug = router.query.id;
 
-  // if(slug)
-  // {
-  //   const array = slug.split('-')
-  //   const id = array[array.length-1]
+  if(slug)
+  {
+    const array = slug.split('-')
+    const id = array[array.length-1]
 
-  //   let url = `/assets/data/articles/${id}.json`;
+    let url = `/assets/data/articles/${id}.json`;
 
   console.log('id',context);
 
-  //   const blogPost = fetch(url)
-  //   .then(res => res.json())
-  //   .then(json=>setArticle(json))
+    const blogPost = fetch(url)
+    .then(res => res.json())
+    .then(json=>setArticle(json))
 
-  //   console.log('blog post:', blogPost);
-  // }
+    console.log('blog post:', blogPost);
+  }
 
   const [article, setArticle] = useState({});
 
-  // useEffect(() => {
-  //   if (!slug) <h1>Loading...</h1>;
-  //   else {
+  useEffect(() => {
+    if (!slug) <h1>Loading...</h1>;
+    else {
 
-  //     const array = slug.split('-')
-  //     const id = array[array.length-1]
+      const array = slug.split('-')
+      const id = array[array.length-1]
 
-  //     let url = `/assets/data/articles/${id}.json`;
-  //       fetch(url)
-  //       .then(res => res.json())
-  //       .then(json=>setArticle(json))
-  //   }
+      let url = `/assets/data/articles/${id}.json`;
+        fetch(url)
+        .then(res => res.json())
+        .then(json=>setArticle(json))
+    }
 
-  //   return () => {};
-  // }, [slug]);
+    return () => {};
+  }, [slug]);
 
 
   return (
     <>
-    <section className="page-header blg">
+    <section className="page-header blog-header blg">
       <div className="container">
         <div className="row justify-content-center">
-          <div className="col-lg-7 col-md-9">
-            <div className="cont text-center">
+          <div className="col-lg-11">
+            <div className="cont">
               <h2>{ article?.title }</h2>
+              <span>by Monu John, July 17th 2023</span>
             </div>
           </div>
         </div>
