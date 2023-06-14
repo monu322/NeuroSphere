@@ -1,28 +1,51 @@
 [
   {
+    "id": 1,
     "title": "Full-Stack Developer",
     "location": "San Francisco, CA",
-    "description": "We are seeking a skilled software engineer...",
+    "description": [
+      "We're searching for an experienced FullStack Engineer to join our high-performing development team.",
+      " You'll play an important part in ensuring that we produce high-quality products that meet or exceed customer expectations.",
+      " As a FullStack Engineer, you'll join a small team of engineers that will work across the product and stack to develop new features, improve the product, and expand our technical operations."
+    ],
     "requirements": [
-      "Bachelor's degree in Computer Science or related field",
-      "Experience with JavaScript and web development frameworks",
-      "Strong problem-solving skills"
+      "Bachelor's degree in Computer Science or related field.",
+      "Experience with JavaScript and web development frameworks.",
+      "Experience with front-end frameworks such as React or Angular",
+      "Experience with back-end frameworks such as Django or Ruby on Rails",
+      "Knowledge of database systems such as MySQL or MongoDB",
+      "Understanding of web development principles, including security and data protection",
+      "Strong problem-solving skills."
     ]
   },
   {
+    "id": 2,
     "title": "Data Analyst",
     "location": "New York, NY",
-    "description": "We are looking for a data analyst with a passion for...",
+    "description": [
+      "We are seeking a Data Analyst intern to join our team.",
+      " The ideal candidate will possess a strong analytical mindset, a passion for data, and a willingness to learn.",
+      " As a Data Analyst intern, you will work closely with our senior analyst on large datasets and have the opportunity to learn and work with various tools and technologies, including Python, Excel, Google Sheets, and SQL, relevant to the field of data analysis."
+    ],
     "requirements": [
       "Bachelor's degree in Statistics, Mathematics, or related field",
       "Proficiency in SQL and data visualization tools",
-      "Strong analytical and problem-solving skills"
+      "Strong analytical and problem-solving skills",
+      "Excellent communication and interpersonal skills",
+      "Ability to work independently as well as collaboratively in a team environment",
+      "Strong attention to detail and accuracy is a must",
+      "Passion for data and willingness to learn"
     ]
   },
   {
+    "id": 3,
     "title": "Marketing Specialist",
     "location": "Chicago, IL",
-    "description": "We are seeking a marketing specialist to...",
+    "description": [
+      "We’re searching for an experienced marketing specialist to join our expanding team.",
+      " The ideal candidate has an ability to translate data and research into actionable marketing plans that inform branding and campaign development.",
+      " The specialist should be adept at working independently on heavy research, then consulting with consumers and collaborating with cross-functional team members to ensure that powerfully informative insights are gathered."
+    ],
     "requirements": [
       "Bachelor's degree in Marketing or related field",
       "Experience in digital marketing and social media management",
@@ -30,9 +53,14 @@
     ]
   },
   {
+    "id": 4,
     "title": "UX Designer",
     "location": "Seattle, WA",
-    "description": "We are looking for a talented UX designer to...",
+    "description": [
+      "We are looking for a qualified UX designer to help us implement the best possible designs.",
+      " The qualified candidate will be capable of confidently applying their UX design skills to shape digital environments for the largest possible user base.",
+      " This individual will also demonstrate a significant degree of drive, creativity, and understanding of our brand with a positive, proactive attitude."
+    ],
     "requirements": [
       "3+ years of experience in UX design",
       "Proficiency with design tools like Sketch or Figma",
@@ -40,9 +68,14 @@
     ]
   },
   {
+    "id": 5,
     "title": "Customer Support Representative",
     "location": "Austin, TX",
-    "description": "We are hiring a customer support representative...",
+    "description": [
+      "We’re searching for a highly qualified project manager to help us maintain our position as an innovative authority.",
+      " The ideal candidate will have production experience and strong skills in developing and overseeing work plans.",
+      " The project manager will also prepare and present updates regularly to relevant management channels, ensuring that our goal of innovation is being achieved. "
+    ],
     "requirements": [
       "Excellent verbal and written communication skills",
       "Experience in customer service or helpdesk support",
@@ -50,9 +83,14 @@
     ]
   },
   {
+    "id": 6,
     "title": "Project Manager",
     "location": "Boston, MA",
-    "description": "We are seeking an experienced project manager...",
+    "description": [
+      "We’re searching for a highly qualified project manager to help us maintain our position as an innovative authority.",
+      " The ideal candidate will have production experience and strong skills in developing and overseeing work plans.",
+      " The project manager will also prepare and present updates regularly to relevant management channels, ensuring that our goal of innovation is being achieved. "
+    ],
     "requirements": [
       "Bachelor's degree in Business Administration or related field",
       "Proven experience in project management",

@@ -15,9 +15,9 @@ const OpenPositions = () => {
           >
             <div>
               <h6>{opening.title}</h6>
-              <p>{opening.description}</p>
+              <p>{opening.description[0]}</p>
             </div>
-            <Link href="/careers/career-details/">
+            <Link href={`/careers/career-details/${opening.id}`}>
               <a>
                 <span>Apply</span>
               </a>
