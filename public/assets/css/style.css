@@ -2800,6 +2800,34 @@ body {
   z-index: 3;
 }
 
+.page-header.crs .cont {
+  padding-top: 180px;
+  padding-bottom: 80px;
+}
+
+.crs.item {
+  margin-top: 0px;
+  margin-bottom: 60px;
+}
+
+.crs.item p {
+  margin-bottom: 20px;
+}
+
+.crs.item h5 {
+  margin-bottom: 20px;
+  margin-top: 25px;
+}
+
+.crs.item ul {
+  padding-left: 20px;
+}
+
+.crs.item ul li {
+  list-style: disc;
+  color: #b7b7b7;
+}
+
 /* ====================== [ End Slider ] ====================== */
 /* ====================== [ Start showcase ] ====================== */
 /* ====================== [ end showcase ] ====================== */
@@ -6287,6 +6315,20 @@ footer .item .copy-right p a {
   margin-top: 60px;
 }
 
+.openings-box {
+  /* margin-bottom: 50px; */
+  box-shadow: 0 -1px 0 0 gray;
+  padding: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.openings-box:hover {
+  box-shadow: 0 0 0 1px gray;
+  transition: box-shadow 0.2s ease-in-out;
+  border-radius: 2px;
+}
 .blog-header.blg .cont {
   padding-bottom: 30px !important;
   text-align: left !important;

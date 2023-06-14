@@ -1,7 +1,6 @@
 import { useEffect } from "react";
-import CareersLayout from "../../layouts/careers";
-import CareerDetails from "../../components/Careers/CareerDetails";
-import Header from "../../components/Careers/Header";
+import CareersLayout from "../../../layouts/careers";
+import Header from "../../../components/Careers/Openings-Details/Header";
 
 const Index = () => {
   useEffect(() => {
@@ -13,7 +12,6 @@ const Index = () => {
   return (
     <CareersLayout footerClass="bg-gray">
       <Header />
-      <CareerDetails />
     </CareersLayout>
   );
 };
