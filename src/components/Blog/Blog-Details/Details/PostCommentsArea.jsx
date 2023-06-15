@@ -6,7 +6,7 @@ const PostCommentsArea = ({ SingleBlog }) => {
     <div className="comments-area">
       <h5>Comments :</h5>
       {
-        SingleBlog.comments.map((comment, index) => (
+        SingleBlog?.comments?.map((comment, index) => (
           <div className={`item ${comment.replay && 'relped'}`} key={index}>
             <div className="comment-img">
               <img src={comment.author.img} alt="" />

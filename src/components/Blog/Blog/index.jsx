@@ -1,9 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect } from 'react';
 import Link from 'next/link';
-import BlogsData from '../../../data/Blogs/Blogs.json';
+import blogs from '../../../data/blogs';
 
 const Blog = () => {
+
+  function convertToSlug(Text) {
+    return Text.toLowerCase()
+      .replace(/ /g, "-")
+      .replace(/[^\w-]+/g, "");
+  }
+
+
   return (
     <section className="blog-pg section-padding pt-0">
       <div className="container">
@@ -11,8 +19,8 @@ const Blog = () => {
           <div className="col-lg-11">
             <div className="posts">
               {
-                BlogsData.map((blog, index) => (
-                  <div className={`item ${index !== BlogsData.length - 1 && 'mb-80'}`} key={blog.id}>
+                blogs.map((blog, index) => (
+                  <div className={`item ${index !== blogs.length - 1 && 'mb-80'}`} key={blog.id}>
                     <div className="img">
                       <Link href="/blog/blog-details">
                         <a><img src={blog.img} alt="" /></a>
@@ -22,12 +30,11 @@ const Blog = () => {
                       <div className="row">
                         <div className="col-10">
                             <a href="#0" className="date">
-                              <span className="num">{ blog.date.day }</span>
-                              <span>{ blog.date.month }</span>
+                              <span className="num">{ blog.postedDate }</span>
                             </a>
                             <div className="tags">
                               {
-                                blog.tags.map((tag, idx) => (
+                                blog?.tags?.map((tag, idx) => (
                                   <Link href="#0" key={idx}>
                                     <a>{ tag }</a>
                                   </Link>
@@ -40,9 +47,9 @@ const Blog = () => {
                               </Link>
                             </h4>
                             <p>
-                              { blog.content }
+                              { blog.postDescriptions }
                             </p>
-                            <Link href="/blog/blog-details">
+                            <Link href={`/blog/${convertToSlug(blog.title)}-${blog.id}`}>
                               <a className="simple-btn mt-30">Read More</a>
                             </Link>
                         </div>
@@ -52,7 +59,7 @@ const Blog = () => {
                 ))
               }
 
-              <div className="pagination">
+              {/* <div className="pagination">
                 <span className="active">
                   <Link href="#0">
                     <a>1</a>
@@ -68,7 +75,7 @@ const Blog = () => {
                     <a><i className="fas fa-angle-right"></i></a>
                   </Link>
                 </span>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

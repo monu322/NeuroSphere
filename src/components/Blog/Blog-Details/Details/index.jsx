@@ -7,18 +7,11 @@ import PostPagination from './PostPagination';
 import PostCommentsArea from './PostCommentsArea';
 import PostCommentsForm from './PostCommentsForm';
 
-
-
-export async function getServerSideProps() {
-  const { params } = context;
-  const id = params.id;
-  console.log('static props');
-  return {
-      context: context
-  }
-}
+import blogs from "../../../../data/blogs";
 
 const Details = ({context}) => {
+
+  const [article, setArticle] = useState({});
 
   const router = useRouter();
   const slug = router.query.id;
@@ -27,31 +20,14 @@ const Details = ({context}) => {
   {
     const array = slug.split('-')
     const id = array[array.length-1]
-
-    let url = `/assets/data/articles/${id}.json`;
-
-  console.log('id',context);
-
-    const blogPost = fetch(url)
-    .then(res => res.json())
-    .then(json=>setArticle(json))
-
-    console.log('blog post:', blogPost);
   }
+  
 
-  const [article, setArticle] = useState({});
-
-  useEffect(() => {
-    if (!slug) <h1>Loading...</h1>;
-    else {
-
-      const array = slug.split('-')
-      const id = array[array.length-1]
-
-      let url = `/assets/data/articles/${id}.json`;
-        fetch(url)
-        .then(res => res.json())
-        .then(json=>setArticle(json))
+ useEffect(() => {
+    if (!id) <h1>Loading...</h1>;
+    else 
+    {
+      setArticle(blogs.find((item) => item.id == id));
     }
 
     return () => {};
@@ -77,7 +53,7 @@ const Details = ({context}) => {
         <div className="row justify-content-center">
           <div className="col-lg-11">
             {
-              article.title && <div className="post">
+              article && <div className="post">
                 {/* Image */}
                 <PostImage SingleBlog={article} />
                 {/* Content */}

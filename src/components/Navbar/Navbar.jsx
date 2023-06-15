@@ -74,7 +74,7 @@ const Navbar = ({ navbarRef, logoRef }) => {
                 <a className="nav-link">About</a>
               </Link>
             </li>
-            <Link href="/works1">
+            <Link href="/works">
               <li className="nav-item">
                 <span
                   className="nav-link"
@@ -83,7 +83,7 @@ const Navbar = ({ navbarRef, logoRef }) => {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  Portfolio
+                  Work
                 </span>
                 <div className="dropdown-menu">
                   <Link href="/works1">

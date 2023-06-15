@@ -3,6 +3,9 @@ import { Fragment } from 'react';
 import Link from 'next/link';
 
 const PostContent = ({ SingleBlog }) => {
+
+  console.log(SingleBlog)
+
   return (
     <div className="content pt-20">
       <div className="row justify-content-center">
@@ -73,8 +76,8 @@ const PostContent = ({ SingleBlog }) => {
                 </Link>
               </div>
               <div className="tags">
-                {
-                  SingleBlog.tags.map((tag, idx) => (
+                {/* {
+                  SingleBlog?.tags.map((tag, idx) => (
                     <Fragment key={idx}>
                       <Link href="#0">
                         <a>{ tag }</a>
@@ -82,18 +85,18 @@ const PostContent = ({ SingleBlog }) => {
                       { idx !== SingleBlog.tags.length - 1 && <>, </> }
                     </Fragment>
                   ))
-                }
+                } */}
               </div>
             </div>
           </div>
           <div className="author">
             <div className="author-img">
-              <img src={SingleBlog.author.img} alt="" />
+              <img src={SingleBlog.author?.img} alt="" />
             </div>
             <div className="info">
-              <h6><span>author :</span> { SingleBlog.author.name }</h6>
+              <h6><span>author :</span> { SingleBlog.author?.name }</h6>
               <p>
-                { SingleBlog.author.brief }
+                { SingleBlog.author?.brief }
               </p>
               <div className="social">
                 <Link href="#0">

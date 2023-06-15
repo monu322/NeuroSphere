@@ -14,7 +14,7 @@ const Header = () => {
           <div className="col-lg-7 col-md-9">
             <div className="cont">
               <h4><span className="stroke">Let&apos;s</span> Talk About Your project.</h4>
-              <p>Feel free to ask me any question or let’s do to talk about our future collaboration.</p>
+              <p>Feel free to ask us any questions about how to get started.</p>
             </div>
           </div>
         </div>
