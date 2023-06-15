@@ -1,15 +1,13 @@
+import OpenPositions from "./OpenPositions";
 const Careers = () => {
   return (
     <section className="section-padding">
       <div className="container">
-        <h4>Send Us Your Resume</h4>
-        <p className="mb-10">We will get in touch with you</p>
-        <a
-          href="mailto: hrneurosphere@gmail.com"
-          className="btn-curve btn-lit mt-30"
-        >
-          <span>Send</span>
-        </a>
+        <h4>Open Positions</h4>
+        <p className="mb-10">
+          We&apos;re currently hiring for the following positions
+        </p>
+        <OpenPositions />
       </div>
     </section>
   );

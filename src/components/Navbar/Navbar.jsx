@@ -98,14 +98,9 @@ const Navbar = ({ navbarRef, logoRef }) => {
                 </div>
               </li>
             </Link>
-            {/* <li className="nav-item">
-                  <Link href="/blog">
-                    <a className="nav-link">Blog</a>
-                  </Link>
-                </li> */}
             <li className="nav-item">
-              <Link href="/contact">
-                <a className="nav-link">Contact</a>
+              <Link href="/blog">
+                <a className="nav-link">Blog</a>
               </Link>
             </li>
             {/* <li className="nav-item">
@@ -113,6 +108,11 @@ const Navbar = ({ navbarRef, logoRef }) => {
                 <a className="nav-link">Careers</a>
               </Link>
             </li> */}
+            <li className="nav-item">
+              <Link href="/contact">
+                <a className="nav-link">Contact</a>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

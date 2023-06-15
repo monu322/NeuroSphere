@@ -29,7 +29,7 @@ const CareersLayout = ({ children, footerClass }) => {
       </Head>
 
       <Navbar navbarRef={navbarRef} logoRef={logoRef} />
-      <Header />
+      {/* <Header /> */}
       <div className="main-content">
         {children}
         <Footer classText={footerClass} />

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import CareersLayout from "../../layouts/careers";
 import CareerDetails from "../../components/Careers/CareerDetails";
+import Header from "../../components/Careers/Header";
 
 const Index = () => {
   useEffect(() => {
@@ -10,7 +11,12 @@ const Index = () => {
   }, []);
 
   return (
+<<<<<<< HEAD
     <CareersLayout>
+=======
+    <CareersLayout footerClass="bg-gray">
+      <Header />
+>>>>>>> b5424361617c5672cb1dd777e8eed106897e3549
       <CareerDetails />
     </CareersLayout>
   );
