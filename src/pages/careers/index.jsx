@@ -10,7 +10,7 @@ const Index = () => {
   }, []);
 
   return (
-    <CareersLayout footerClass="bg-gray">
+    <CareersLayout>
       <CareerDetails />
     </CareersLayout>
   );
