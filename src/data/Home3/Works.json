@@ -71,6 +71,63 @@
           "description": "Conducted ongoing maintenance, security updates, and optimizations to ensure a smooth and secure user experience."
         }
       ],
+      "outcomeText": "The technical outcomes of the Agent Pet project ensure a reliable, secure, and user-friendly platform for pet adoption and supplies. The implementation of robust technologies and best practices supports the seamless functioning of the app and website, creating a positive experience for users and facilitating the overall success of the project.",
+      "outcomes":[
+        {
+          "id": 1,
+          "iconClass": "pe-7s-albums",
+          "title": "Cross-Platform Compatibility",
+          "description": "The development of Android and iOS mobile apps ensures broad compatibility, allowing users to access Agent Pet on their preferred devices. The apps are designed to offer a seamless experience, with optimized performance and functionality across different platforms."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-phone",
+          "title": "Responsive Web Design",
+          "description": "The website is developed with a responsive design approach, ensuring that it adapts and functions well on various screen sizes and resolutions. Users can access the platform conveniently from desktops, laptops, tablets, and smartphones, without compromising the user experience."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-cloud-upload",
+          "title": "Robust Backend Development",
+          "description": "The project involves the implementation of a robust backend infrastructure to handle various functionalities, such as user registration, pet listings, product listings, messaging, and payment processing. The backend systems are designed to support high traffic, ensuring scalability and reliability."
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-server",
+          "title": "Database Management",
+          "description": " Efficient database management is implemented to store and retrieve data related to pets, users, products, and transactions. The database architecture is designed to handle large volumes of data while maintaining data integrity and security."
+        },
+        {
+          "id": 5,
+          "iconClass": "pe-7s-look",
+          "title": "Secure Communication Channels",
+          "description": "The project incorporates secure communication channels to enable seamless and private interactions between pet buyers and sellers. Encryption protocols are implemented to protect user privacy and data confidentiality during messaging and communication."
+        },
+        {
+          "id": 6,
+          "iconClass": "pe-7s-credit",
+          "title": "Secure Payment Integration",
+          "description": "The integration of secure payment gateways ensures smooth and secure transactions for purchasing pets and pet supplies. Industry-standard security measures are implemented to safeguard user financial information and protect against fraudulent activities."
+        },
+        {
+          "id": 7,
+          "iconClass": "pe-7s-gleam",
+          "title": "Real-Time Notifications",
+          "description": "Real-time notification systems are implemented to keep users informed about new pet listings, price drops, and special offers on pet supplies. Push notifications and alerts are sent to mobile app users, ensuring they stay updated on relevant updates and opportunities."
+        },
+        {
+          "id": 8,
+          "iconClass": "pe-7s-display1",
+          "title": "Analytics and Monitoring",
+          "description": "Analytics tools are integrated to monitor user engagement, app usage patterns, and performance metrics. This data helps in understanding user behavior, identifying areas for improvement, and making data-driven decisions to enhance the platform."
+        },
+        {
+          "id": 9,
+          "iconClass": "pe-7s-config",
+          "title": "Regular Updates and Maintenance",
+          "description": "The project includes a system for regular updates and maintenance to address bugs, security vulnerabilities, and user feedback. Continuous improvements are made to enhance the platform's stability, security, and user experience."
+        }
+      ],
       "testimonialShortText":"",
       "testimonials":[
         {
@@ -105,16 +162,109 @@
     {
       "id": 2,
       "type": "ai",
+      "link":"https://www.gloshospitals.nhs.uk/",
       "img": "/assets/img/works/nhs.jpg",
-      "title": "NHS Foundation UK",
-      "tags": ["Data Analysis", "Model Creation"]
-    },
-    {
-      "id": 9,
-      "type": "branding",
-      "img": "/assets/img/works/pre.jpg",
-      "title": "Pre London",
-      "tags": ["Ecommerce", "Branding", "Marketing"]
+      "wideImg": "/assets/img/works/2/1.jpg",
+      "title": "NHS Foundation, UK",
+      "description": "Using Machine Learning to predict patient's risk of long stay, improving resource allocation, cost saving and better patient care.",
+      "tags": ["AI", "Machine Learning", "Healthcare"],
+      "objective":"The objective of this case study is to outline how our agency successfully assisted the NHS UK with AI consulting, specifically in utilizing existing data to develop a machine learning (ML) model capable of predicting the duration of a patient's stay. The goal was to provide the NHS with a valuable tool to optimize resource allocation and improve patient care.",
+      "servicesIntro":"Our agency collaborated closely with the NHS UK to understand their needs, collected and analyzed relevant patient data, and developed a machine learning model using XGBoost. The model was trained, validated, and deployed into the existing infrastructure, resulting in enhanced resource allocation, improved patient care, and cost savings for the healthcare system.",
+      "services":[
+        {
+          "id": 1,
+          "iconClass": "pe-7s-way",
+          "title": "Understanding Goals",
+          "description": "Our team engaged in comprehensive discussions with NHS stakeholders, including hospital administrators, doctors, and data analysts, to identify their specific requirements, challenges, and goals."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-magic-wand",
+          "title": "Data Collection",
+          "description": "We collaborated closely with the NHS to obtain the necessary data required for model development. This included anonymized patient records, demographic information, medical histories, diagnoses, treatments, and the corresponding lengths of stay."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-plugin",
+          "title": "Feature Engineering",
+          "description": "Leveraging our expertise in data science, we performed extensive feature engineering to extract relevant features from the collected dataset. This involved applying domain knowledge and considering factors such as age, gender, medical condition..."
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-look",
+          "title": "Model Selection and Development",
+          "description": "To tackle this regression problem, we experimented with various ML algorithms such as linear regression, decision trees, and gradient boosting techniques. After rigorous evaluation, we chose an ensemble learning method called XGBoost."
+        },
+        {
+          "id": 5,
+          "iconClass": "pe-7s-like2",
+          "title": "Model Training and Validation",
+          "description": "The selected ML model was trained using the preprocessed dataset, employing techniques like cross-validation and hyperparameter tuning to optimize performance."
+        },
+        {
+          "id": 6,
+          "iconClass": "pe-7s-like2",
+          "title": "Deployment and Integration",
+          "description": "Once the model demonstrated satisfactory performance, we integrated it into the existing NHS infrastructure to ensure seamless adoption. This involved creating an API that enabled easy access to the ML model, enabling real-time predictions based on input patient data."
+        }
+      ],
+      "outcomeText": "The collaboration between our agency and the NHS UK resulted in the successful development and deployment of an ML model to predict patient duration of stay. The key outcomes achieved were as follows:",
+      "outcomes":[
+        {
+          "id": 1,
+          "iconClass": "pe-7s-albums",
+          "title": "Enhanced Resource Allocation",
+          "description": "By accurately predicting patient lengths of stay, the NHS was able to optimize resource allocation, including bed management, staff scheduling, and resource planning. This led to improved operational efficiency, reduced wait times, and better utilization of healthcare resources."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-phone",
+          "title": "Improved Patient Care",
+          "description": "The website is developed with a responsive design approach, ensuring that it adapts and functions well on various screen sizes and resolutions. Users can access the platform conveniently from desktops, laptops, tablets, and smartphones, without compromising the user experience."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-cloud-upload",
+          "title": "Cost Savings",
+          "description": "The project involves the implementation of a robust backend infrastructure to handle various functionalities, such as user registration, pet listings, product listings, messaging, and payment processing. The backend systems are designed to support high traffic, ensuring scalability and reliability."
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-server",
+          "title": "Scalable Solution",
+          "description": " Efficient database management is implemented to store and retrieve data related to pets, users, products, and transactions. The database architecture is designed to handle large volumes of data while maintaining data integrity and security."
+        }
+      ],
+      "testimonialShortText":"",
+      "testimonials":[
+        {
+          "id": 1,
+          "img": "/assets/img/works/2/client.jpg",
+          "content": "Our partnership with NeuroSphere for AI consulting in developing a machine learning model to predict patient duration of stay has been invaluable. Their expertise in data analysis, model development, and seamless integration into our infrastructure has significantly improved resource allocation, patient care, and cost savings. We are impressed with their professionalism, collaboration, and the impactful outcomes delivered. Highly recommended!",
+          "name": "Simon Lanceley",
+          "details": "Director of Strategy, NHS Gloutershire"
+        }
+      ],
+      "skills":[
+        {
+          "id": 1,
+          "title": "Data collection",
+          "subtitle": "Development",
+          "value": 95
+        },
+        {
+          "id": 2,
+          "title": "Feature",
+          "subtitle": "Engineering",
+          "value": 85
+        },
+        {
+          "id": 3,
+          "title": "Machine",
+          "subtitle": "Learning",
+          "value": 90
+        }
+      ]
     },
     {
       "id": 3,
