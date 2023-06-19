@@ -25,15 +25,15 @@
     {
       "id": 1,
       "type": "mob",
-      "link":"https://www.agentpet.com/",
+      "link": "https://www.agentpet.com/",
       "img": "/assets/img/works/dog.jpg",
       "wideImg": "/assets/img/works/1/wide.jpg",
       "title": "Agent Pet",
       "description": "Your Ultimate Platform for Buying and Selling Pets and Pet Supplies! Released as Android, iOS and Web Apps.",
       "tags": ["E-com App", "Android", "iOS"],
-      "objective":"The primary objective of the Agent Pet project is to create a comprehensive platform that facilitates the buying and selling of pets and pet supplies, catering to the needs of both pet enthusiasts and pet suppliers.",
-      "servicesIntro":"To achieve the objectives of the Agent Pet project, the development process involved several stages, including mobile and web app development, testing, and launch.",
-      "services":[
+      "objective": "The primary objective of the Agent Pet project is to create a comprehensive platform that facilitates the buying and selling of pets and pet supplies, catering to the needs of both pet enthusiasts and pet suppliers.",
+      "servicesIntro": "To achieve the objectives of the Agent Pet project, the development process involved several stages, including mobile and web app development, testing, and launch.",
+      "services": [
         {
           "id": 1,
           "iconClass": "pe-7s-way",
@@ -71,8 +71,8 @@
           "description": "Conducted ongoing maintenance, security updates, and optimizations to ensure a smooth and secure user experience."
         }
       ],
-      "testimonialShortText":"",
-      "testimonials":[
+      "testimonialShortText": "",
+      "testimonials": [
         {
           "id": 1,
           "img": "/assets/img/clients/1.jpg",
@@ -81,7 +81,7 @@
           "details": "CEO, EziClean Pvt Ltd, UAE"
         }
       ],
-      "skills":[
+      "skills": [
         {
           "id": 1,
           "title": "Mobile App",
@@ -105,59 +105,625 @@
     {
       "id": 2,
       "type": "ai",
+      "link": "https://www.agentpet.com/",
       "img": "/assets/img/works/nhs.jpg",
+      "wideImg": "/assets/img/works/1/wide.jpg",
       "title": "NHS Foundation UK",
-      "tags": ["Data Analysis", "Model Creation"]
+      "description": "Your Ultimate Platform for Buying and Selling Pets and Pet Supplies! Released as Android, iOS and Web Apps.",
+      "tags": ["Data Analysis", "Model Creation"],
+      "objective": "The primary objective of the Agent Pet project is to create a comprehensive platform that facilitates the buying and selling of pets and pet supplies, catering to the needs of both pet enthusiasts and pet suppliers.",
+      "servicesIntro": "To achieve the objectives of the Agent Pet project, the development process involved several stages, including mobile and web app development, testing, and launch.",
+      "services": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-way",
+          "title": "Planning",
+          "description": "Conducted thorough market research and analysis to understand user needs, market trends, and competition."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-magic-wand",
+          "title": "UI/UX",
+          "description": "Ensured seamless navigation, easy search and filtering options, and engaging user interactions."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-plugin",
+          "title": "Development",
+          "description": "Developed the Android and iOS apps using appropriate programming languages, frameworks, and tools such as Java/Kotlin for Android and Swift for iOS"
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-look",
+          "title": "Testing and QA",
+          "description": "Tested the compatibility and responsiveness of the app and website on various devices, browsers, and operating systems."
+        },
+        {
+          "id": 5,
+          "iconClass": "pe-7s-rocket",
+          "title": "Deployment",
+          "description": "Launched the mobile apps and website to the public, making them available for download and use."
+        },
+        {
+          "id": 6,
+          "iconClass": "pe-7s-like2",
+          "title": "Maintenance",
+          "description": "Conducted ongoing maintenance, security updates, and optimizations to ensure a smooth and secure user experience."
+        }
+      ],
+      "testimonialShortText": "",
+      "testimonials": [
+        {
+          "id": 1,
+          "img": "/assets/img/clients/1.jpg",
+          "content": "The team at this company did an amazing job developing our mobile app. Their attention to detail and commitment to delivering a high-quality product was impressive. I highly recommend their app development services.",
+          "name": "Sheikh Abdulsaud",
+          "details": "CEO, EziClean Pvt Ltd, UAE"
+        }
+      ],
+      "skills": [
+        {
+          "id": 1,
+          "title": "Mobile App",
+          "subtitle": "Development",
+          "value": 90
+        },
+        {
+          "id": 2,
+          "title": "Web App",
+          "subtitle": "Development",
+          "value": 95
+        },
+        {
+          "id": 3,
+          "title": "UI/UX",
+          "subtitle": "Design",
+          "value": 85
+        }
+      ]
     },
     {
       "id": 9,
       "type": "branding",
+      "link": "https://www.agentpet.com/",
       "img": "/assets/img/works/pre.jpg",
+      "wideImg": "/assets/img/works/1/wide.jpg",
       "title": "Pre London",
-      "tags": ["Ecommerce", "Branding", "Marketing"]
+      "description": "Pre London is an emerging online apparel store that offers modern and stylish clothing for fashion-forward individuals.",
+      "tags": ["Ecommerce", "Branding", "Marketing"],
+      "objective": "The objective was to create a modern website, develop a compelling brand identity, implement effective digital marketing strategies through social channels with retargeting, and set up targeted email campaigns to drive sales.",
+      "servicesIntro": "NeuroSphere enabled Pre London to achieve their objective by transforming their digital presence through Shopify development, branding, digital marketing strategies, and targeted email campaigns, resulting in increased sales and a strong brand identity.",
+      "services": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-way",
+          "title": "Planning",
+          "description": "Conducted thorough market research and analysis to understand user needs, market trends, and competition."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-magic-wand",
+          "title": "UI/UX",
+          "description": "Ensured seamless navigation, secure payment gateways, and optimized mobile responsiveness."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-plugin",
+          "title": "Shopify Development",
+          "description": "Developed visually stunning and user-friendly website."
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-paper-plane",
+          "title": "Branding",
+          "description": "Created a compelling brand identity that authentically reflected their vision, values, and resonated with the target audience through market research, brand story, logo, typography, color scheme, and brand guidelines."
+        },
+        {
+          "id": 5,
+          "iconClass": "pe-7s-display1",
+          "title": "Digital Marketing",
+          "description": "Developed a comprehensive digital marketing strategy for Pre London, leveraging social media channels, retargeting campaigns, and engaging content to maximize online reach and optimize conversions."
+        },
+        {
+          "id": 6,
+          "iconClass": "pe-7s--mail-open-file",
+          "title": "Email Campaigns",
+          "description": "Implemented a targeted email campaigns for Pre London, utilizing segmentation, personalized content, and diverse strategies to drive sales and enhance customer engagement."
+        }
+      ],
+      "testimonialShortText": "",
+      "testimonials": [
+        {
+          "id": 1,
+          "img": "/assets/img/clients/1.jpg",
+          "content": "NeuroSphere's exceptional expertise and dedication transformed our online presence, resulting in skyrocketing conversion rates, a recognized and admired brand, and significant sales growth. Highly recommended for comprehensive and impactful solutions.",
+          "name": "Ashlee Walsh",
+          "details": "Founder of Pre London"
+        }
+      ],
+      "skills": [
+        {
+          "id": 1,
+          "title": "Shopify",
+          "subtitle": "Development",
+          "value": 95
+        },
+        {
+          "id": 2,
+          "title": "Branding",
+          "subtitle": "Development",
+          "value": 90
+        },
+        {
+          "id": 3,
+          "title": "Social media marketing",
+          "subtitle": "Design",
+          "value": 85
+        },
+        {
+          "id": 4,
+          "title": "Retargeting campaign implementaton",
+          "subtitle": "Design",
+          "value": 90
+        }
+      ]
     },
     {
       "id": 3,
       "type": "mob",
+      "link": "https://www.agentpet.com/",
       "img": "/assets/img/works/eeziclean.png",
+      "wideImg": "/assets/img/works/1/wide.jpg",
       "title": "EeziClean",
-      "tags": ["Utility App", "Android", "iOS"]
+      "description": "EziClean is a prominent laundry service provider offering convenient and efficient solutions for all your laundry needs.",
+      "tags": ["Utility App", "Android", "iOS"],
+      "objective": "The primary objective of EziClean project is to provide customers with a user-friendly and convenient mobile application for seamless booking and tracking of laundry services.",
+      "servicesIntro": "To achieve the objectives of EziClean project, the development process involved several stages, including mobile and web app development, testing and quality assurance, and launch.",
+      "services": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-way",
+          "title": "Planning",
+          "description": "Conducted thorough market research and analysis to understand user needs, market trends, and competition."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-magic-wand",
+          "title": "UI/UX",
+          "description": "Created visually appealing app, ensuring a seamless user experience and intuitive navigation, while the admin panel's UI offered comprehensive insights into user data and app usage."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-plugin",
+          "title": "Development",
+          "description": "Developed the Android and iOS apps using appropriate programming languages, frameworks, and tools such as Java/Kotlin for Android and Swift for iOS"
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-look",
+          "title": "Testing and QA",
+          "description": "Tested the compatibility and responsiveness of the apps and website on various devices, browsers, and operating systems."
+        },
+        {
+          "id": 5,
+          "iconClass": "pe-7s-rocket",
+          "title": "Deployment",
+          "description": "Launched the mobile apps and website to the public, making them available for download and use."
+        },
+        {
+          "id": 6,
+          "iconClass": "pe-7s-like2",
+          "title": "Maintenance",
+          "description": "Conducted ongoing maintenance, security updates, and optimizations to ensure a smooth and secure user experience."
+        }
+      ],
+      "testimonialShortText": "",
+      "testimonials": [
+        {
+          "id": 1,
+          "img": "/assets/img/clients/1.jpg",
+          "content": "NeuroSphere's expertise and exceptional app development have revolutionized our business, surpassing expectations and providing valuable insights, making them our trusted technology partner.",
+          "name": "Sheikh Abdulsaud",
+          "details": "CEO, EziClean Pvt Ltd, UAE"
+        }
+      ],
+      "skills": [
+        {
+          "id": 1,
+          "title": "Mobile App",
+          "subtitle": "Development",
+          "value": 95
+        },
+        {
+          "id": 2,
+          "title": "Web App",
+          "subtitle": "Development",
+          "value": 95
+        },
+        {
+          "id": 3,
+          "title": "UI/UX",
+          "subtitle": "Design",
+          "value": 90
+        }
+      ]
     },
     {
       "id": 4,
       "type": "web",
+      "link": "https://www.agentpet.com/",
       "img": "/assets/img/works/mttc.png",
+      "wideImg": "/assets/img/works/1/wide.jpg",
       "title": "Mar Theophilus College",
-      "tags": ["CMS Website", "Branding"]
+      "description": "Mar Theophilus College is one of the best college located in trivandrum.",
+      "tags": ["CMS Website", "Branding"],
+      "objective": "The objective of the project is to setting up a user-friendly website powered by a CMS, ensuring a seamless online experience for the college and its stakeholders.",
+      "servicesIntro": "To achieve the objectives, the development process involved several stages, including web app development and cms, designing and maintenance.",
+      "services": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-way",
+          "title": "Planning",
+          "description": "Conducted discussions to understand their goals, target audience, and requirements, interviewing key stakeholders to identify essential features, design preferences, and content management needs."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-magic-wand",
+          "title": "CMS Selection and Designing",
+          "description": "Recommended a suitable CMS platform and implemented a collaborative design process to create a modern and user-friendly website."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-plugin",
+          "title": "Development",
+          "description": "Customized the chosen CMS platform, developing custom modules, integrations, and plugins to enhance functionality and seamlessly integrate with existing systems."
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-shuffle",
+          "title": "Content Migration",
+          "description": "Supported in migrating their existing website content to the new CMS platform."
+        },
+        {
+          "id": 6,
+          "iconClass": "pe-7s-like2",
+          "title": "Maintenance",
+          "description": "Conducted ongoing maintenance, security updates, bug fixes, and optimizations to ensure a smooth and secure user experience."
+        }
+      ],
+      "testimonialShortText": "",
+      "testimonials": [
+        {
+          "id": 1,
+          "img": "/assets/img/clients/1.jpg",
+          "content": "NeuroSphere's exceptional support and expertise in website development resulted in a modern, user-friendly website for Mar Theophilus College. The implemented CMS made content management effortless, and ongoing maintenance ensured a seamless online experience. Highly recommended for organizations seeking digital solutions.",
+          "name": "Dr. Benedict",
+          "details": "Principal, Mar Theophilus College"
+        }
+      ],
+      "skills": [
+        {
+          "id": 1,
+          "title": "Web and CMS",
+          "subtitle": "Development",
+          "value": 95
+        },
+        {
+          "id": 2,
+          "title": "UI/UX",
+          "subtitle": "Design",
+          "value": 80
+        },
+        {
+          "id": 3,
+          "title": "Content Migration",
+          "subtitle": "Development",
+          "value": 90
+        }
+      ]
     },
     {
       "id": 5,
       "type": "web",
+      "link": "https://www.agentpet.com/",
       "img": "/assets/img/works/creed.png",
+      "wideImg": "/assets/img/works/1/wide.jpg",
       "title": "Creed Real Estate",
-      "tags": ["Web", "Branding", "Property CMS"]
+      "description": "Your Ultimate Platform for real estate market. Released as Android, iOS and Web Apps.",
+      "tags": ["Web", "Branding", "Property CMS"],
+      "objective": "The objective was to establish a modern online presence and improve brand image by creating an interactive website for easy property browsing and showcasing expertise in the real estate market.",
+      "servicesIntro": "To achieve the objectives of the Creed Real Estate project, the development process involved several stages, including mobile and web app development, SEO, branding,  and launch.",
+      "services": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-way",
+          "title": "Planning",
+          "description": "Conducted thorough market research and analysis to understand user needs, market trends, and competition."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-paper-plane",
+          "title": "Branding",
+          "description": "Undertook extensive research on the real estate market and competitor analysis to craft a unique brand identity."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-magic-wand",
+          "title": "UI/UX",
+          "description": "Created a user-friendly interface with a modern aesthetic, allowing effortless browsing, viewing of high-quality images, and access to detailed property information."
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-plugin",
+          "title": "Development",
+          "description": "Developed a user-friendly CMS-powered website, enabling easy property listing updates and content management for the client without technical expertise."
+        },
+        {
+          "id": 5,
+          "iconClass": "pe-7s-rocket",
+          "title": "SEO",
+          "description": "Optimized the website using SEO techniques, improving search engine rankings, and devised an effective social media marketing plan to enhance online presence and engage the target audience."
+        }
+      ],
+      "testimonialShortText": "",
+      "testimonials": [
+        {
+          "id": 1,
+          "img": "/assets/img/clients/1.jpg",
+          "content": "NeuroSphere transformed our brand image, creating a strong online presence. Their creative logo design and intuitive website exceeded expectations, leading to increased leads and conversions. Highly recommended for brand enhancement and digital leverage.",
+          "name": "Renzel Holborn",
+          "details": "CEO of Creed Real Estate London"
+        }
+      ],
+      "skills": [
+        {
+          "id": 1,
+          "title": "Branding",
+          "subtitle": "Development",
+          "value": 85
+        },
+        {
+          "id": 2,
+          "title": "Web App",
+          "subtitle": "Development",
+          "value": 90
+        },
+        {
+          "id": 3,
+          "title": "UI/UX",
+          "subtitle": "Design",
+          "value": 90
+        }
+      ]
     },
     {
       "id": 6,
       "type": "ai",
+      "link": "https://www.agentpet.com/",
       "img": "/assets/img/works/hamleys.png",
+      "wideImg": "/assets/img/works/1/wide.jpg",
       "title": "Hamley's Toy Store",
-      "tags": ["Data", "AI", "Automation"]
+      "description": "A customer-centric retail company that utilizes technology, particularly machine learning, to enhance sales and predict product demand.",
+      "tags": ["Data", "AI", "Automation"],
+      "objective": "Develop a machine learning model that predicts product demand, automates ordering, and improves sales and customer satisfaction for Hameley's London.",
+      "servicesIntro": "To achieve the objectives of the Hameley's project, the development process involved several stages, including data assesment, ml model development, integration and automation, testing, and launch.",
+      "services": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-way",
+          "title": "Planning",
+          "description": "Conducted thorough market research and analysis to understand user needs, market trends, and competition."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-note2",
+          "title": "Data Assesment",
+          "description": "Analyzed and preprocessed extensive data from Hameley's London, ensuring accuracy and consistency for subsequent machine learning modeling."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-config",
+          "title": "ML Model Development",
+          "description": "Employed advanced machine learning techniques to build a robust predictive model, accurately forecasting product demand and trends using regression, time series analysis, and deep learning."
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-look",
+          "title": "Integration and Automation",
+          "description": "Integrated the ML model, enabling real-time predictions and automated ordering based on historical sales, seasonality, promotions, and external data for efficient inventory management."
+        },
+        {
+          "id": 5,
+          "iconClass": "pe-7s-look",
+          "title": "Testing",
+          "description": "Rigorous testing was conducted to ensure its accuracy, reliability, and adaptability to evolving market dynamics."
+        }
+      ],
+      "testimonialShortText": "",
+      "testimonials": [
+        {
+          "id": 1,
+          "img": "/assets/img/clients/1.jpg",
+          "content": "NeuroSphere's AI consulting revolutionized our business with accurate demand prediction, optimized inventory, and automated ordering, resulting in increased sales and satisfied customers. Highly recommended for exceptional skills and professionalism.",
+          "name": "Lufta Chen",
+          "details": "Head Of Sales, Hameley's London"
+        }
+      ],
+      "skills": [
+        {
+          "id": 1,
+          "title": "Data Analysis",
+          "subtitle": "Machine Learning",
+          "value": 90
+        },
+        {
+          "id": 2,
+          "title": "Machine Learning",
+          "subtitle": "Machine Learning",
+          "value": 85
+        },
+        {
+          "id": 3,
+          "title": "Python",
+          "subtitle": "Development",
+          "value": 85
+        }
+      ]
     },
     {
       "id": 7,
       "type": "ai",
+      "link": "https://www.agentpet.com/",
       "img": "/assets/img/works/tps.jpg",
+      "wideImg": "/assets/img/works/1/wide.jpg",
       "title": "The People's Supermarket",
-      "tags": ["Order Prediction", "Process Automation"]
+      "description": "Your Ultimate Platform for Buying and Selling Pets and Pet Supplies! Released as Android, iOS and Web Apps.",
+      "tags": ["Order Prediction", "Process Automation"],
+      "objective": "The primary objective of the Agent Pet project is to create a comprehensive platform that facilitates the buying and selling of pets and pet supplies, catering to the needs of both pet enthusiasts and pet suppliers.",
+      "servicesIntro": "To achieve the objectives of the Agent Pet project, the development process involved several stages, including mobile and web app development, testing, and launch.",
+      "services": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-way",
+          "title": "Planning",
+          "description": "Conducted thorough market research and analysis to understand user needs, market trends, and competition."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-magic-wand",
+          "title": "UI/UX",
+          "description": "Ensured seamless navigation, easy search and filtering options, and engaging user interactions."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-plugin",
+          "title": "Development",
+          "description": "Developed the Android and iOS apps using appropriate programming languages, frameworks, and tools such as Java/Kotlin for Android and Swift for iOS"
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-look",
+          "title": "Testing and QA",
+          "description": "Tested the compatibility and responsiveness of the app and website on various devices, browsers, and operating systems."
+        },
+        {
+          "id": 5,
+          "iconClass": "pe-7s-rocket",
+          "title": "Deployment",
+          "description": "Launched the mobile apps and website to the public, making them available for download and use."
+        },
+        {
+          "id": 6,
+          "iconClass": "pe-7s-like2",
+          "title": "Maintenance",
+          "description": "Conducted ongoing maintenance, security updates, and optimizations to ensure a smooth and secure user experience."
+        }
+      ],
+      "testimonialShortText": "",
+      "testimonials": [
+        {
+          "id": 1,
+          "img": "/assets/img/clients/1.jpg",
+          "content": "The team at this company did an amazing job developing our mobile app. Their attention to detail and commitment to delivering a high-quality product was impressive. I highly recommend their app development services.",
+          "name": "Sheikh Abdulsaud",
+          "details": "CEO, EziClean Pvt Ltd, UAE"
+        }
+      ],
+      "skills": [
+        {
+          "id": 1,
+          "title": "Mobile App",
+          "subtitle": "Development",
+          "value": 90
+        },
+        {
+          "id": 2,
+          "title": "Web App",
+          "subtitle": "Development",
+          "value": 95
+        },
+        {
+          "id": 3,
+          "title": "UI/UX",
+          "subtitle": "Design",
+          "value": 85
+        }
+      ]
     },
-    
+
     {
       "id": 8,
       "type": "mob",
+      "link": "https://www.agentpet.com/",
       "img": "/assets/img/works/trackerchat.jpg",
+      "wideImg": "/assets/img/works/1/wide.jpg",
       "title": "Tracker Chat",
-      "tags": ["Chat App", "Android", "iOS"]
+      "description": "Chat application that provide a fun and secure platform for users to communicate.",
+      "tags": ["Chat App", "Android", "iOS"],
+      "objective": "The primary objective of the project is to create an intuitive and engaging chat experience while prioritizing data privacy and security.",
+      "servicesIntro": "To achieve the objectives of the Chat Application project, the development process involved several stages, including mobile and web app development, testing, and launch.",
+      "services": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-way",
+          "title": "Planning",
+          "description": "Conducted thorough market research and analysis to understand user needs, market trends, and competition."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-magic-wand",
+          "title": "UI/UX",
+          "description": "Created an appealing and user-friendly design, ensuring a seamless experience across both Android and iOS platforms."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-plugin",
+          "title": "Development",
+          "description": "Developed the Android and iOS apps using appropriate programming languages, frameworks, and tools such as Java/Kotlin for Android and Swift for iOS, with core functionalities, including push notifications, encryption, and authentication "
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-look",
+          "title": "Testing and QA",
+          "description": "Conducted thorough testing at each development stage. Our team performed functional, performance, and security testing, identifying and resolving any bugs or vulnerabilities."
+        },
+        {
+          "id": 5,
+          "iconClass": "pe-7s-rocket",
+          "title": "Deployment",
+          "description": "Deployed the chat application on the Google Play Store and Apple App Store and ensured a smooth launch and addressed any post-launch issues promptly."
+        }
+      ],
+      "testimonialShortText": "",
+      "testimonials": [
+        {
+          "id": 1,
+          "img": "/assets/img/clients/1.jpg",
+          "content": "NeuroSphere delivered exceptional work, turning our vision into reality and surpassing expectations. The developed chat application met our needs with a deep understanding of requirements. Highly recommended for their expertise, professionalism, and outstanding results.",
+          "name": "John Doe",
+          "details": "CEO, XYZ Company"
+        }
+      ],
+      "skills": [
+        {
+          "id": 1,
+          "title": "Mobile App",
+          "subtitle": "Development",
+          "value": 90
+        },
+        {
+          "id": 2,
+          "title": "Web App",
+          "subtitle": "Development",
+          "value": 95
+        },
+        {
+          "id": 3,
+          "title": "UI/UX",
+          "subtitle": "Design",
+          "value": 95
+        }
+      ]
     }
   ]
 }
