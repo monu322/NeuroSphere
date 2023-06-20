@@ -10,7 +10,11 @@
   },
   "dependencies": {
     "@react-google-maps/api": "^2.8.1",
+<<<<<<< HEAD
     "dotenv": "^16.3.1",
+=======
+    "firebase": "^9.22.2",
+>>>>>>> 5cf8cd7a4624b3f07d4676057fa597b6ef36b8f0
     "formik": "^2.2.9",
     "next": "^12.0.4",
     "nodemailer": "^6.9.3",
