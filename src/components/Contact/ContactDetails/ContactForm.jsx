@@ -1,12 +1,21 @@
+'use client'
 import { useState } from "react";
 import { Formik, Form, Field } from "formik";
 
+
+const url = "http://localhost:3000/api/contact"
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
+ /* const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: ""
-  });
+  });*/
+  const initialValues = {
+    name:"",
+    email:"",
+    message:""
+  }
+  
   const [errMessage, setErrMessage] = useState(null);
 
   const validateForm = (formValues) => {
@@ -30,13 +39,34 @@ const ContactForm = () => {
   }
 
   const handleSubmit = (values, { setSubmitting }) => {
+    debugger
     if (validateForm(values)) {
       setErrMessage(null);
       setTimeout(() => {
         setSubmitting(false);
-        setFormData(values);
+        
       }, 400);
     }
+    console.log('sending')
+    console.log(values)
+/*let item ={name:"",email:"",message:""}
+    console.log(item)*/
+    fetch(url, {
+      method:'POST',
+      headers:{
+        'Accept':'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(values)
+    }).then((res)=>{
+      console.log(res.json())
+      console.log('Response received')
+      if (res.status === 200){
+        console.log('Response succeeded')
+        setSubmitting(true)
+        
+      }
+    }).then((data)=>{console.log(data)})
   };
 
   return (
@@ -45,13 +75,19 @@ const ContactForm = () => {
         <h4 className="extra-title mb-50">Get In Touch.</h4>
 
         <Formik
-          initialValues={{
+         /* initialValues={{
             name: "",
             email: "",
             message: ""
-          }}
+          }}*/
+          initialValues={initialValues}
           onSubmit={handleSubmit}
         >
+            {({
+         values,
+         handleChange,
+       
+       }) => (
           <Form>
             {
               errMessage && <div className="messages">{ errMessage }</div>
@@ -65,6 +101,8 @@ const ContactForm = () => {
                   name="name"
                   placeholder="Name"
                   required="required"
+                  value = {values.name}
+                  onChange = {handleChange}
                 />
               </div>
 
@@ -75,6 +113,8 @@ const ContactForm = () => {
                   name="email"
                   placeholder="Email"
                   required="required"
+                  value = {values.email}
+                  onChange = {handleChange}
                 />
               </div>
 
@@ -86,12 +126,15 @@ const ContactForm = () => {
                   placeholder="Message"
                   rows="4"
                   required="required"
+                  value = {values.message}
+                  onChange = {handleChange}
                 />
               </div>
 
               <button type="submit" className="btn-curve btn-lit"><span>Send Message</span></button>
             </div>
           </Form>
+       )}
         </Formik>
       </div>
     </div>
