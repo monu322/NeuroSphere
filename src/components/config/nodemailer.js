@@ -1,23 +1,20 @@
 import nodemailer from "nodemailer";
 
 const dotenv = require('dotenv');
-dotenv.config()
-
-const email = 'ardhra@neurosphere.tech'
-const password= 'yozhzteooojlootq'
+dotenv.config();
 
 export const transporter = nodemailer.createTransport({
     service:"gmail",
     port:465,
     host:"smtp.gmail.com",
     auth:{
-        user:email,
-        pass:password
+        user:process.env.email,
+        pass:process.env.password
     },
     secure:true,
 });
 
 export const mailOptions = {
-    from:email,
-    to:email,
+    from:process.env.email,
+    to:process.env.email,
 }
