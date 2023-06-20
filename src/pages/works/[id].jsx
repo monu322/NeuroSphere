@@ -27,6 +27,17 @@ const Index = () => {
   const [work, setWork] = useState({});
   const id = router.query.id;
 
+  const total = WorksData.works.length;
+  let next = parseInt(id)+1;
+
+  console.log('total', total)
+  console.log('id', id)
+
+  if(next>total)
+  {
+    next = 1
+  }
+
   useEffect(() => {
     if (!id) <h1>Loading...</h1>;
     else setWork(WorksData.works?.find((item) => item.id == id));
@@ -97,7 +108,7 @@ const Index = () => {
               <div className="text">
                 <Split className="wow txt">
                   <p data-splitting>
-                    { work?.objective }
+                    { work?.servicesIntro }
                   </p>
                 </Split>
               </div>
@@ -113,7 +124,37 @@ const Index = () => {
                 <div className="col-lg-4 service-box" key={service.id}>
                   <div className={`item wow fadeInUp ${index !== work.services.length - 1 && 'md-mb50'}`} data-wow-delay={`${0.3 * index + 0.3}s`}>
                     <span className={`icon ${service.iconClass}`}></span>
-                    <h6>{ service.title }</h6>
+                    <h6>{service.id}. { service.title }</h6>
+                    <p>{ service.description }</p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+          <div className="row execution-row mb-80">
+            <div className="col-lg-3 col-md-4">
+              <div className="htit sm-mb30">
+                <h4>The Outcome</h4>
+              </div>
+            </div>
+            <div className="col-lg-8 offset-lg-1 col-md-8">
+              <div className="text">
+                <Split className="wow txt">
+                  <p data-splitting>
+                    { work?.outcomeText }
+                  </p>
+                </Split>
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+            {
+              work?.outcomes?.map((service, index) => (
+                <div className="col-lg-6 service-box" key={service.id}>
+                  <div className={`item wow fadeInUp ${index !== work.services.length - 1 && 'md-mb50'}`} data-wow-delay={`${0.3 * index + 0.3}s`}>
+                    <span className={`icon ${service.iconClass}`}></span>
+                    <h6>{service.id}. { service.title }</h6>
                     <p>{ service.description }</p>
                   </div>
                 </div>
@@ -167,6 +208,7 @@ const Index = () => {
                   </Slider>
                   </div>
                 </div>
+                
               </div>
             </div>
           </div>
@@ -203,6 +245,11 @@ const Index = () => {
                   }
                 </div>
               </div>
+            </div>
+            <div className="col-lg-5">
+              <br/><br/>
+              <br/><br/>
+              <a href={`/works/${next}`} className="btn-curve btn-lit"><span>Next Project</span></a>
             </div>
           </div>
         </div>
