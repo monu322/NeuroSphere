@@ -23,8 +23,8 @@ const ContactForm = () => {
       setErrMessage('Please fill in all fields');
       return false;
     }
-    if (formValues.name.length < 5) {
-      setErrMessage('Name must be at least 5 characters');
+    if (formValues.name.length < 3) {
+      setErrMessage('Name must be at least 3 characters');
       return false;
     }
     if (formValues.message.length < 10) {
@@ -38,17 +38,14 @@ const ContactForm = () => {
     return true;
   }
 
-  const handleSubmit = (values, { setSubmitting }) => {
-    debugger
-    if (validateForm(values)) {
+  const handleSubmit = (values, { setSubmitting }) => 
+  {
+    if (validateForm(values)) 
+    {
       setErrMessage(null);
-      setTimeout(() => {
-        setSubmitting(false);
-        
-      }, 400);
+      setSubmitting(false);
     }
-    console.log('sending')
-    console.log(values)
+    console.log('sending', values)
 /*let item ={name:"",email:"",message:""}
     console.log(item)*/
     fetch(url, {
@@ -64,7 +61,6 @@ const ContactForm = () => {
       if (res.status === 200){
         console.log('Response succeeded')
         setSubmitting(true)
-        
       }
     }).then((data)=>{console.log(data)})
   };
@@ -75,11 +71,6 @@ const ContactForm = () => {
         <h4 className="extra-title mb-50">Get In Touch.</h4>
 
         <Formik
-         /* initialValues={{
-            name: "",
-            email: "",
-            message: ""
-          }}*/
           initialValues={initialValues}
           onSubmit={handleSubmit}
         >

@@ -28,7 +28,7 @@ const Works = () => {
             <div className="filter">
               {
                 WorksData.filters.map((filter, index) => (
-                  <span data-filter={filter.operator} className={filter.operator === '*' && 'active'} key={index}>{ filter.title }</span>
+                  <span data-filter={filter.operator} className={filter.operator === '*'?'active':''} key={index}>{ filter.title }</span>
                 ))
               }
             </div>
