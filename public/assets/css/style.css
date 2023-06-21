@@ -5780,8 +5780,10 @@ footer .item .copy-right p a {
   .md-mb40 {
     margin-bottom: 40px;
   }
+  
   .md-mb50 {
     margin-bottom: 50px;
+    margin-top: 140px;
   }
   .md-mb60 {
     margin-bottom: 60px;
@@ -6065,7 +6067,7 @@ footer .item .copy-right p a {
     bottom: 15px;
   }
   .navbar .logo {
-    width: 40px;
+    width: 200px;
   }
   .hamenu .menu-links .main-menu > li {
     font-size: 24px;
@@ -6081,6 +6083,7 @@ footer .item .copy-right p a {
   }
   .btn-curve {
     padding: 8px 15px;
+    margin-right: 100px;
   }
   .btn-curve span {
     font-size: 15px;
@@ -6146,6 +6149,8 @@ footer .item .copy-right p a {
   }
   .skills-circle .item {
     margin-bottom: 50px;
+  
+    margin-left: 120px;
   }
   .team .navs {
     top: 20px;
@@ -6167,6 +6172,16 @@ footer .item .copy-right p a {
   .team-crv .img-box .img.sizmd {
     margin-bottom: 30px;
   }
+  .project-title-container h3 {
+    margin-right: 25px;
+  }
+  .section-padding {
+    margin-top: -216px;
+}
+.skills-circle .skill span {
+  margin-top: 90px;
+}
+
 }
 
 @media screen and (max-width: 480px) {
