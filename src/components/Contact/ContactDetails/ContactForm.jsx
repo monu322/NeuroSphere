@@ -3,18 +3,28 @@ import { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import LoadingButton from "./LoadingButton";
 
-const url = "http://localhost:3000/api/contact"
+let hostname = 'http://neurosphere.tech'
+
+if (typeof window !== 'undefined') {
+  hostname = window.location.origin;
+}
+
+console.log(hostname)
+
+const url = hostname+"/api/contact"
 const ContactForm = () => {
  /* const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: ""
   });*/
-  const initialValues = {
+  const [initialValues, setInitialValues] = useState({
     name:"",
     email:"",
     message:""
-  }
+  }) 
+
+
   
   const [errMessage, setErrMessage] = useState(null);
   const [isLoading, setIsLoading]= useState(false);
@@ -39,34 +49,37 @@ const ContactForm = () => {
     return true;
   }
 
-  const handleSubmit = (values, { setSubmitting }) => 
+  const handleSubmit = (values, { setSubmitting, resetForm }) => 
   {
     if (validateForm(values)) 
     {
       setErrMessage(null);
       setSubmitting(false);
-    }
-    console.log('sending', values)
+      setIsLoading(true);
 
-    fetch(url, {
-      method:'POST',
-      headers:{
-        'Accept':'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(values)
-    }).then((res)=>{
-      console.log(res.json())
-      console.log('Response received')
-      if (res.status === 200){
-        console.log('Response succeeded')
-        setSubmitting(true)
-        setIsLoading(true)
-        setTimeout(()=>{
-        setIsLoading(false)
-        },2000)
-      }
-    })
+      console.log('sending', values)
+
+      fetch(url, {
+        method:'POST',
+        headers:{
+          'Accept':'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+      }).then((res)=>{
+        console.log(res.json())
+        console.log('Response received')
+        if (res.status === 200){
+          console.log('Response succeeded')
+          setTimeout(()=>{
+            setIsLoading(false)
+            setErrMessage('Your form has been submitted!')
+            resetForm();
+          },1000)
+        }
+      })
+    }
+    
   };
 
   return (
@@ -77,16 +90,10 @@ const ContactForm = () => {
         <Formik
           initialValues={initialValues}
           onSubmit={handleSubmit}
-        >
-            {({
+        >{({
          values,
-         handleChange,
-       
-       }) => (
+         handleChange,}) => (
           <Form>
-            {
-              errMessage && <div className="messages">{ errMessage }</div>
-            }
 
             <div className="controls">
               <div className="form-group">
@@ -125,9 +132,21 @@ const ContactForm = () => {
                   onChange = {handleChange}
                 />
               </div>
-              { isLoading? <LoadingButton/> :
-              <button type="submit" className="btn-curve btn-lit"><span>Send Message</span></button>
-               }
+              { 
+                isLoading? <LoadingButton/> :
+                <div className="row">
+                  <div className="col col-lg-6">
+                    <button type="submit" className="btn-curve btn-lit"><span>Send Message</span></button>
+                  </div>
+                  <div className="col col-lg-6">
+                  {
+                    errMessage && <div className="formMessages">{ errMessage }</div>
+                  }
+                  </div>
+                  
+                </div>
+              }
+              
               </div>
           </Form>
        )}
