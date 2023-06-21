@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react";
 import { Formik, Form, Field } from "formik";
-
+import LoadingButton from "./LoadingButton";
 
 const url = "http://localhost:3000/api/contact"
 const ContactForm = () => {
@@ -17,6 +17,7 @@ const ContactForm = () => {
   }
   
   const [errMessage, setErrMessage] = useState(null);
+  const [isLoading, setIsLoading]= useState(false);
 
   const validateForm = (formValues) => {
     if (!formValues.name || !formValues.email || !formValues.message) {
@@ -46,8 +47,7 @@ const ContactForm = () => {
       setSubmitting(false);
     }
     console.log('sending', values)
-/*let item ={name:"",email:"",message:""}
-    console.log(item)*/
+
     fetch(url, {
       method:'POST',
       headers:{
@@ -61,8 +61,12 @@ const ContactForm = () => {
       if (res.status === 200){
         console.log('Response succeeded')
         setSubmitting(true)
+        setIsLoading(true)
+        setTimeout(()=>{
+        setIsLoading(false)
+        },2000)
       }
-    }).then((data)=>{console.log(data)})
+    })
   };
 
   return (
@@ -121,9 +125,10 @@ const ContactForm = () => {
                   onChange = {handleChange}
                 />
               </div>
-
+              { isLoading? <LoadingButton/> :
               <button type="submit" className="btn-curve btn-lit"><span>Send Message</span></button>
-            </div>
+               }
+              </div>
           </Form>
        )}
         </Formik>
