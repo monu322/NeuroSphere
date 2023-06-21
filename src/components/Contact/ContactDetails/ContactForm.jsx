@@ -57,8 +57,6 @@ const ContactForm = () => {
       setSubmitting(false);
       setIsLoading(true);
 
-      console.log('sending', values)
-
       fetch(url, {
         method:'POST',
         headers:{
@@ -67,10 +65,7 @@ const ContactForm = () => {
         },
         body: JSON.stringify(values)
       }).then((res)=>{
-        console.log(res.json())
-        console.log('Response received')
         if (res.status === 200){
-          console.log('Response succeeded')
           setTimeout(()=>{
             setIsLoading(false)
             setErrMessage('Your form has been submitted!')
