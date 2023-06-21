@@ -6333,3 +6333,15 @@ footer .item .copy-right p a {
   padding-bottom: 30px !important;
   text-align: left !important;
 }
+
+/* ==================== [ Admin ] ======================*/
+
+.blog-form .form-group input,
+.blog-form .form-group textarea {
+  color: #fff;
+  width: 100%;
+  padding: 5px 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
