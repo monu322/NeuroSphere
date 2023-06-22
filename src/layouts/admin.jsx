@@ -28,13 +28,9 @@ const AdminLayout = ({ children, footerClass }) => {
         <link rel="stylesheet" href="/assets/css/base.css" />
       </Head>
 
-      {/* <Navbar navbarRef={navbarRef} logoRef={logoRef} /> */}
       <div className="bg-white">
         <AdminNavbar />
-        <div className="main-content w-75">
-          {children}
-          {/* <Footer classText={footerClass} /> */}
-        </div>
+        <div className="main-content w-75">{children}</div>
       </div>
     </>
   );
