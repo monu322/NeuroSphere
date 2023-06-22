@@ -6043,6 +6043,7 @@ footer .item .copy-right p a {
   }
   .container {
     max-width: 540px;
+    margin-left: -5px;
   }
   h1 {
     font-size: 35px;
@@ -6084,10 +6085,13 @@ footer .item .copy-right p a {
   .btn-curve {
     padding: 8px 15px;
     margin-right: 100px;
+    margin-left: 80px;
   }
   .btn-curve span {
     font-size: 15px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    margin-left: 8px;
+    margin-right: 3px;
   }
   .slider .parallax-slider .caption h1 {
     font-size: 40px;
@@ -6176,11 +6180,32 @@ footer .item .copy-right p a {
     margin-right: 25px;
   }
   .section-padding {
-    margin-top: -216px;
+    margin-top: 10px;
+    padding-top: 5px;
+    margin-bottom: -60px;
 }
 .skills-circle .skill span {
-  margin-top: 90px;
+  margin-top: 155px;
 }
+.page-header .img-wrapper .title {
+  padding-top: 40px;
+}
+.works-header {
+  min-height: 50vh;
+}
+.page-header .img-wrapper .title h3 {
+  font-size: 59px;
+}
+.ui-slider.ui-main .parallax-slider .caption h1 {
+  font-size: 53px;
+  line-height: 1;
+  font-weight: 600;
+}
+.team-crs .item {
+  padding: 0 15px;
+  margin-left: -117px;
+}
+
 
 }
 
