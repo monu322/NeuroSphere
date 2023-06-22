@@ -130,7 +130,7 @@ const ContactForm = () => {
               { 
                 isLoading? <LoadingButton/> :
                 <div className="row">
-                  <div className="col col-lg-6">
+                  <div className="col col-lg-6 m-4">
                     <button type="submit" className="btn-curve btn-lit"><span>Send Message</span></button>
                   </div>
                   <div className="col col-lg-6">

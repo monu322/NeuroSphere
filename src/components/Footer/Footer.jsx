@@ -10,7 +10,7 @@ const Footer = ({ classText }) => {
           <div className="row">
               <div className="col-lg-8">
                   <div className="item md-mb50">
-                      <div className="title">
+                      <div className="title m-2 p-2">
                           <h5>Contact Us</h5>
                       </div>
                       <ul>

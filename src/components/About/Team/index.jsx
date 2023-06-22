@@ -40,7 +40,7 @@ const Team = () => {
         <div className="row">
           <div className="col-lg-4 valign">
             <div className="full-width">
-              <div className="sec-head custom-font mb-0">
+              <div className="sec-head custom-font mb-0 p-4">
                 <h6>Employees</h6>
                 <h3>Our Team.</h3>
               </div>
