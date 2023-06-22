@@ -6334,8 +6334,34 @@ footer .item .copy-right p a {
   text-align: left !important;
 }
 
-/* ==================== [ Admin ] ======================*/
+/* ==================== [ Admin Nav ] ======================*/
+.admin-nav {
+  width: 18rem;
+  min-height: 100vh;
+  background-color: #222733;
+  border-right: 1px solid lightgray;
+}
+.admin-nav.admin {
+  min-height: 100vh;
+}
+.admin-nav .logo {
+  width: 82%;
+}
 
+.nav-item .icon {
+  font-size: 1.2rem;
+  color: white;
+  margin-right: 10px;
+}
+.nav-item .nav-align {
+  display: flex;
+  align-items: center;
+}
+
+.admin-nav ul > li {
+  margin-top: 1.25rem;
+}
+/* ==================== [ Admin Form ] =================/ */
 .blog-form .form-group input,
 .blog-form .form-group textarea {
   color: #fff;
