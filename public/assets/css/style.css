@@ -6194,7 +6194,8 @@ footer .item .copy-right p a {
   min-height: 50vh;
 }
 .page-header .img-wrapper .title h3 {
-  font-size: 59px;
+  font-size: 53px;
+  margin-top: -36px;
 }
 .ui-slider.ui-main .parallax-slider .caption h1 {
   font-size: 53px;
@@ -6205,8 +6206,38 @@ footer .item .copy-right p a {
   padding: 0 15px;
   margin-left: -117px;
 }
-
-
+.block-sec .testim-box {
+    margin-top: 12px;
+    margin-left: 8px;
+}
+.btn-curve.btn-lit {
+  margin-bottom: 100px;
+}
+.body.bg-gr .bg-gray {
+  margin-top: -288px;
+}
+.btn-curve.btn-lg {
+  margin-left: 97px;
+}
+.skill_title{
+  margin-left: 21px;
+}
+.skill_sub{
+  margin-left: 22px;
+}
+.fa, .fas {
+  font-size: 26px;
+  margin-top: -12px;
+}
+.ui-works .gallery .items .item-img {
+  margin-right: -10px;
+}
+.simpleParallax{
+  margin-right: -11px;
+}
+.fadeInUp {
+  margin-right: -10px;
+}
 }
 
 @media screen and (max-width: 480px) {
