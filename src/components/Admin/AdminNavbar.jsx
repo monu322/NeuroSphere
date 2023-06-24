@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { Row, Col } from "reactstrap";
-import { Nav, NavItem, NavLink } from "reactstrap";
+import { NavLink } from "reactstrap";
 
 const AdminNavbar = () => {
   return (
