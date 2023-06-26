@@ -28,9 +28,9 @@ const AdminLayout = ({ children, footerClass }) => {
         <link rel="stylesheet" href="/assets/css/base.css" />
       </Head>
 
-      <div className="bg-white">
+      <div className="d-flex">
         <AdminNavbar />
-        <div className="main-content w-75">{children}</div>
+        <div className="main-content w-75 bg-dark">{children}</div>
       </div>
     </>
   );

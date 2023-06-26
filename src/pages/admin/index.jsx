@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import AdminLayout from "../../layouts/admin";
 import BlogForm from "../../components/Admin/Blog/BlogForm";
+import WorkForm from "../../components/Admin/Work/WorkForm";
 
 const Index = () => {
   useEffect(() => {
@@ -9,7 +10,10 @@ const Index = () => {
     body.classList.remove("d3-dark");
   }, []);
 
-  return <AdminLayout footerClass="bg-gray">{/* <BlogForm /> */}</AdminLayout>;
+  return <AdminLayout footerClass="bg-gray">
+    {/* <BlogForm /> */}
+    <WorkForm/>
+    </AdminLayout>;
 };
 
 export default Index;
