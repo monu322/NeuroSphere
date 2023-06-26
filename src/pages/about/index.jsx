@@ -11,7 +11,31 @@ import Team from "../../components/About/Team";
 import Clients from "../../components/About/Clients";
 import CallAction from "../../components/About/CallAction";
 
-const Index = () => {
+import HeaderData from "../../data/About/Header.json";
+import IntroData from "../../data/About/Intro.json";
+import ServicesData from "../../data/About/Services.json";
+import TestimonialsData from "../../data/About/Testimonials.json";
+import SkillsData from "../../data/About/Skills.json";
+import TeamData from "../../data/About/Team.json";
+import MinimalData from "../../data/About/Minimal.json";
+import ClientsData from "../../data/About/Clients.json";
+
+export async function getStaticProps(context) {
+  return {
+    props: {
+      HeaderData,
+      IntroData,
+      ServicesData,
+      TestimonialsData,
+      SkillsData,
+      TeamData,
+      MinimalData,
+      // ClientsData
+    },
+  };
+}
+
+const Index = ({ HeaderData, IntroData }) => {
   useEffect(() => {
     let body = document.querySelector("body");
     body.classList.add("bg-gr");
@@ -20,17 +44,17 @@ const Index = () => {
 
   return (
     <MainLayout footerClass="bg-gray">
-      <Header />
-      <Intro />
-      <Services />
-      <Testimonials />
-      <Skills />
-      <Team />
-      <Minimal />
-      {/* <Clients /> */}
+      <Header HeaderData={HeaderData} />
+      <Intro IntroData={IntroData} />
+      <Services ServicesData={ServicesData} />
+      <Testimonials TestimonialsData={TestimonialsData} />
+      <Skills SkillsData={SkillsData} />
+      <Team TeamData={TeamData} />
+      <Minimal MinimalData={MinimalData} />
+      {/* <Clients ClientsData={ClientsData} /> */}
       <CallAction />
     </MainLayout>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;

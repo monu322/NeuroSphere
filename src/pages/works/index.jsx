@@ -1,8 +1,17 @@
 import { useEffect } from "react";
 import Works from "../../components/Works1";
 import WorksLayout from "../../layouts/works";
+import WorksData from "../../data/Home3/Works.json";
 
-const Index = () => {
+export async function getStaticProps(context) {
+  return {
+    props: {
+      WorksData,
+    },
+  };
+}
+
+const Index = ({ WorksData }) => {
   useEffect(() => {
     let body = document.querySelector("body");
     body.classList.add("bg-gr");
@@ -11,9 +20,9 @@ const Index = () => {
 
   return (
     <WorksLayout footerClass="bg-gray">
-      <Works />
+      <Works WorksData={WorksData} />
     </WorksLayout>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;

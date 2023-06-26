@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import Slider from "react-slick";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 const Split = dynamic(() => import("../../Split"), { ssr: false });
-import NoSSR from '../../NoSSR';
-import ModalVideo from 'react-modal-video';
-import TestimonialsData from '../../../data/About/Testimonials.json';
+import NoSSR from "../../NoSSR";
+import ModalVideo from "react-modal-video";
+// import TestimonialsData from '../../../data/About/Testimonials.json';
 
 const testimonialsSliderSettings = {
   dots: true,
@@ -13,21 +13,28 @@ const testimonialsSliderSettings = {
   speed: 1000,
   slidesToShow: 1,
   slidesToScroll: 1,
-  arrows: false
+  arrows: false,
 };
 
-const Testimonials = () => {
+const Testimonials = ({ TestimonialsData }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    let elem = document.querySelector('.background.bg-img[data-background]');
-    if (elem) elem.style.backgroundImage = `url(${elem.getAttribute('data-background')})`;
+    let elem = document.querySelector(".background.bg-img[data-background]");
+    if (elem)
+      elem.style.backgroundImage = `url(${elem.getAttribute(
+        "data-background"
+      )})`;
   }, []);
 
   return (
     <>
       <section className="block-sec">
-        <div className="background bg-img section-padding pb-0" data-background="/assets/img/1.jpg" data-overlay-dark="6">
+        <div
+          className="background bg-img section-padding pb-0"
+          data-background="/assets/img/1.jpg"
+          data-overlay-dark="6"
+        >
           <div className="container">
             <div className="row">
               <div className="col-lg-6">
@@ -44,7 +51,7 @@ const Testimonials = () => {
 
                   <div className="cont">
                     <Split className="wow">
-                      <h3 data-splitting>{ TestimonialsData.videoText }</h3>
+                      <h3 data-splitting>{TestimonialsData.videoText}</h3>
                     </Split>
                   </div>
                 </div>
@@ -52,30 +59,40 @@ const Testimonials = () => {
               <div className="col-lg-5 offset-lg-1">
                 <div className="testim-box">
                   <div className="head-box">
-                    <h6 className="wow fadeIn" data-wow-delay=".5s">Our Happy Clients</h6>
-                    <h4 className="wow fadeInLeft" data-wow-delay=".5s">What Client&apos;s Say?</h4>
+                    <h6 className="wow fadeIn" data-wow-delay=".5s">
+                      Our Happy Clients
+                    </h6>
+                    <h4 className="wow fadeInLeft" data-wow-delay=".5s">
+                      What Client&apos;s Say?
+                    </h4>
                   </div>
-                  <Slider {...testimonialsSliderSettings} className="slic-item wow fadeInUp slick-dotted" data-wow-delay=".5s">
-                    {
-                      TestimonialsData.testimonials.map((testimonial) => (
-                        <div className="item" key={testimonial.id}>
-                          <p>{ testimonial.content }</p>
-                          <div className="info">
-                            <div className="img">
-                              <div className="img-box">
-                                <img src={testimonial.img} alt="" />
-                              </div>
+                  <Slider
+                    {...testimonialsSliderSettings}
+                    className="slic-item wow fadeInUp slick-dotted"
+                    data-wow-delay=".5s"
+                  >
+                    {TestimonialsData.testimonials.map((testimonial) => (
+                      <div className="item" key={testimonial.id}>
+                        <p>{testimonial.content}</p>
+                        <div className="info">
+                          <div className="img">
+                            <div className="img-box">
+                              <img src={testimonial.img} alt="" />
                             </div>
-                            <div className="cont">
-                              <div className="author">
-                                <h6 className="author-name custom-font">{ testimonial.name }</h6>
-                                <span className="author-details">{ testimonial.details }</span>
-                              </div>
+                          </div>
+                          <div className="cont">
+                            <div className="author">
+                              <h6 className="author-name custom-font">
+                                {testimonial.name}
+                              </h6>
+                              <span className="author-details">
+                                {testimonial.details}
+                              </span>
                             </div>
                           </div>
                         </div>
-                      ))
-                    }
+                      </div>
+                    ))}
                   </Slider>
                 </div>
               </div>
@@ -93,7 +110,7 @@ const Testimonials = () => {
         />
       </NoSSR>
     </>
-  )
-}
+  );
+};
 
-export default Testimonials
+export default Testimonials;
