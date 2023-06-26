@@ -6042,8 +6042,8 @@ footer .item .copy-right p a {
     padding-bottom: 80px;
   }
   .container {
-    max-width: 540px;
-    margin-left: -5px;
+    max-width: 100%;
+    padding:0px 35px;
   }
   h1 {
     font-size: 35px;
@@ -6228,9 +6228,6 @@ footer .item .copy-right p a {
 .fa, .fas {
   font-size: 26px;
   margin-top: -12px;
-}
-.ui-works .gallery .items .item-img {
-  margin-right: -10px;
 }
 .simpleParallax{
   margin-right: -11px;
