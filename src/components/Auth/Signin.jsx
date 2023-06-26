@@ -86,7 +86,7 @@ const Signin = () => {
                         />
                       </div>
 
-                      <button type="submit" className="log-btn w-full">
+                      <button type="submit" className="log-btn">
                         <span>Sign in</span>
                       </button>
 
