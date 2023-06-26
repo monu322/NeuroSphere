@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import Head from "next/head";
 import AdminNavbar from "../components/Admin/AdminNavbar";
+import Controls from "../components/Admin/Controls";
 
 const AdminLayout = ({ children, footerClass }) => {
   const navbarRef = useRef(null);
@@ -30,7 +31,10 @@ const AdminLayout = ({ children, footerClass }) => {
 
       <div className="d-flex">
         <AdminNavbar />
-        <div className="main-content w-75 bg-dark">{children}</div>
+        <div className="main-content w-100 bg-white">
+          <Controls />
+          {children}
+        </div>
       </div>
     </>
   );

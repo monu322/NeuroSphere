@@ -11,8 +11,8 @@ const Index = () => {
   }, []);
 
   return <AdminLayout footerClass="bg-gray">
-    {/* <BlogForm /> */}
-    <WorkForm/>
+      <BlogForm />
+      <WorkForm/>
     </AdminLayout>;
 };
 

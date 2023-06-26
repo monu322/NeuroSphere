@@ -6183,7 +6183,6 @@ footer .item .copy-right p a {
     margin-top: 10px;
     padding-top: 5px;
     margin-bottom: -60px;
-<<<<<<< HEAD
 }
 .skills-circle .skill span {
   margin-top: 155px;
@@ -6239,30 +6238,6 @@ footer .item .copy-right p a {
 .fadeInUp {
   margin-right: -10px;
 }
-=======
-  }
-  .skills-circle .skill span {
-    margin-top: 155px;
-  }
-  .page-header .img-wrapper .title {
-    padding-top: 40px;
-  }
-  .works-header {
-    min-height: 50vh;
-  }
-  .page-header .img-wrapper .title h3 {
-    font-size: 59px;
-  }
-  .ui-slider.ui-main .parallax-slider .caption h1 {
-    font-size: 53px;
-    line-height: 1;
-    font-weight: 600;
-  }
-  .team-crs .item {
-    padding: 0 15px;
-    margin-left: -117px;
-  }
->>>>>>> e9d2273fd1624623960e539be6afb26d4965d75c
 }
 
 @media screen and (max-width: 480px) {
@@ -6537,4 +6512,24 @@ footer .item .copy-right p a {
   color: white;
   transition: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+.admin-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(221, 214, 214);
+  padding: 4px 4px 4px 10px;
+  background-color: rgba(253, 251, 251, 0.819);
+}
+
+.admin-controls .user-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-controls .nav-item .icon {
+  font-size: 1.8rem;
+  color: rgb(13, 18, 77);
 }

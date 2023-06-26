@@ -62,7 +62,9 @@ const BlogForm = () => {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-10 col-md-9">
-            <div className="cont text-center h2">Create Blog</div>
+            <div className="cont text-center h2 text-secondary">
+              Create Blog
+            </div>
             {notification}
 
             <div className="border border-secondary rounded border-2 p-4 w-75">
