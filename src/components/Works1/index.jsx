@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, Fragment } from "react";
 import Link from "next/link";
-// import WorksData from "../../data/Home3/Works.json";
+ import WorksData from "../../data/Home3/Works.json";
 import initIsotope from "../../common/initIsotope";
 
-const Works = ({ WorksData }) => {
+const Works = () => {
   useEffect(() => {
     setTimeout(() => {
       if (window.Isotope) initIsotope();
