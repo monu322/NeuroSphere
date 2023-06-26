@@ -6183,63 +6183,6 @@ footer .item .copy-right p a {
     margin-top: 10px;
     padding-top: 5px;
     margin-bottom: -60px;
-<<<<<<< HEAD
-}
-.skills-circle .skill span {
-  margin-top: 155px;
-}
-.page-header .img-wrapper .title {
-  padding-top: 40px;
-}
-.works-header {
-  min-height: 50vh;
-}
-.page-header .img-wrapper .title h3 {
-  font-size: 53px;
-  margin-top: -36px;
-}
-.ui-slider.ui-main .parallax-slider .caption h1 {
-  font-size: 53px;
-  line-height: 1;
-  font-weight: 600;
-}
-.team-crs .item {
-  padding: 0 15px;
-  margin-left: -117px;
-}
-.block-sec .testim-box {
-    margin-top: 12px;
-    margin-left: 8px;
-}
-.btn-curve.btn-lit {
-  margin-bottom: 100px;
-}
-.body.bg-gr .bg-gray {
-  margin-top: -288px;
-}
-.btn-curve.btn-lg {
-  margin-left: 97px;
-}
-.skill_title{
-  margin-left: 21px;
-}
-.skill_sub{
-  margin-left: 22px;
-}
-.fa, .fas {
-  font-size: 26px;
-  margin-top: -12px;
-}
-.ui-works .gallery .items .item-img {
-  margin-right: -10px;
-}
-.simpleParallax{
-  margin-right: -11px;
-}
-.fadeInUp {
-  margin-right: -10px;
-}
-=======
   }
   .skills-circle .skill span {
     margin-top: 155px;
@@ -6251,7 +6194,8 @@ footer .item .copy-right p a {
     min-height: 50vh;
   }
   .page-header .img-wrapper .title h3 {
-    font-size: 59px;
+    font-size: 53px;
+    margin-top: -36px;
   }
   .ui-slider.ui-main .parallax-slider .caption h1 {
     font-size: 53px;
@@ -6262,7 +6206,39 @@ footer .item .copy-right p a {
     padding: 0 15px;
     margin-left: -117px;
   }
->>>>>>> e9d2273fd1624623960e539be6afb26d4965d75c
+  .block-sec .testim-box {
+    margin-top: 12px;
+    margin-left: 8px;
+  }
+  .btn-curve.btn-lit {
+    margin-bottom: 100px;
+  }
+  .body.bg-gr .bg-gray {
+    margin-top: -288px;
+  }
+  .btn-curve.btn-lg {
+    margin-left: 97px;
+  }
+  .skill_title {
+    margin-left: 21px;
+  }
+  .skill_sub {
+    margin-left: 22px;
+  }
+  .fa,
+  .fas {
+    font-size: 26px;
+    margin-top: -12px;
+  }
+  .ui-works .gallery .items .item-img {
+    margin-right: -10px;
+  }
+  .simpleParallax {
+    margin-right: -11px;
+  }
+  .fadeInUp {
+    margin-right: -10px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -6467,7 +6443,6 @@ footer .item .copy-right p a {
   border: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
-
 
 /* ============= [ Login ] =============== */
 

@@ -1,5 +1,5 @@
 import db from "../../config/fire-config";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, getDoc } from "firebase/firestore";
 import React, { useState } from "react";
 import { Field, Form, Formik } from "formik";
 import Link from "next/link";
@@ -29,24 +29,30 @@ const Signin = () => {
     return true;
   };
 
-  const createBlog = async ({ email, password }) => {
-    const blogCollection = collection(db, "users");
-    const res = await addDoc(blogCollection, {
-      email,
-      password,
-    });
-    setNotification("User Verified");
-    setTimeout(() => {
-      setNotification("");
-    }, 2000);
-  };
+  //   const authenticate = async ({ email, password }) => {
+  //     const userCollection = collection(db, "users");
+  //     const user = await getDoc(userCollection, email);
+  //     console.log(user);
+  //     if (user.exists()) {
+  //       console.log("Document data:", user.data());
+  //     } else {
+  //       user.data();
+  //       console.log("No such document!");
+  //     }
+  //     console.log(user);
+  //     setNotification("User Verified");
+  //     setTimeout(() => {
+  //       setNotification("");
+  //     }, 2000);
+  //   };
 
-  const handleSubmit = async (values, { setSubmitting }) => {
+  const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     if (validateForm(values)) {
       console.log(JSON.stringify(values));
       setErrMessage(null);
       setSubmitting(false);
-      createBlog(values);
+      //   authenticate(values);
+      resetForm();
     }
   };
   return (

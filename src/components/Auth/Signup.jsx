@@ -34,12 +34,13 @@ const Signup = () => {
     return true;
   };
 
-  const createBlog = async ({ name, email, password }) => {
+  const createUser = async ({ name, email, password }) => {
     const userCollection = collection(db, "users");
     const res = await addDoc(userCollection, {
       name,
       email,
       password,
+      role: "user",
     });
     setNotification("Account created successfully");
     setTimeout(() => {
@@ -52,7 +53,7 @@ const Signup = () => {
       console.log(JSON.stringify(values));
       setErrMessage(null);
       setSubmitting(false);
-      createBlog(values);
+      createUser(values);
     }
   };
   return (
@@ -105,7 +106,13 @@ const Signup = () => {
                       </div>
 
                       <button type="submit" className="log-btn w-full">
-                        <span>Sign up</span>
+                        {errMessage === null ? (
+                          <Link href="/auth/signin">
+                            <span>Sign up</span>
+                          </Link>
+                        ) : (
+                          <span>Sign up</span>
+                        )}
                       </button>
                       <div className=" text-center text-secondary">
                         <Link href="/auth/signin">

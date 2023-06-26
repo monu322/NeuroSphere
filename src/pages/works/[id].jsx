@@ -236,8 +236,8 @@ const Index = () => {
                             </span>
                           </div>
                           <div className="cont">
-                            <span>{ skill.title }</span>
-                            <h6>{ skill.subtitle }</h6>
+                            <span className="skill_title">{ skill.title }</span>
+                            <h6 className="skill_sub">{ skill.subtitle }</h6>
                           </div>
                         </div>
                       </div>
