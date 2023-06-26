@@ -9,7 +9,11 @@ const Index = () => {
     body.classList.remove("d3-dark");
   }, []);
 
-  return <AdminLayout footerClass="bg-gray">{/* <BlogForm /> */}</AdminLayout>;
+  return (
+    <AdminLayout footerClass="bg-gray">
+      <BlogForm />
+    </AdminLayout>
+  );
 };
 
 export default Index;

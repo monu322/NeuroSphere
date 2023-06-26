@@ -6371,3 +6371,23 @@ footer .item .copy-right p a {
   border: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
+
+.admin-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(221, 214, 214);
+  padding: 4px 4px 4px 10px;
+  background-color: rgba(253, 251, 251, 0.819);
+}
+
+.admin-controls .user-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-controls .nav-item .icon {
+  font-size: 1.8rem;
+  color: rgb(13, 18, 77);
+}
