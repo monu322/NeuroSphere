@@ -42,12 +42,12 @@ const Intro = () => {
             </div>
           </div>
           <div className="col-lg-7">
-            <div className="feat">
+            <div className="feat ">
               <div className="row">
                 {
                   IntroData.features.map((item, index) => (
                     <div className="col-lg-6" key={index}>
-                      <div className="item md-mb50">
+                      <div className="item md-mb 50">
                         <div className="img">
                           <img src={item.img} alt="" />
                         </div>

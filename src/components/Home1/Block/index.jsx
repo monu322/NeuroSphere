@@ -15,8 +15,8 @@ const Block = () => {
       <div className="conatiner-fluid">
         <div className="row">
           <div className="col-lg-6 cont section-padding valign bg-dark">
-            <div className="case">
-              <h6 className="fw-500 mb-10">{ BlockData.title }</h6>
+            <div className="case mt-4">
+              <h6 className="fw-500 mb-10 mt-4">{ BlockData.title }</h6>
               <h3 className="gr-text mb-20">{ BlockData.text }</h3>
               <p className="fw-300">{ BlockData.desc }</p>
               <Link href="/about">

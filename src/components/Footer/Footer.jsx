@@ -9,7 +9,7 @@ const Footer = ({ classText }) => {
       <div className="container">
           <div className="row">
               <div className="col-lg-8">
-                  <div className="item md-mb50">
+                  <div className="item md-mb 50 ">
                       <div className="title m-2 p-2">
                           <h5>Contact Us</h5>
                       </div>

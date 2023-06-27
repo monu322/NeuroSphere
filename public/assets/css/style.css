@@ -6084,8 +6084,8 @@ footer .item .copy-right p a {
   }
   .btn-curve {
     padding: 8px 15px;
-    margin-right: 100px;
-    margin-left: 80px;
+    margin-right: 90px;
+    margin-left: 65px;
   }
   .btn-curve span {
     font-size: 15px;
@@ -6153,8 +6153,7 @@ footer .item .copy-right p a {
   }
   .skills-circle .item {
     margin-bottom: 50px;
-
-    margin-left: 120px;
+    margin-left: 105px;
   }
   .team .navs {
     top: 20px;
@@ -6198,9 +6197,11 @@ footer .item .copy-right p a {
   margin-top: -36px;
 }
 .ui-slider.ui-main .parallax-slider .caption h1 {
-  font-size: 53px;
+  font-size: 48px;
   line-height: 1;
-  font-weight: 600;
+  font-weight: 570;
+  margin-top: 1px;
+  margin-left: -7px;
 }
 .team-crs .item {
   padding: 0 15px;
@@ -6226,8 +6227,10 @@ footer .item .copy-right p a {
   margin-left: 22px;
 }
 .fa, .fas {
-  font-size: 26px;
-  margin-top: -12px;
+    font-size: 22px;
+    margin-top: -12px;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 .simpleParallax{
   margin-right: -11px;
@@ -6235,6 +6238,59 @@ footer .item .copy-right p a {
 .fadeInUp {
   margin-right: -10px;
 }
+.ui-slider.ui-main .setone.setwo .next-ctrl {
+  top: 58%;
+  right: 4px;
+  padding-left: 5px;
+  padding-top: 6px;
+}
+.ui-slider.ui-main .setone.setwo .prev-ctrl {
+  top: 58%;
+  left: 4px;
+  padding-right: 5px;
+  padding-top: 6px;
+}
+.services-div {
+  margin-bottom: 40px;
+  margin-top: 60px;
+}
+.ui-slider.ui-main .parallax-slider .caption .btn-curve span {
+  font-size: 17px;
+  margin-left: 26px;
+  margin-right: 23px;
+  line-height: 2;
+}
+.case{
+  padding-top: 70px;
+  margin-bottom: -23px;
+}
+.main-header h3 {
+  font-size: 46px;
+}
+.testimonials .quote-icon {
+  margin-bottom: 33px;
+  width: 150px;
+  height: 150px;
+}
+.testimonials .item p {
+  font-size: 23px;
+}
+.testimonials .controls span {
+  width: 43px;
+  height: 43px;
+}
+.services .item {
+  height: auto;
+  margin-bottom: -80px;
+}
+.page-header .img-wrapper .bg-img {
+  position: relative;
+  min-height: 70vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.ui-block .cont h3 {
+  font-size: 58px;
 }
 
 @media screen and (max-width: 480px) {
@@ -6350,7 +6406,7 @@ footer .item .copy-right p a {
 }
 
 .team-img-holder {
-  height: 300px;
+  height: 400px;
   overflow: hidden;
 }
 

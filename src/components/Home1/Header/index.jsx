@@ -92,7 +92,7 @@ const Header = () => {
                                 { slide.content }
                               </p>
                               <Link href="/about">
-                                <a className="btn-curve btn-lit mt-30">
+                                <a className="btn-curve btn-lit mt-30 m-4 ">
                                   <span>Learn More</span>
                                 </a>
                               </Link>
