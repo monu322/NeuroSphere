@@ -4,7 +4,7 @@ import { Nav, NavItem, NavLink } from "reactstrap";
 const Controls = () => {
   return (
     <div className=" admin-controls">
-      <input type="text" />
+      <input type="text" placeholder="Search" />
       <div className="user-details">
         <ul className="d-flex justify-content-between">
           <li className="nav-item ">
