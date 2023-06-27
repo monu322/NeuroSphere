@@ -26,8 +26,8 @@ const Testimonials = () => {
 
   return (
     <>
-      <section className="block-sec">
-        <div className="background bg-img section-padding pb-0" data-background="/assets/img/1.jpg" data-overlay-dark="6">
+      <section className="block-sec mt-4 pt-4">
+        <div className="background bg-img section-padding pb-0 " data-background="/assets/img/1.jpg" data-overlay-dark="6">
           <div className="container">
             <div className="row">
               <div className="col-lg-6">

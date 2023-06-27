@@ -9,13 +9,13 @@ const Skills = () => {
         <div className="row">
           <div className="col-lg-7">
             <div>
-              <div className="row">
+              <div className="row mt-4 pt-4">
                 {
                   SkillsData.map((skill, index) => (
-                    <div className="col-md-4" key={skill.id}>
+                    <div className="col-md-4 mt-4 pt-4" key={skill.id}>
                       <div className="item wow fadeInLeft mt-20" data-wow-delay={`${index === 1 ? '0.6' : '0.3'}`}>
-                        <div className="skill" data-value={skill.value / 100}>
-                          <span className="custom-font">
+                        <div className="skill mt-4 pt-4" data-value={skill.value / 100}>
+                          <span className="custom-font mt-4 ">
                             <CircularProgressbar
                               strokeWidth={2}
                               value={skill.value}

@@ -12,11 +12,11 @@ const Works = () => {
   }, []);
 
   return (
-    <section className="ui-works section-padding home-portfolio-section">
+    <section className="ui-works section-padding home-portfolio-section ">
       <div className="container">
-        <div className="row">
+        <div className="row mt-4">
           <div className="col-lg-7">
-            <div className="main-header">
+            <div className="main-header mt-4 pt-4">
               <h6>Our Portfolio</h6>
               <h3>Check out our work.</h3>
             </div>

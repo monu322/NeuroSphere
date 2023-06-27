@@ -22,10 +22,10 @@ const Testimonials = () => {
 
   return (
     <section className="testimonials section-padding bg-dark position-re">
-      <div className="container">
-        <div className="row">
+      <div className="container mt-4">
+        <div className="row p-2">
           <div className="col-lg-3">
-            <div className="quote-icon">
+            <div className="quote-icon mt-4">
               <img src="assets/img/clients/quote.svg" alt="" />
             </div>
           </div>
