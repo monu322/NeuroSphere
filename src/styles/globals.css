@@ -1,20 +1,23 @@
-a, .nav-link, .works.filter-img .filtering .filter span {
+a,
+.nav-link,
+.works.filter-img .filtering .filter span {
   cursor: pointer;
 }
 
 .lightbox-container {
   background: rgba(0, 0, 0, 0.8);
-  z-index: 9999!important;
+  z-index: 9999 !important;
 }
 
-.lightBox_prev, .lightBox_next {
+.lightBox_prev,
+.lightBox_next {
   cursor: pointer;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   color: #fff;
   font-size: 60px;
-  z-index: 99999!important;
+  z-index: 99999 !important;
 }
 
 .lightBox_prev {
@@ -105,7 +108,7 @@ a, .nav-link, .works.filter-img .filtering .filter span {
 }
 
 .modal-video-movie-wrap {
-  padding-bottom: 0!important;
+  padding-bottom: 0 !important;
   width: 100%;
   height: 100%;
 }
@@ -135,4 +138,17 @@ a, .nav-link, .works.filter-img .filtering .filter span {
   100% {
     opacity: 0;
   }
+}
+
+.loading-spinner {
+  background: url("/assets/img/loading_spinner.svg") no-repeat;
+  background-size: 30px;
+  background-position: center;
+  padding: 25px 50px;
+}
+
+.formMessages {
+  margin-top: 20px;
+  color: #48ca7d;
+  font-style: italic;
 }

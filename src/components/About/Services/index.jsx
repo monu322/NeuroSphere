@@ -2,9 +2,9 @@ import ServicesData from '../../../data/About/Services.json';
 
 const Services = () => {
   return (
-    <div className="services section-padding">
-      <div className="container">
-        <div className="row">
+    <div className="services section-padding ">
+      <div className="container ">
+        <div className="row ">
           {
             ServicesData.map((service, index) => (
               <div className="col-lg-4 service-box" key={service.id}>

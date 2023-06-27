@@ -77,7 +77,7 @@ const Header = () => {
                       <div className="container">
                         <div className="row">
                           <div className="col-lg-12 col-md-12">
-                            <div className="caption center">
+                            <div className="caption center p-2">
                               <h1 data-splitting>
                                 {slide.title.first}
                                 {
@@ -88,7 +88,7 @@ const Header = () => {
                                   </>
                                 }
                               </h1>
-                              <p>
+                              <p className="para ">
                                 { slide.content }
                               </p>
                               <Link href="/about">

@@ -8,7 +8,7 @@ const Team = () => {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-7">
-            <div className="main-header text-center">
+            <div className="main-header text-center ">
               <h6>Our Team</h6>
               <h3>Meet the people.</h3>
             </div>
@@ -20,8 +20,8 @@ const Team = () => {
           {
             TeamData.map((teamMember, index) => (
               index <= 3 &&
-              <div className={`col-lg-3 col-md-6 item ${teamMember.hoverClass}`} key={index}>
-                <div className="img">
+              <div className={`col-lg-3 col-md-6 item m-0 p-0${teamMember.hoverClass}`} key={index}>
+                <div className="img m-0 p-0">
                   <img src={teamMember.img} alt="team member" />
                 </div>
                 <div className="info valign">

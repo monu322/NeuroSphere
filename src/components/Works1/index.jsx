@@ -20,7 +20,7 @@ const Works = () => {
             <div className="filter">
               {
                 WorksData.filters.map((filter, index) => (
-                  <span data-filter={filter.operator} className={filter.operator === '*' && 'active'} key={index}>{ filter.title }</span>
+                  <span data-filter={filter.operator} className={filter.operator === '*'?'active':''} key={index}>{ filter.title }</span>
                 ))
               }
             </div>
@@ -31,7 +31,7 @@ const Works = () => {
               WorksData.works.map((work, index) => (
                 <div className={`col-lg-4 col-md-6 items ${work.type} ${(index === 0 || index === 2) && 'lg-mr'}`} key={index}>
                   <div className="item-img wow fadeInUp" data-wow-delay=".4s">
-                    <Link href='/project'>
+                    <Link href={`/works/${index+1}`}>
                       <a><img src={work.img} alt="image" /></a>
                     </Link>
                   </div>

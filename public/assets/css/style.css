@@ -5780,8 +5780,10 @@ footer .item .copy-right p a {
   .md-mb40 {
     margin-bottom: 40px;
   }
+
   .md-mb50 {
     margin-bottom: 50px;
+    margin-top: 140px;
   }
   .md-mb60 {
     margin-bottom: 60px;
@@ -6040,7 +6042,8 @@ footer .item .copy-right p a {
     padding-bottom: 80px;
   }
   .container {
-    max-width: 540px;
+    max-width: 100%;
+    padding:0px 35px;
   }
   h1 {
     font-size: 35px;
@@ -6065,7 +6068,7 @@ footer .item .copy-right p a {
     bottom: 15px;
   }
   .navbar .logo {
-    width: 40px;
+    width: 200px;
   }
   .hamenu .menu-links .main-menu > li {
     font-size: 24px;
@@ -6081,10 +6084,14 @@ footer .item .copy-right p a {
   }
   .btn-curve {
     padding: 8px 15px;
+    margin-right: 100px;
+    margin-left: 80px;
   }
   .btn-curve span {
     font-size: 15px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    margin-left: 8px;
+    margin-right: 3px;
   }
   .slider .parallax-slider .caption h1 {
     font-size: 40px;
@@ -6146,6 +6153,8 @@ footer .item .copy-right p a {
   }
   .skills-circle .item {
     margin-bottom: 50px;
+
+    margin-left: 120px;
   }
   .team .navs {
     top: 20px;
@@ -6167,6 +6176,65 @@ footer .item .copy-right p a {
   .team-crv .img-box .img.sizmd {
     margin-bottom: 30px;
   }
+  .project-title-container h3 {
+    margin-right: 25px;
+  }
+  .section-padding {
+    margin-top: 10px;
+    padding-top: 5px;
+    margin-bottom: -60px;
+}
+.skills-circle .skill span {
+  margin-top: 155px;
+}
+.page-header .img-wrapper .title {
+  padding-top: 40px;
+}
+.works-header {
+  min-height: 50vh;
+}
+.page-header .img-wrapper .title h3 {
+  font-size: 53px;
+  margin-top: -36px;
+}
+.ui-slider.ui-main .parallax-slider .caption h1 {
+  font-size: 53px;
+  line-height: 1;
+  font-weight: 600;
+}
+.team-crs .item {
+  padding: 0 15px;
+  margin-left: -117px;
+}
+.block-sec .testim-box {
+    margin-top: 12px;
+    margin-left: 8px;
+}
+.btn-curve.btn-lit {
+  margin-bottom: 100px;
+}
+.body.bg-gr .bg-gray {
+  margin-top: -288px;
+}
+.btn-curve.btn-lg {
+  margin-left: 97px;
+}
+.skill_title{
+  margin-left: 21px;
+}
+.skill_sub{
+  margin-left: 22px;
+}
+.fa, .fas {
+  font-size: 26px;
+  margin-top: -12px;
+}
+.simpleParallax{
+  margin-right: -11px;
+}
+.fadeInUp {
+  margin-right: -10px;
+}
 }
 
 @media screen and (max-width: 480px) {
@@ -6394,6 +6462,78 @@ footer .item .copy-right p a {
   font-size: 16px;
   color: #292929;
   font-weight: 500;
+}
+/* ============= [ Login ] =============== */
+
+.page-header .login {
+  width: 30%;
+  /* border: 1px solid gray; */
+  border-radius: 10px;
+  box-shadow: 0 0 6px 1px rgb(69 70 105 / 50%);
+}
+
+.page-header .login h4 {
+  margin-bottom: 1.6rem;
+  font-size: 1.6rem;
+  font-family: "poppins", sans-serif;
+}
+
+.page-header .login .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.page-header .login label {
+  margin-bottom: 2px;
+  color: #777;
+  font-weight: bold;
+}
+
+.page-header .login .input {
+  background: transparent;
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding: 8px;
+  color: white;
+}
+
+.page-header .login .input:focus {
+  border-color: white;
+}
+
+.log-btn span {
+  font-size: 18px;
+  font-weight: 600;
+}
+.log-btn {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  border-radius: 4px;
+  height: 2.625rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+
+.log-btn:hover {
+  background-color: rgb(210, 213, 223);
+}
+
+.link-to {
+  font-size: 15px;
+}
+.fgt-pswd {
+  font-size: 15px;
+}
+.link-to:hover {
+  color: white;
+  transition: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.fgt-pswd:hover {
+  color: white;
+  transition: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 .btn-blog {

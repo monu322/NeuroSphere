@@ -13,7 +13,7 @@ const Skills = () => {
                 {
                   SkillsData.map((skill, index) => (
                     <div className="col-md-4" key={skill.id}>
-                      <div className="item wow fadeInLeft" data-wow-delay={`${index === 1 ? '0.6' : '0.3'}`}>
+                      <div className="item wow fadeInLeft mt-20" data-wow-delay={`${index === 1 ? '0.6' : '0.3'}`}>
                         <div className="skill" data-value={skill.value / 100}>
                           <span className="custom-font">
                             <CircularProgressbar
