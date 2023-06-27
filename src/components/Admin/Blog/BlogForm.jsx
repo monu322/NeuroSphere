@@ -65,7 +65,7 @@ const BlogForm = () => {
             <div className="cont text-dark mb-3 blg-head">Create Blog</div>
             {notification}
 
-            <div className="blog-box p-4 w-75">
+            <div className="blog-box p-4">
               <Formik
                 const
                 initialValues={initialValues}
@@ -136,7 +136,7 @@ const BlogForm = () => {
                         id="form_title"
                         type="text"
                         name="title"
-                        placeholder="Blog Title"
+                        placeholder="John Doe"
                         required="required"
                         className="border border-secondary"
                       />
