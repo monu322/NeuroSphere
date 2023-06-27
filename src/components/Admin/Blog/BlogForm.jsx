@@ -59,17 +59,13 @@ const BlogForm = () => {
   return (
     <>
       {/* <section className="page-header crs"> */}
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-lg-10 col-md-9">
-            <div className="cont text-center h2 text-secondary">
-              Create Blog
-            </div>
+      <div className="container mt-2">
+        <div className="row justify-content-start">
+          <div className="col-lg-8 col-md-7">
+            <div className="cont text-dark mb-3 blg-head">Create Blog</div>
             {notification}
 
-            <div className="border border-secondary rounded border-2 p-4 w-75">
-              {" "}
-              {/* mb-100 */}
+            <div className="blog-box p-4">
               <Formik
                 const
                 initialValues={initialValues}
@@ -87,6 +83,7 @@ const BlogForm = () => {
                         name="title"
                         placeholder="Blog Title"
                         required="required"
+                        className="border border-secondary"
                       />
                     </div>
 
@@ -113,7 +110,7 @@ const BlogForm = () => {
                       />
                     </div>
 
-                    <button type="submit" className="btn-curve btn-lit">
+                    <button type="submit" className="btn-blog">
                       <span>Create</span>
                     </button>
                   </div>
@@ -121,14 +118,88 @@ const BlogForm = () => {
               </Formik>
             </div>
           </div>
+          <div className="row-lg-3 row-md-2 w-25 d-flex flex-column justify-content-around">
+            <div className="blog-box p-4 w-100">
+              <h4 className="text-dark">Author Info</h4>
+              <Formik
+                const
+                initialValues={initialValues}
+                onSubmit={handleSubmit}
+              >
+                <Form>
+                  {errMessage && <div className="messages">{errMessage}</div>}
+
+                  <div className="controls blog-form">
+                    <div className="form-group d-flex flex-column">
+                      <label htmlFor="Title">Name</label>
+                      <Field
+                        id="form_title"
+                        type="text"
+                        name="title"
+                        placeholder="John Doe"
+                        required="required"
+                        className="border border-secondary"
+                      />
+                    </div>
+
+                    <div className="form-group d-flex flex-column">
+                      <label htmlFor="Tag">About</label>
+                      <Field
+                        id="form_tag"
+                        type="text"
+                        name="tags"
+                        placeholder="Technology, Real Estate"
+                        required="required"
+                      />
+                    </div>
+                    <div className="form-group d-flex flex-column">
+                      <label htmlFor="Tag">Add Image</label>
+                      <input type="file" />
+                    </div>
+                  </div>
+                </Form>
+              </Formik>
+            </div>
+            <div className="blog-box p-4 w-100">
+              <h4 className="text-dark">Author Info</h4>
+              <Formik
+                const
+                initialValues={initialValues}
+                onSubmit={handleSubmit}
+              >
+                <Form>
+                  {errMessage && <div className="messages">{errMessage}</div>}
+
+                  <div className="controls blog-form">
+                    <div className="form-group d-flex flex-column">
+                      <label htmlFor="Title">Name</label>
+                      <Field
+                        id="form_title"
+                        type="text"
+                        name="title"
+                        placeholder="Blog Title"
+                        required="required"
+                        className="border border-secondary"
+                      />
+                    </div>
+
+                    <div className="form-group d-flex flex-column">
+                      <label htmlFor="Tag">About</label>
+                      <Field
+                        id="form_tag"
+                        type="text"
+                        name="tags"
+                        placeholder="Technology, Real Estate"
+                        required="required"
+                      />
+                    </div>
+                  </div>
+                </Form>
+              </Formik>
+            </div>
+          </div>
         </div>
       </div>
-      {/* </section> */}
-      {/* <div className="col-lg-6">
-        <div className="form md-mb50">
-          <h4 className="extra-title mb-50">Get In Touch.</h4>
-        </div>
-      </div> */}
     </>
   );
 };

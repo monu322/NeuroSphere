@@ -6432,12 +6432,37 @@ footer .item .copy-right p a {
 /* ==================== [ Admin Form ] =================/ */
 .blog-form .form-group input,
 .blog-form .form-group textarea {
-  color: #fff;
+  color: rgb(52, 51, 51);
   width: 100%;
-  padding: 5px 0;
+  padding: 5px 10px;
   background: transparent;
-  border: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgb(160, 158, 158) !important;
+  border-radius: 4px;
+}
+.blog-form .form-group textarea {
+  height: 300px;
+  resize: none;
+}
+.blog-box {
+  width: 95%;
+  box-shadow: 0 0 6px 0 rgba(179, 179, 184, 0.5);
+}
+
+.blog-box h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.blg-head {
+  font-size: 28px;
+  font-weight: 500;
+  font-family: "poppins", sans-serif;
+}
+.blog-form label {
+  font-size: 16px;
+  color: #292929;
+  font-weight: 500;
+}
 /* ============= [ Login ] =============== */
 
 .page-header .login {
@@ -6511,13 +6536,30 @@ footer .item .copy-right p a {
   transition-duration: 150ms;
 }
 
+.btn-blog {
+  border: none;
+  border-radius: 4px;
+  /* background-color: #8ea9e5; */
+  background-color: #222733;
+  padding: 10px 20px;
+  outline: none;
+  color: white;
+}
 .admin-controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgb(221, 214, 214);
   padding: 4px 4px 4px 10px;
-  background-color: rgba(253, 251, 251, 0.819);
+  background-color: rgba(253, 251, 251, 0.541);
+}
+
+.admin-controls input {
+  background-color: rgba(234, 234, 234, 0.57);
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  padding: 6px 12px;
 }
 
 .admin-controls .user-details {
