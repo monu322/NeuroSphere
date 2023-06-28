@@ -84,7 +84,7 @@ const Index = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-3 col-md-4">
-              <div className="htit sm-mb30">
+              <div className="htit sm-mb30 ">
                 <h4>The Objective</h4>
               </div>
             </div>
@@ -98,8 +98,8 @@ const Index = () => {
               </div>
             </div>
           </div>
-          <div className="row execution-row">
-            <div className="col-lg-3 col-md-4">
+          <div className="row execution-row pt-4">
+            <div className="col-lg-3 col-md-4 pt-2">
               <div className="htit sm-mb30">
                 <h4>The Execution</h4>
               </div>
@@ -131,9 +131,9 @@ const Index = () => {
               ))
             }
           </div>
-          <div className="row execution-row mb-80">
-            <div className="col-lg-3 col-md-4">
-              <div className="htit sm-mb30">
+          <div className="row execution-row mb-80 pt-4">
+            <div className="col-lg-3 col-md-4 pt-4 mt-4">
+              <div className="htit sm-mb30 mt-4 ">
                 <h4>The Outcome</h4>
               </div>
             </div>
@@ -163,9 +163,9 @@ const Index = () => {
           </div>
         </div>
       </div>
-      <section className="block-sec">
-        <div className="background bg-img section-padding pb-0" data-background="/assets/img/1.jpg" data-overlay-dark="6">
-          <div className="container">
+      <section className="block-sec pt-4">
+        <div className="background bg-img section-padding pb-0 " data-background="/assets/img/1.jpg" data-overlay-dark="6">
+          <div className="container mt-4 ">
             <div className="row">
               <div className="col-lg-6">
                 <div className="vid-area">
@@ -246,10 +246,10 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-5">
+            <div className="col-lg-5 mt-4 pt-4">
               <br/><br/>
               <br/><br/>
-              <a href={`/works/${next}`} className="btn-curve btn-lit"><span>Next Project</span></a>
+              <a href={`/works/${next}`} className="btn-curve btn-lit mt-4 "><span>Next Project</span></a>
             </div>
           </div>
         </div>

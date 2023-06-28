@@ -13,8 +13,8 @@ const Works = () => {
 
   return (
     <section className="portfolio section-padding pb-70">
-      <div className="container">
-        <div className="row">
+      <div className="container ">
+        <div className="row ">
           {/* filter links */}
           <div className="filtering text-right smplx col-12">
             <div className="filter">
