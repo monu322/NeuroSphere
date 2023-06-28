@@ -1,12 +1,16 @@
-import db from "../../config/fire-config";
+import db, { auth } from "../../config/fire-config";
 import { collection, addDoc } from "firebase/firestore";
 import React, { useState } from "react";
 import { Field, Form, Formik } from "formik";
 import Link from "next/link";
+import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import { useRouter } from "next/router";
 
 const Signup = () => {
   const [errMessage, setErrMessage] = useState(null);
   const [notification, setNotification] = useState();
+
+  const router = useRouter();
 
   const initialValues = {
     name: "",
@@ -34,17 +38,25 @@ const Signup = () => {
     return true;
   };
 
-  const createBlog = async ({ name, email, password }) => {
+  const signInWithGoogle = async () => {
+    const user = await signInWithPopup(auth, googleProvider);
+    router.push("/");
+  };
+
+  const createUser = async ({ name, email, password }) => {
+    const user = await createUserWithEmailAndPassword(auth, email, password);
+    console.log(user.user.uid);
     const userCollection = collection(db, "users");
-    const res = await addDoc(userCollection, {
-      name,
-      email,
-      password,
+    const data = await addDoc(userCollection, {
+      userId: user?.user.uid,
+      role: "user",
     });
+    await signOut(auth);
     setNotification("Account created successfully");
     setTimeout(() => {
       setNotification("");
     }, 2000);
+    router.push("/auth/signin");
   };
 
   const handleSubmit = async (values, { setSubmitting }) => {
@@ -52,7 +64,7 @@ const Signup = () => {
       console.log(JSON.stringify(values));
       setErrMessage(null);
       setSubmitting(false);
-      createBlog(values);
+      createUser(values);
     }
   };
   return (
@@ -118,6 +130,14 @@ const Signup = () => {
                   </Form>
                 </Formik>
               </div>
+              <p className="text-center mt-1 mb-1 text-white">or</p>
+              <button
+                onClick={signInWithGoogle}
+                type="submit"
+                className="google-btn bg-primary"
+              >
+                <span className="mx-auto">Continue with google</span>
+              </button>
             </div>
           </div>
         </div>

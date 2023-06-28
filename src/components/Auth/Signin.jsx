@@ -1,10 +1,15 @@
-import db from "../../config/fire-config";
-import { collection, addDoc } from "firebase/firestore";
+import db, { auth, googleProvider } from "../../config/fire-config";
+import { collection, addDoc, getDoc } from "firebase/firestore";
 import React, { useState } from "react";
 import { Field, Form, Formik } from "formik";
 import Link from "next/link";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { useRouter } from "next/router";
+
+const admin = false;
 
 const Signin = () => {
+  const router = useRouter();
   const [errMessage, setErrMessage] = useState(null);
   const [notification, setNotification] = useState();
 
@@ -29,16 +34,26 @@ const Signin = () => {
     return true;
   };
 
-  const createBlog = async ({ email, password }) => {
-    const blogCollection = collection(db, "users");
-    const res = await addDoc(blogCollection, {
-      email,
-      password,
-    });
-    setNotification("User Verified");
+  const signInWithGoogle = async () => {
+    const user = await signInWithPopup(auth, googleProvider);
+    router.push("/");
+  };
+
+  const signInWithEmail = async ({ email, password }) => {
+    const user = await signInWithEmailAndPassword(auth, email, password);
+    console.log(auth.currentUser.uid);
+    const userCollection = collection(db, "users");
+    // const data = await getDoc(userCollection);
+    // console.log(data);
     setTimeout(() => {
       setNotification("");
     }, 2000);
+
+    if (admin) {
+      router.push("/admin");
+    } else {
+      router.push("/");
+    }
   };
 
   const handleSubmit = async (values, { setSubmitting }) => {
@@ -46,7 +61,7 @@ const Signin = () => {
       console.log(JSON.stringify(values));
       setErrMessage(null);
       setSubmitting(false);
-      createBlog(values);
+      signInWithEmail(values);
     }
   };
   return (
@@ -104,6 +119,14 @@ const Signin = () => {
                   </Form>
                 </Formik>
               </div>
+              <p className="text-center mt-1 mb-1 text-white">or</p>
+              <button
+                onClick={signInWithGoogle}
+                type="submit"
+                className="google-btn bg-primary"
+              >
+                <span className="mx-auto">Continue with google</span>
+              </button>
             </div>
           </div>
         </div>
