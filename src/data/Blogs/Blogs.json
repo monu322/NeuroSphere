@@ -2,10 +2,7 @@
   {
     "id": 1,
     "img": "/assets/img/blog/b1.jpg",
-    "date": {
-      "day": "07",
-      "month": "May"
-    },
+    "date": "07 May",
     "tags": [
       "Artificial Intelligence",
       "Software Development",
@@ -17,56 +14,11 @@
       {
         "heading":"",
         "paragraphs":[
-          "Artificial intelligence (AI) is transforming the software development industry, enabling developers to create more efficient, effective, and innovative software products. From voice-enabled software development to UI creation from user stories using AI, the possibilities of AI in software development are endless. In this article, we'll explore the future of AI in software development and how it's changing the way we build software."
+          "Artificial intelligence (AI) is transforming the software development industry, enabling developers to create more efficient, and innovative software products. From voice-enabled software development to UI creation from user stories using AI, the possibilities of AI in software development are endless. In this article, we'll explore the future of AI in software development and how it's changing the way we build software."
         ],
         "images": ["/assets/images/blog/3/10.jpg"]
       }   
     ]
     
-  },
-  {
-    "id": 2,
-    "img": "/assets/img/blog/b2.jpg",
-    "date": {
-      "day": "07",
-      "month": "August"
-    },
-    "tags": [
-      "WordPress",
-      "Themeforest",
-      "Ruko"
-    ],
-    "title": "Build a Beautiful Blog With Ease",
-    "content": "My job is simple and sophisticated, so it is possible to describe and simple, and flowery language. I love the feel and sophistication of its superiority. I like people with a keen mind and at the same time easy to talk to. These qualities can be combined perfectly natural. However, things like people look miserable, if these properties are connected."
-  },
-  {
-    "id": 3,
-    "img": "/assets/img/blog/b3.jpg",
-    "date": {
-      "day": "07",
-      "month": "August"
-    },
-    "tags": [
-      "WordPress",
-      "Themeforest",
-      "Ruko"
-    ],
-    "title": "Build a Beautiful Blog With Ease",
-    "content": "My job is simple and sophisticated, so it is possible to describe and simple, and flowery language. I love the feel and sophistication of its superiority. I like people with a keen mind and at the same time easy to talk to. These qualities can be combined perfectly natural. However, things like people look miserable, if these properties are connected."
-  },
-  {
-    "id": 4,
-    "img": "/assets/img/blog/b4.jpg",
-    "date": {
-      "day": "07",
-      "month": "August"
-    },
-    "tags": [
-      "WordPress",
-      "Themeforest",
-      "Ruko"
-    ],
-    "title": "Build a Beautiful Blog With Ease",
-    "content": "My job is simple and sophisticated, so it is possible to describe and simple, and flowery language. I love the feel and sophistication of its superiority. I like people with a keen mind and at the same time easy to talk to. These qualities can be combined perfectly natural. However, things like people look miserable, if these properties are connected."
   }
 ]
