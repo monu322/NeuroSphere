@@ -6085,13 +6085,16 @@ footer .item .copy-right p a {
   .btn-curve {
     padding: 8px 15px;
     margin-right: 90px;
-    margin-left: 65px;
+    margin-left: 61px;
   }
   .btn-curve span {
     font-size: 15px;
     letter-spacing: 2px;
-    margin-left: 8px;
-    margin-right: 3px;
+    margin-left: 19px;
+    margin-right: -22px;
+    padding-right: 63px;
+    padding-left: 12px;
+    text-align: center;
   }
   .slider .parallax-slider .caption h1 {
     font-size: 40px;
@@ -6152,8 +6155,9 @@ footer .item .copy-right p a {
     padding-bottom: 0 !important;
   }
   .skills-circle .item {
-    margin-bottom: 50px;
+    margin-bottom: -100px;
     margin-left: 105px;
+    margin-top: 160px;
   }
   .team .navs {
     top: 20px;
@@ -6184,7 +6188,7 @@ footer .item .copy-right p a {
     margin-bottom: -60px;
 }
 .skills-circle .skill span {
-  margin-top: 155px;
+  margin-top: 44px;
 }
 .page-header .img-wrapper .title {
   padding-top: 40px;
@@ -6193,8 +6197,8 @@ footer .item .copy-right p a {
   min-height: 50vh;
 }
 .page-header .img-wrapper .title h3 {
-  font-size: 53px;
-  margin-top: -36px;
+  font-size: 48px;
+  margin-top: -41px;
 }
 .ui-slider.ui-main .parallax-slider .caption h1 {
   font-size: 48px;
@@ -6212,7 +6216,13 @@ footer .item .copy-right p a {
     margin-left: 8px;
 }
 .btn-curve.btn-lit {
-  margin-bottom: 100px;
+  margin-bottom: 160px;
+  margin-left: 41px;
+  margin-right: 47px;
+}
+.call-action .btn-curve span {
+  font-size: 17px;
+  font-weight: 600;
 }
 .body.bg-gr .bg-gray {
   margin-top: -288px;
@@ -6236,7 +6246,8 @@ footer .item .copy-right p a {
   margin-right: -11px;
 }
 .fadeInUp {
-  margin-right: -10px;
+  margin-right: -14px;
+  margin-left: -14px;
 }
 .ui-slider.ui-main .setone.setwo .next-ctrl {
   top: 58%;
@@ -6291,6 +6302,34 @@ footer .item .copy-right p a {
 }
 .ui-block .cont h3 {
   font-size: 58px;
+}
+.portfolio .gallery .items .cont span {
+  font-weight: 500;
+  font-size: 14px;
+}
+.section-padding {
+  padding: 0px 0;
+}
+.cont-info{
+  margin-top: -42px;
+}
+.contact .cont-info .item h5 {
+  font-size: 17px;
+  font-weight: 500;
+}
+.contact .cont-info .item h6 {
+  font-size: 15px;
+  font-weight: 400;
+}
+.bg-img{
+  margin-bottom: -63px;
+}
+.block-sec{
+  margin-top: 140px;
+}
+footer .item .title h5 {
+  margin-bottom: 30px;
+  margin-top: -50px;
 }
 
 @media screen and (max-width: 480px) {

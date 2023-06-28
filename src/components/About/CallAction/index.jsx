@@ -11,7 +11,7 @@ const CallAction = () => {
 
   return (
     <div className="call-action section-padding bg-img" data-background="/assets/img/pattern.png">
-      <div className="container">
+      <div className="container mt-4 pt-4">
         <div className="row">
           <div className="col-md-8 col-lg-9">
             <div className="content sm-mb30">
@@ -24,9 +24,9 @@ const CallAction = () => {
             </div>
           </div>
 
-          <div className="call-action col-md-4 col-lg-3 valign">
+          <div className="call-action col-md-4 col-lg-3 valign mt-2">
             <Link href="/contact">
-              <a className="btn-curve btn-lit"><span>Get In Touch</span></a>
+              <a className="btn-curve btn-lit mt-4 "><span>Get In Touch</span></a>
             </Link>
           </div>
         </div>

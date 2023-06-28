@@ -4,7 +4,7 @@ import 'react-circular-progressbar/dist/styles.css';
 
 const Skills = () => {
   return (
-    <section className="skills-circle bg-gray pt-50 pb-50">
+    <section className="skills-circle bg-gray pt-50 pb-50 ">
       <div className="container">
         <div className="row">
           <div className="col-lg-7">
