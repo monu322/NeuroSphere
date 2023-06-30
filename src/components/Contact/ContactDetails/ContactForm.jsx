@@ -78,8 +78,8 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="col-lg-6">
-      <div className="form md-mb50">
+    <div className="col-lg-6 mt-4 pt-2">
+      <div className="form md-mb 50 mt-4 pt-4">
         <h4 className="extra-title mb-50">Get In Touch.</h4>
 
         <Formik

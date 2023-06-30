@@ -1,17 +1,21 @@
 import db, { auth, googleProvider } from "../../config/fire-config";
-import { collection, addDoc, getDoc } from "firebase/firestore";
-import React, { useState } from "react";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import React, { useContext, useEffect, useState } from "react";
 import { Field, Form, Formik } from "formik";
 import Link from "next/link";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useRouter } from "next/router";
+import { AuthContext } from "../../context/AuthProvider";
 
-const admin = false;
+let role = "";
 
 const Signin = () => {
   const router = useRouter();
   const [errMessage, setErrMessage] = useState(null);
   const [notification, setNotification] = useState();
+
+  const authInfo = useContext(AuthContext);
+  console.log(authInfo);
 
   const initialValues = {
     email: "",
@@ -41,15 +45,25 @@ const Signin = () => {
 
   const signInWithEmail = async ({ email, password }) => {
     const user = await signInWithEmailAndPassword(auth, email, password);
-    console.log(auth.currentUser.uid);
-    const userCollection = collection(db, "users");
-    // const data = await getDoc(userCollection);
-    // console.log(data);
+
+    const q = query(
+      collection(db, "users"),
+      where("userId", "==", user.user.uid)
+    );
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach((doc) => {
+      role = doc.data().role;
+      console.log(role);
+    });
+    authInfo.user = role;
+    authInfo.isLoggedIn = true;
+    localStorage.setItem("authInfo", JSON.stringify(authInfo));
     setTimeout(() => {
       setNotification("");
     }, 2000);
 
-    if (admin) {
+    if (role === "admin") {
       router.push("/admin");
     } else {
       router.push("/");
@@ -64,6 +78,7 @@ const Signin = () => {
       signInWithEmail(values);
     }
   };
+
   return (
     <>
       <section className="page-header">
