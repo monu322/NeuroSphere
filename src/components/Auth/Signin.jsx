@@ -32,10 +32,15 @@ const Signin = () => {
       return false;
     }
     if (formValues.password.length < 7) {
-      setErrMessage("Message must be at least 7 characters");
+      setErrMessage("Password must be at least 7 characters");
       return false;
     }
     return true;
+  };
+  const clearNotification = () => {
+    setTimeout(() => {
+      setNotification("");
+    }, 2000);
   };
 
   const signInWithGoogle = async () => {
@@ -44,29 +49,40 @@ const Signin = () => {
   };
 
   const signInWithEmail = async ({ email, password }) => {
-    const user = await signInWithEmailAndPassword(auth, email, password);
+    try {
+      const user = await signInWithEmailAndPassword(auth, email, password);
 
-    const q = query(
-      collection(db, "users"),
-      where("userId", "==", user.user.uid)
-    );
-    const querySnapshot = await getDocs(q);
+      const q = query(
+        collection(db, "users"),
+        where("userId", "==", user.user.uid)
+      );
+      const querySnapshot = await getDocs(q);
 
-    querySnapshot.forEach((doc) => {
-      role = doc.data().role;
-      console.log(role);
-    });
-    authInfo.user = role;
-    authInfo.isLoggedIn = true;
-    localStorage.setItem("authInfo", JSON.stringify(authInfo));
-    setTimeout(() => {
-      setNotification("");
-    }, 2000);
+      querySnapshot.forEach((doc) => {
+        role = doc.data().role;
+        console.log(role);
+      });
 
-    if (role === "admin") {
-      router.push("/admin");
-    } else {
-      router.push("/");
+      authInfo.user = role;
+      authInfo.isLoggedIn = true;
+      localStorage.setItem("authInfo", JSON.stringify(authInfo));
+
+      clearNotification();
+      if (role === "admin") {
+        router.push("/admin");
+      } else {
+        router.push("/");
+      }
+    } catch (error) {
+      const errorCode = error.code;
+      if (errorCode === "auth/wrong-password") {
+        setErrMessage("Invalid password or email");
+        clearNotification();
+      }
+      if (errorCode === "auth/user-not-found") {
+        setErrMessage("User not found");
+        clearNotification();
+      }
     }
   };
 
@@ -90,7 +106,7 @@ const Signin = () => {
                 <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                   <Form>
                     {errMessage && (
-                      <div className="form__errormessages">{errMessage}</div>
+                      <div className="form__errorMessage">{errMessage}</div>
                     )}
 
                     <div className="controls blog-form">

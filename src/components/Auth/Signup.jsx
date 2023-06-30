@@ -32,7 +32,7 @@ const Signup = () => {
       return false;
     }
     if (formValues.password.length < 7) {
-      setErrMessage("Message must be at least 7 characters");
+      setErrMessage("Password must be at least 7 characters");
       return false;
     }
     return true;
@@ -71,13 +71,15 @@ const Signup = () => {
     <>
       <section className="page-header">
         <div className="container">
-          <div className="cont">
+          <div className="signup__cont">
             <div className="login border-secondary bg-gray mx-auto p-4">
               <h4 className="text-center text-xl">Sign up</h4>
               <div className="">
                 <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                   <Form>
-                    {errMessage && <div className="messages">{errMessage}</div>}
+                    {errMessage && (
+                      <div className="form__errorMessage">{errMessage}</div>
+                    )}
 
                     <div className="controls blog-form">
                       <div className="form-group d-flex flex-column">

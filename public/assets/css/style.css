@@ -6186,10 +6186,9 @@ footer .item .copy-right p a {
     margin-top: 10px;
     padding-top: 5px;
     margin-bottom: -60px;
-<<<<<<< HEAD
   }
   .skills-circle .skill span {
-    margin-top: 155px;
+    margin-top: 44px;
   }
   .page-header .img-wrapper .title {
     padding-top: 40px;
@@ -6198,8 +6197,8 @@ footer .item .copy-right p a {
     min-height: 50vh;
   }
   .page-header .img-wrapper .title h3 {
-    font-size: 53px;
-    margin-top: -36px;
+    font-size: 48px;
+    margin-top: -41px;
   }
   .ui-slider.ui-main .parallax-slider .caption h1 {
     font-size: 48px;
@@ -6217,7 +6216,13 @@ footer .item .copy-right p a {
     margin-left: 8px;
   }
   .btn-curve.btn-lit {
-    margin-bottom: 100px;
+    margin-bottom: 160px;
+    margin-left: 41px;
+    margin-right: 47px;
+  }
+  .call-action .btn-curve span {
+    font-size: 17px;
+    font-weight: 600;
   }
   .body.bg-gr .bg-gray {
     margin-top: -288px;
@@ -6233,70 +6238,17 @@ footer .item .copy-right p a {
   }
   .fa,
   .fas {
-=======
-}
-.skills-circle .skill span {
-  margin-top: 44px;
-}
-.page-header .img-wrapper .title {
-  padding-top: 40px;
-}
-.works-header {
-  min-height: 50vh;
-}
-.page-header .img-wrapper .title h3 {
-  font-size: 48px;
-  margin-top: -41px;
-}
-.ui-slider.ui-main .parallax-slider .caption h1 {
-  font-size: 48px;
-  line-height: 1;
-  font-weight: 570;
-  margin-top: 1px;
-  margin-left: -7px;
-}
-.team-crs .item {
-  padding: 0 15px;
-  margin-left: -117px;
-}
-.block-sec .testim-box {
-    margin-top: 12px;
-    margin-left: 8px;
-}
-.btn-curve.btn-lit {
-  margin-bottom: 160px;
-  margin-left: 41px;
-  margin-right: 47px;
-}
-.call-action .btn-curve span {
-  font-size: 17px;
-  font-weight: 600;
-}
-.body.bg-gr .bg-gray {
-  margin-top: -288px;
-}
-.btn-curve.btn-lg {
-  margin-left: 97px;
-}
-.skill_title{
-  margin-left: 21px;
-}
-.skill_sub{
-  margin-left: 22px;
-}
-.fa, .fas {
->>>>>>> 23a875b86f9ee2395cd4711ff1c2fe8f94ce0ea1
     font-size: 22px;
     margin-top: -12px;
     padding-right: 5px;
     padding-left: 5px;
-<<<<<<< HEAD
   }
   .simpleParallax {
     margin-right: -11px;
   }
   .fadeInUp {
-    margin-right: -10px;
+    margin-right: -14px;
+    margin-left: -14px;
   }
   .ui-slider.ui-main .setone.setwo .next-ctrl {
     top: 58%;
@@ -6352,99 +6304,35 @@ footer .item .copy-right p a {
   .ui-block .cont h3 {
     font-size: 58px;
   }
-=======
+  .portfolio .gallery .items .cont span {
+    font-weight: 500;
+    font-size: 14px;
+  }
+  .section-padding {
+    padding: 0px 0;
+  }
+  .cont-info {
+    margin-top: -42px;
+  }
+  .contact .cont-info .item h5 {
+    font-size: 17px;
+    font-weight: 500;
+  }
+  .contact .cont-info .item h6 {
+    font-size: 15px;
+    font-weight: 400;
+  }
+  .bg-img {
+    margin-bottom: -63px;
+  }
+  .block-sec {
+    margin-top: 140px;
+  }
+  footer .item .title h5 {
+    margin-bottom: 30px;
+    margin-top: -50px;
+  }
 }
-.simpleParallax{
-  margin-right: -11px;
-}
-.fadeInUp {
-  margin-right: -14px;
-  margin-left: -14px;
-}
-.ui-slider.ui-main .setone.setwo .next-ctrl {
-  top: 58%;
-  right: 4px;
-  padding-left: 5px;
-  padding-top: 6px;
-}
-.ui-slider.ui-main .setone.setwo .prev-ctrl {
-  top: 58%;
-  left: 4px;
-  padding-right: 5px;
-  padding-top: 6px;
-}
-.services-div {
-  margin-bottom: 40px;
-  margin-top: 60px;
-}
-.ui-slider.ui-main .parallax-slider .caption .btn-curve span {
-  font-size: 17px;
-  margin-left: 26px;
-  margin-right: 23px;
-  line-height: 2;
-}
-.case{
-  padding-top: 70px;
-  margin-bottom: -23px;
-}
-.main-header h3 {
-  font-size: 46px;
-}
-.testimonials .quote-icon {
-  margin-bottom: 33px;
-  width: 150px;
-  height: 150px;
-}
-.testimonials .item p {
-  font-size: 23px;
-}
-.testimonials .controls span {
-  width: 43px;
-  height: 43px;
-}
-.services .item {
-  height: auto;
-  margin-bottom: -80px;
-}
-.page-header .img-wrapper .bg-img {
-  position: relative;
-  min-height: 70vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.ui-block .cont h3 {
-  font-size: 58px;
->>>>>>> 23a875b86f9ee2395cd4711ff1c2fe8f94ce0ea1
-}
-.portfolio .gallery .items .cont span {
-  font-weight: 500;
-  font-size: 14px;
-}
-.section-padding {
-  padding: 0px 0;
-}
-.cont-info{
-  margin-top: -42px;
-}
-.contact .cont-info .item h5 {
-  font-size: 17px;
-  font-weight: 500;
-}
-.contact .cont-info .item h6 {
-  font-size: 15px;
-  font-weight: 400;
-}
-.bg-img{
-  margin-bottom: -63px;
-}
-.block-sec{
-  margin-top: 140px;
-}
-footer .item .title h5 {
-  margin-bottom: 30px;
-  margin-top: -50px;
-}
-
 
 @media screen and (max-width: 480px) {
   .hamenu .cont-info {
@@ -6674,9 +6562,12 @@ footer .item .title h5 {
 }
 /* ============= [ Login ] =============== */
 
+.signup__cont {
+  padding: 180px 0 120px;
+}
+
 .page-header .login {
   width: 30%;
-  /* border: 1px solid gray; */
   border-radius: 10px;
   box-shadow: 0 0 6px 1px rgb(69 70 105 / 50%);
 }
@@ -6699,14 +6590,14 @@ footer .item .title h5 {
 
 .page-header .login .input {
   background: transparent;
-  border: 1px solid gray;
+  border: 1px solid gray !important;
   border-radius: 4px;
   padding: 8px;
   color: white;
 }
 
 .page-header .login .input:focus {
-  border-color: white;
+  border-color: white !important;
 }
 
 .log-btn span {
@@ -6796,4 +6687,10 @@ footer .item .title h5 {
 .admin-controls .nav-item .icon {
   font-size: 1.8rem;
   color: rgb(13, 18, 77);
+}
+
+.form__errorMessage {
+  color: rgb(239, 91, 91);
+  font-size: 15px;
+  margin-bottom: 10px;
 }
