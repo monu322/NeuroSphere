@@ -89,7 +89,9 @@ const Signin = () => {
               <div className="">
                 <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                   <Form>
-                    {errMessage && <div className="messages">{errMessage}</div>}
+                    {errMessage && (
+                      <div className="form__errormessages">{errMessage}</div>
+                    )}
 
                     <div className="controls blog-form">
                       <div className="form-group d-flex flex-column">

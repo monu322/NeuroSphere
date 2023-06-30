@@ -10,26 +10,12 @@ const Index = () => {
     body.classList.add("bg-gr");
     body.classList.remove("d3-dark");
   }, []);
-  // if (authInfo.isLoggedIn === true)
-  //   return (
-  //     <MainLayout footerClass="bg-dark">
-  //       <Header />
-  //       <Services />
-  //       <Block />
-  //       <Works />
-  //       <Testimonials />
-  //       {/* <Clients /> */}
-  //       <Team />
-  //       {/* <Blogs /> */}
-  //     </MainLayout>
-  //   );
-  useEffect(() => {
-    const local = JSON.parse(localStorage.getItem("authInfo"));
-    console.log(authInfo);
-    authInfo.isLoggedIn = local.isLoggedIn;
-    authInfo.user = local.user;
-  });
-
+  if (authInfo.isLogged === false && authInfo.user === "user")
+    return (
+      <MainLayout footerClass="bg-gray">
+        <Signin />
+      </MainLayout>
+    );
   return (
     <MainLayout footerClass="bg-gray">
       <Signin />
