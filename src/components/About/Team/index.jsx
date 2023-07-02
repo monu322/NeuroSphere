@@ -36,7 +36,7 @@ const Team = () => {
 
   return (
     <section className="team-crs section-padding team-section-dark-bg">
-      <div className="container mt-4 pt-4">
+      <div className="container mt-4 pt-2">
         <div className="row mt-4">
           <div className="col-lg-4 valign">
             <div className="full-width">

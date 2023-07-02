@@ -11,8 +11,8 @@ const CallAction = () => {
 
   return (
     <div className="call-action section-padding bg-img" data-background="/assets/img/pattern.png">
-      <div className="container mt-4 pt-4">
-        <div className="row">
+      <div className="container pb-4 mb-20">
+        <div className="row mb-20 pb-20">
           <div className="col-md-8 col-lg-9">
             <div className="content sm-mb30">
               <Split className="wow">

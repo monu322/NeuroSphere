@@ -6,10 +6,10 @@ import appData from '../../data/app.json';
 const Footer = ({ classText }) => {
   return (
     <footer className={ classText ? classText : '' }>
-      <div className="container">
-          <div className="row">
-              <div className="col-lg-8">
-                  <div className="item md-mb 50">
+      <div className="container mt-4 pt-4">
+          <div className="row mt-4 pt-4">
+              <div className="col-lg-8 mt-4 pt-4">
+                  <div className="item md-mb 50 mt-4 pt-4">
                       <div className="title m-2 p-2">
                           <h5>Contact Us</h5>
                       </div>
