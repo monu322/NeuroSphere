@@ -6541,7 +6541,7 @@ footer .item .copy-right p a {
   resize: none;
 }
 .blog-box {
-  width: 95%;
+  /* width: 95%; */
   box-shadow: 0 0 6px 0 rgba(179, 179, 184, 0.5);
 }
 

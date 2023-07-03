@@ -9,8 +9,12 @@ const BlogForm = () => {
 
   const initialValues = {
     title: "",
-    tags: "",
+    tags: [],
     content: "",
+    authorInfo: {
+      name: "",
+      about: "",
+    },
   };
 
   const validateForm = (formValues) => {
@@ -33,12 +37,19 @@ const BlogForm = () => {
     return true;
   };
 
-  const createBlog = async ({ title, tags, content }) => {
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === " " || e.key === ",") {
+      e.preventDefault();
+    }
+  };
+
+  const createBlog = async ({ title, tags, content, authorInfo }) => {
     const blogCollection = collection(db, "blogs");
     const res = await addDoc(blogCollection, {
       title,
       tags,
       content,
+      authorInfo,
       date: serverTimestamp(),
     });
     setNotification("Blogpost created successfully");
@@ -60,18 +71,16 @@ const BlogForm = () => {
     <>
       {/* <section className="page-header crs"> */}
       <div className="container mt-2">
-        <div className="row justify-content-start">
-          <div className="col-lg-8 col-md-7">
-            <div className="cont text-dark mb-3 blg-head">Create Blog</div>
-            {notification}
+        <div className="row">
+          <div className="col-lg-12 text-dark mb-3 blg-head">Create Blog</div>
+        </div>
+        <Formik const initialValues={initialValues} onSubmit={handleSubmit}>
+          <Form>
+            <div className="row">
+              <div className="col-lg-8 col-md-7">
+                {notification}
 
-            <div className="blog-box p-4">
-              <Formik
-                const
-                initialValues={initialValues}
-                onSubmit={handleSubmit}
-              >
-                <Form>
+                <div className="blog-box p-4">
                   {errMessage && <div className="messages">{errMessage}</div>}
 
                   <div className="controls blog-form">
@@ -88,14 +97,18 @@ const BlogForm = () => {
                     </div>
 
                     <div className="form-group d-flex flex-column">
-                      <label htmlFor="Tag">Tag</label>
-                      <Field
-                        id="form_tag"
-                        type="text"
-                        name="tags"
-                        placeholder="Technology, Real Estate"
-                        required="required"
-                      />
+                      <div>
+                        <label htmlFor="Tag">Tag</label>
+                        <span>id</span>
+                        <Field
+                          id="form_tag"
+                          type="text"
+                          name="tags"
+                          placeholder="Technology, Real Estate"
+                          required="required"
+                          onKeyDown={handleKeyDown}
+                        />
+                      </div>
                     </div>
 
                     <div className="form-group d-flex flex-column">
@@ -114,91 +127,79 @@ const BlogForm = () => {
                       <span>Create</span>
                     </button>
                   </div>
-                </Form>
-              </Formik>
-            </div>
-          </div>
-          <div className="row-lg-3 row-md-2 w-25 d-flex flex-column justify-content-around">
-            <div className="blog-box p-4 w-100">
-              <h4 className="text-dark">Author Info</h4>
-              <Formik
-                const
-                initialValues={initialValues}
-                onSubmit={handleSubmit}
-              >
-                <Form>
-                  {errMessage && <div className="messages">{errMessage}</div>}
+                </div>
+              </div>
+              <div className="col-lg-4 col-md-3 w-25">
+                <div className="row">
+                  <div className="blog-box p-4 w-100 mb-3">
+                    <h4 className="text-dark">Author Info</h4>
 
-                  <div className="controls blog-form">
-                    <div className="form-group d-flex flex-column">
-                      <label htmlFor="Title">Name</label>
-                      <Field
-                        id="form_title"
-                        type="text"
-                        name="title"
-                        placeholder="John Doe"
-                        required="required"
-                        className="border border-secondary"
-                      />
-                    </div>
+                    {errMessage && <div className="messages">{errMessage}</div>}
 
-                    <div className="form-group d-flex flex-column">
-                      <label htmlFor="Tag">About</label>
-                      <Field
-                        id="form_tag"
-                        type="text"
-                        name="tags"
-                        placeholder="Technology, Real Estate"
-                        required="required"
-                      />
-                    </div>
-                    <div className="form-group d-flex flex-column">
-                      <label htmlFor="Tag">Add Image</label>
-                      <input type="file" />
+                    <div className="controls blog-form">
+                      <div className="form-group d-flex flex-column">
+                        <label htmlFor="Title">Name</label>
+                        <Field
+                          id="form_author_name"
+                          type="text"
+                          name="authorInfo.name"
+                          placeholder="John Doe"
+                          required="required"
+                          className="border border-secondary"
+                        />
+                      </div>
+
+                      <div className="form-group d-flex flex-column">
+                        <label htmlFor="Tag">About</label>
+                        <Field
+                          id="form_author_about"
+                          type="text"
+                          name="authorInfo.about"
+                          placeholder="Technology, Real Estate"
+                          required="required"
+                        />
+                      </div>
+                      <div className="form-group d-flex flex-column">
+                        <label htmlFor="Tag">Add Image</label>
+                        <input type="file" />
+                      </div>
                     </div>
                   </div>
-                </Form>
-              </Formik>
-            </div>
-            <div className="blog-box p-4 w-100">
-              <h4 className="text-dark">Author Info</h4>
-              <Formik
-                const
-                initialValues={initialValues}
-                onSubmit={handleSubmit}
-              >
-                <Form>
-                  {errMessage && <div className="messages">{errMessage}</div>}
+                  <div className="blog-box p-4 w-100">
+                    <h4 className="text-dark">Author Info</h4>
 
-                  <div className="controls blog-form">
-                    <div className="form-group d-flex flex-column">
-                      <label htmlFor="Title">Name</label>
-                      <Field
-                        id="form_title"
-                        type="text"
-                        name="title"
-                        placeholder="Blog Title"
-                        required="required"
-                        className="border border-secondary"
-                      />
-                    </div>
+                    {errMessage && <div className="messages">{errMessage}</div>}
 
-                    <div className="form-group d-flex flex-column">
-                      <label htmlFor="Tag">About</label>
-                      <Field
-                        id="form_tag"
-                        type="text"
-                        name="tags"
-                        placeholder="Technology, Real Estate"
-                        required="required"
-                      />
+                    <div className="controls blog-form">
+                      <div className="form-group d-flex flex-column">
+                        <label htmlFor="Title">Name</label>
+                        <Field
+                          id="form_title"
+                          type="text"
+                          name="title"
+                          placeholder="Blog Title"
+                          required="required"
+                          className="border border-secondary"
+                        />
+                      </div>
+
+                      <div className="form-group d-flex flex-column">
+                        <label htmlFor="Tag">About</label>
+                        <Field
+                          id="form_tag"
+                          type="text"
+                          name="tags"
+                          placeholder="Technology, Real Estate"
+                          required="required"
+                        />
+                      </div>
                     </div>
                   </div>
-                </Form>
-              </Formik>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </Form>
+        </Formik>
       </div>
     </>
   );

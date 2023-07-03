@@ -15,16 +15,16 @@ const Index = () => {
     body.classList.add("bg-gr");
     body.classList.remove("d3-dark");
   }, []);
-  if (authInfo.user === "user")
-    return (
-      <MainLayout footerClass="bg-gray">
-        <Signin />
-      </MainLayout>
-    );
+  // if (authInfo.user === "user")
+  //   return (
+  //     <MainLayout footerClass="bg-gray">
+  //       <Signin />
+  //     </MainLayout>
+  //   );
   return (
     <AdminLayout footerClass="bg-gray">
       <BlogForm />
-      <WorkForm />
+      {/* <WorkForm /> */}
     </AdminLayout>
   );
 };
