@@ -1,20 +1,24 @@
 import db from "../../../config/fire-config";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { Field, Form, Formik } from "formik";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 const BlogForm = () => {
+  const [tags, setTags] = useState([]);
   const [errMessage, setErrMessage] = useState(null);
   const [notification, setNotification] = useState();
 
+  const router = useRouter();
   const initialValues = {
     title: "",
-    tags: [],
+    tags: [""],
     content: "",
     authorInfo: {
       name: "",
       about: "",
     },
+    file: "",
   };
 
   const validateForm = (formValues) => {
@@ -34,13 +38,33 @@ const BlogForm = () => {
       setErrMessage("Message must be at least 10 characters");
       return false;
     }
+
+    // if (!formValues.file) {
+    //   setErrMessage("Please select an image file");
+    //   return false;
+    // }
+    // if (!formValues.file.type.startswith("image/")) {
+    //   setErrMessage("Please select an image");
+    //   return false;
+    // }
     return true;
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter" || e.key === " " || e.key === ",") {
-      e.preventDefault();
+  const handleTagKeyDown = (event) => {
+    if (event.key === "Enter" || event.key === " " || event.key === ",") {
+      event.preventDefault();
+
+      const tagValue = event.target.value.trim();
+      if (tags.includes(tagValue)) return null;
+      if (tagValue) {
+        setTags((prevTags) => [...prevTags, tagValue]);
+        event.target.value = "";
+      }
     }
+  };
+
+  const handleTagRemove = (index) => {
+    setTags((prevTags) => prevTags.filter((_, i) => i !== index));
   };
 
   const createBlog = async ({ title, tags, content, authorInfo }) => {
@@ -53,9 +77,6 @@ const BlogForm = () => {
       date: serverTimestamp(),
     });
     setNotification("Blogpost created successfully");
-    setTimeout(() => {
-      setNotification("");
-    }, 2000);
   };
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
@@ -65,6 +86,10 @@ const BlogForm = () => {
       setSubmitting(false);
       createBlog(values);
       resetForm();
+      setTimeout(() => {
+        router.push("/admin");
+        setNotification("");
+      }, 2000);
     }
   };
   return (
@@ -74,14 +99,18 @@ const BlogForm = () => {
         <div className="row">
           <div className="col-lg-12 text-dark mb-3 blg-head">Create Blog</div>
         </div>
-        <Formik const initialValues={initialValues} onSubmit={handleSubmit}>
+        <Formik initialValues={initialValues} onSubmit={handleSubmit}>
           <Form>
             <div className="row">
-              <div className="col-lg-8 col-md-7">
+              <div className="col-lg-7 col-md-7">
                 {notification}
 
                 <div className="blog-box p-4">
-                  {errMessage && <div className="messages">{errMessage}</div>}
+                  {errMessage && (
+                    <div className="form_Messages text-danger">
+                      {errMessage}
+                    </div>
+                  )}
 
                   <div className="controls blog-form">
                     <div className="form-group d-flex flex-column">
@@ -99,15 +128,27 @@ const BlogForm = () => {
                     <div className="form-group d-flex flex-column">
                       <div>
                         <label htmlFor="Tag">Tag</label>
-                        <span>id</span>
                         <Field
-                          id="form_tag"
                           type="text"
+                          id="tags"
                           name="tags"
-                          placeholder="Technology, Real Estate"
-                          required="required"
-                          onKeyDown={handleKeyDown}
+                          placeholder="Tags"
+                          onKeyDown={handleTagKeyDown}
                         />
+                        <div>
+                          {tags.map((tag, index) => (
+                            <span className="tag" key={index}>
+                              {tag}
+                              <button
+                                type="button"
+                                className="tag-remove"
+                                onClick={() => handleTagRemove(index)}
+                              >
+                                X
+                              </button>
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
 
@@ -161,7 +202,12 @@ const BlogForm = () => {
                       </div>
                       <div className="form-group d-flex flex-column">
                         <label htmlFor="Tag">Add Image</label>
-                        <input type="file" />
+                        <Field
+                          type="file"
+                          id="file"
+                          name="file"
+                          accept="image/*"
+                        />
                       </div>
                     </div>
                   </div>

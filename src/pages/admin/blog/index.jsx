@@ -1,8 +1,11 @@
-import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
-import AdminLayout from "../../layouts/admin";
-import { AuthContext } from "../../context/AuthProvider";
-import Home from "../../components/Admin/Home";
+import { AuthContext } from "../../../context/AuthProvider";
+import AdminLayout from "../../../layouts/admin";
+import { useRouter } from "next/router";
+import Signin from "../../../components/Auth/Signin";
+import MainLayout from "../../../layouts/main";
+
+import BlogForm from "../../../components/Admin/Blog/BlogForm";
 
 const Index = () => {
   const authInfo = useContext(AuthContext);
@@ -20,7 +23,8 @@ const Index = () => {
   //   );
   return (
     <AdminLayout>
-      <Home />
+      <BlogForm />
+      {/* <WorkForm /> */}
     </AdminLayout>
   );
 };
