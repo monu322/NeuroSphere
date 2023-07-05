@@ -13,7 +13,7 @@ const Block = () => {
   return (
     <section className="ui-block">
       <div className="conatiner-fluid">
-        <div className="row">
+        <div className="row ssm-mb-25">
           <div className="col-lg-6 cont section-padding valign bg-dark">
             <div className="case mt-4">
               <h6 className="fw-500 mb-10 mt-4">{ BlockData.title }</h6>

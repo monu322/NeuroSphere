@@ -12,7 +12,7 @@ const Works = () => {
   }, []);
 
   return (
-    <section className="ui-works section-padding home-portfolio-section ">
+    <section className="ui-works section-padding home-portfolio-section ssm-mb0">
       <div className="container">
         <div className="row mt-4">
           <div className="col-lg-7">
