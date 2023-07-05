@@ -2431,6 +2431,7 @@ body {
 
 .ui-slider.ui-main .setone.setwo {
   position: static;
+
 }
 
 .ui-slider.ui-main .setone.setwo .swiper-nav-ctrl {
@@ -5764,6 +5765,11 @@ footer .item .copy-right p a {
 
 /* ====================== [ End Footer ] ====================== */
 /* ====================== [ Start Responsive ] ====================== */
+@media screen and (max-width: 391px) {
+  .ssm-mb80 {
+    margin-top: 100px;
+  }
+}
 @media screen and (max-width: 991px) {
   .bg-img {
     background-position: center !important;
@@ -6016,6 +6022,9 @@ footer .item .copy-right p a {
   }
   .sm-mb80 {
     margin-bottom: 80px;
+  }
+  .sm-mt20 {
+    margin-top:70px;
   }
   .sm-pb10 {
     padding-bottom: 10px;
@@ -6308,6 +6317,7 @@ footer .item .copy-right p a {
   min-height: 70vh;
   background-size: cover;
   background-repeat: no-repeat;
+  overflow: hidden;
 }
 .ui-block .cont h3 {
   font-size: 57px;
@@ -6341,6 +6351,7 @@ footer .item .title h5 {
   margin-bottom: 30px;
   margin-top: -50px;
 }
+<<<<<<< HEAD
 .home-portfolio-section, .team-section-dark-bg {
   margin-top: -1px;
 }
@@ -6377,6 +6388,8 @@ footer .item .title h5 {
 }
 .min-area .content ul.feat li p {
   font-size: 15px;
+=======
+>>>>>>> c5ada52bf374e9c291e4cd39e28f08ad71961b5a
 }
 
 .service-box {
@@ -6485,6 +6498,11 @@ margin-bottom: 7px;
   }
 }
 
+@media screen and (max-width: 389px) {
+  .swiper-button-next .swiper-button-prev{
+    margin: 200px;
+  }
+}
 /* ====================== [ End Responsive ] ====================== */
 
 /*start custom styles*/

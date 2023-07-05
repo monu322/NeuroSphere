@@ -44,7 +44,7 @@ const Team = () => {
                 <h6>Employees</h6>
                 <h3>Our Team.</h3>
               </div>
-              <div className="navs mt-30 wow fadeInUp mb-4" data-wow-delay=".3s">
+              <div className="navs mt-30 wow fadeInUp mb-4 " data-wow-delay=".3s">
                 <span className="prev cursor-pointer" onClick={previous}>
                   <i className="fas fa-chevron-left"></i>
                 </span>

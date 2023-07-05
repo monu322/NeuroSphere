@@ -6,10 +6,17 @@ import appData from '../../data/app.json';
 const Footer = ({ classText }) => {
   return (
     <footer className={ classText ? classText : '' }>
+<<<<<<< HEAD
       <div className="container mt-4 pt-4">
           <div className="row mt-4 pt-4">
               <div className="col-lg-8 mt-4 pt-4">
                   <div className="item md-mb 50 mt-4 pt-4">
+=======
+      <div className="container ssm-mt20">
+          <div className="row">
+              <div className="col-lg-8">
+                  <div className="item md-mb 50">
+>>>>>>> c5ada52bf374e9c291e4cd39e28f08ad71961b5a
                       <div className="title m-2 p-2">
                           <h5>Contact Us</h5>
                       </div>
@@ -73,7 +80,7 @@ const Footer = ({ classText }) => {
                       <div className="logo">
                           <img src={appData.lightLogo} alt="" />
                       </div>
-                      <div className="social">
+                      <div className="social pl-4">
                           <Link href="#0">
                             <a><i className="fab fa-facebook-f"></i></a>
                           </Link>
@@ -87,7 +94,7 @@ const Footer = ({ classText }) => {
                             <a><i className="fab fa-youtube"></i></a>
                           </Link>
                       </div>
-                      <div className="copy-right">
+                      <div className="copy-right pl-4">
                           <p>
                               { `© `+new Date().getFullYear()+' '+appData.footerText }{' '}
                                     { appData.themeAuthor }
