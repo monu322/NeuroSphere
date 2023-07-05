@@ -6,17 +6,10 @@ import appData from '../../data/app.json';
 const Footer = ({ classText }) => {
   return (
     <footer className={ classText ? classText : '' }>
-<<<<<<< HEAD
       <div className="container mt-4 pt-4">
           <div className="row mt-4 pt-4">
               <div className="col-lg-8 mt-4 pt-4">
                   <div className="item md-mb 50 mt-4 pt-4">
-=======
-      <div className="container ssm-mt20">
-          <div className="row">
-              <div className="col-lg-8">
-                  <div className="item md-mb 50">
->>>>>>> c5ada52bf374e9c291e4cd39e28f08ad71961b5a
                       <div className="title m-2 p-2">
                           <h5>Contact Us</h5>
                       </div>
