@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+
 SwiperCore.use([Navigation, Pagination, Parallax]);
 
 const Header = () => {
@@ -78,7 +79,7 @@ const Header = () => {
                         <div className="row">
                           <div className="col-lg-12 col-md-12">
                             <div className="caption center p-2">
-                              <h1 data-splitting>
+                              <h1 data-splitting className="md-mb30">
                                 {slide.title.first}
                                 {
                                   slide.title.second && 
@@ -88,7 +89,7 @@ const Header = () => {
                                   </>
                                 }
                               </h1>
-                              <p className="para ">
+                              <p className="para">
                                 { slide.content }
                               </p>
                               <Link href="/about">
@@ -108,7 +109,7 @@ const Header = () => {
           )
         }
 
-        <div className="setone setwo">
+        <div className="setone setwo ssm-mb115">
           <div className="swiper-button-next swiper-nav-ctrl next-ctrl cursor-pointer" ref={navigationNextRef}>
             <i className="fas fa-chevron-right"></i>
           </div>
@@ -116,7 +117,6 @@ const Header = () => {
             <i className="fas fa-chevron-left"></i>
           </div>
         </div>
-        <div className="swiper-pagination top botm custom-font" ref={paginationRef}></div>
 
         {/* <div className="social-icon">
           <a href="#0"><i className="fab fa-facebook-f"></i></a>

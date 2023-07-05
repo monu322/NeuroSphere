@@ -6,7 +6,7 @@ import appData from '../../data/app.json';
 const Footer = ({ classText }) => {
   return (
     <footer className={ classText ? classText : '' }>
-      <div className="container">
+      <div className="container ssm-mt20">
           <div className="row">
               <div className="col-lg-8">
                   <div className="item md-mb 50">
@@ -73,7 +73,7 @@ const Footer = ({ classText }) => {
                       <div className="logo">
                           <img src={appData.lightLogo} alt="" />
                       </div>
-                      <div className="social">
+                      <div className="social pl-4">
                           <Link href="#0">
                             <a><i className="fab fa-facebook-f"></i></a>
                           </Link>
@@ -87,7 +87,7 @@ const Footer = ({ classText }) => {
                             <a><i className="fab fa-youtube"></i></a>
                           </Link>
                       </div>
-                      <div className="copy-right">
+                      <div className="copy-right pl-4">
                           <p>
                               { `© `+new Date().getFullYear()+' '+appData.footerText }{' '}
                                     { appData.themeAuthor }
