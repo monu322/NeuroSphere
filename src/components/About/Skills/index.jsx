@@ -4,18 +4,18 @@ import 'react-circular-progressbar/dist/styles.css';
 
 const Skills = () => {
   return (
-    <section className="skills-circle bg-gray pt-50 pb-50 ">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-7">
+    <section className="skills-circle bg-gray pt-50 pb-50 mt-4">
+      <div className="container mt-4 pt-4">
+        <div className="row mt-4 pt-4">
+          <div className="col-lg-7 mt-4 pt-4">
             <div>
               <div className="row mt-4 pt-4">
                 {
                   SkillsData.map((skill, index) => (
-                    <div className="col-md-4 mt-4 pt-4" key={skill.id}>
-                      <div className="item wow fadeInLeft mt-20" data-wow-delay={`${index === 1 ? '0.6' : '0.3'}`}>
+                    <div className="col-md-4 mt-20 pt-4 pb-70" key={skill.id}>
+                      <div className="item wow fadeInLeft mt-20  pb-40" data-wow-delay={`${index === 1 ? '0.6' : '0.3'}`}>
                         <div className="skill mt-4 pt-4" data-value={skill.value / 100}>
-                          <span className="custom-font mt-4 ">
+                          <span className="custom-font mt-4">
                             <CircularProgressbar
                               strokeWidth={2}
                               value={skill.value}
