@@ -11,52 +11,68 @@ const AdminNavbar = () => {
         </div>
         <ul>
           <li className="nav-item ">
-            <NavLink className="nav-align">
-              <span className="icon pe-7s-home"></span>
-              <span>Home</span>
-            </NavLink>
+            <Link href="/admin" className="nav-align">
+              <a>
+                <span className="icon pe-7s-home"></span>
+                <span>Home</span>
+              </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-align">
-              <span className="icon pe-7s-next-2"></span>
-              <span>Create Blogs</span>
-            </NavLink>
+            <Link href="/admin/blog" className="nav-align">
+              <a>
+                <span className="icon pe-7s-next-2"></span>
+                <span>Create Blogs</span>
+              </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-align">
-              <span className="icon pe-7s-portfolio"></span>
-              <span>Add Openings</span>
-            </NavLink>
+            <Link href="/admin/works" className="nav-align">
+              <a>
+                <span className="icon pe-7s-browser"></span>
+                <span>Add Works</span>
+              </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-align">
-              <span className="icon pe-7s-browser"></span>
-              <span>Add Works</span>
-            </NavLink>
+            <Link href="/admin/openings" className="nav-align">
+              <a>
+                <span className="icon pe-7s-portfolio"></span>
+                <span>Add Openings</span>
+              </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-align">
-              <span className="icon pe-7s-browser"></span>
-              <span>Add Works</span>
-            </NavLink>
+            <Link href="/admin/works" className="nav-align">
+              <a>
+                <span className="icon pe-7s-browser"></span>
+                <span>Add Works</span>
+              </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-align">
-              <span className="icon pe-7s-browser"></span>
-              <span>Add Works</span>
-            </NavLink>
+            <Link href="/admin/works" className="nav-align">
+              <a>
+                <span className="icon pe-7s-browser"></span>
+                <span>Add Works</span>
+              </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-align">
-              <span className="icon pe-7s-browser"></span>
-              <span>Add Works</span>
-            </NavLink>
+            <Link href="/admin/works" className="nav-align">
+              <a>
+                <span className="icon pe-7s-browser"></span>
+                <span>Add Works</span>
+              </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-align">
-              <span className="icon pe-7s-browser"></span>
-              <span>Add Works</span>
-            </NavLink>
+            <Link href="/admin/works" className="nav-align">
+              <a>
+                <span className="icon pe-7s-browser"></span>
+                <span>Add Works</span>
+              </a>
+            </Link>
           </li>
         </ul>
       </div>

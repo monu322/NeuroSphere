@@ -1,8 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import getSiblings from "../../common/getSiblings";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
+import { signOut } from "firebase/auth";
+import { auth } from "../../config/fire-config";
+import { useRouter } from "next/router";
 
 const Navbar = ({ navbarRef, logoRef }) => {
+  const authInfo = useContext(AuthContext);
+  const router = useRouter();
   const handleDropdown = (e) => {
     getSiblings(e.target.parentElement)
       .filter((item) => item.classList.contains("show"))
@@ -22,6 +29,11 @@ const Navbar = ({ navbarRef, logoRef }) => {
     document
       .getElementById("navbarSupportedContent")
       .classList.toggle("show-with-trans");
+  };
+
+  const handleLogOut = () => {
+    signOut(auth);
+    router.push("/");
   };
 
   return (
@@ -113,6 +125,11 @@ const Navbar = ({ navbarRef, logoRef }) => {
                 <a className="nav-link">Contact</a>
               </Link>
             </li>
+            {authInfo.isLoggedIn && (
+              <button onClick={handleLogOut} className="logout">
+                Logout
+              </button>
+            )}
           </ul>
         </div>
       </div>

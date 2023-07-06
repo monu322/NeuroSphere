@@ -1,12 +1,21 @@
-import db from "../../config/fire-config";
-import { collection, addDoc } from "firebase/firestore";
-import React, { useState } from "react";
+import db, { auth, googleProvider } from "../../config/fire-config";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import React, { useContext, useEffect, useState } from "react";
 import { Field, Form, Formik } from "formik";
 import Link from "next/link";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { useRouter } from "next/router";
+import { AuthContext } from "../../context/AuthProvider";
+
+let role = "";
 
 const Signin = () => {
+  const router = useRouter();
   const [errMessage, setErrMessage] = useState(null);
   const [notification, setNotification] = useState();
+
+  const authInfo = useContext(AuthContext);
+  console.log(authInfo);
 
   const initialValues = {
     email: "",
@@ -23,22 +32,63 @@ const Signin = () => {
       return false;
     }
     if (formValues.password.length < 7) {
-      setErrMessage("Message must be at least 7 characters");
+      setErrMessage("Password must be at least 7 characters");
       return false;
     }
     return true;
   };
-
-  const createBlog = async ({ email, password }) => {
-    const blogCollection = collection(db, "users");
-    const res = await addDoc(blogCollection, {
-      email,
-      password,
-    });
-    setNotification("User Verified");
+  const clearNotification = () => {
     setTimeout(() => {
       setNotification("");
     }, 2000);
+  };
+
+  const signInWithGoogle = async () => {
+    const user = await signInWithPopup(auth, googleProvider);
+    const userCollection = collection(db, "users");
+    const data = await addDoc(userCollection, {
+      userId: user?.user.uid,
+      role: "user",
+    });
+    router.push("/");
+  };
+
+  const signInWithEmail = async ({ email, password }) => {
+    try {
+      const user = await signInWithEmailAndPassword(auth, email, password);
+
+      const q = query(
+        collection(db, "users"),
+        where("userId", "==", user.user.uid)
+      );
+      const querySnapshot = await getDocs(q);
+
+      querySnapshot.forEach((doc) => {
+        role = doc.data().role;
+        console.log(role);
+      });
+
+      authInfo.roleAs = role;
+      authInfo.isLoggedIn = true;
+      localStorage.setItem("authInfo", JSON.stringify(authInfo));
+
+      clearNotification();
+      if (role === "admin") {
+        router.push("/admin");
+      } else {
+        router.push("/");
+      }
+    } catch (error) {
+      const errorCode = error.code;
+      if (errorCode === "auth/wrong-password") {
+        setErrMessage("Invalid password or email");
+        clearNotification();
+      }
+      if (errorCode === "auth/user-not-found") {
+        setErrMessage("User not found");
+        clearNotification();
+      }
+    }
   };
 
   const handleSubmit = async (values, { setSubmitting }) => {
@@ -46,9 +96,10 @@ const Signin = () => {
       console.log(JSON.stringify(values));
       setErrMessage(null);
       setSubmitting(false);
-      createBlog(values);
+      signInWithEmail(values);
     }
   };
+
   return (
     <>
       <section className="page-header">
@@ -59,7 +110,9 @@ const Signin = () => {
               <div className="">
                 <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                   <Form>
-                    {errMessage && <div className="messages">{errMessage}</div>}
+                    {errMessage && (
+                      <div className="form__errorMessage">{errMessage}</div>
+                    )}
 
                     <div className="controls blog-form">
                       <div className="form-group d-flex flex-column">
@@ -104,6 +157,14 @@ const Signin = () => {
                   </Form>
                 </Formik>
               </div>
+              <p className="text-center mt-1 mb-1 text-white">or</p>
+              <button
+                onClick={signInWithGoogle}
+                type="submit"
+                className="google-btn bg-primary"
+              >
+                <span className="mx-auto">Continue with google</span>
+              </button>
             </div>
           </div>
         </div>
