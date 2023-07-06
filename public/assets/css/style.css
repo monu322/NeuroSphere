@@ -6660,6 +6660,7 @@ footer .item .copy-right p a {
   padding: 10px 20px;
   outline: none;
   color: white;
+  cursor: pointer;
 }
 .admin-controls {
   display: flex;
@@ -6726,12 +6727,47 @@ footer .item .copy-right p a {
 
 .display-blogs {
   border: 1px solid lightgray;
-  padding: 6px 10px;
+  padding: 14px 18px;
   border-radius: 4px;
+  color: #000;
+  margin-bottom: 18px;
 }
 
 .control_btn {
   border: none;
   font-size: 20px;
+  cursor: pointer;
+}
+
+.notification {
+  color: black;
+  background-color: rgb(119, 224, 119);
+  text-align: center;
+  /* display: inline-block; */
+  padding: 8px 20px;
+  border-radius: 3px;
+  width: 25%;
+  margin: auto;
+  font-family: "poppins", sans-serif;
+}
+
+.logout {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "poppins", sans-serif;
+  cursor: pointer;
+}
+.logout_admin {
+  background-color: #222733;
+  border: none;
+  border-radius: 3px;
+  padding: 8px 12px;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "poppins", sans-serif;
   cursor: pointer;
 }

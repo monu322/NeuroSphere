@@ -40,6 +40,11 @@ const Signup = () => {
 
   const signInWithGoogle = async () => {
     const user = await signInWithPopup(auth, googleProvider);
+    const userCollection = collection(db, "users");
+    const data = await addDoc(userCollection, {
+      userId: user?.user.uid,
+      role: "user",
+    });
     router.push("/");
   };
 

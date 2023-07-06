@@ -45,6 +45,11 @@ const Signin = () => {
 
   const signInWithGoogle = async () => {
     const user = await signInWithPopup(auth, googleProvider);
+    const userCollection = collection(db, "users");
+    const data = await addDoc(userCollection, {
+      userId: user?.user.uid,
+      role: "user",
+    });
     router.push("/");
   };
 
@@ -63,7 +68,7 @@ const Signin = () => {
         console.log(role);
       });
 
-      authInfo.user = role;
+      authInfo.roleAs = role;
       authInfo.isLoggedIn = true;
       localStorage.setItem("authInfo", JSON.stringify(authInfo));
 
