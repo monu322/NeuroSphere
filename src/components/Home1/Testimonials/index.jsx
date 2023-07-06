@@ -21,9 +21,9 @@ const Testimonials = () => {
   const previous = () => sliderRef.current.slickPrev();
 
   return (
-    <section className="testimonials section-padding bg-dark position-re">
-      <div className="container mt-4">
-        <div className="row p-2">
+    <section className="testimonials section-padding bg-dark position-re mt-0">
+      <div className="container">
+        <div className="row p-4">
           <div className="col-lg-3">
             <div className="quote-icon mt-4">
               <img src="assets/img/clients/quote.svg" alt="" />

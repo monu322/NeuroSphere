@@ -6,9 +6,9 @@ const Intro = () => {
   return (
     <section className="intro-section section-padding pb-0">
       <div className="container">
-        <div className="row">
-          <div className="col-lg-3 col-md-4">
-            <div className="htit sm-mb30">
+        <div className="row mt-4 pt-4">
+          <div className="col-lg-3 col-md-4 mt-4">
+            <div className="htit sm-mb30 mt-4">
               <h4>Who We Are ?</h4>
             </div>
           </div>

@@ -61,7 +61,7 @@ const Details = ({context}) => {
                 {/* Pagination */}
                 <PostPagination SingleBlog={article} />
                 {/* Comments Area */}
-                <PostCommentsArea SingleBlog={article} />
+                {/* <PostCommentsArea SingleBlog={article} /> */}
                 {/* Comments Form */}
                 <PostCommentsForm SingleBlog={article} />
               </div>

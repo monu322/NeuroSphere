@@ -122,7 +122,7 @@ const Index = () => {
             {
               work?.services?.map((service, index) => (
                 <div className="col-lg-4 service-box" key={service.id}>
-                  <div className={`item wow fadeInUp ${index !== work.services.length - 1 && 'md-mb50'}`} data-wow-delay={`${0.3 * index + 0.3}s`}>
+                  <div className={`item wow fadeInUp ${index !== work.services.length - 1 && 'md-mb50'}`} data-wow-delay={`${0.6}s`}>
                     <span className={`icon ${service.iconClass}`}></span>
                     <h6>{service.id}. { service.title }</h6>
                     <p>{ service.description }</p>
@@ -152,7 +152,7 @@ const Index = () => {
             {
               work?.outcomes?.map((service, index) => (
                 <div className="col-lg-6 service-box" key={service.id}>
-                  <div className={`item wow fadeInUp ${index !== work.services.length - 1 && 'md-mb50'}`} data-wow-delay={`${0.3 * index + 0.3}s`}>
+                  <div className={`item wow fadeInUp ${index !== work.services.length - 1 && 'md-mb50'}`} data-wow-delay={`${0.6}s`}>
                     <span className={`icon ${service.iconClass}`}></span>
                     <h6>{service.id}. { service.title }</h6>
                     <p>{ service.description }</p>
@@ -215,40 +215,14 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="skills-circle bg-gray pt-50 pb-50">
+      <section className="skills-circle bg-gray pt-150 pb-50">
         <div className="container">
           <div className="row">
-            <div className="col-lg-7">
-              <div>
-                <div className="row">
-                  {
-                    work?.skills?.slice(0,3).map((skill, index) => (
-                      <div className="col-md-4" key={skill.id}>
-                        <div className="item wow fadeInLeft" data-wow-delay={`${index === 1 ? '0.6' : '0.3'}`}>
-                          <div className="skill" data-value={skill.value / 100}>
-                            <span className="custom-font">
-                              <CircularProgressbar
-                                strokeWidth={2}
-                                value={skill.value}
-                                text={`${skill.value}%`}
-                                styles={buildStyles({ pathColor: `#75DAB4`, trailColor: '#031117', textColor: '#fff' })}
-                              />
-                            </span>
-                          </div>
-                          <div className="cont">
-                            <span className="skill_title">{ skill.title }</span>
-                            <h6 className="skill_sub">{ skill.subtitle }</h6>
-                          </div>
-                        </div>
-                      </div>
-                    ))
-                  }
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-5 mt-4 pt-4">
+            <div className="col-lg-12 mt-4 pt-4">
               <br/><br/>
               <br/><br/>
+              <br/><br/>
+    
               <a href={`/works/${next}`} className="btn-curve btn-lit mt-4 "><span>Next Project</span></a>
             </div>
           </div>

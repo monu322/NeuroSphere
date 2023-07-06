@@ -7,7 +7,7 @@ import TeamData from '../../../data/About/Team.json';
 const teamSliderSettings = {
   dots: false,
   infinite: true,
-  speed: 1000,
+  speed: 2000,
   autoplay: true,
   slidesToShow: 4,
   slidesToScroll: 1,
@@ -36,7 +36,7 @@ const Team = () => {
 
   return (
     <section className="team-crs section-padding team-section-dark-bg">
-      <div className="container mt-4 pt-4">
+      <div className="container mt-4 pt-2">
         <div className="row mt-4">
           <div className="col-lg-4 valign">
             <div className="full-width">
@@ -44,7 +44,7 @@ const Team = () => {
                 <h6>Employees</h6>
                 <h3>Our Team.</h3>
               </div>
-              <div className="navs mt-30 wow fadeInUp mb-4" data-wow-delay=".3s">
+              <div className="navs mt-30 wow fadeInUp mb-4 " data-wow-delay=".3s">
                 <span className="prev cursor-pointer" onClick={previous}>
                   <i className="fas fa-chevron-left"></i>
                 </span>

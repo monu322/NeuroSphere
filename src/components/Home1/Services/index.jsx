@@ -3,12 +3,12 @@ import ServicesData from '../../../data/Home1/Services.json';
 const Services = () => {
   return (
     <div className="cls-services section-padding position-re mt-4">
-      <div className="container mt-4">
-        <div className="row">
+      <div className="container mt-4 ssm-mb85">
+        <div className="row ">
           {
             ServicesData.map((service, index) => {
               return (
-                <div className="col-lg-4 services-div" key={index}>
+                <div className="col-lg-4 services-div ssm-mt30" key={index}>
                   <div className="item">
                     <div className="letr-bg">{ service["letr-bg"] }</div>
                     <span className="numb">{ service.numb }</span>

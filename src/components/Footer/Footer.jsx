@@ -8,9 +8,9 @@ const Footer = ({ classText }) => {
     <footer className={ classText ? classText : '' }>
       <div className="container">
           <div className="row">
-              <div className="col-lg-8">
-                  <div className="item md-mb 50">
-                      <div className="title m-2 p-2">
+              <div className="col-md-8 footer-contact">
+                  <div className="item md-mb">
+                      <div className="title">
                           <h5>Contact Us</h5>
                       </div>
                       <ul>
@@ -68,12 +68,12 @@ const Footer = ({ classText }) => {
                       </ul>
                   </div>
               </div> */}
-              <div className="col-lg-4">
+              <div className="col-md-4 footer-neuro">
                   <div className="item">
                       <div className="logo">
                           <img src={appData.lightLogo} alt="" />
                       </div>
-                      <div className="social">
+                      <div className="social pl-4">
                           <Link href="#0">
                             <a><i className="fab fa-facebook-f"></i></a>
                           </Link>
@@ -87,7 +87,7 @@ const Footer = ({ classText }) => {
                             <a><i className="fab fa-youtube"></i></a>
                           </Link>
                       </div>
-                      <div className="copy-right">
+                      <div className="copy-right pl-4">
                           <p>
                               { `© `+new Date().getFullYear()+' '+appData.footerText }{' '}
                                     { appData.themeAuthor }

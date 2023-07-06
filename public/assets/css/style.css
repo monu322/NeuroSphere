@@ -5764,6 +5764,11 @@ footer .item .copy-right p a {
 
 /* ====================== [ End Footer ] ====================== */
 /* ====================== [ Start Responsive ] ====================== */
+@media screen and (max-width: 391px) {
+  .ssm-mb80 {
+    margin-top: 100px;
+  }
+}
 @media screen and (max-width: 991px) {
   .bg-img {
     background-position: center !important;
@@ -6017,6 +6022,9 @@ footer .item .copy-right p a {
   .sm-mb80 {
     margin-bottom: 80px;
   }
+  .sm-mt20 {
+    margin-top: 70px;
+  }
   .sm-pb10 {
     padding-bottom: 10px;
   }
@@ -6083,9 +6091,9 @@ footer .item .copy-right p a {
     width: 40px;
   }
   .btn-curve {
-    padding: 8px 15px;
-    margin-right: 90px;
-    margin-left: 61px;
+    padding: 5px 15px;
+    padding-right: 12px;
+    padding-left: 12px;
   }
   .btn-curve span {
     font-size: 15px;
@@ -6095,6 +6103,7 @@ footer .item .copy-right p a {
     padding-right: 63px;
     padding-left: 12px;
     text-align: center;
+    padding-bottom: 4px;
   }
   .slider .parallax-slider .caption h1 {
     font-size: 40px;
@@ -6152,12 +6161,13 @@ footer .item .copy-right p a {
     letter-spacing: 5px;
   }
   .skills-circle {
-    padding-bottom: 0 !important;
+    padding-bottom: -1 !important;
   }
   .skills-circle .item {
     margin-bottom: -100px;
     margin-left: 105px;
     margin-top: 160px;
+    padding-top: 4px;
   }
   .team .navs {
     top: 20px;
@@ -6183,9 +6193,9 @@ footer .item .copy-right p a {
     margin-right: 25px;
   }
   .section-padding {
-    margin-top: 10px;
+    margin-top: 60px;
     padding-top: 5px;
-    margin-bottom: -60px;
+    padding-bottom: 0px;
   }
   .skills-circle .skill span {
     margin-top: 44px;
@@ -6204,7 +6214,7 @@ footer .item .copy-right p a {
     font-size: 48px;
     line-height: 1;
     font-weight: 570;
-    margin-top: 1px;
+    margin-top: -191px;
     margin-left: -7px;
   }
   .team-crs .item {
@@ -6216,9 +6226,10 @@ footer .item .copy-right p a {
     margin-left: 8px;
   }
   .btn-curve.btn-lit {
-    margin-bottom: 160px;
-    margin-left: 41px;
+    margin-bottom: 50px;
+    margin-left: 60px;
     margin-right: 47px;
+    padding-top: 14px;
   }
   .call-action .btn-curve span {
     font-size: 17px;
@@ -6245,19 +6256,22 @@ footer .item .copy-right p a {
   }
   .simpleParallax {
     margin-right: -11px;
+    margin-left: -10px;
+    margin-top: -55px;
   }
   .fadeInUp {
     margin-right: -14px;
     margin-left: -14px;
+    margin-bottom: 50px;
   }
   .ui-slider.ui-main .setone.setwo .next-ctrl {
-    top: 58%;
+    top: 59%;
     right: 4px;
     padding-left: 5px;
     padding-top: 6px;
   }
   .ui-slider.ui-main .setone.setwo .prev-ctrl {
-    top: 58%;
+    top: 59%;
     left: 4px;
     padding-right: 5px;
     padding-top: 6px;
@@ -6268,13 +6282,14 @@ footer .item .copy-right p a {
   }
   .ui-slider.ui-main .parallax-slider .caption .btn-curve span {
     font-size: 17px;
-    margin-left: 26px;
+    margin-left: 64px;
     margin-right: 23px;
     line-height: 2;
+    font-weight: 800;
   }
   .case {
-    padding-top: 70px;
-    margin-bottom: -23px;
+    padding-top: 44px;
+    margin-bottom: 80px;
   }
   .main-header h3 {
     font-size: 46px;
@@ -6294,6 +6309,7 @@ footer .item .copy-right p a {
   .services .item {
     height: auto;
     margin-bottom: -80px;
+    margin-top: 35px;
   }
   .page-header .img-wrapper .bg-img {
     position: relative;
@@ -6303,16 +6319,18 @@ footer .item .copy-right p a {
   }
   .ui-block .cont h3 {
     font-size: 58px;
+    overflow: hidden;
   }
   .portfolio .gallery .items .cont span {
     font-weight: 500;
     font-size: 14px;
   }
-  .section-padding {
+  .services .section-padding {
     padding: 0px 0;
+    margin-top: 255px;
   }
   .cont-info {
-    margin-top: -42px;
+    margin-top: -50px;
   }
   .contact .cont-info .item h5 {
     font-size: 17px;
@@ -6332,8 +6350,54 @@ footer .item .copy-right p a {
     margin-bottom: 30px;
     margin-top: -50px;
   }
-}
+  .home-portfolio-section,
+  .team-section-dark-bg {
+    margin-top: -1px;
+  }
+  .block-sec .testim-box .head-box h6 {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .block-sec .testim-box .item .info .cont .author-details {
+    font-size: 13px;
+    font-weight: 400;
+  }
+  .skills-circle .skill {
+    margin-bottom: 14px;
+  }
+  .min-area .img {
+    margin-top: 305px;
+  }
+  .team-img-holder {
+  }
+  .team-img {
+    padding-left: 95px;
+    margin-left: -4px;
+  }
+  .min-area .content {
+    margin-top: -72px;
+    margin-bottom: -50px;
+  }
+  .min-area .content ul.feat li {
+    border-bottom: 10px solid rgba(255, 255, 255, 0.05);
+    margin-top: 50px;
+  }
+  .min-area .content ul.feat li p {
+    font-size: 15px;
+  }
 
+  .service-box {
+    padding-bottom: 59px;
+  }
+  .call-action .section-padding .bg-img .container {
+    margin-top: 4px;
+    margin-bottom: 7px;
+  }
+  .map-container {
+    margin-top: 300px;
+    margin-bottom: -95px;
+  }
+}
 @media screen and (max-width: 480px) {
   .hamenu .cont-info {
     display: none;
@@ -6428,6 +6492,11 @@ footer .item .copy-right p a {
   }
 }
 
+@media screen and (max-width: 389px) {
+  .swiper-button-next .swiper-button-prev {
+    margin: 200px;
+  }
+}
 /* ====================== [ End Responsive ] ====================== */
 
 /*start custom styles*/

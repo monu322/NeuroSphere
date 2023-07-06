@@ -1,0 +1,111 @@
+@media screen and (max-width: 767px) {
+  .promo-carousel .item-wrap .promo-carousel .item-wrap {
+    width: 200%;
+  }
+  .ssm-mb115 {
+    margin-bottom: 115px;
+  }
+  .ssm-mt10 {
+    margin-top: 10px;
+  }
+  .ssm-mb85 {
+    margin-bottom: 40px;
+  }
+  .ssm-mb-25 {
+    margin-bottom: -25px;
+  }
+  .ssm-mt20 {
+    margin-top: 20px;
+  }
+  .ssm-mt30 {
+    margin-top: 30px;
+  }
+  .ssm-mb0 {
+    margin-bottom: 0px;
+  }
+  .testimonials .quote-icon {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+  }
+
+  .testimonials .quote-icon img {
+    width: 25px;
+    margin: auto;
+  }
+
+  .testimonials .controls .float-right {
+    /* float: left; */
+    display: flex;
+    margin-bottom: 40px;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+  }
+  .navs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  .cursor-outer {
+    display: none;
+  }
+
+  .mouse-cursor {
+    display: none;
+  }
+
+  .caption {
+    padding-top: 250px !important;
+  }
+
+  .caption h1 {
+    font-size: 35px !important;
+  }
+
+  .section-padding {
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+  }
+
+  .ui-block .gr-text {
+    font-size: 35px !important;
+  }
+
+  .shadows {
+    width: 450px;
+  }
+
+  .footer-neuro {
+    margin-top: 100px;
+    text-align: center;
+  }
+
+  .team-crs .item .info {
+    text-align: left;
+    padding-left: 123px;
+    background: none;
+  }
+
+  .call-action {
+    padding-top: 70px !important;
+  }
+  .project-title-container {
+    padding-top: 150px;
+  }
+
+  .page-header .img-wrapper {
+    min-height: 300px !important;
+  }
+
+  .page-header .cont {
+    padding-top: 150px;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .caption {
+    margin: auto;
+    width: 80%;
+  }
+}
