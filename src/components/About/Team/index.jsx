@@ -7,7 +7,7 @@ import TeamData from '../../../data/About/Team.json';
 const teamSliderSettings = {
   dots: false,
   infinite: true,
-  speed: 1000,
+  speed: 2000,
   autoplay: true,
   slidesToShow: 4,
   slidesToScroll: 1,

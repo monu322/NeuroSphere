@@ -6,11 +6,11 @@ import appData from '../../data/app.json';
 const Footer = ({ classText }) => {
   return (
     <footer className={ classText ? classText : '' }>
-      <div className="container mt-4 pt-4">
-          <div className="row mt-4 pt-4">
-              <div className="col-lg-8 mt-4 pt-4">
-                  <div className="item md-mb 50 mt-4 pt-4">
-                      <div className="title m-2 p-2">
+      <div className="container">
+          <div className="row">
+              <div className="col-md-8 footer-contact">
+                  <div className="item md-mb">
+                      <div className="title">
                           <h5>Contact Us</h5>
                       </div>
                       <ul>
@@ -68,7 +68,7 @@ const Footer = ({ classText }) => {
                       </ul>
                   </div>
               </div> */}
-              <div className="col-lg-4">
+              <div className="col-md-4 footer-neuro">
                   <div className="item">
                       <div className="logo">
                           <img src={appData.lightLogo} alt="" />

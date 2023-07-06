@@ -47,4 +47,65 @@
     justify-content: center;
     gap: 20px;
   }
+  .cursor-outer {
+    display: none;
+  }
+
+  .mouse-cursor {
+    display: none;
+  }
+
+  .caption {
+    padding-top: 250px !important;
+  }
+
+  .caption h1 {
+    font-size: 35px !important;
+  }
+
+  .section-padding {
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+  }
+
+  .ui-block .gr-text {
+    font-size: 35px !important;
+  }
+
+  .shadows {
+    width: 450px;
+  }
+
+  .footer-neuro {
+    margin-top: 100px;
+    text-align: center;
+  }
+
+  .team-crs .item .info {
+    text-align: left;
+    padding-left: 123px;
+    background: none;
+  }
+
+  .call-action {
+    padding-top: 70px !important;
+  }
+  .project-title-container {
+    padding-top: 150px;
+  }
+
+  .page-header .img-wrapper {
+    min-height: 300px !important;
+  }
+
+  .page-header .cont {
+    padding-top: 150px;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .caption {
+    margin: auto;
+    width: 80%;
+  }
 }

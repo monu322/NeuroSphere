@@ -2431,7 +2431,6 @@ body {
 
 .ui-slider.ui-main .setone.setwo {
   position: static;
-
 }
 
 .ui-slider.ui-main .setone.setwo .swiper-nav-ctrl {
@@ -6024,7 +6023,7 @@ footer .item .copy-right p a {
     margin-bottom: 80px;
   }
   .sm-mt20 {
-    margin-top:70px;
+    margin-top: 70px;
   }
   .sm-pb10 {
     padding-bottom: 10px;
@@ -6052,7 +6051,7 @@ footer .item .copy-right p a {
   }
   .container {
     max-width: 100%;
-    padding:0px 35px;
+    padding: 0px 35px;
   }
   h1 {
     font-size: 35px;
@@ -6194,215 +6193,209 @@ footer .item .copy-right p a {
     margin-right: 25px;
   }
   .section-padding {
-    margin-top: 198px;
+    margin-top: 60px;
     padding-top: 5px;
-    margin-bottom: -200px;
     padding-bottom: 0px;
-}
-.skills-circle .skill span {
-  margin-top: 44px;
-}
-.page-header .img-wrapper .title {
-  padding-top: 40px;
-}
-.works-header {
-  min-height: 50vh;
-}
-.page-header .img-wrapper .title h3 {
-  font-size: 48px;
-  margin-top: -41px;
-}
-.ui-slider.ui-main .parallax-slider .caption h1 {
-  font-size: 48px;
-  line-height: 1;
-  font-weight: 570;
-  margin-top: -191px;
-  margin-left: -7px;
-}
-.team-crs .item {
-  padding: 0 15px;
-  margin-left: -117px;
-}
-.block-sec .testim-box {
+  }
+  .skills-circle .skill span {
+    margin-top: 44px;
+  }
+  .page-header .img-wrapper .title {
+    padding-top: 40px;
+  }
+  .works-header {
+    min-height: 50vh;
+  }
+  .page-header .img-wrapper .title h3 {
+    font-size: 48px;
+    margin-top: -41px;
+  }
+  .ui-slider.ui-main .parallax-slider .caption h1 {
+    font-size: 48px;
+    line-height: 1;
+    font-weight: 570;
+    margin-top: -191px;
+    margin-left: -7px;
+  }
+  .team-crs .item {
+    padding: 0 15px;
+    margin-left: -117px;
+  }
+  .block-sec .testim-box {
     margin-top: 12px;
     margin-left: 8px;
-}
-.btn-curve.btn-lit {
-  margin-bottom: 160px;
-  margin-left: 60px;
-  margin-right: 47px;
-  padding-top: 14px;
-}
-.call-action .btn-curve span {
-  font-size: 17px;
-  font-weight: 600;
-}
-.body.bg-gr .bg-gray {
-  margin-top: -288px;
-}
-.btn-curve.btn-lg {
-  margin-left: 97px;
-}
-.skill_title{
-  margin-left: 21px;
-}
-.skill_sub{
-  margin-left: 22px;
-}
-.fa, .fas {
+  }
+  .btn-curve.btn-lit {
+    margin-bottom: 50px;
+    margin-left: 60px;
+    margin-right: 47px;
+    padding-top: 14px;
+  }
+  .call-action .btn-curve span {
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .body.bg-gr .bg-gray {
+    margin-top: -288px;
+  }
+  .btn-curve.btn-lg {
+    margin-left: 97px;
+  }
+  .skill_title {
+    margin-left: 21px;
+  }
+  .skill_sub {
+    margin-left: 22px;
+  }
+  .fa,
+  .fas {
     font-size: 22px;
     margin-top: -12px;
     padding-right: 5px;
     padding-left: 5px;
-}
-.simpleParallax{
-  margin-right: -11px;
-  margin-left: -10px;
-  margin-top: -55px;
-}
-.fadeInUp {
-  margin-right: -14px;
-  margin-left: -14px;
-  margin-bottom: 50px;
-}
-.ui-slider.ui-main .setone.setwo .next-ctrl {
-  top: 59%;
-  right: 4px;
-  padding-left: 5px;
-  padding-top: 6px;
-}
-.ui-slider.ui-main .setone.setwo .prev-ctrl {
-  top: 59%;
-  left: 4px;
-  padding-right: 5px;
-  padding-top: 6px;
-}
-.services-div {
-  margin-bottom: 40px;
-  margin-top: 60px;
-}
-.ui-slider.ui-main .parallax-slider .caption .btn-curve span {
-  font-size: 17px;
-  margin-left: 64px;
-  margin-right: 23px;
-  line-height: 2;
-  font-weight: 800;
-}
-.case{
-  padding-top: 44px;
-  margin-bottom: 80px;
-}
-.main-header h3 {
-  font-size: 46px;
-}
-.testimonials .quote-icon {
-  margin-bottom: 33px;
-  width: 150px;
-  height: 150px;
-}
-.testimonials .item p {
-  font-size: 23px;
-}
-.testimonials .controls span {
-  width: 43px;
-  height: 43px;
-}
-.services .item {
-  height: auto;
-  margin-bottom: -80px;
-  margin-top: 35px;
-}
-.page-header .img-wrapper .bg-img {
-  position: relative;
-  min-height: 70vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  overflow: hidden;
-}
-.ui-block .cont h3 {
-  font-size: 57px;
-}
-.portfolio .gallery .items .cont span {
-  font-weight: 500;
-  font-size: 14px;
-}
-.services .section-padding {
-  padding: 0px 0;
-  margin-top: 255px;
-}
-.cont-info{
-  margin-top: -50px;
-}
-.contact .cont-info .item h5 {
-  font-size: 17px;
-  font-weight: 500;
-}
-.contact .cont-info .item h6 {
-  font-size: 15px;
-  font-weight: 400;
-}
-.bg-img{
-  margin-bottom: -240px;
-}
-.block-sec{
-  margin-top: 140px;
-}
-footer .item .title h5 {
-  margin-bottom: 30px;
-  margin-top: -50px;
-}
-<<<<<<< HEAD
-.home-portfolio-section, .team-section-dark-bg {
-  margin-top: -1px;
-}
-.block-sec .testim-box .head-box h6 {
-  font-size: 12px;
-  font-weight: 500;
-}
-.block-sec .testim-box .item .info .cont .author-details {
-  font-size: 13px;
-  font-weight: 400;
-}
-.skills-circle .skill {
-  margin-bottom: 14px;
-}
-.min-area .img {
-  margin-top: 305px;
-}
-.team-img-holder {
- width: 475px;
- padding-left: 10px;
- padding-right: 47px;
-}
-.team-img {
- padding-left: 95px;
- margin-left: -4px;
-}
-.min-area .content {
-  margin-top: -72px;
-  margin-bottom: -50px;
-}
-.min-area .content ul.feat li {
-  border-bottom: 10px solid rgba(255, 255, 255, 0.05);
-  margin-top: 50px;
-}
-.min-area .content ul.feat li p {
-  font-size: 15px;
-=======
->>>>>>> c5ada52bf374e9c291e4cd39e28f08ad71961b5a
-}
+  }
+  .simpleParallax {
+    margin-right: -11px;
+    margin-left: -10px;
+    margin-top: -55px;
+  }
+  .fadeInUp {
+    margin-right: -14px;
+    margin-left: -14px;
+    margin-bottom: 50px;
+  }
+  .ui-slider.ui-main .setone.setwo .next-ctrl {
+    top: 59%;
+    right: 4px;
+    padding-left: 5px;
+    padding-top: 6px;
+  }
+  .ui-slider.ui-main .setone.setwo .prev-ctrl {
+    top: 59%;
+    left: 4px;
+    padding-right: 5px;
+    padding-top: 6px;
+  }
+  .services-div {
+    margin-bottom: 40px;
+    margin-top: 60px;
+  }
+  .ui-slider.ui-main .parallax-slider .caption .btn-curve span {
+    font-size: 17px;
+    margin-left: 64px;
+    margin-right: 23px;
+    line-height: 2;
+    font-weight: 800;
+  }
+  .case {
+    padding-top: 44px;
+    margin-bottom: 80px;
+  }
+  .main-header h3 {
+    font-size: 46px;
+  }
+  .testimonials .quote-icon {
+    margin-bottom: 33px;
+    width: 150px;
+    height: 150px;
+  }
+  .testimonials .item p {
+    font-size: 23px;
+  }
+  .testimonials .controls span {
+    width: 43px;
+    height: 43px;
+  }
+  .services .item {
+    height: auto;
+    margin-bottom: -80px;
+    margin-top: 35px;
+  }
+  .page-header .img-wrapper .bg-img {
+    position: relative;
+    min-height: 70vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+  .ui-block .cont h3 {
+    font-size: 57px;
+  }
+  .portfolio .gallery .items .cont span {
+    font-weight: 500;
+    font-size: 14px;
+  }
+  .services .section-padding {
+    padding: 0px 0;
+    margin-top: 255px;
+  }
+  .cont-info {
+    margin-top: -50px;
+  }
+  .contact .cont-info .item h5 {
+    font-size: 17px;
+    font-weight: 500;
+  }
+  .contact .cont-info .item h6 {
+    font-size: 15px;
+    font-weight: 400;
+  }
+  .bg-img {
+  }
+  .block-sec {
+    margin-top: 140px;
+  }
+  footer .item .title h5 {
+    margin-bottom: 30px;
+    margin-top: -50px;
+  }
+  .home-portfolio-section,
+  .team-section-dark-bg {
+    margin-top: -1px;
+  }
+  .block-sec .testim-box .head-box h6 {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .block-sec .testim-box .item .info .cont .author-details {
+    font-size: 13px;
+    font-weight: 400;
+  }
+  .skills-circle .skill {
+    margin-bottom: 14px;
+  }
+  .min-area .img {
+    margin-top: 305px;
+  }
+  .team-img-holder {
+  }
+  .team-img {
+    padding-left: 95px;
+    margin-left: -4px;
+  }
+  .min-area .content {
+    margin-top: -72px;
+    margin-bottom: -50px;
+  }
+  .min-area .content ul.feat li {
+    border-bottom: 10px solid rgba(255, 255, 255, 0.05);
+    margin-top: 50px;
+  }
+  .min-area .content ul.feat li p {
+    font-size: 15px;
+  }
 
-.service-box {
-  padding-bottom: 59px;
-}
-.call-action .section-padding .bg-img .container {
-margin-top: 4px;
-margin-bottom: 7px;
-}
-.map-container {
-  margin-top: 300px;
-  margin-bottom: -95px;
-}
+  .service-box {
+    padding-bottom: 59px;
+  }
+  .call-action .section-padding .bg-img .container {
+    margin-top: 4px;
+    margin-bottom: 7px;
+  }
+  .map-container {
+    margin-top: 300px;
+    margin-bottom: -95px;
+  }
 }
 @media screen and (max-width: 480px) {
   .hamenu .cont-info {
@@ -6499,7 +6492,7 @@ margin-bottom: 7px;
 }
 
 @media screen and (max-width: 389px) {
-  .swiper-button-next .swiper-button-prev{
+  .swiper-button-next .swiper-button-prev {
     margin: 200px;
   }
 }

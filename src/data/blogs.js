@@ -3,9 +3,9 @@ module.exports = [
     id: 1,
     img: "/assets/images/blog/1.jpg",
     postMeta: "construction",
-    title: `The Iconic Shard: London's Tallest Marvel in Real Estate`,
+    title: `The Future of AI in Software Development`,
     posterAvatar: "/assets/images/blog/1.jpg",
-    posterName: "Ali Tufan",
+    posterName: "Vinu Zachariah",
     postedDate: "7 May 2023",
     tags: [
       "Artificial Intelligence",
