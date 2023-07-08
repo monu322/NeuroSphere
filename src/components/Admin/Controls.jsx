@@ -6,11 +6,10 @@ import { AuthContext } from "../../context/AuthProvider";
 import { useRouter } from "next/router";
 
 const Controls = () => {
-  const authInfo = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const router = useRouter();
   const handleLogOut = () => {
     signOut(auth);
-    localStorage.removeItem("authInfo");
     router.push("/");
   };
 
@@ -39,7 +38,7 @@ const Controls = () => {
               <span className="icon pe-7s-user"></span>
             </NavLink>
           </li> */}
-          {authInfo.isLoggedIn && (
+          {user && (
             <li>
               <button onClick={handleLogOut} className="logout_admin mr-2 mt-2">
                 Logout
