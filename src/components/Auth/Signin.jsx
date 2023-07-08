@@ -1,5 +1,5 @@
 import db, { auth, googleProvider } from "../../config/fire-config";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query, where , addDoc } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
 import { Field, Form, Formik } from "formik";
 import Link from "next/link";
