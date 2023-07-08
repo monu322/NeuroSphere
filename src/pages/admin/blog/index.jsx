@@ -8,12 +8,13 @@ import MainLayout from "../../../layouts/main";
 import BlogForm from "../../../components/Admin/Blog/BlogForm";
 
 const Index = () => {
-  const authInfo = useContext(AuthContext);
+  const { roleInfo } = useContext(AuthContext);
   const router = useRouter();
   useEffect(() => {
     let body = document.querySelector("body");
     body.classList.add("bg-gr");
     body.classList.remove("d3-dark");
+    if (roleInfo === "user") router.push("/");
   }, []);
   // if (authInfo.user === "user")
   //   return (
