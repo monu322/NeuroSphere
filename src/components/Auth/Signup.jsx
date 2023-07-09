@@ -1,21 +1,9 @@
-<<<<<<< HEAD
 import db, { auth , googleProvider } from "../../config/fire-config";
-=======
-import db, { auth, googleProvider } from "../../config/fire-config";
->>>>>>> 7bead054cf726867ce6a81abe46e0e318a41a3a1
 import { collection, addDoc } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
 import { Field, Form, Formik } from "formik";
 import Link from "next/link";
-<<<<<<< HEAD
 import { createUserWithEmailAndPassword, signOut , signInWithPopup  ,} from "firebase/auth";
-=======
-import {
-  createUserWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-} from "firebase/auth";
->>>>>>> 7bead054cf726867ce6a81abe46e0e318a41a3a1
 import { useRouter } from "next/router";
 import { AuthContext } from "../../context/AuthProvider";
 
@@ -106,20 +94,6 @@ const Signup = () => {
                         <div className="form__errorMessage">{errMessage}</div>
                       )}
 
-<<<<<<< HEAD
-                    <div className="controls blog-form">
-                      <div className="form-group d-flex flex-column">
-                        <label htmlFor="Title">Name</label>
-                        <Field
-                          id="form_title"
-                          type="text"
-                          name="name"
-                          placeholder="Name"
-                          required="required"
-                          className="input"
-                        />
-                      </div>
-=======
                       <div className="controls blog-form">
                         <div className="form-group d-flex flex-column">
                           <label htmlFor="Title">Name</label>
@@ -132,7 +106,6 @@ const Signup = () => {
                             className="input"
                           />
                         </div>
->>>>>>> 7bead054cf726867ce6a81abe46e0e318a41a3a1
 
                         <div className="form-group d-flex flex-column">
                           <label htmlFor="Tag">Email</label>
