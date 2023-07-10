@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import db from "../../config/fire-config";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import Link from "next/link";
 
 const Home = () => {
   const [blogData, setBlogData] = useState([]);
@@ -16,37 +17,56 @@ const Home = () => {
     setBlogData(data);
   };
   console.log(blogData);
+
   useEffect(() => {
     getBlogData();
   }, []);
   return (
-    <div className="container mt-2">
+    <div className="container mt-4">
       <div className="row text-dark">
-        <div className="col-lg-4 col-md-2">Total Blogs</div>
-        <div className="col-lg-4 col-md-2">Total Works</div>
-        <div className="col-lg-4 col-md-2">Total Users</div>
-      </div>
-      <div className="row text-dark">
-        <div className="col-lg-10 col-md-8">
-          <div className="admin-home">
-            <h5>Recently Added Blogs</h5>
-            {blogData?.map((blog) => {
-              return (
-                <div key={blog.title} className="display-blogs">
-                  <h6>{blog.title}</h6>
-                  <p>{blog.content}</p>
-                  {/* <span>{blog.date}</span> */}
-                  <span>
-                    <button className="control_btn pe-7s-trash"></button>
-                    <button className="control_btn pe-7s-pen"></button>
-                  </span>
-                </div>
-              );
-            })}
+        <div className="col-lg-10 col-md-8 admin-home">
+          <h5>Recently Added Blogs</h5>
+
+          <div>
+            <table className="table__style">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Title</th>
+                  <th>Date</th>
+                  <th>Author</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {blogData?.map((blog, index) => {
+                  return (
+                    <tr key={index}>
+                      <td>{index + 1}</td>
+                      <td>{blog.title}</td>
+                      <td>{blog.date.toDate().toLocaleDateString("en-GB")}</td>
+                      <td>{blog.authorInfo.name}</td>
+                      <td>
+                        <Link href={"/admin/blog/1"}>
+                          <a>
+                            <button className="control_btn pen pe-7s-pen mr-2"></button>
+                          </a>
+                        </Link>
+                        <Link href={"/admin/blog/2"}>
+                          <a>
+                            <button className="control_btn trash pe-7s-trash mr-2"></button>
+                          </a>
+                        </Link>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
-      <div className="row text-dark">
+      {/* <div className="row text-dark">
         <div className="col-lg-10 col-md-8">
           <div className="admin-home">
             <h5>Recently Added Works</h5>
@@ -73,7 +93,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
