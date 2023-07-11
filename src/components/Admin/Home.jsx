@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 import db from "../../config/fire-config";
-import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  orderBy,
+  query,
+} from "firebase/firestore";
 import Link from "next/link";
 
 const Home = () => {
@@ -17,6 +24,11 @@ const Home = () => {
     setBlogData(data);
   };
   console.log(blogData);
+
+  const handleDelete = async (id) => {
+    await deleteDoc(doc(db, "blogs", id));
+    getBlogData();
+  };
 
   useEffect(() => {
     getBlogData();
@@ -47,16 +59,15 @@ const Home = () => {
                       <td>{blog.date.toDate().toLocaleDateString("en-GB")}</td>
                       <td>{blog.authorInfo.name}</td>
                       <td>
-                        <Link href={"/admin/blog/1"}>
+                        <Link href={`/admin/blog/${blog.id}`}>
                           <a>
                             <button className="control_btn pen pe-7s-pen mr-2"></button>
                           </a>
                         </Link>
-                        <Link href={"/admin/blog/2"}>
-                          <a>
-                            <button className="control_btn trash pe-7s-trash mr-2"></button>
-                          </a>
-                        </Link>
+                        <button
+                          className="control_btn trash pe-7s-trash mr-2"
+                          onClick={() => handleDelete(blog.id)}
+                        ></button>
                       </td>
                     </tr>
                   );

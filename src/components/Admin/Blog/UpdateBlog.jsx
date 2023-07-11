@@ -1,32 +1,28 @@
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import db, { storage } from "../../../config/fire-config";
-import {
-  collection,
-  addDoc,
-  serverTimestamp,
-  updateDoc,
-  doc,
-} from "firebase/firestore";
-
+import { serverTimestamp, updateDoc, doc, getDoc } from "firebase/firestore";
 import { Field, Form, Formik } from "formik";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
-const BlogForm = () => {
+const UpdateBlogForm = ({ id }) => {
+  const [blogId] = useState(id);
   const [tags, setTags] = useState([]);
   const [errMessage, setErrMessage] = useState(null);
   const [notification, setNotification] = useState("");
+  const [blogData, setBlogData] = useState("");
 
   const router = useRouter();
   const initialValues = {
-    title: "",
-    tags: "",
-    content: "",
+    title: blogData?.title || "",
+    tags: blogData?.tags || [""],
+    content: blogData?.content || "",
     authorInfo: {
-      name: "",
-      about: "",
+      name: blogData?.authorInfo?.name || "",
+      about: blogData?.authorInfo?.about || "",
     },
-    file: "",
+    file: blogData?.file || "",
   };
 
   const validateForm = (formValues) => {
@@ -51,10 +47,10 @@ const BlogForm = () => {
       setErrMessage("Please select an image file");
       return false;
     }
-    if (!formValues.file.type.startsWith("image/")) {
-      setErrMessage("Please select an image");
-      return false;
-    }
+    // if (!formValues.file.type.startsWith("image/")) {
+    //   setErrMessage("Please select an image");
+    //   return false;
+    // }
     return true;
   };
 
@@ -81,12 +77,12 @@ const BlogForm = () => {
     setTags((prevTags) => prevTags.filter((_, i) => i !== index));
   };
 
-  const createBlog = async ({ title, content, authorInfo, file }, tags) => {
+  const updateBlog = async ({ title, content, authorInfo, file }, tags) => {
     const storageRef = ref(storage, `blogImages/${file.name + file.size}`);
     const imgUpload = await uploadBytes(storageRef, file);
     const imageURL = await getDownloadURL(storageRef);
-    const blogCollection = collection(db, "blogs");
-    const res = await addDoc(blogCollection, {
+    const docRef = doc(db, "blogs", blogId);
+    await updateDoc(docRef, {
       title,
       tags,
       content,
@@ -94,12 +90,7 @@ const BlogForm = () => {
       file: imageURL,
       date: serverTimestamp(),
     });
-    console.log(res.id);
-    const docRef = doc(db, "blogs", res.id);
-    await updateDoc(docRef, {
-      id: res.id,
-    });
-    setNotification("Blogpost created successfully");
+    setNotification("Blogpost updated successfully");
     clearNotification();
   };
 
@@ -107,8 +98,7 @@ const BlogForm = () => {
     if (validateForm(values)) {
       setErrMessage(null);
       setSubmitting(false);
-      createBlog(values, tags);
-      resetForm();
+      updateBlog(values, tags);
       setTimeout(() => {
         router.push("/admin");
         setNotification("");
@@ -116,15 +106,38 @@ const BlogForm = () => {
     }
   };
 
+  const getBlogDataWithId = async (id) => {
+    const docRef = doc(db, "blogs", id);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      console.log("Document data:", docSnap.data());
+      setBlogData(docSnap.data());
+    } else {
+      console.log("No such document");
+    }
+  };
+  console.log(blogData);
+
+  useEffect(() => {
+    if (id) {
+      getBlogDataWithId(id);
+    }
+  }, [id]);
+
   return (
     <>
       {/* <section className="page-header crs"> */}
       <div className="container mt-2">
         {notification && <div className="notification">{notification}</div>}
         <div className="row">
-          <div className="col-lg-12 text-dark mb-3 blg-head">Create Blog</div>
+          <div className="col-lg-12 text-dark mb-3 blg-head">Update Blog</div>
         </div>
-        <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+          enableReinitialize={true}
+        >
           {({ values, isSubmitting, setFieldValue }) => (
             <Form>
               <div className="row">
@@ -190,7 +203,7 @@ const BlogForm = () => {
                       </div>
 
                       <button type="submit" className="btn-blog">
-                        <span>Create</span>
+                        <span>Update</span>
                       </button>
                     </div>
                   </div>
@@ -240,36 +253,13 @@ const BlogForm = () => {
                       </div>
                     </div>
                     {/* <div className="blog-box p-4 w-100">
-                      <h4 className="text-dark">Author Info</h4>
-
-                      {errMessage && (
-                        <div className="messages">{errMessage}</div>
-                      )}
-
-                      <div className="controls blog-form">
-                        <div className="form-group d-flex flex-column">
-                          <label htmlFor="Title">Name</label>
-                          <Field
-                            id="form_title"
-                            type="text"
-                            name="title"
-                            placeholder="Blog Title"
-                            required="required"
-                            className="border border-secondary"
-                          />
-                        </div>
-
-                        <div className="form-group d-flex flex-column">
-                          <label htmlFor="Tag">About</label>
-                          <Field
-                            id="form_tag"
-                            type="text"
-                            name="tags"
-                            placeholder="Technology, Real Estate"
-                            required="required"
-                          />
-                        </div>
-                      </div>
+                      <Image
+                        src={initialValues.file}
+                        height={500}
+                        width={500}
+                        alt="blog image"
+                        className="w-45 h-45"
+                      />
                     </div> */}
                   </div>
                 </div>
@@ -282,4 +272,4 @@ const BlogForm = () => {
   );
 };
 
-export default BlogForm;
+export default UpdateBlogForm;
