@@ -4,8 +4,6 @@ import AdminLayout from "../../../layouts/admin";
 import WorkForm from "../../../components/Admin/Work/WorkForm";
 import { useRouter } from "next/router";
 import { AuthContext } from "../../../context/AuthProvider";
-import Signin from "../../../components/Auth/Signin";
-import MainLayout from "../../../layouts/main";
 
 const Index = () => {
   const { roleInfo } = useContext(AuthContext);
@@ -16,12 +14,7 @@ const Index = () => {
     body.classList.remove("d3-dark");
     if (roleInfo === "user") router.push("/");
   }, []);
-  // if (authInfo.user === "user")
-  //   return (
-  //     <MainLayout footerClass="bg-gray">
-  //       <Signin />
-  //     </MainLayout>
-  //   );
+
   return (
     <AdminLayout>
       <WorkForm />

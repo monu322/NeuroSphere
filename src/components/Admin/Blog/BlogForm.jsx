@@ -11,6 +11,7 @@ import {
 import { Field, Form, Formik } from "formik";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import PreviewImage from "../../PreviewImage";
 
 const BlogForm = () => {
   const [tags, setTags] = useState([]);
@@ -26,7 +27,7 @@ const BlogForm = () => {
       name: "",
       about: "",
     },
-    file: "",
+    file: null,
   };
 
   const validateForm = (formValues) => {
@@ -229,6 +230,7 @@ const BlogForm = () => {
                         </div>
                         <div className="form-group d-flex flex-column">
                           <label htmlFor="Tag">Add Image</label>
+                          {values.file && <PreviewImage file={values.file} />}
                           <input
                             type="file"
                             accept="image/*"
