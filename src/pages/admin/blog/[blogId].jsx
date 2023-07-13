@@ -1,13 +1,13 @@
 import { useContext, useEffect } from "react";
-import AdminLayout from "../../../layouts/admin";
-
-import WorkForm from "../../../components/Admin/Work/WorkForm";
-import { useRouter } from "next/router";
 import { AuthContext } from "../../../context/AuthProvider";
+import AdminLayout from "../../../layouts/admin";
+import { useRouter } from "next/router";
+import UpdateBlogForm from "../../../components/Admin/Blog/UpdateBlog";
 
 const Index = () => {
   const { roleInfo } = useContext(AuthContext);
   const router = useRouter();
+  const { blogId } = router.query;
   useEffect(() => {
     let body = document.querySelector("body");
     body.classList.add("bg-gr");
@@ -17,7 +17,7 @@ const Index = () => {
 
   return (
     <AdminLayout>
-      <WorkForm />
+      <UpdateBlogForm id={blogId} />
     </AdminLayout>
   );
 };

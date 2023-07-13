@@ -13,10 +13,10 @@ const Index = () => {
 
   return (
     <BlogLayout footerClass="bg-gray">
-      <Header />
+      {/* <Header /> */}
       <Details />
     </BlogLayout>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;

@@ -6782,16 +6782,16 @@ footer .item .copy-right p a {
   padding-left: 4px;
 }
 
-.admin-home {
+/* .admin-home {
   border-radius: 4px;
   box-shadow: 0 0 5px 0 rgba(173, 173, 179, 0.5);
   margin-top: 20px;
   padding: 20px;
-}
+} */
 
 .admin-home h5 {
   font-size: 22px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .display-blogs {
@@ -6806,8 +6806,17 @@ footer .item .copy-right p a {
   border: none;
   font-size: 20px;
   cursor: pointer;
+  background: none;
 }
-
+.pen {
+  color: rgb(3, 107, 3);
+}
+.trash {
+  color: rgb(194, 4, 4);
+}
+.control_btn:focus {
+  outline: none;
+}
 .notification {
   color: black;
   background-color: rgb(119, 224, 119);
@@ -6841,4 +6850,31 @@ footer .item .copy-right p a {
   font-weight: 500;
   font-family: "poppins", sans-serif;
   cursor: pointer;
+}
+
+.table__style {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 14px;
+  font-family: "poppins", sans-serif;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.table__style thead tr {
+  text-align: left;
+  background-color: #626c7d;
+  color: white;
+}
+
+.table__style th,
+.table__style td {
+  padding: 12px 15px;
+}
+
+.table__style tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+.table__style tbody tr:hover {
+  background-color: #f3f3f3;
 }
