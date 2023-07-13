@@ -21,14 +21,14 @@ const Block = ({ blockData }) => {
               <h3 className="gr-text mb-20">{BlockData.text}</h3>
               <p className="fw-300">{BlockData.desc}</p>
               <Link href="/about">
-                <a className="btn-curve btn-lit mt-40">
+                <a className="btn-curve btn-lit mt-40 ml-0">
                   <span>Read More</span>
                 </a>
               </Link>
             </div>
           </div>
           <div
-            className="col-lg-6 cimg bg-img"
+            className="col-lg-6 cimg bg-img d-none d-lg-block"
             data-background="assets/img/about-us.jpg"
             ref={uiBlockBgElem}
           ></div>

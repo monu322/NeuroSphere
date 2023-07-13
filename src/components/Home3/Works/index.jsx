@@ -12,9 +12,9 @@ const Works = ({ worksData }) => {
   }, []);
 
   return (
-    <section className="ui-works section-padding home-portfolio-section">
-      <div className="container">
-        <div className="row mt-4 pt-4">
+    <section className="ui-works section-padding home-portfolio-section mt-0">
+      <div className="container mt-0">
+        <div className="row mt-0 pt-4">
           <div className="col-lg-7">
             <div className="main-header mt-4 pt-4">
               <h6>Our Portfolio</h6>
@@ -48,7 +48,11 @@ const Works = ({ worksData }) => {
                 <div className="item-img imago wow">
                   <Link href={`/works/${index + 1}`}>
                     <a href={`/works/${index + 1}`} className="popimg">
-                      <img src={work.img} alt="image" />
+                      <img
+                        src={work.img}
+                        alt="image"
+                        className="img-fluid custom-img"
+                      />
                       <div className="item-img-overlay"></div>
                     </a>
                   </Link>

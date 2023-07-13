@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useRef } from "react";
+import MinimalData from "../../../data/About/Minimal.json";
 import dynamic from "next/dynamic";
 const Split = dynamic(() => import("../../Split"), { ssr: false });
 
@@ -21,7 +22,7 @@ const Minimal = ({ minimalData }) => {
       <div className="container">
         <div className="row">
           <div className="col-lg-6">
-            <div className="img">
+            <div className="img  d-none d-lg-block">
               <img
                 className="thumparallax-down"
                 src="/assets/img/min-area.jpg"

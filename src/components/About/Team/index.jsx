@@ -36,15 +36,18 @@ const Team = () => {
 
   return (
     <section className="team-crs section-padding team-section-dark-bg">
-      <div className="container">
-        <div className="row">
+      <div className="container pt-2">
+        <div className="row mt-4">
           <div className="col-lg-4 valign">
             <div className="full-width">
               <div className="sec-head custom-font mb-0">
                 <h6>Employees</h6>
                 <h3>Our Team.</h3>
               </div>
-              <div className="navs mt-30 wow fadeInUp" data-wow-delay=".3s">
+              <div
+                className="navs mt-30 wow fadeInUp mb-4 "
+                data-wow-delay=".3s"
+              >
                 <span className="prev cursor-pointer" onClick={previous}>
                   <i className="fas fa-chevron-left"></i>
                 </span>

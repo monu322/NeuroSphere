@@ -92,7 +92,7 @@ const Header = ({ headerData }) => {
                           </h1>
                           <p className="para">{slide.content}</p>
                           <Link href="/about">
-                            <a className="btn-curve btn-lit mt-30 m-4 ">
+                            <a className="btn-curve btn-lit mt-30 ml-0">
                               <span>Learn More</span>
                             </a>
                           </Link>
@@ -108,13 +108,14 @@ const Header = ({ headerData }) => {
 
         <div className="setone setwo ssm-mb115">
           <div
-            className="swiper-button-next swiper-nav-ctrl next-ctrl cursor-pointer"
+            className="swiper-button-next swiper-nav-ctrl next-ctrl cursor-pointer mr-3"
             ref={navigationNextRef}
           >
             <i className="fas fa-chevron-right"></i>
           </div>
+
           <div
-            className="swiper-button-prev swiper-nav-ctrl prev-ctrl cursor-pointer"
+            className="swiper-button-prev swiper-nav-ctrl prev-ctrl cursor-pointer ml-3"
             ref={navigationPrevRef}
           >
             <i className="fas fa-chevron-left"></i>
