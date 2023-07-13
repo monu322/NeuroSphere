@@ -3,7 +3,7 @@
     width: 200%;
   }
   .ssm-mb115 {
-    margin-bottom: 115px;
+    margin-bottom: 300px;
   }
   .ssm-mt10 {
     margin-top: 10px;
@@ -101,6 +101,11 @@
   .page-header .cont {
     padding-top: 150px;
   }
+}
+
+.custom-img {
+  object-fit: contain;
+  max-height: 100%;
 }
 
 @media screen and (min-width: 767px) {
