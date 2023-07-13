@@ -4,7 +4,8 @@ import MinimalData from "../../../data/About/Minimal.json";
 import dynamic from "next/dynamic";
 const Split = dynamic(() => import("../../Split"), { ssr: false });
 
-const Minimal = () => {
+const Minimal = ({ minimalData }) => {
+  const MinimalData = minimalData;
   const imageRef = useRef(null);
 
   useEffect(() => {

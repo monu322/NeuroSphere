@@ -4,7 +4,7 @@ import Link from "next/link";
 import WorksData from "../../../data/Home3/Works.json";
 import initIsotope from "../../../common/initIsotope";
 
-const Works = () => {
+const Works = ({ worksData }) => {
   useEffect(() => {
     setTimeout(() => {
       if (window.Isotope) initIsotope();

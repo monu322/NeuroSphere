@@ -101,8 +101,8 @@ const Home = () => {
                 <div key={work.title} className="display-blogs">
                   <h6>{work.title}</h6>
                   {/* <p>{blog.content}</p> */}
-                  {/* <span>{blog.date}</span> */}
-                  <span>
+      {/* <span>{blog.date}</span> */}
+      {/* <span>
                     <button className="control_btn pe-7s-trash"></button>
                     <button className="control_btn pe-7s-pen"></button>
                   </span>
@@ -117,7 +117,7 @@ const Home = () => {
               </span>
             </div>
           </div>
-        </div>
+        </div> 
       </div>
       <div className="row text-dark">
         <div className="col-lg-10 col-md-8">

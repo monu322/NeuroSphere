@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import BlockData from "../../../data/Home1/Block.json";
 
-const Block = () => {
+const Block = ({ blockData }) => {
   const uiBlockBgElem = useRef(null);
 
   useEffect(() => {
