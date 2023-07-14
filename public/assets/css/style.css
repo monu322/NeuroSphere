@@ -2716,6 +2716,8 @@ body {
 .page-header .img-wrapper .title h3 {
   font-size: 100px;
   font-weight: 900;
+  margin-top: 40px;
+  margin-bottom: 40px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #fff;
   color: transparent;
@@ -5851,7 +5853,7 @@ footer .item .copy-right p a {
   }
   .navbar .logo {
     margin-left: 15px;
-    width: 50px;
+    width: 200px;
   }
   .nav-scroll .navbar-collapse .nav-link,
   .light .navbar-collapse .nav-link {
@@ -6049,6 +6051,10 @@ footer .item .copy-right p a {
   .sm-pb80 {
     padding-bottom: 80px;
   }
+  .sm-pt100 {
+    padding-top: 100px !important;
+  }
+
   .container {
     max-width: 100%;
     padding: 0px 35px;
@@ -6193,9 +6199,9 @@ footer .item .copy-right p a {
     margin-right: 25px;
   }
   .section-padding {
-    margin-top: 60px;
+    /* margin-top: 60px; */
     padding-top: 5px;
-    padding-bottom: 0px;
+    padding-bottom: 60px;
   }
   .skills-circle .skill span {
     margin-top: 44px;
@@ -6207,8 +6213,10 @@ footer .item .copy-right p a {
     min-height: 50vh;
   }
   .page-header .img-wrapper .title h3 {
-    font-size: 48px;
-    margin-top: -41px;
+    font-size: 45px;
+    /* margin-top: -41px; */
+    margin-bottom: 30px;
+    margin-top: 30px;
   }
   .ui-slider.ui-main .parallax-slider .caption h1 {
     font-size: 48px;
@@ -6227,7 +6235,7 @@ footer .item .copy-right p a {
   }
   .btn-curve.btn-lit {
     margin-bottom: 50px;
-    margin-left: 60px;
+    /* margin-left: 60px; */
     margin-right: 47px;
     padding-top: 14px;
   }
@@ -6394,7 +6402,7 @@ footer .item .copy-right p a {
     margin-bottom: 7px;
   }
   .map-container {
-    margin-top: 300px;
+    margin-top: 25px;
     margin-bottom: -95px;
   }
 }

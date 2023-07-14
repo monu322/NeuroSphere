@@ -39,13 +39,13 @@ const Team = () => {
       <div className="container pt-2">
         <div className="row mt-4">
           <div className="col-lg-4 valign">
-            <div className="full-width">
+            <div className="full-width ssm-mt100">
               <div className="sec-head custom-font mb-0 p-4">
                 <h6>Employees</h6>
                 <h3>Our Team.</h3>
               </div>
               <div
-                className="navs mt-30 wow fadeInUp mb-4 "
+                className="navs mt-30 wow fadeInUp mb-4 ml-4"
                 data-wow-delay=".3s"
               >
                 <span className="prev cursor-pointer" onClick={previous}>

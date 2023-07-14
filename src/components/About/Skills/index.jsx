@@ -7,12 +7,14 @@ const Skills = () => {
     <section className="skills-circle bg-gray">
       <div className="container">
         <div className="row d-flex justify-content-center">
-          <div className="m-5">
-            <div className="row pl-5">
+          <div className="m-md-5 pl-5">
+            <div className="row pl-md-5">
               {SkillsData.map((skill, index) => (
-                <div className="" key={skill.id}>
+                <div className="col-md-4" key={skill.id}>
                   <div
-                    className="item wow fadeInLeft"
+                    className={`item wow fadeInLeft${
+                      index === 1 ? " d-md-block" : ""
+                    }`}
                     data-wow-delay={`${index === 1 ? "0.6s" : "0.3s"}`}
                   >
                     <div className="skill" data-value={skill.value / 100}>
