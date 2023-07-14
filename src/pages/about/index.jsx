@@ -9,9 +9,27 @@ import Testimonials from "../../components/About/Testimonials";
 import Skills from "../../components/About/Skills";
 import Team from "../../components/About/Team";
 import Clients from "../../components/About/Clients";
-import CallAction from "../../components/About/CallAction";
 
-const Index = () => {
+import CallAction from "../../components/About/CallAction";
+import HeaderData from "../../data/About/Header.json";
+import IntroData from "../../data/About/Intro.json";
+import ServicesData from "../../data/About/Services.json";
+import TestimonialsData from "../../data/About/Testimonials.json";
+import SkillsData from "../../data/About/Skills.json";
+import TeamData from "../../data/About/Team.json";
+import MinimalData from "../../data/About/Minimal.json";
+import ClientsData from "../../data/About/Clients.json";
+
+const Index = ({
+  HeaderData,
+  IntroData,
+  ServicesData,
+  TestimonialsData,
+  SkillsData,
+  TeamData,
+  MinimalData,
+  ClientsData,
+}) => {
   useEffect(() => {
     let body = document.querySelector("body");
     body.classList.add("bg-gr");
@@ -20,17 +38,32 @@ const Index = () => {
 
   return (
     <MainLayout footerClass="bg-gray">
-      <Header />
-      <Intro />
-      <Services />
-      <Testimonials />
-      {/* <Skills /> */}
-      <Team />
-      <Minimal />
-      {/* <Clients /> */}
+      <Header headerData={HeaderData} />
+      <Intro introData={IntroData} />
+      <Services servicesData={ServicesData} />
+      <Testimonials testimonialsData={TestimonialsData} />
+      <Skills skillsData={SkillsData} />
+      <Team teamData={TeamData} />
+      <Minimal minimalData={MinimalData} />
+      {/* <Clients clientsData={ClientsData} /> */}
       <CallAction />
     </MainLayout>
   );
 };
 
 export default Index;
+
+export async function getServerSideProps() {
+  return {
+    props: {
+      HeaderData,
+      IntroData,
+      ServicesData,
+      TestimonialsData,
+      SkillsData,
+      TeamData,
+      MinimalData,
+      ClientsData,
+    },
+  };
+}

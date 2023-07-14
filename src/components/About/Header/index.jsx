@@ -1,11 +1,13 @@
-import { useEffect, Fragment } from 'react';
-import HeaderData from '../../../data/About/Header.json';
+import { useEffect, Fragment } from "react";
 
-const Header = () => {
+const Header = ({ headerData }) => {
+  const HeaderData = headerData;
   useEffect(() => {
-    let elem = document.querySelector('.img-wrapper.bg-img[data-background]');
+    let elem = document.querySelector(".img-wrapper.bg-img[data-background]");
     if (elem) {
-      elem.style.backgroundImage = `url(${elem.getAttribute('data-background')})`;
+      elem.style.backgroundImage = `url(${elem.getAttribute(
+        "data-background"
+      )})`;
       elem.style.backgroundRepeat = `no-repeat`;
       elem.style.backgroundSize = `cover`;
       elem.style.backgroundAttachment = `fixed`;
@@ -26,24 +28,25 @@ const Header = () => {
           <div className="col-lg-7 col-md-9">
             <div className="cont">
               <h4>
-                {
-                  HeaderData.headerText.map((text, index) => {
-                    return (
-                      index % 2 === 0 ?
-                      <Fragment key={index}>
-                        { text }
-                      </Fragment>
-                      :
-                      <span className="stroke">{ text }</span>
-                    );
-                  })
-                }
+                {HeaderData.headerText.map((text, index) => {
+                  return index % 2 === 0 ? (
+                    <Fragment key={index}>{text}</Fragment>
+                  ) : (
+                    <span key={index} className="stroke">
+                      {text}
+                    </span>
+                  );
+                })}
               </h4>
             </div>
           </div>
         </div>
       </div>
-      <div className="img-wrapper bg-img parallaxie" data-background="/assets/img/about.jpg" data-overlay-dark="3">
+      <div
+        className="img-wrapper bg-img parallaxie"
+        data-background="/assets/img/about.jpg"
+        data-overlay-dark="3"
+      >
         <div className="title">
           <div className="container">
             <h3>About Us</h3>
@@ -51,7 +54,7 @@ const Header = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import { useRef } from 'react';
-import TestimonialsData from '../../../data/Home1/Testimonials.json';
+import { useRef } from "react";
+import TestimonialsData from "../../../data/Home1/Testimonials.json";
 import Slider from "react-slick";
 
 const sliderSettings = {
@@ -10,10 +10,10 @@ const sliderSettings = {
   autoplay: true,
   slidesToShow: 1,
   slidesToScroll: 1,
-  arrows: false
+  arrows: false,
 };
 
-const Testimonials = () => {
+const Testimonials = ({ testimonialsData }) => {
   const sliderRef = useRef(null);
 
   const next = () => sliderRef.current.slickNext();
@@ -32,23 +32,27 @@ const Testimonials = () => {
           <div className="col-lg-7 valign">
             <div className="tistem full-width">
               <Slider {...sliderSettings} ref={sliderRef}>
-                {
-                  TestimonialsData.map((item, index) => (
-                    <div className="item" key={index}>
-                      <div className="text-bg">{ item.textBg }</div>
-                      <p>{ item.text }</p>
-                      <h6 className="gr-text">{ item.person }</h6>
-                    </div>
-                  ))
-                }
+                {TestimonialsData.map((item, index) => (
+                  <div className="item" key={index}>
+                    <div className="text-bg">{item.textBg}</div>
+                    <p>{item.text}</p>
+                    <h6 className="gr-text">{item.person}</h6>
+                  </div>
+                ))}
               </Slider>
             </div>
           </div>
           <div className="col-lg-2 valign">
             <div className="controls full-width">
               <div className="float-right">
-                <span className="pe-7s-angle-left prev cursor-pointer" onClick={previous}></span>
-                <span className="pe-7s-angle-right next cursor-pointer" onClick={next}></span>
+                <span
+                  className="pe-7s-angle-left prev cursor-pointer"
+                  onClick={previous}
+                ></span>
+                <span
+                  className="pe-7s-angle-right next cursor-pointer"
+                  onClick={next}
+                ></span>
               </div>
             </div>
           </div>
@@ -60,7 +64,7 @@ const Testimonials = () => {
         <img className="shadow sh-right" src="agency-1/img/shadow.png" alt="" />
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Testimonials
+export default Testimonials;

@@ -5,7 +5,6 @@ import dynamic from "next/dynamic";
 const Split = dynamic(() => import("../../Split"), { ssr: false });
 import NoSSR from "../../NoSSR";
 import ModalVideo from "react-modal-video";
-import TestimonialsData from "../../../data/About/Testimonials.json";
 
 const testimonialsSliderSettings = {
   dots: true,
@@ -16,7 +15,8 @@ const testimonialsSliderSettings = {
   arrows: false,
 };
 
-const Testimonials = () => {
+const Testimonials = ({ testimonialsData }) => {
+  const TestimonialsData = testimonialsData;
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {

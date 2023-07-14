@@ -7,7 +7,7 @@ import TeamData from "../../../data/About/Team.json";
 const teamSliderSettings = {
   dots: false,
   infinite: true,
-  speed: 2000,
+  speed: 1000,
   autoplay: true,
   slidesToShow: 4,
   slidesToScroll: 1,
@@ -39,8 +39,8 @@ const Team = () => {
       <div className="container pt-2">
         <div className="row mt-4">
           <div className="col-lg-4 valign">
-            <div className="full-width ssm-mt100">
-              <div className="sec-head custom-font mb-0 p-4">
+            <div className="full-width">
+              <div className="sec-head custom-font mb-0">
                 <h6>Employees</h6>
                 <h3>Our Team.</h3>
               </div>

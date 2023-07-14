@@ -1,8 +1,8 @@
-import SkillsData from "../../../data/About/Skills.json";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
-const Skills = () => {
+const Skills = ({ skillsData }) => {
+  const SkillsData = skillsData;
   return (
     <section className="skills-circle bg-gray">
       <div className="container">

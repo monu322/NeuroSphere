@@ -11,7 +11,8 @@ import "swiper/css/navigation";
 
 SwiperCore.use([Navigation, Pagination, Parallax]);
 
-const Header = () => {
+const Header = ({ headerData }) => {
+  console.log();
   const [load, setLoad] = useState(true);
 
   useEffect(() => {
