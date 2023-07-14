@@ -1,44 +1,47 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from 'next/link';
+import Link from "next/link";
 import blogs from "../../data/Home1/Blogs.json";
-import appData from '../../data/app.json';
+import appData from "../../data/app.json";
 
 const Footer = ({ classText }) => {
   return (
-    <footer className={ classText ? classText : '' }>
+    <footer className={classText ? classText : ""}>
       <div className="container">
-          <div className="row">
-              <div className="col-md-8 footer-contact">
-                  <div className="item md-mb">
-                      <div className="title">
-                          <h5>Contact Us</h5>
-                      </div>
-                      <ul>
-                        <li>
-                            <span className="icon pe-7s-map-marker"></span>
-                            <div className="cont">
-                                <h6>Official Address</h6>
-                                <p>{ appData.address.street } . { appData.address.city }, { appData.address.state } , { appData.address.country }</p>
-                            </div>
-                        </li>
-                        <li>
-                            <span className="icon pe-7s-mail"></span>
-                            <div className="cont">
-                                <h6>Email Us</h6>
-                                <p>{ appData.email }</p>
-                            </div>
-                        </li>
-                        <li>
-                            <span className="icon pe-7s-call"></span>
-                            <div className="cont">
-                                <h6>Call Us</h6>
-                                <p>{ appData.phone }</p>
-                            </div>
-                        </li>
-                      </ul>
-                  </div>
+        <div className="row">
+          <div className="col-md-8 footer-contact">
+            <div className="item sm-pt100">
+              <div className="title">
+                <h5>Contact Us</h5>
               </div>
-              {/* <div className="col-lg-4">
+              <ul>
+                <li>
+                  <span className="icon pe-7s-map-marker"></span>
+                  <div className="cont">
+                    <h6>Official Address</h6>
+                    <p>
+                      {appData.address.street} . {appData.address.city},{" "}
+                      {appData.address.state} , {appData.address.country}
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <span className="icon pe-7s-mail"></span>
+                  <div className="cont">
+                    <h6>Email Us</h6>
+                    <p>{appData.email}</p>
+                  </div>
+                </li>
+                <li>
+                  <span className="icon pe-7s-call"></span>
+                  <div className="cont">
+                    <h6>Call Us</h6>
+                    <p>{appData.phone}</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          {/* <div className="col-lg-4">
                   <div className="item md-mb50">
                       <div className="title">
                         <h5>Recent Articles</h5>
@@ -68,38 +71,45 @@ const Footer = ({ classText }) => {
                       </ul>
                   </div>
               </div> */}
-              <div className="col-md-4 footer-neuro">
-                  <div className="item">
-                      <div className="logo">
-                          <img src={appData.lightLogo} alt="" />
-                      </div>
-                      <div className="social pl-4">
-                          <Link href="#0">
-                            <a><i className="fab fa-facebook-f"></i></a>
-                          </Link>
-                          <Link href="#0">
-                            <a><i className="fab fa-twitter"></i></a>
-                          </Link>
-                          <Link href="#0">
-                            <a><i className="fab fa-instagram"></i></a>
-                          </Link>
-                          <Link href="#0">
-                            <a><i className="fab fa-youtube"></i></a>
-                          </Link>
-                      </div>
-                      <div className="copy-right pl-4">
-                          <p>
-                              { `© `+new Date().getFullYear()+' '+appData.footerText }{' '}
-                                    { appData.themeAuthor }
-.
-                          </p>
-                      </div>
-                  </div>
+          <div className="col-md-4 footer-neuro">
+            <div className="item">
+              <div className="logo">
+                <img src={appData.lightLogo} alt="" />
               </div>
+              <div className="social pl-4">
+                <Link href="#0">
+                  <a>
+                    <i className="fab fa-facebook-f"></i>
+                  </a>
+                </Link>
+                <Link href="#0">
+                  <a>
+                    <i className="fab fa-twitter"></i>
+                  </a>
+                </Link>
+                <Link href="#0">
+                  <a>
+                    <i className="fab fa-instagram"></i>
+                  </a>
+                </Link>
+                <Link href="#0">
+                  <a>
+                    <i className="fab fa-youtube"></i>
+                  </a>
+                </Link>
+              </div>
+              <div className="copy-right pl-4">
+                <p>
+                  {`© ` + new Date().getFullYear() + " " + appData.footerText}{" "}
+                  {appData.themeAuthor}.
+                </p>
+              </div>
+            </div>
           </div>
+        </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

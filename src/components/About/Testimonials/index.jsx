@@ -49,7 +49,7 @@ const Testimonials = ({ testimonialsData }) => {
                     </div> */}
                   </div>
 
-                  <div className="cont">
+                  <div className="cont mb-4">
                     <Split className="wow">
                       <h3 data-splitting>{TestimonialsData.videoText}</h3>
                     </Split>

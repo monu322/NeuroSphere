@@ -1,80 +1,75 @@
-'use client'
+"use client";
 import { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import LoadingButton from "./LoadingButton";
 
-let hostname = 'http://neurosphere.tech'
+let hostname = "http://neurosphere.tech";
 
-if (typeof window !== 'undefined') {
+if (typeof window !== "undefined") {
   hostname = window.location.origin;
 }
 
-console.log(hostname)
+console.log(hostname);
 
-const url = hostname+"/api/contact"
+const url = hostname + "/api/contact";
 const ContactForm = () => {
- /* const [formData, setFormData] = useState({
+  /* const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: ""
   });*/
   const [initialValues, setInitialValues] = useState({
-    name:"",
-    email:"",
-    message:""
-  }) 
+    name: "",
+    email: "",
+    message: "",
+  });
 
-
-  
   const [errMessage, setErrMessage] = useState(null);
-  const [isLoading, setIsLoading]= useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const validateForm = (formValues) => {
     if (!formValues.name || !formValues.email || !formValues.message) {
-      setErrMessage('Please fill in all fields');
+      setErrMessage("Please fill in all fields");
       return false;
     }
     if (formValues.name.length < 3) {
-      setErrMessage('Name must be at least 3 characters');
+      setErrMessage("Name must be at least 3 characters");
       return false;
     }
     if (formValues.message.length < 10) {
-      setErrMessage('Message must be at least 10 characters');
+      setErrMessage("Message must be at least 10 characters");
       return false;
     }
     if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formValues.email)) {
-      setErrMessage('Email is invalid');
+      setErrMessage("Email is invalid");
       return false;
     }
     return true;
-  }
+  };
 
-  const handleSubmit = (values, { setSubmitting, resetForm }) => 
-  {
-    if (validateForm(values)) 
-    {
+  const handleSubmit = (values, { setSubmitting, resetForm }) => {
+    if (validateForm(values)) {
       setErrMessage(null);
       setSubmitting(false);
       setIsLoading(true);
 
       fetch(url, {
-        method:'POST',
-        headers:{
-          'Accept':'application/json',
-          'Content-Type': 'application/json'
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(values)
-      }).then((res)=>{
-        if (res.status === 200){
-          setTimeout(()=>{
-            setIsLoading(false)
-            setErrMessage('Your form has been submitted!')
+        body: JSON.stringify(values),
+      }).then((res) => {
+        if (res.status === 200) {
+          setTimeout(() => {
+            setIsLoading(false);
+            setErrMessage("Your form has been submitted!");
             resetForm();
-          },1000)
+          }, 1000);
         }
-      })
+      });
     }
-    
   };
 
   return (
@@ -82,73 +77,69 @@ const ContactForm = () => {
       <div className="form md-mb 50 mt-4 pt-4">
         <h4 className="extra-title mb-50">Get In Touch.</h4>
 
-        <Formik
-          initialValues={initialValues}
-          onSubmit={handleSubmit}
-        >{({
-         values,
-         handleChange,}) => (
-          <Form>
-
-            <div className="controls">
-              <div className="form-group">
-                <Field
-                  id="form_name"
-                  type="text"
-                  name="name"
-                  placeholder="Name"
-                  required="required"
-                  value = {values.name}
-                  onChange = {handleChange}
-                />
-              </div>
-
-              <div className="form-group">
-                <Field
-                  id="form_email"
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  required="required"
-                  value = {values.email}
-                  onChange = {handleChange}
-                />
-              </div>
-
-              <div className="form-group">
-                <Field
-                  as="textarea"
-                  id="form_message"
-                  name="message"
-                  placeholder="Message"
-                  rows="4"
-                  required="required"
-                  value = {values.message}
-                  onChange = {handleChange}
-                />
-              </div>
-              { 
-                isLoading? <LoadingButton/> :
-                <div className="row">
-                  <div className="col col-lg-6 m-4">
-                    <button type="submit" className="btn-curve btn-lit"><span>Send Message</span></button>
-                  </div>
-                  <div className="col col-lg-6">
-                  {
-                    errMessage && <div className="formMessages">{ errMessage }</div>
-                  }
-                  </div>
-                  
+        <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+          {({ values, handleChange }) => (
+            <Form>
+              <div className="controls">
+                <div className="form-group">
+                  <Field
+                    id="form_name"
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    required="required"
+                    value={values.name}
+                    onChange={handleChange}
+                  />
                 </div>
-              }
-              
+
+                <div className="form-group">
+                  <Field
+                    id="form_email"
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required="required"
+                    value={values.email}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <Field
+                    as="textarea"
+                    id="form_message"
+                    name="message"
+                    placeholder="Message"
+                    rows="4"
+                    required="required"
+                    value={values.message}
+                    onChange={handleChange}
+                  />
+                </div>
+                {isLoading ? (
+                  <LoadingButton />
+                ) : (
+                  <div className="row">
+                    <div className="col col-lg-6 mt-20">
+                      <button type="submit" className="btn-curve btn-lit">
+                        <span>Send Message</span>
+                      </button>
+                    </div>
+                    <div className="col col-lg-6">
+                      {errMessage && (
+                        <div className="formMessages">{errMessage}</div>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
-          </Form>
-       )}
+            </Form>
+          )}
         </Formik>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ContactForm
+export default ContactForm;
