@@ -798,6 +798,10 @@ span:hover {
   margin-top: 100px !important;
 }
 
+.ml-0 {
+  margin-left: 0px;
+}
+
 /*-------------------------------------------------------
 			 margin-bottom  (0/100) +5
 -------------------------------------------------------*/
@@ -5788,7 +5792,6 @@ footer .item .copy-right p a {
 
   .md-mb50 {
     margin-bottom: 50px;
-    margin-top: 140px;
   }
   .md-mb60 {
     margin-bottom: 60px;
@@ -6048,6 +6051,9 @@ footer .item .copy-right p a {
   }
   .sm-pb80 {
     padding-bottom: 80px;
+  }
+  .sm-mt0 {
+    margin-top: 0px;
   }
   .container {
     max-width: 100%;

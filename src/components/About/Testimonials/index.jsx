@@ -56,7 +56,7 @@ const Testimonials = ({ testimonialsData }) => {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-5 offset-lg-1">
+              <div className="col-lg-5 offset-lg-1 mt-30">
                 <div className="testim-box">
                   <div className="head-box">
                     <h6 className="wow fadeIn" data-wow-delay=".5s">
