@@ -16,7 +16,7 @@ const Home = () => {
 
   const getBlogData = async () => {
     const blogCollection = collection(db, "blogs");
-    const q = query(blogCollection, orderBy("date", "desc"));
+    const q = query(blogCollection, orderBy("postedDate", "desc"));
     const querySnapshot = await getDocs(q);
     const data = [];
     querySnapshot.forEach((doc) => {
@@ -37,7 +37,6 @@ const Home = () => {
     });
     setWorkData(data);
   };
-  console.log(blogData);
 
   const handleDelete = async (id) => {
     await deleteDoc(doc(db, "blogs", id));
@@ -71,8 +70,10 @@ const Home = () => {
                     <tr key={index}>
                       <td>{index + 1}</td>
                       <td>{blog.title}</td>
-                      <td>{blog.date.toDate().toLocaleDateString("en-GB")}</td>
-                      <td>{blog.authorInfo.name}</td>
+                      <td>
+                        {blog.postedDate.toDate().toLocaleDateString("en-GB")}
+                      </td>
+                      <td>{blog.posterName}</td>
                       <td>
                         <Link href={`/admin/blog/${blog.id}`}>
                           <a>
@@ -92,35 +93,23 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="row text-dark">
+      {/* <div className="row text-dark">
         <div className="col-lg-10 col-md-8">
           <div className="admin-home">
-            <h5>Recently Added Blogs</h5>
-            {blogData?.map((blog) => {
+            <h5>Recently Added Works</h5>
+            {workData?.map((work) => {
               return (
                 <div key={work.title} className="display-blogs">
                   <h6>{work.title}</h6>
                   {/* <p>{blog.content}</p> */}
-                  {/* <span>{blog.date}</span> */}
-                  {/* <span>
-                <div key={blog.title} className="display-blogs">
-                  <h6>{blog.title}</h6>
-                  <p>{blog.content}</p>
-                  {/* <span>{blog.date}</span> */}
-                  <span>
+      {/* <span>{blog.date}</span> */}
+      {/* <span>
                     <button className="control_btn pe-7s-trash"></button>
                     <button className="control_btn pe-7s-pen"></button>
                   </span>
                 </div>
               );
             })}
-          </div>
-        </div>
-      </div>
-      <div className="row text-dark">
-        <div className="col-lg-10 col-md-8">
-          <div className="admin-home">
-            <h5>Recently Added Works</h5>
             <div className="display-blogs">
               <p>Title</p>
               <span>
@@ -144,7 +133,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
