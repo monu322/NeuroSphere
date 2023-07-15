@@ -2,10 +2,11 @@
 import { useEffect } from "react";
 import Link from "next/link";
 
-const Blog = ({ blogsData }) => {
-  const blogs = blogsData;
-
+const Blog = ({ data }) => {
+  const blogs = data;
+  console.log(blogs.length);
   function convertToSlug(Text) {
+    console.log(Text);
     return Text.toLowerCase()
       .replace(/ /g, "-")
       .replace(/[^\w-]+/g, "");
@@ -23,7 +24,9 @@ const Blog = ({ blogsData }) => {
                   key={blog.id}
                 >
                   <div className="img">
-                    <Link href={`/blog/${blog.id}`}>
+                    <Link
+                      href={`/blog/${convertToSlug(blog.title)}-${blog.id}`}
+                    >
                       <a>
                         <img src={blog.img} alt="" />
                       </a>
@@ -43,7 +46,11 @@ const Blog = ({ blogsData }) => {
                           ))}
                         </div>
                         <h4 className="title">
-                          <Link href={`/blog/${blog.id}`}>
+                          <Link
+                            href={`/blog/${convertToSlug(blog.title)}-${
+                              blog.id
+                            }`}
+                          >
                             <a>{blog.title}</a>
                           </Link>
                         </h4>

@@ -61,7 +61,7 @@ module.exports = [
   },
   {
     id: "2",
-    img: "/assets/images/blog/2.jpg",
+    img: "/assets/images/blog/3/2.jpg",
     postMeta: "business",
     title: `A Guide to Investing in Real Estate`,
     posterAvatar: "/assets/images/blog/2.jpg",
@@ -139,7 +139,7 @@ module.exports = [
   },
   {
     id: "3",
-    img: "/assets/images/blog/3.jpg",
+    img: "/assets/images/blog/3/3.jpg",
     postMeta: "business",
     title: `Top 10 Real Estate destinations in the UK`,
     posterAvatar: "/assets/images/blog/3.jpg",
