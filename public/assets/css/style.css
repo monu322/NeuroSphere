@@ -2431,7 +2431,6 @@ body {
 
 .ui-slider.ui-main .setone.setwo {
   position: static;
-
 }
 
 .ui-slider.ui-main .setone.setwo .swiper-nav-ctrl {
@@ -4622,7 +4621,7 @@ body {
   position: relative;
   background: #75dab4;
   padding: 80px 40px;
-  margin-bottom: -120px;
+  margin-bottom: 120px;
 }
 
 .block-sec .testim-box .head-box h6 {
@@ -6024,7 +6023,7 @@ footer .item .copy-right p a {
     margin-bottom: 80px;
   }
   .sm-mt20 {
-    margin-top:70px;
+    margin-top: 70px;
   }
   .sm-pb10 {
     padding-bottom: 10px;
@@ -6052,7 +6051,7 @@ footer .item .copy-right p a {
   }
   .container {
     max-width: 100%;
-    padding:0px 35px;
+    padding: 0px 35px;
   }
   h1 {
     font-size: 35px;
@@ -6092,9 +6091,9 @@ footer .item .copy-right p a {
     width: 40px;
   }
   .btn-curve {
-    padding: 8px 15px;
-    margin-right: 90px;
-    margin-left: 61px;
+    padding: 5px 15px;
+    padding-right: 12px;
+    padding-left: 12px;
   }
   .btn-curve span {
     font-size: 15px;
@@ -6104,6 +6103,7 @@ footer .item .copy-right p a {
     padding-right: 63px;
     padding-left: 12px;
     text-align: center;
+    padding-bottom: 4px;
   }
   .slider .parallax-slider .caption h1 {
     font-size: 40px;
@@ -6161,12 +6161,13 @@ footer .item .copy-right p a {
     letter-spacing: 5px;
   }
   .skills-circle {
-    padding-bottom: 0 !important;
+    padding-bottom: -1 !important;
   }
   .skills-circle .item {
     margin-bottom: -100px;
     margin-left: 105px;
     margin-top: 160px;
+    padding-top: 4px;
   }
   .team .navs {
     top: 20px;
@@ -6192,157 +6193,211 @@ footer .item .copy-right p a {
     margin-right: 25px;
   }
   .section-padding {
-    margin-top: 10px;
+    margin-top: 60px;
     padding-top: 5px;
-    margin-bottom: -60px;
-}
-.skills-circle .skill span {
-  margin-top: 44px;
-}
-.page-header .img-wrapper .title {
-  padding-top: 40px;
-}
-.works-header {
-  min-height: 50vh;
-}
-.page-header .img-wrapper .title h3 {
-  font-size: 48px;
-  margin-top: -41px;
-}
-.ui-slider.ui-main .parallax-slider .caption h1 {
-  font-size: 48px;
-  line-height: 1;
-  font-weight: 570;
-  margin-top: 1px;
-  margin-left: -7px;
-}
-.team-crs .item {
-  padding: 0 15px;
-  margin-left: -117px;
-}
-.block-sec .testim-box {
+    padding-bottom: 0px;
+  }
+  .skills-circle .skill span {
+    margin-top: 44px;
+  }
+  .page-header .img-wrapper .title {
+    padding-top: 40px;
+  }
+  .works-header {
+    min-height: 50vh;
+  }
+  .page-header .img-wrapper .title h3 {
+    font-size: 48px;
+    margin-top: -41px;
+  }
+  .ui-slider.ui-main .parallax-slider .caption h1 {
+    font-size: 48px;
+    line-height: 1;
+    font-weight: 570;
+    margin-top: -191px;
+    margin-left: -7px;
+  }
+  .team-crs .item {
+    padding: 0 15px;
+    margin-left: -117px;
+  }
+  .block-sec .testim-box {
     margin-top: 12px;
     margin-left: 8px;
-}
-.btn-curve.btn-lit {
-  margin-bottom: 160px;
-  margin-left: 41px;
-  margin-right: 47px;
-}
-.call-action .btn-curve span {
-  font-size: 17px;
-  font-weight: 600;
-}
-.body.bg-gr .bg-gray {
-  margin-top: -288px;
-}
-.btn-curve.btn-lg {
-  margin-left: 97px;
-}
-.skill_title{
-  margin-left: 21px;
-}
-.skill_sub{
-  margin-left: 22px;
-}
-.fa, .fas {
+  }
+  .btn-curve.btn-lit {
+    margin-bottom: 50px;
+    margin-left: 60px;
+    margin-right: 47px;
+    padding-top: 14px;
+  }
+  .call-action .btn-curve span {
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .body.bg-gr .bg-gray {
+    margin-top: -288px;
+  }
+  .btn-curve.btn-lg {
+    margin-left: 97px;
+  }
+  .skill_title {
+    margin-left: 21px;
+  }
+  .skill_sub {
+    margin-left: 22px;
+  }
+  .fa,
+  .fas {
     font-size: 22px;
     margin-top: -12px;
     padding-right: 5px;
     padding-left: 5px;
-}
-.simpleParallax{
-  margin-right: -11px;
-}
-.fadeInUp {
-  margin-right: -14px;
-  margin-left: -14px;
-}
-.ui-slider.ui-main .setone.setwo .next-ctrl {
-  top: 58%;
-  right: 4px;
-  padding-left: 5px;
-  padding-top: 6px;
-}
-.ui-slider.ui-main .setone.setwo .prev-ctrl {
-  top: 58%;
-  left: 4px;
-  padding-right: 5px;
-  padding-top: 6px;
-}
-.services-div {
-  margin-bottom: 40px;
-  margin-top: 60px;
-}
-.ui-slider.ui-main .parallax-slider .caption .btn-curve span {
-  font-size: 17px;
-  margin-left: 26px;
-  margin-right: 23px;
-  line-height: 2;
-}
-.case{
-  padding-top: 70px;
-  margin-bottom: -23px;
-}
-.main-header h3 {
-  font-size: 46px;
-}
-.testimonials .quote-icon {
-  margin-bottom: 33px;
-  width: 150px;
-  height: 150px;
-}
-.testimonials .item p {
-  font-size: 23px;
-}
-.testimonials .controls span {
-  width: 43px;
-  height: 43px;
-}
-.services .item {
-  height: auto;
-  margin-bottom: -80px;
-}
-.page-header .img-wrapper .bg-img {
-  position: relative;
-  min-height: 70vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  overflow: hidden;
-}
-.ui-block .cont h3 {
-  font-size: 58px;
-}
-.portfolio .gallery .items .cont span {
-  font-weight: 500;
-  font-size: 14px;
-}
-.section-padding {
-  padding: 0px 0;
-}
-.cont-info{
-  margin-top: -42px;
-}
-.contact .cont-info .item h5 {
-  font-size: 17px;
-  font-weight: 500;
-}
-.contact .cont-info .item h6 {
-  font-size: 15px;
-  font-weight: 400;
-}
-.bg-img{
-  margin-bottom: -63px;
-}
-.block-sec{
-  margin-top: 140px;
-}
-footer .item .title h5 {
-  margin-bottom: 30px;
-  margin-top: -50px;
-}
-}
+  }
+  .simpleParallax {
+    margin-right: -11px;
+    margin-left: -10px;
+    margin-top: -55px;
+  }
+  .fadeInUp {
+    margin-right: -14px;
+    margin-left: -14px;
+    margin-bottom: 50px;
+  }
+  .ui-slider.ui-main .setone.setwo .next-ctrl {
+    top: 59%;
+    right: 4px;
+    padding-left: 5px;
+    padding-top: 6px;
+  }
+  .ui-slider.ui-main .setone.setwo .prev-ctrl {
+    top: 59%;
+    left: 4px;
+    padding-right: 5px;
+    padding-top: 6px;
+  }
+  .services-div {
+    margin-bottom: 40px;
+    margin-top: 60px;
+  }
+  .ui-slider.ui-main .parallax-slider .caption .btn-curve span {
+    font-size: 17px;
+    margin-left: 64px;
+    margin-right: 23px;
+    line-height: 2;
+    font-weight: 800;
+  }
+  .case {
+    padding-top: 44px;
+    margin-bottom: 80px;
+  }
+  .main-header h3 {
+    font-size: 46px;
+  }
+  .testimonials .quote-icon {
+    margin-bottom: 33px;
+    width: 150px;
+    height: 150px;
+  }
+  .testimonials .item p {
+    font-size: 23px;
+  }
+  .testimonials .controls span {
+    width: 43px;
+    height: 43px;
+  }
+  .services .item {
+    height: auto;
+    margin-bottom: -80px;
+    margin-top: 35px;
+  }
+  .page-header .img-wrapper .bg-img {
+    position: relative;
+    min-height: 70vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .ui-block .cont h3 {
+    font-size: 58px;
+    overflow: hidden;
+  }
+  .portfolio .gallery .items .cont span {
+    font-weight: 500;
+    font-size: 14px;
+  }
+  .services .section-padding {
+    padding: 0px 0;
+    margin-top: 255px;
+  }
+  .cont-info {
+    margin-top: -50px;
+  }
+  .contact .cont-info .item h5 {
+    font-size: 17px;
+    font-weight: 500;
+  }
+  .contact .cont-info .item h6 {
+    font-size: 15px;
+    font-weight: 400;
+  }
+  .bg-img {
+    margin-bottom: -63px;
+  }
+  .block-sec {
+    margin-top: 140px;
+  }
+  footer .item .title h5 {
+    margin-bottom: 30px;
+    margin-top: -50px;
+  }
+  .home-portfolio-section,
+  .team-section-dark-bg {
+    margin-top: -1px;
+  }
+  .block-sec .testim-box .head-box h6 {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .block-sec .testim-box .item .info .cont .author-details {
+    font-size: 13px;
+    font-weight: 400;
+  }
+  .skills-circle .skill {
+    margin-bottom: 14px;
+  }
+  .min-area .img {
+    margin-top: 305px;
+  }
+  .team-img-holder {
+  }
+  .team-img {
+    padding-left: 95px;
+    margin-left: -4px;
+  }
+  .min-area .content {
+    margin-top: -72px;
+    margin-bottom: -50px;
+  }
+  .min-area .content ul.feat li {
+    border-bottom: 10px solid rgba(255, 255, 255, 0.05);
+    margin-top: 50px;
+  }
+  .min-area .content ul.feat li p {
+    font-size: 15px;
+  }
 
+  .service-box {
+    padding-bottom: 59px;
+  }
+  .call-action .section-padding .bg-img .container {
+    margin-top: 4px;
+    margin-bottom: 7px;
+  }
+  .map-container {
+    margin-top: 300px;
+    margin-bottom: -95px;
+  }
+}
 @media screen and (max-width: 480px) {
   .hamenu .cont-info {
     display: none;
@@ -6438,7 +6493,7 @@ footer .item .title h5 {
 }
 
 @media screen and (max-width: 389px) {
-  .swiper-button-next .swiper-button-prev{
+  .swiper-button-next .swiper-button-prev {
     margin: 200px;
   }
 }
@@ -6551,11 +6606,11 @@ footer .item .title h5 {
   border-radius: 4px;
 }
 .blog-form .form-group textarea {
-  height: 300px;
+  height: 100px;
   resize: none;
 }
 .blog-box {
-  width: 95%;
+  /* width: 95%; */
   box-shadow: 0 0 6px 0 rgba(179, 179, 184, 0.5);
 }
 
@@ -6574,11 +6629,18 @@ footer .item .title h5 {
   color: #292929;
   font-weight: 500;
 }
+
+.post_para {
+  height: 150px !important;
+}
 /* ============= [ Login ] =============== */
+
+.signup__cont {
+  padding: 180px 0 120px;
+}
 
 .page-header .login {
   width: 30%;
-  /* border: 1px solid gray; */
   border-radius: 10px;
   box-shadow: 0 0 6px 1px rgb(69 70 105 / 50%);
 }
@@ -6601,14 +6663,14 @@ footer .item .title h5 {
 
 .page-header .login .input {
   background: transparent;
-  border: 1px solid gray;
+  border: 1px solid gray !important;
   border-radius: 4px;
   padding: 8px;
   color: white;
 }
 
 .page-header .login .input:focus {
-  border-color: white;
+  border-color: white !important;
 }
 
 .log-btn span {
@@ -6626,6 +6688,22 @@ footer .item .title h5 {
   cursor: pointer;
 }
 
+.google-btn {
+  padding: 2px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #6d6d6d;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  color: white;
+  cursor: pointer;
+  padding: 10px 0px;
+  outline: none;
+}
 .log-btn:hover {
   background-color: rgb(210, 213, 223);
 }
@@ -6655,6 +6733,18 @@ footer .item .title h5 {
   padding: 10px 20px;
   outline: none;
   color: white;
+  cursor: pointer;
+}
+.btn_post-content {
+  border: none;
+  border-radius: 4px;
+  /* background-color: #8ea9e5; */
+  background-color: #222733;
+  padding: 7px 15px;
+  outline: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
 }
 .admin-controls {
   display: flex;
@@ -6682,4 +6772,124 @@ footer .item .title h5 {
 .admin-controls .nav-item .icon {
   font-size: 1.8rem;
   color: rgb(13, 18, 77);
+}
+
+.form__errorMessage {
+  color: rgb(239, 91, 91);
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.tag {
+  background-color: rgba(234, 234, 234, 0.57);
+  color: #000;
+  font-size: 14px;
+  padding: 4px 8px;
+  margin-right: 8px;
+  margin-top: 4px;
+}
+
+.tag-remove {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding-left: 4px;
+}
+
+/* .admin-home {
+  border-radius: 4px;
+  box-shadow: 0 0 5px 0 rgba(173, 173, 179, 0.5);
+  margin-top: 20px;
+  padding: 20px;
+} */
+
+.admin-home h5 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.display-blogs {
+  border: 1px solid lightgray;
+  padding: 14px 18px;
+  border-radius: 4px;
+  color: #000;
+  margin-bottom: 18px;
+}
+
+.control_btn {
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+}
+.pen {
+  color: rgb(3, 107, 3);
+}
+.trash {
+  color: rgb(194, 4, 4);
+}
+.control_btn:focus {
+  outline: none;
+}
+.notification {
+  color: black;
+  background-color: rgb(119, 224, 119);
+  text-align: center;
+  /* display: inline-block; */
+  padding: 8px 20px;
+  border-radius: 3px;
+  width: 25%;
+  margin: auto;
+  font-family: "poppins", sans-serif;
+}
+
+.logout {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "poppins", sans-serif;
+  cursor: pointer;
+  padding: 15px 7px;
+  margin: 10px 15px;
+}
+.logout_admin {
+  background-color: #222733;
+  border: none;
+  border-radius: 3px;
+  padding: 8px 12px;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "poppins", sans-serif;
+  cursor: pointer;
+}
+
+.table__style {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 14px;
+  font-family: "poppins", sans-serif;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.table__style thead tr {
+  text-align: left;
+  background-color: #626c7d;
+  color: white;
+}
+
+.table__style th,
+.table__style td {
+  padding: 12px 15px;
+}
+
+.table__style tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+.table__style tbody tr:hover {
+  background-color: #f3f3f3;
 }

@@ -1,8 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import getSiblings from "../../common/getSiblings";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../../context/AuthProvider";
+import { signOut } from "firebase/auth";
+import { auth } from "../../config/fire-config";
+import { useRouter } from "next/router";
 
 const Navbar = ({ navbarRef, logoRef }) => {
+  const { user } = useContext(AuthContext);
+
+  const router = useRouter();
+
   const handleDropdown = (e) => {
     getSiblings(e.target.parentElement)
       .filter((item) => item.classList.contains("show"))
@@ -23,6 +32,13 @@ const Navbar = ({ navbarRef, logoRef }) => {
       .getElementById("navbarSupportedContent")
       .classList.toggle("show-with-trans");
   };
+
+  const handleLogOut = () => {
+    signOut(auth);
+    router.push("/");
+  };
+
+  useEffect(() => {}, [user]);
 
   return (
     <nav className="navbar navbar-expand-lg" ref={navbarRef}>
@@ -113,6 +129,18 @@ const Navbar = ({ navbarRef, logoRef }) => {
                 <a className="nav-link">Contact</a>
               </Link>
             </li>
+
+            {user ? (
+              <button onClick={handleLogOut} className="logout">
+                Logout
+              </button>
+            ) : (
+              <li className="nav-item">
+                <Link href="/auth/signin">
+                  <a className="nav-link">Signin</a>
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>

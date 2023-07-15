@@ -1,204 +1,316 @@
-import db from "../../../config/fire-config";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import db, { storage } from "../../../config/fire-config";
+import {
+  collection,
+  addDoc,
+  serverTimestamp,
+  updateDoc,
+  doc,
+  FieldValue,
+} from "firebase/firestore";
+
 import { Field, Form, Formik } from "formik";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
+import PreviewImage from "../../PreviewImage";
 
 const BlogForm = () => {
   const [errMessage, setErrMessage] = useState(null);
-  const [notification, setNotification] = useState();
+  const [notification, setNotification] = useState("");
+  const [heading, setHeading] = useState("");
+  const [paragraphs, setParagraphs] = useState("");
+  const [postContent, setPostContent] = useState([]);
 
+  const router = useRouter();
   const initialValues = {
+    img: "",
     title: "",
     tags: "",
-    content: "",
+    posterAvatar: "",
+    posterName: "",
+    postDescriptions: "",
+    postMeta: "",
   };
 
   const validateForm = (formValues) => {
-    if (!formValues.title || !formValues.tags || !formValues.content) {
+    if (!formValues.title || !formValues.postDescriptions) {
       setErrMessage("Please fill in all fields");
       return false;
     }
     if (formValues.title.length < 5) {
-      setErrMessage("Name must be at least 5 characters");
+      setErrMessage("Title must be at least 5 characters");
       return false;
     }
-    if (formValues.tags.length < 5) {
-      setErrMessage("Name must be at least 5 characters");
+    if (formValues.tags.length < 2) {
+      setErrMessage("Tags must be atleast two characters");
       return false;
     }
-    if (formValues.content.length < 10) {
+    if (formValues.postDescriptions.length < 10) {
       setErrMessage("Message must be at least 10 characters");
+      return false;
+    }
+
+    if (!formValues.img) {
+      setErrMessage("Please select an image file");
+      return false;
+    }
+    if (!formValues.img.type.startsWith("image/")) {
+      setErrMessage("Please select an image");
       return false;
     }
     return true;
   };
 
-  const createBlog = async ({ title, tags, content }) => {
-    const blogCollection = collection(db, "blogs");
-    const res = await addDoc(blogCollection, {
-      title,
-      tags,
-      content,
-      date: serverTimestamp(),
-    });
-    setNotification("Blogpost created successfully");
+  const clearNotification = () => {
     setTimeout(() => {
       setNotification("");
     }, 2000);
   };
 
+  const handleHeadingChange = (event) => {
+    setHeading(event.target.value);
+  };
+  const handleParagraphsChange = (event) => {
+    setParagraphs(event.target.value);
+  };
+
+  const addPostContent = (event) => {
+    const postData = {
+      heading,
+      paragraphs: paragraphs.split("."),
+    };
+    setPostContent([...postContent, postData]);
+    setHeading("");
+    setParagraphs("");
+  };
+
+  const createBlog = async (
+    { title, postDescriptions, posterName, posterAvatar, postMeta, tags, img },
+    postContent
+  ) => {
+    const storageRef = ref(storage, `blogImages/${img.name + img.size}`);
+    const Tags = tags.split(",");
+    const imgUpload = await uploadBytes(storageRef, img);
+    const imageURL = await getDownloadURL(storageRef);
+    const blogCollection = collection(db, "blogs");
+    const res = await addDoc(blogCollection, {
+      title,
+      postDescriptions,
+      postContent,
+      tags: Tags,
+      img: imageURL,
+      posterName,
+      // posterAvatar,
+      postMeta,
+      postedDate: serverTimestamp(),
+    });
+    console.log(res.id);
+    const docRef = doc(db, "blogs", res.id);
+    await updateDoc(docRef, {
+      id: res.id,
+    });
+    setNotification("Blogpost created successfully");
+    clearNotification();
+  };
+
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
+    console.log("clicked Submit");
     if (validateForm(values)) {
-      console.log(JSON.stringify(values));
       setErrMessage(null);
       setSubmitting(false);
-      createBlog(values);
+      createBlog(values, postContent);
       resetForm();
+      setTimeout(() => {
+        router.push("/admin");
+        setNotification("");
+      }, 2000);
     }
   };
+
+  const isButtonDisabled = !heading || !paragraphs;
   return (
     <>
-      {/* <section className="page-header crs"> */}
       <div className="container mt-2">
-        <div className="row justify-content-start">
-          <div className="col-lg-8 col-md-7">
-            <div className="cont text-dark mb-3 blg-head">Create Blog</div>
-            {notification}
+        {notification && <div className="notification">{notification}</div>}
+        <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+          {({ values, isSubmitting, setFieldValue }) => (
+            <Form>
+              <div className="d-flex justify-content-between">
+                <div className="text-dark mb-3 blg-head">Create Blog</div>
+                <div>
+                  <button type="submit" className="btn-blog">
+                    <span>Create</span>
+                  </button>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-lg-7 col-md-7">
+                  <div className="blog-box p-4">
+                    {errMessage && (
+                      <div className="form_Messages text-danger">
+                        {errMessage}
+                      </div>
+                    )}
 
-            <div className="blog-box p-4">
-              <Formik
-                const
-                initialValues={initialValues}
-                onSubmit={handleSubmit}
-              >
-                <Form>
-                  {errMessage && <div className="messages">{errMessage}</div>}
+                    <div className="controls blog-form">
+                      <div className="form-group d-flex flex-column">
+                        <label htmlFor="Title">Blog Title</label>
+                        <Field
+                          id="form_title"
+                          type="text"
+                          name="title"
+                          placeholder="Blog Title"
+                          required="required"
+                          className="border border-secondary"
+                        />
+                      </div>
 
-                  <div className="controls blog-form">
-                    <div className="form-group d-flex flex-column">
-                      <label htmlFor="Title">Title</label>
-                      <Field
-                        id="form_title"
-                        type="text"
-                        name="title"
-                        placeholder="Blog Title"
-                        required="required"
-                        className="border border-secondary"
-                      />
-                    </div>
+                      <div className="form-group d-flex flex-column">
+                        <div>
+                          <label htmlFor="postDescriptions">
+                            Post Description
+                          </label>
+                          <Field
+                            required="required"
+                            as="textarea"
+                            type="text"
+                            id="postDescriptions"
+                            name="postDescriptions"
+                            placeholder="Post Description"
+                          />
+                        </div>
+                      </div>
 
-                    <div className="form-group d-flex flex-column">
-                      <label htmlFor="Tag">Tag</label>
-                      <Field
-                        id="form_tag"
-                        type="text"
-                        name="tags"
-                        placeholder="Technology, Real Estate"
-                        required="required"
-                      />
-                    </div>
+                      <div className="form-group d-flex flex-column">
+                        <h4 className="text-dark">Post Content</h4>
+                        <div className="controls blog-form">
+                          <div className="form-group d-flex flex-column">
+                            <label htmlFor="heading">Heading</label>
+                            <input
+                              id="heading"
+                              type="text"
+                              value={heading}
+                              onChange={handleHeadingChange}
+                              placeholder="Post Heading"
+                              className="border border-secondary"
+                            />
+                          </div>
 
-                    <div className="form-group d-flex flex-column">
-                      <label htmlFor="content">Content</label>
-                      <Field
-                        as="textarea"
-                        id="form_content"
-                        name="content"
-                        placeholder="Content"
-                        rows="4"
-                        required="required"
-                      />
-                    </div>
+                          <div className="form-group d-flex flex-column">
+                            <label htmlFor="paragraphs">Paragraphs</label>
+                            <textarea
+                              id="paragraphs"
+                              value={paragraphs}
+                              onChange={handleParagraphsChange}
+                              placeholder="Post Paragraphs"
+                              className="border border-secondary post_para"
+                            />
+                          </div>
 
-                    <button type="submit" className="btn-blog">
-                      <span>Create</span>
-                    </button>
-                  </div>
-                </Form>
-              </Formik>
-            </div>
-          </div>
-          <div className="row-lg-3 row-md-2 w-25 d-flex flex-column justify-content-around">
-            <div className="blog-box p-4 w-100">
-              <h4 className="text-dark">Author Info</h4>
-              <Formik
-                const
-                initialValues={initialValues}
-                onSubmit={handleSubmit}
-              >
-                <Form>
-                  {errMessage && <div className="messages">{errMessage}</div>}
-
-                  <div className="controls blog-form">
-                    <div className="form-group d-flex flex-column">
-                      <label htmlFor="Title">Name</label>
-                      <Field
-                        id="form_title"
-                        type="text"
-                        name="title"
-                        placeholder="John Doe"
-                        required="required"
-                        className="border border-secondary"
-                      />
-                    </div>
-
-                    <div className="form-group d-flex flex-column">
-                      <label htmlFor="Tag">About</label>
-                      <Field
-                        id="form_tag"
-                        type="text"
-                        name="tags"
-                        placeholder="Technology, Real Estate"
-                        required="required"
-                      />
-                    </div>
-                    <div className="form-group d-flex flex-column">
-                      <label htmlFor="Tag">Add Image</label>
-                      <input type="file" />
+                          <button
+                            onClick={addPostContent}
+                            type="button"
+                            className="btn_post-content"
+                            disabled={isButtonDisabled}
+                          >
+                            Add
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </Form>
-              </Formik>
-            </div>
-            <div className="blog-box p-4 w-100">
-              <h4 className="text-dark">Author Info</h4>
-              <Formik
-                const
-                initialValues={initialValues}
-                onSubmit={handleSubmit}
-              >
-                <Form>
-                  {errMessage && <div className="messages">{errMessage}</div>}
+                </div>
+                <div className="col-lg-4 col-md-3 w-25">
+                  <div className="row">
+                    <div className="blog-box p-4 w-100 mb-3">
+                      {errMessage && (
+                        <div className="messages">{errMessage}</div>
+                      )}
 
-                  <div className="controls blog-form">
-                    <div className="form-group d-flex flex-column">
-                      <label htmlFor="Title">Name</label>
-                      <Field
-                        id="form_title"
-                        type="text"
-                        name="title"
-                        placeholder="Blog Title"
-                        required="required"
-                        className="border border-secondary"
-                      />
-                    </div>
-
-                    <div className="form-group d-flex flex-column">
-                      <label htmlFor="Tag">About</label>
-                      <Field
-                        id="form_tag"
-                        type="text"
-                        name="tags"
-                        placeholder="Technology, Real Estate"
-                        required="required"
-                      />
+                      <div className="controls blog-form">
+                        <div className="form-group d-flex flex-column">
+                          <label htmlFor="Tag">Tags</label>
+                          <Field
+                            type="text"
+                            id="tags"
+                            placeholder="Tags"
+                            name="tags"
+                          />
+                        </div>
+                        <div className="form-group d-flex flex-column">
+                          {values.img && <PreviewImage file={values.img} />}
+                          {!values.img ? (
+                            <label htmlFor="Tag">Add Image</label>
+                          ) : (
+                            <p>Post Image</p>
+                          )}
+                          <input
+                            type="file"
+                            accept="image/*"
+                            onChange={(event) => {
+                              setFieldValue("img", event.target.files[0]);
+                            }}
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </Form>
-              </Formik>
-            </div>
-          </div>
-        </div>
+                  <div className="row">
+                    <div className="blog-box p-4 w-100 mb-3">
+                      {errMessage && (
+                        <div className="messages">{errMessage}</div>
+                      )}
+
+                      <div className="controls blog-form">
+                        <div className="form-group d-flex flex-column">
+                          <label htmlFor="posterName">Poster Name</label>
+                          <Field
+                            id="posterName"
+                            type="text"
+                            name="posterName"
+                            placeholder="Poster Name"
+                            className="border border-secondary"
+                          />
+                        </div>
+                        <div className="form-group d-flex flex-column">
+                          {values.posterAvatar && (
+                            <PreviewImage file={values.posterAvatar} />
+                          )}
+                          {!values.posterAvatar ? (
+                            <label htmlFor="Tag">Add Avatar</label>
+                          ) : (
+                            <p></p>
+                          )}
+                          <input
+                            type="file"
+                            accept="image/*"
+                            onChange={(event) => {
+                              setFieldValue(
+                                "posterAvatar",
+                                event.target.files[0]
+                              );
+                            }}
+                          />
+                        </div>
+                        <div className="form-group d-flex flex-column">
+                          <label htmlFor="postMeta">Post Meta</label>
+
+                          <Field
+                            id="postMeta"
+                            type="text"
+                            name="postMeta"
+                            placeholder="Post Meta"
+                            className="border border-secondary"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Form>
+          )}
+        </Formik>
       </div>
     </>
   );

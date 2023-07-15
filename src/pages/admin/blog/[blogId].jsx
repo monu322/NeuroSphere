@@ -1,24 +1,23 @@
-import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
-import AdminLayout from "../../layouts/admin";
-import { AuthContext } from "../../context/AuthProvider";
-import Home from "../../components/Admin/Home";
+import { AuthContext } from "../../../context/AuthProvider";
+import AdminLayout from "../../../layouts/admin";
+import { useRouter } from "next/router";
+import UpdateBlogForm from "../../../components/Admin/Blog/UpdateBlog";
 
 const Index = () => {
   const { roleInfo } = useContext(AuthContext);
-
   const router = useRouter();
-  console.log(roleInfo);
+  const { blogId } = router.query;
   useEffect(() => {
     let body = document.querySelector("body");
     body.classList.add("bg-gr");
     body.classList.remove("d3-dark");
     if (roleInfo === "user") router.push("/");
-  }, [roleInfo]);
+  }, []);
 
   return (
     <AdminLayout>
-      <Home />
+      <UpdateBlogForm id={blogId} />
     </AdminLayout>
   );
 };

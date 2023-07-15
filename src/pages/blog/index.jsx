@@ -3,8 +3,18 @@ import BlogLayout from "../../layouts/blog";
 
 import Header from "../../components/Blog/Header";
 import Blog from "../../components/Blog/Blog";
+// import blogs from "../../data/blogs";
+import {
+  Timestamp,
+  collection,
+  getDocs,
+  orderBy,
+  query,
+} from "firebase/firestore";
+import db from "../../config/fire-config";
 
-const Index = () => {
+const Index = ({ data }) => {
+  const blogs = data;
   useEffect(() => {
     let body = document.querySelector("body");
     body.classList.add("bg-gr");
@@ -14,9 +24,30 @@ const Index = () => {
   return (
     <BlogLayout footerClass="bg-gray">
       <Header />
-      <Blog />
+      <Blog data={blogs} />
     </BlogLayout>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;
+
+export async function getServerSideProps() {
+  const blogCollection = collection(db, "blogs");
+  const q = query(blogCollection, orderBy("postedDate", "desc"));
+  const querySnapshot = await getDocs(q);
+  const data = [];
+  querySnapshot.forEach((doc) => {
+    const docData = doc.data();
+    const postedDate =
+      docData.postedDate instanceof Timestamp
+        ? docData.postedDate.toDate()
+        : docData.postedDate;
+    docData.postedDate = postedDate.getTime();
+    data.push(docData);
+  });
+  return {
+    props: {
+      data,
+    },
+  };
+}

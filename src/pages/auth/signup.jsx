@@ -8,6 +8,7 @@ const Index = () => {
     body.classList.add("bg-gr");
     body.classList.remove("d3-dark");
   }, []);
+
   return (
     <MainLayout footerClass="bg-gray">
       <Signup />
