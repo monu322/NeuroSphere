@@ -3730,6 +3730,9 @@ body {
   .promo-carousel .item-wrap .promo-carousel .item-wrap {
     width: 200%;
   }
+  .md-pb80 {
+    padding-bottom: 80px;
+  }
 }
 
 /* ====================== [ End Blocks  ] ====================== */
@@ -5826,6 +5829,13 @@ footer .item .copy-right p a {
   .md-pb80 {
     padding-bottom: 80px;
   }
+  .lg-pl60 {
+    padding-left: 60px;
+  }
+  .lg-pr60 {
+    padding-right: 60px;
+  }
+
   .order2 {
     -webkit-box-ordinal-group: 3 !important;
     -ms-flex-order: 2 !important;
@@ -5997,6 +6007,15 @@ footer .item .copy-right p a {
   }
   .team .item:hover .img:after {
     opacity: 0.7;
+  }
+}
+
+@media screen and (min-width: 991px) {
+  .lg-pl50 {
+    padding-left: 50px !important;
+  }
+  .lg-pr50 {
+    padding-right: 50px !important;
   }
 }
 
@@ -6501,6 +6520,15 @@ footer .item .copy-right p a {
 @media screen and (max-width: 389px) {
   .swiper-button-next .swiper-button-prev {
     margin: 200px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .xl-pl30 {
+    padding-left: 30px;
+  }
+  .xl-pr30 {
+    padding-right: 30px;
   }
 }
 /* ====================== [ End Responsive ] ====================== */

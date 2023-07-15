@@ -5,7 +5,7 @@ import appData from "../../data/app.json";
 
 const Footer = ({ classText }) => {
   return (
-    <footer className={classText ? classText : ""}>
+    <footer className={classText ? `${classText} lg-pr50 lg-pl50` : ""}>
       <div className="container">
         <div className="row">
           <div className="col-md-8 footer-contact">

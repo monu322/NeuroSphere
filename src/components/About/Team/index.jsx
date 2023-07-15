@@ -38,7 +38,7 @@ const Team = () => {
     <section className="team-crs section-padding team-section-dark-bg pt-0">
       <div className="container pt-2">
         <div className="row mt-4">
-          <div className="col-lg-4 valign mt-60 sm-mt0">
+          <div className="col-lg-4 valign mt-60 sm-mt0 lg-pl80">
             <div className="full-width">
               <div className="sec-head custom-font mb-0">
                 <h6>Employees</h6>
