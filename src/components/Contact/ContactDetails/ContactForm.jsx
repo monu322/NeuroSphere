@@ -78,7 +78,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="col-lg-6 mt-4 pt-2">
+    <div className="col-lg-6 mt-4 pt-2 contact-form">
       <div className="form md-mb 50 mt-4 pt-4">
         <h4 className="extra-title mb-50">Get In Touch.</h4>
 
@@ -130,7 +130,7 @@ const ContactForm = () => {
               { 
                 isLoading? <LoadingButton/> :
                 <div className="row">
-                  <div className="col col-lg-6 m-4">
+                  <div className="col col-lg-6">
                     <button type="submit" className="btn-curve btn-lit"><span>Send Message</span></button>
                   </div>
                   <div className="col col-lg-6">

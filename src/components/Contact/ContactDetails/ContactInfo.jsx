@@ -5,7 +5,7 @@ import ContactInfoData from '../../../data/contact.json';
 
 const ContactInfo = () => {
   return (
-    <div className="col-lg-5 offset-lg-1">
+    <div className="col-lg-5 contact-page-info offset-lg-1">
       <div className="cont-info">
         <h4 className="extra-title mb-50">Contact Info.</h4>
         <Split className="custom-font wow">

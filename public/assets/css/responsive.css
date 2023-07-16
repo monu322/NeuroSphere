@@ -113,6 +113,14 @@
   .testi-section {
     padding-top: 40px !important;
   }
+
+  .contact-page-info {
+    display: none;
+  }
+}
+
+.contact-form {
+  padding-bottom: 50px;
 }
 
 .custom-img {
