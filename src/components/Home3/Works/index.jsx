@@ -41,11 +41,11 @@ const Works = ({ worksData }) => {
           <div className="gallery full-width">
             {WorksData.works.map((work, index) => (
               <div
-                className={`col-lg-4 col-md-6 items wow fadeInUp ${work.type}`}
+                className={`col-lg-4 col-md-6 items wow fadeInUp${work.type}`}
                 data-wow-delay=".4s"
                 key={index}
               >
-                <div className="item-img imago wow">
+                <div className="item-img imago wow   square-container">
                   <Link href={`/works/${index + 1}`}>
                     <a href={`/works/${index + 1}`} className="popimg">
                       <img

@@ -69,8 +69,12 @@ const Team = () => {
                   data-wow-delay=".3s"
                   key={index}
                 >
-                  <div className="img wow imago team-img-holder">
-                    <img className="team-img" src={teamMember.img} alt="" />
+                  <div className="img wow imago team-img-holder square-container">
+                    <img
+                      className="team-img img-fluid"
+                      src={teamMember.img}
+                      alt=""
+                    />
                   </div>
                   <div className="info">
                     <h5>{teamMember.name}</h5>
