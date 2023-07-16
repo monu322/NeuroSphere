@@ -62,11 +62,6 @@
     font-size: 35px !important;
   }
 
-  .section-padding {
-    margin-top: 0px !important;
-    padding-top: 0px !important;
-  }
-
   .ui-block .gr-text {
     font-size: 35px !important;
   }
@@ -87,7 +82,6 @@
   }
 
   .call-action {
-    padding-top: 70px !important;
   }
   .project-title-container {
     padding-top: 150px;
@@ -115,11 +109,21 @@
     position: relative;
     top: 3px;
   }
+
+  .testi-section {
+    padding-top: 40px !important;
+  }
 }
 
 .custom-img {
   object-fit: contain;
   max-height: 100%;
+}
+
+@media screen and (max-width: 991px) {
+  .testi-section {
+    padding-top: 40px !important;
+  }
 }
 
 @media screen and (min-width: 767px) {

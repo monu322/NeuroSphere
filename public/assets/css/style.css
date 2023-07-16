@@ -2385,7 +2385,6 @@ body {
 .ui-slider.ui-main .parallax-slider .caption .btn-curve span {
   font-size: 20px;
   font-weight: 700;
-  text-transform: uppercase;
 }
 
 .ui-slider.ui-main .parallax-slider .caption .btn-curve:hover span {
@@ -3041,7 +3040,7 @@ body {
 }
 
 .min-area .content ul.feat li {
-  padding: 0 0 30px 0;
+  padding: 0 0 0px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -5788,7 +5787,6 @@ footer .item .copy-right p a {
 
   .md-mb50 {
     margin-bottom: 50px;
-    margin-top: 140px;
   }
   .md-mb60 {
     margin-bottom: 60px;
@@ -6192,9 +6190,6 @@ footer .item .copy-right p a {
     margin-right: 25px;
   }
   .section-padding {
-    margin-top: 60px;
-    padding-top: 5px;
-    padding-bottom: 0px;
   }
   .skills-circle .skill span {
     margin-top: 44px;
@@ -6373,8 +6368,8 @@ footer .item .copy-right p a {
     margin-bottom: -50px;
   }
   .min-area .content ul.feat li {
-    border-bottom: 10px solid rgba(255, 255, 255, 0.05);
     margin-top: 50px;
+    padding-left: 20px !important;
   }
   .min-area .content ul.feat li p {
     font-size: 15px;

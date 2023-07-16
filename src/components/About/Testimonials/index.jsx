@@ -29,9 +29,9 @@ const Testimonials = ({ testimonialsData }) => {
 
   return (
     <>
-      <section className="block-sec mt-4 pt-4">
+      <section className="block-sec">
         <div
-          className="background bg-img section-padding pb-0 "
+          className="background bg-img section-padding testi-section pb-0 "
           data-background="/assets/img/1.jpg"
           data-overlay-dark="6"
         >
@@ -53,6 +53,7 @@ const Testimonials = ({ testimonialsData }) => {
                     <Split className="wow">
                       <h3 data-splitting>{TestimonialsData.videoText}</h3>
                     </Split>
+                    <br/>
                   </div>
                 </div>
               </div>
