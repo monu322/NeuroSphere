@@ -16,7 +16,7 @@ const Works = () => {
       <div className="container ">
         <div className="row ">
           {/* filter links */}
-          <div className="filtering text-right smplx col-12">
+          <div className="filtering text-center smplx col-12">
             <div className="filter">
               {
                 WorksData.filters.map((filter, index) => (

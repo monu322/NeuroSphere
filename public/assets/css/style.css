@@ -2383,9 +2383,9 @@ body {
 }
 
 .ui-slider.ui-main .parallax-slider .caption .btn-curve span {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 700;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
 .ui-slider.ui-main .parallax-slider .caption .btn-curve:hover span {
@@ -5851,7 +5851,6 @@ footer .item .copy-right p a {
   }
   .navbar .logo {
     margin-left: 15px;
-    width: 50px;
   }
   .nav-scroll .navbar-collapse .nav-link,
   .light .navbar-collapse .nav-link {
@@ -6226,9 +6225,6 @@ footer .item .copy-right p a {
     margin-left: 8px;
   }
   .btn-curve.btn-lit {
-    margin-bottom: 50px;
-    margin-left: 60px;
-    margin-right: 47px;
     padding-top: 14px;
   }
   .call-action .btn-curve span {
@@ -6266,13 +6262,13 @@ footer .item .copy-right p a {
   }
   .ui-slider.ui-main .setone.setwo .next-ctrl {
     top: 59%;
-    right: 4px;
+    left: 123px;
     padding-left: 5px;
     padding-top: 6px;
   }
   .ui-slider.ui-main .setone.setwo .prev-ctrl {
     top: 59%;
-    left: 4px;
+    left: 25px;
     padding-right: 5px;
     padding-top: 6px;
   }
@@ -6282,8 +6278,6 @@ footer .item .copy-right p a {
   }
   .ui-slider.ui-main .parallax-slider .caption .btn-curve span {
     font-size: 17px;
-    margin-left: 64px;
-    margin-right: 23px;
     line-height: 2;
     font-weight: 800;
   }
@@ -6516,7 +6510,7 @@ footer .item .copy-right p a {
 }
 
 .team-img-holder {
-  height: 400px;
+  height: 275px;
   overflow: hidden;
 }
 

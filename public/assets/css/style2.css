@@ -44,7 +44,6 @@
   }
   .navs {
     display: flex;
-    justify-content: center;
     gap: 20px;
   }
   .cursor-outer {
@@ -100,6 +99,21 @@
 
   .page-header .cont {
     padding-top: 150px;
+  }
+
+  .team-crs .item .info .social {
+    padding-left: 125px !important;
+  }
+
+  .team-img-holder {
+    height: 375px;
+    overflow: hidden;
+  }
+
+  .swiper-nav-ctrl i,
+  .cursor-pointer i {
+    position: relative;
+    top: 3px;
   }
 }
 

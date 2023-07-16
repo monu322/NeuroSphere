@@ -73,7 +73,7 @@ const Footer = ({ classText }) => {
                       <div className="logo">
                           <img src={appData.lightLogo} alt="" />
                       </div>
-                      <div className="social pl-4">
+                      <div className="social">
                           <Link href="#0">
                             <a><i className="fab fa-facebook-f"></i></a>
                           </Link>
@@ -87,7 +87,7 @@ const Footer = ({ classText }) => {
                             <a><i className="fab fa-youtube"></i></a>
                           </Link>
                       </div>
-                      <div className="copy-right pl-4">
+                      <div className="copy-right">
                           <p>
                               { `© `+new Date().getFullYear()+' '+appData.footerText }{' '}
                                     { appData.themeAuthor }
