@@ -4,7 +4,6 @@ import OpeningsData from "../../../data/Careers/Openings.json";
 const OpenPositions = () => {
   return (
     <div className="services section-padding">
-      <div className="container">
         {OpeningsData.map((opening, index) => (
           <div
             key={opening.title}
@@ -24,7 +23,6 @@ const OpenPositions = () => {
             </Link>
           </div>
         ))}
-      </div>
     </div>
   );
 };
