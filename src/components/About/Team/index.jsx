@@ -57,6 +57,8 @@ const Team = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="row justify-content-center">
           <div className="col-lg-8">
             <Slider
               {...teamSliderSettings}
@@ -65,7 +67,7 @@ const Team = () => {
             >
               {TeamData.map((teamMember, index) => (
                 <div
-                  className="item wow fadeInUp"
+                  className="item wow fadeInUp square-container"
                   data-wow-delay=".3s"
                   key={index}
                 >
