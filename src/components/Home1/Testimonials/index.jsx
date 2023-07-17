@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useRef } from "react";
-import TestimonialsData from "../../../data/Home1/Testimonials.json";
+// import TestimonialsData from "../../../data/Home1/Testimonials.json";
 import Slider from "react-slick";
 
 const sliderSettings = {
@@ -14,6 +14,7 @@ const sliderSettings = {
 };
 
 const Testimonials = ({ testimonialsData }) => {
+  const TestimonialsData = testimonialsData;
   const sliderRef = useRef(null);
 
   const next = () => sliderRef.current.slickNext();
