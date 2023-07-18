@@ -248,7 +248,7 @@ const UpdateBlogForm = ({ id }) => {
                           />
                         </div>
                         <div className="form-group d-flex flex-column">
-                          {values.img && <PreviewImage file={values.img} />}
+                          {/* {values.img && <PreviewImage file={values.img} />} */}
                           {!values.img ? (
                             <label htmlFor="Tag">Add Image</label>
                           ) : (

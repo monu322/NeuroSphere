@@ -19,6 +19,7 @@ const BlogForm = () => {
   const [notification, setNotification] = useState("");
   const [heading, setHeading] = useState("");
   const [paragraphs, setParagraphs] = useState("");
+  const [paragraphsImg, setParagraphsImg] = useState("");
   const [postContent, setPostContent] = useState([]);
 
   const router = useRouter();
@@ -74,15 +75,30 @@ const BlogForm = () => {
     setParagraphs(event.target.value);
   };
 
-  const addPostContent = (event) => {
+  const addPostContent = async () => {
+    let imageUrl = "";
+    if (paragraphsImg) {
+      const storageRef = ref(
+        storage,
+        `blogImages/${paragraphsImg.name + paragraphsImg.size}`
+      );
+      const imgUpload = await uploadBytes(storageRef, paragraphsImg);
+      const imageURL = await getDownloadURL(storageRef);
+      imageUrl = imageURL;
+    }
     const postData = {
       heading,
       paragraphs: paragraphs.split("."),
+      paragraphsImg: imageUrl,
     };
+    console.log(postData);
+    console.log(postContent);
     setPostContent([...postContent, postData]);
     setHeading("");
     setParagraphs("");
+    setParagraphsImg("");
   };
+  console.log(postContent);
 
   const createBlog = async (
     { title, postDescriptions, posterName, posterAvatar, postMeta, tags, img },
@@ -114,7 +130,6 @@ const BlogForm = () => {
   };
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-    console.log("clicked Submit");
     if (validateForm(values)) {
       setErrMessage(null);
       setSubmitting(false);
@@ -127,7 +142,7 @@ const BlogForm = () => {
     }
   };
 
-  const isButtonDisabled = !heading || !paragraphs;
+  const isButtonDisabled = !heading;
   return (
     <>
       <div className="container mt-2">
@@ -204,6 +219,23 @@ const BlogForm = () => {
                               onChange={handleParagraphsChange}
                               placeholder="Post Paragraphs"
                               className="border border-secondary post_para"
+                            />
+                          </div>
+                          <div className="form-group d-flex flex-column">
+                            {/* {paragraphsImg && (
+                              <PreviewImage imgUrl={paragraphsImg} />
+                            )} */}
+                            {!paragraphsImg ? (
+                              <label htmlFor="Tag">Add Paragrapgh Image</label>
+                            ) : (
+                              <p>Paragraph Image</p>
+                            )}
+                            <input
+                              type="file"
+                              accept="image/*"
+                              onChange={(event) => {
+                                setParagraphsImg(event.target.files[0]);
+                              }}
                             />
                           </div>
 

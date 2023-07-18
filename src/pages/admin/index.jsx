@@ -13,7 +13,7 @@ const Index = () => {
     let body = document.querySelector("body");
     body.classList.add("bg-gr");
     body.classList.remove("d3-dark");
-    // if (roleInfo === "user") router.push("/");
+    if (roleInfo === "user") router.push("/");
   }, [roleInfo]);
 
   return (
