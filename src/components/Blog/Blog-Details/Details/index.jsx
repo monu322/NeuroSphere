@@ -9,11 +9,11 @@ import PostCommentsForm from "./PostCommentsForm";
 
 const Details = ({ blog }) => {
   const article = blog;
-  const date = new Date(article.postedDate);
-  const day = date.getDate();
-  const month = date.toLocaleString("default", { month: "long" });
-  const year = date.getFullYear();
-  article.postedDate = `${day} ${month} ${year}`;
+  // const date = new Date(article.postedDate);
+  // const day = date.getDate();
+  // const month = date.toLocaleString("default", { month: "long" });
+  // const year = date.getFullYear();
+  // article.postedDate = `${day} ${month} ${year}`;
 
   useEffect(() => {}, []);
 
@@ -25,7 +25,7 @@ const Details = ({ blog }) => {
             <div className="col-lg-11">
               <div className="cont">
                 <h2>{article?.title}</h2>
-                <span>{article.posterName + ", " + article.postedDate}</span>
+                <span>{article?.posterName + ", "}</span>
               </div>
             </div>
           </div>
