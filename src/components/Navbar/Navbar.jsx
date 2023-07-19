@@ -125,12 +125,17 @@ const Navbar = ({ navbarRef, logoRef }) => {
               </Link>
             </li> */}
             <li className="nav-item">
+              <Link href="/careers">
+                <a className="nav-link">Careers</a>
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link href="/contact">
                 <a className="nav-link">Contact</a>
               </Link>
             </li>
 
-            {user ? (
+            {/* {user ? (
               <button onClick={handleLogOut} className="logout">
                 Logout
               </button>
@@ -140,7 +145,7 @@ const Navbar = ({ navbarRef, logoRef }) => {
                   <a className="nav-link">Signin</a>
                 </Link>
               </li>
-            )}
+            )} */}
           </ul>
         </div>
       </div>

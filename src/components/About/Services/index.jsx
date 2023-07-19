@@ -5,12 +5,12 @@ const Services = ({ servicesData }) => {
       <div className="container ">
         <div className="row ">
           {ServicesData.map((service, index) => (
-            <div className="col-lg-4 service-box" key={service.id}>
+            <div className="col-lg-4 col-md-6 service-box" key={service.id}>
               <div
                 className={`item wow fadeInUp ${
-                  index !== ServicesData.length - 1 && "md-mb50"
+                  index !== ServicesData.length - 1 && ""
                 }`}
-                data-wow-delay={`${0.3 * index + 0.3}s`}
+                data-wow-delay={`${0.3 + 0.3}s`}
               >
                 <span className={`icon ${service.iconClass}`}></span>
                 <h6>{service.title}</h6>

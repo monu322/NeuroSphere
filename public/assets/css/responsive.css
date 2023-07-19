@@ -58,7 +58,6 @@
   }
   .navs {
     display: flex;
-    justify-content: center;
     gap: 20px;
   }
   .cursor-outer {
@@ -75,11 +74,6 @@
 
   .caption h1 {
     font-size: 35px !important;
-  }
-
-  .section-padding {
-    margin-top: 0px !important;
-    padding-top: 0px !important;
   }
 
   .ui-block .gr-text {
@@ -125,7 +119,6 @@
   }
 
   .call-action {
-    padding-top: 70px !important;
   }
   .project-title-container {
     padding-top: 150px;
@@ -138,11 +131,48 @@
   .page-header .cont {
     padding-top: 150px;
   }
+
+  .team-crs .item .info .social {
+    padding-left: 125px !important;
+  }
+
+  .team-img-holder {
+    height: 375px;
+    overflow: hidden;
+  }
+
+  .swiper-nav-ctrl i,
+  .cursor-pointer i {
+    position: relative;
+    top: 3px;
+  }
+
+  .testi-section {
+    padding-top: 40px !important;
+  }
+
+  .contact-page-info {
+    display: none;
+  }
+
+  .portfolio {
+    padding-top: 0px;
+  }
+}
+
+.contact-form {
+  padding-bottom: 50px;
 }
 
 .custom-img {
   object-fit: contain;
   max-height: 100%;
+}
+
+@media screen and (max-width: 991px) {
+  .testi-section {
+    padding-top: 40px !important;
+  }
 }
 
 @media screen and (min-width: 767px) {

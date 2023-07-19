@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import HeaderData from "../../../data/Home1/Header.json";
+// import HeaderData from "../../../data/Home1/Header.json";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, Parallax } from "swiper";
 import removeSlashFromPagination from "../../../common/removeSlashFromPagination";
@@ -12,7 +12,7 @@ import "swiper/css/navigation";
 SwiperCore.use([Navigation, Pagination, Parallax]);
 
 const Header = ({ headerData }) => {
-  console.log();
+  const HeaderData = headerData;
   const [load, setLoad] = useState(true);
 
   useEffect(() => {

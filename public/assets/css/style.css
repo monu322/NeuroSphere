@@ -2387,9 +2387,8 @@ body {
 }
 
 .ui-slider.ui-main .parallax-slider .caption .btn-curve span {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 700;
-  text-transform: capitalize;
 }
 
 .ui-slider.ui-main .parallax-slider .caption .btn-curve:hover span {
@@ -3045,7 +3044,7 @@ body {
 }
 
 .min-area .content ul.feat li {
-  padding: 0 0 30px 0;
+  padding: 0 0 0px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -6218,9 +6217,6 @@ footer .item .copy-right p a {
     margin-right: 25px;
   }
   .section-padding {
-    margin-top: 60px;
-    padding-top: 5px;
-    padding-bottom: 0px;
   }
   .skills-circle .skill span {
     margin-top: 44px;
@@ -6251,9 +6247,6 @@ footer .item .copy-right p a {
     margin-left: 8px;
   }
   .btn-curve.btn-lit {
-    margin-bottom: 50px;
-    margin-left: 60px;
-    margin-right: 47px;
     padding-top: 14px;
   }
   .call-action .btn-curve span {
@@ -6291,13 +6284,13 @@ footer .item .copy-right p a {
   }
   .ui-slider.ui-main .setone.setwo .next-ctrl {
     top: 59%;
-    right: 4px;
+    left: 123px;
     padding-left: 5px;
     padding-top: 6px;
   }
   .ui-slider.ui-main .setone.setwo .prev-ctrl {
     top: 59%;
-    left: 4px;
+    left: 25px;
     padding-right: 5px;
     padding-top: 6px;
   }
@@ -6307,8 +6300,6 @@ footer .item .copy-right p a {
   }
   .ui-slider.ui-main .parallax-slider .caption .btn-curve span {
     font-size: 17px;
-    margin-left: 64px;
-    margin-right: 23px;
     line-height: 2;
     font-weight: 800;
   }
@@ -6355,7 +6346,6 @@ footer .item .copy-right p a {
     margin-top: 255px;
   }
   .cont-info {
-    margin-top: -50px;
   }
   .contact .cont-info .item h5 {
     font-size: 17px;
@@ -6369,11 +6359,9 @@ footer .item .copy-right p a {
     margin-bottom: -63px;
   }
   .block-sec {
-    margin-top: 140px;
   }
   footer .item .title h5 {
     margin-bottom: 30px;
-    margin-top: -50px;
   }
   .home-portfolio-section,
   .team-section-dark-bg {
@@ -6404,8 +6392,8 @@ footer .item .copy-right p a {
     margin-bottom: -50px;
   }
   .min-area .content ul.feat li {
-    border-bottom: 10px solid rgba(255, 255, 255, 0.05);
     margin-top: 50px;
+    padding-left: 20px !important;
   }
   .min-area .content ul.feat li p {
     font-size: 15px;
@@ -6417,10 +6405,6 @@ footer .item .copy-right p a {
   .call-action .section-padding .bg-img .container {
     margin-top: 4px;
     margin-bottom: 7px;
-  }
-  .map-container {
-    margin-top: 300px;
-    margin-bottom: -95px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -6550,7 +6534,7 @@ footer .item .copy-right p a {
 }
 
 .team-img-holder {
-  height: 400px;
+  height: 275px;
   overflow: hidden;
 }
 
@@ -6640,7 +6624,7 @@ footer .item .copy-right p a {
   border-radius: 4px;
 }
 .blog-form .form-group textarea {
-  height: 300px;
+  height: 100px;
   resize: none;
 }
 .blog-box {
@@ -6662,6 +6646,10 @@ footer .item .copy-right p a {
   font-size: 16px;
   color: #292929;
   font-weight: 500;
+}
+
+.post_para {
+  height: 150px !important;
 }
 /* ============= [ Login ] =============== */
 
@@ -6765,6 +6753,17 @@ footer .item .copy-right p a {
   color: white;
   cursor: pointer;
 }
+.btn_post-content {
+  border: none;
+  border-radius: 4px;
+  /* background-color: #8ea9e5; */
+  background-color: #222733;
+  padding: 7px 15px;
+  outline: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
 .admin-controls {
   display: flex;
   justify-content: space-between;
@@ -6844,6 +6843,8 @@ footer .item .copy-right p a {
 }
 .pen {
   color: rgb(3, 107, 3);
+  width: 15px;
+  height: 15px;
 }
 .trash {
   color: rgb(194, 4, 4);
@@ -6911,4 +6912,8 @@ footer .item .copy-right p a {
 }
 .table__style tbody tr:hover {
   background-color: #f3f3f3;
+}
+
+.contact-page-info {
+  padding: 90px 0px !important;
 }

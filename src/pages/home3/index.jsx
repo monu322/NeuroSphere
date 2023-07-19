@@ -30,7 +30,7 @@ const Index = () => {
       <Blogs />
       <CallAction />
     </MainLayout>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;

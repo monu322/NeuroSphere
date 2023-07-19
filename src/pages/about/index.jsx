@@ -8,7 +8,6 @@ import Services from "../../components/About/Services";
 import Testimonials from "../../components/About/Testimonials";
 import Skills from "../../components/About/Skills";
 import Team from "../../components/About/Team";
-import Clients from "../../components/About/Clients";
 
 import CallAction from "../../components/About/CallAction";
 import HeaderData from "../../data/About/Header.json";

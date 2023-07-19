@@ -1,5 +1,6 @@
-import ServicesData from "../../../data/Home1/Services.json";
+// import ServicesData from "../../../data/Home1/Services.json";
 const Services = ({ servicesData }) => {
+  const ServicesData = servicesData;
   return (
     <div className="cls-services section-padding position-re mt-4 lg-pl50 lg-pr50">
       <div className="container mt-4 ssm-mb85">

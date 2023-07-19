@@ -27,7 +27,7 @@ const AdminLayout = ({ children, footerClass }) => {
       <Head>
         <link rel="stylesheet" href="/assets/css/style.css" />
         <link rel="stylesheet" href="/assets/css/base.css" />
-        <link rel="stylesheet" href="/assets/css/style2.css" />
+        <link rel="stylesheet" href="/assets/css/responsive.css" />
       </Head>
 
       <div className="d-flex">

@@ -3,7 +3,7 @@ import ContactForm from './ContactForm';
 
 const Contact = () => {
   return (
-    <section className="contact section-padding">
+    <section className="contact">
       <div className="container">
         <div className="row">
           {/* Contact Form */}

@@ -35,6 +35,10 @@ const index = ({ data }) => {
           })}
         </ul>
       </div>
+
+      <div className="crs item">
+        If this seems to be a role that interests you, send over your CV to <b>operations@neurosphere.tech</b>
+      </div>
     </div>
   );
 };
