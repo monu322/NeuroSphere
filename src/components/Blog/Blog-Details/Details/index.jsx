@@ -7,8 +7,15 @@ import PostPagination from "./PostPagination";
 import PostCommentsArea from "./PostCommentsArea";
 import PostCommentsForm from "./PostCommentsForm";
 
-const Details = ({ blog }) => {
+const Details = ({ blog, currentIndex, totalBlogs, blogs }) => {
   const article = blog;
+  const Blogs = blogs;
+  const CurrentIndex = currentIndex;
+  const NextIndex = CurrentIndex + 1;
+  const PreviousIndex = CurrentIndex - 1;
+  const NextBlog = Blogs[NextIndex];
+  const PreviousBlog = Blogs[PreviousIndex];
+  const TotalBlogs = totalBlogs;
   // const date = new Date(article.postedDate);
   // const day = date.getDate();
   // const month = date.toLocaleString("default", { month: "long" });
@@ -42,7 +49,16 @@ const Details = ({ blog }) => {
                   {/* Content */}
                   <PostContent SingleBlog={article} />
                   {/* Pagination */}
-                  <PostPagination SingleBlog={article} />
+                  <PostPagination
+                    SingleBlog={article}
+                    currentIndex={CurrentIndex}
+                    totalBlogs={TotalBlogs}
+                    nextIndex={NextIndex}
+                    previousIndex={PreviousIndex}
+                    nextBlog={NextIndex > TotalBlogs ? Blogs[0] : NextBlog}
+                    previousBlog={PreviousIndex < 0 ? Blogs[0] : PreviousBlog}
+                    blogs={Blogs}
+                  />
                   {/* Comments Area */}
                   {/* <PostCommentsArea SingleBlog={article} /> */}
                   {/* Comments Form */}
