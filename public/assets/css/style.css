@@ -6843,6 +6843,8 @@ footer .item .copy-right p a {
 }
 .pen {
   color: rgb(3, 107, 3);
+  width: 15px;
+  height: 15px;
 }
 .trash {
   color: rgb(194, 4, 4);

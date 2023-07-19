@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import Slider from "react-slick";
-import TeamData from "../../../data/About/Team.json";
+// import TeamData from "../../../data/About/Team.json";
 
 const teamSliderSettings = {
   dots: false,
@@ -28,7 +28,8 @@ const teamSliderSettings = {
   ],
 };
 
-const Team = () => {
+const Team = ({ teamData }) => {
+  const TeamData = teamData;
   const sliderRef = useRef(null);
 
   const next = () => sliderRef.current.slickNext();

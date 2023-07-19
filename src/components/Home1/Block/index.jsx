@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import BlockData from "../../../data/Home1/Block.json";
+// import BlockData from "../../../data/Home1/Block.json";
 
 const Block = ({ blockData }) => {
+  const BlockData = blockData;
   const uiBlockBgElem = useRef(null);
 
   useEffect(() => {
