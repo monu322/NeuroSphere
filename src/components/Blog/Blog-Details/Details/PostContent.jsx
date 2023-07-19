@@ -3,8 +3,6 @@ import { Fragment } from "react";
 import Link from "next/link";
 
 const PostContent = ({ SingleBlog }) => {
-  console.log(SingleBlog);
-
   return (
     <div className="content pt-20">
       <div className="row justify-content-center">
@@ -14,10 +12,22 @@ const PostContent = ({ SingleBlog }) => {
               {SingleBlog?.postContent
                 ? SingleBlog.postContent.map((content) => {
                     return (
-                      <div key={content.id}>
+                      <div key={content.heading}>
                         <h3>{content.heading}</h3>
+                        {content.paragraphsImg ? (
+                          <div className="img p-4">
+                            <img
+                              key={content.id}
+                              className="img-sec"
+                              src={content.paragraphsImg}
+                              alt={content.heading}
+                            />
+                          </div>
+                        ) : (
+                          ""
+                        )}
                         <p>{content.paragraphs}</p>
-                        {content.images
+                        {/* {content.images
                           ? content.images.map((img) => {
                               return (
                                 <>
@@ -32,7 +42,7 @@ const PostContent = ({ SingleBlog }) => {
                                 </>
                               );
                             })
-                          : ""}
+                          : ""} */}
                       </div>
                     );
                   })
@@ -86,9 +96,7 @@ const PostContent = ({ SingleBlog }) => {
               half the priorities that will pop up in any particular month. But
               you can plan for big picture seasonality, busy-times, and events.
             </p> */}
-            
           </div>
-         
         </div>
       </div>
     </div>

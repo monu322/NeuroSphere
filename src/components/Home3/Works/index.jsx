@@ -5,6 +5,7 @@ import WorksData from "../../../data/Home3/Works.json";
 import initIsotope from "../../../common/initIsotope";
 
 const Works = ({ worksData }) => {
+  // const WorksData = worksData;
   useEffect(() => {
     setTimeout(() => {
       if (window.Isotope) initIsotope();
