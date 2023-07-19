@@ -1,7 +1,7 @@
 const Services = ({ servicesData }) => {
   const ServicesData = servicesData;
   return (
-    <div className="services section-padding ">
+    <div className="services section-padding xl-pl30 xl-pr30">
       <div className="container ">
         <div className="row ">
           {ServicesData.map((service, index) => (
