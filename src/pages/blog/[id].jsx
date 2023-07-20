@@ -15,7 +15,7 @@ import {
 } from "firebase/firestore";
 import db from "../../config/fire-config";
 
-const Index = ({ blog, currentIndex, totalBlogs, blogs }) => {
+const Index = ({ blog = "", currentIndex, totalBlogs, blogs }) => {
   useEffect(() => {
     let body = document.querySelector("body");
     body.classList.add("bg-gr");
@@ -37,36 +37,33 @@ const Index = ({ blog, currentIndex, totalBlogs, blogs }) => {
 
 export default Index;
 
-export async function getServerSideProps(context) {
-  const val = context.params.id.split("-");
-  const totalBlogs = Number(val[val.length - 2]);
-  const currentIndex = Number(val[val.length - 3]);
+const convertTimestampToDate = (timestamp) =>
+  timestamp instanceof Timestamp ? timestamp.toDate() : timestamp;
+
+export async function getServerSideProps({ params }) {
+  const { id } = params;
+  const [currentIndex, totalBlogs] = id.split("-").slice(-3, -1).map(Number);
+  const [Id] = id.split("-").slice(-1);
   const blogCollection = collection(db, "blogs");
   const q = query(blogCollection, orderBy("postedDate", "desc"));
   const querySnapshot = await getDocs(q);
-  const allBlogs = [];
-  querySnapshot.forEach((doc) => {
+  const allBlogs = querySnapshot.docs.map((doc) => {
     const docData = doc.data();
-    const postedDate =
-      docData.postedDate instanceof Timestamp
-        ? docData.postedDate.toDate()
-        : docData.postedDate;
-    docData.postedDate = postedDate.getTime();
-    allBlogs.push(docData);
+    docData.postedDate = convertTimestampToDate(docData.postedDate).getTime();
+    return docData;
   });
 
-  const id = val[val.length - 1];
-  const docRef = doc(db, "blogs", id);
+  const docRef = doc(db, "blogs", Id);
   const docSnap = await getDoc(docRef);
-  const docData = docSnap.data();
-  const postedDate =
-    docData.postedDate instanceof Timestamp
-      ? docData.postedDate.toDate()
-      : docData.postedDate;
-  docData.postedDate = postedDate.getTime();
+  const blog = docSnap.exists()
+    ? {
+        ...docSnap.data(),
+        postedDate: convertTimestampToDate(docSnap.data().postedDate).getTime(),
+      }
+    : null;
   return {
     props: {
-      blog: docData,
+      blog,
       blogs: allBlogs,
       currentIndex,
       totalBlogs,

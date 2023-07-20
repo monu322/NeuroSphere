@@ -78,27 +78,28 @@ const UpdateBlogForm = ({ id }) => {
     setParagraphs("");
   };
 
-  const updateBlog = async (
-    { title, postDescriptions, posterName, posterAvatar, postMeta, tags, img },
-    postContent
-  ) => {
-    const storageRef = ref(storage, `blogImages/${img.name + img.size}`);
-    const Tags = tags.split(",");
-    const imgUpload = await uploadBytes(storageRef, img);
-    const imageURL = await getDownloadURL(storageRef);
-    const docRef = doc(db, "blogs", blogId);
-    await updateDoc(docRef, {
-      title,
-      postDescriptions,
-      postContent,
-      tags: Tags,
-      img: imageURL,
-      posterName,
-      // posterAvatar,
-      postMeta,
-      postedDate: serverTimestamp(),
+  const updateBlog = async (values, postContent) => {
+    const storageRef = ref(
+      storage,
+      `blogImages/${values.img.name + values.img.size}`
+    );
+
+    await uploadBytes(storageRef, values.img);
+    const image = await getDownloadURL(storageRef);
+    const response = await fetch("/api/Blog", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        values,
+        image,
+        postContent,
+        blogId,
+      }),
     });
-    setNotification("Blogpost updated successfully");
+    const { message, error } = await response.json();
+    !error ? setNotification(message) : setErrMessage(error);
     clearNotification();
   };
 
@@ -106,7 +107,7 @@ const UpdateBlogForm = ({ id }) => {
     if (validateForm(values)) {
       setErrMessage(null);
       setSubmitting(false);
-      updateBlog(values, postContent);
+      await updateBlog(values, postContent);
       setTimeout(() => {
         router.push("/admin");
         setNotification("");
@@ -132,6 +133,7 @@ const UpdateBlogForm = ({ id }) => {
       getBlogDataWithId(id);
     }
   }, [id]);
+
   const isButtonDisabled = !heading || !paragraphs;
 
   return (
