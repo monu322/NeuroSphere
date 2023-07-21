@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 const PreviewImage = ({ file, imgUrl }) => {
-  console.log(imgUrl);
   const [preview, setPreview] = useState(null);
   // if (!file.startsWith("https://")) {
   //   const reader = new FileReader();

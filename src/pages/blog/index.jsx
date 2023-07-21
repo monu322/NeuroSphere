@@ -31,19 +31,17 @@ const Index = ({ data }) => {
 
 export default Index;
 
+const convertTimestampToDate = (timestamp) =>
+  timestamp instanceof Timestamp ? timestamp.toDate() : timestamp;
+
 export async function getServerSideProps() {
   const blogCollection = collection(db, "blogs");
   const q = query(blogCollection, orderBy("postedDate", "desc"));
   const querySnapshot = await getDocs(q);
-  const data = [];
-  querySnapshot.forEach((doc) => {
+  const data = querySnapshot.docs.map((doc) => {
     const docData = doc.data();
-    const postedDate =
-      docData.postedDate instanceof Timestamp
-        ? docData.postedDate.toDate()
-        : docData.postedDate;
-    docData.postedDate = postedDate.getTime();
-    data.push(docData);
+    docData.postedDate = convertTimestampToDate(docData.postedDate).getTime();
+    return docData;
   });
   return {
     props: {
