@@ -798,6 +798,10 @@ span:hover {
   margin-top: 100px !important;
 }
 
+.ml-0 {
+  margin-left: 0px;
+}
+
 /*-------------------------------------------------------
 			 margin-bottom  (0/100) +5
 -------------------------------------------------------*/
@@ -3725,6 +3729,9 @@ body {
   .promo-carousel .item-wrap .promo-carousel .item-wrap {
     width: 200%;
   }
+  .md-pb80 {
+    padding-bottom: 80px;
+  }
 }
 
 /* ====================== [ End Blocks  ] ====================== */
@@ -5821,6 +5828,13 @@ footer .item .copy-right p a {
   .md-pb80 {
     padding-bottom: 80px;
   }
+  .lg-pl60 {
+    padding-left: 60px;
+  }
+  .lg-pr60 {
+    padding-right: 60px;
+  }
+
   .order2 {
     -webkit-box-ordinal-group: 3 !important;
     -ms-flex-order: 2 !important;
@@ -5849,6 +5863,7 @@ footer .item .copy-right p a {
   }
   .navbar .logo {
     margin-left: 15px;
+    width: 200px;
   }
   .nav-scroll .navbar-collapse .nav-link,
   .light .navbar-collapse .nav-link {
@@ -5994,6 +6009,15 @@ footer .item .copy-right p a {
   }
 }
 
+@media screen and (min-width: 991px) {
+  .lg-pl50 {
+    padding-left: 50px !important;
+  }
+  .lg-pr50 {
+    padding-right: 50px !important;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .sm-mb10 {
     margin-bottom: 10px;
@@ -6045,6 +6069,9 @@ footer .item .copy-right p a {
   }
   .sm-pb80 {
     padding-bottom: 80px;
+  }
+  .sm-mt0 {
+    margin-top: 0px;
   }
   .container {
     max-width: 100%;
@@ -6357,7 +6384,7 @@ footer .item .copy-right p a {
   .team-img-holder {
   }
   .team-img {
-    padding-left: 95px;
+    padding-left: 45px;
     margin-left: -4px;
   }
   .min-area .content {
@@ -6477,6 +6504,15 @@ footer .item .copy-right p a {
 @media screen and (max-width: 389px) {
   .swiper-button-next .swiper-button-prev {
     margin: 200px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .xl-pl30 {
+    padding-left: 30px;
+  }
+  .xl-pr30 {
+    padding-right: 30px;
   }
 }
 /* ====================== [ End Responsive ] ====================== */

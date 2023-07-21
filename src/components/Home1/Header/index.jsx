@@ -106,7 +106,7 @@ const Header = ({ headerData }) => {
           </Swiper>
         )}
 
-        <div className="setone setwo ssm-mb115">
+        <div className="setone setwo ssm-mb250">
           <div
             className="swiper-button-next swiper-nav-ctrl next-ctrl cursor-pointer mr-3"
             ref={navigationNextRef}

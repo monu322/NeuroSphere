@@ -36,10 +36,10 @@ const Team = ({ teamData }) => {
   const previous = () => sliderRef.current.slickPrev();
 
   return (
-    <section className="team-crs section-padding team-section-dark-bg">
+    <section className="team-crs section-padding team-section-dark-bg pt-0">
       <div className="container pt-2">
         <div className="row mt-4">
-          <div className="col-lg-4 valign">
+          <div className="col-lg-4 valign mt-60 sm-mt0 lg-pl80">
             <div className="full-width">
               <div className="sec-head custom-font mb-0">
                 <h6>Employees</h6>
@@ -58,6 +58,8 @@ const Team = ({ teamData }) => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="row justify-content-center">
           <div className="col-lg-8">
             <Slider
               {...teamSliderSettings}
@@ -66,12 +68,16 @@ const Team = ({ teamData }) => {
             >
               {TeamData.map((teamMember, index) => (
                 <div
-                  className="item wow fadeInUp"
+                  className="item wow fadeInUp square-container"
                   data-wow-delay=".3s"
                   key={index}
                 >
-                  <div className="img wow imago team-img-holder">
-                    <img className="team-img" src={teamMember.img} alt="" />
+                  <div className="img wow imago team-img-holder square-container">
+                    <img
+                      className="team-img img-fluid"
+                      src={teamMember.img}
+                      alt=""
+                    />
                   </div>
                   <div className="info">
                     <h5>{teamMember.name}</h5>

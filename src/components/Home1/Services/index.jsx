@@ -2,7 +2,7 @@
 const Services = ({ servicesData }) => {
   const ServicesData = servicesData;
   return (
-    <div className="cls-services section-padding position-re mt-4">
+    <div className="cls-services section-padding position-re mt-4 lg-pl50 lg-pr50">
       <div className="container mt-4 ssm-mb85">
         <div className="row ">
           {ServicesData.map((service, index) => {
