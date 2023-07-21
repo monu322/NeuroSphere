@@ -4,9 +4,8 @@ import Link from "next/link";
 
 const Blog = ({ data }) => {
   const blogs = data;
-  console.log(blogs.length);
+  const totalBlogs = blogs.length - 1;
   function convertToSlug(Text) {
-    console.log(Text);
     return Text.toLowerCase()
       .replace(/ /g, "-")
       .replace(/[^\w-]+/g, "");
@@ -25,7 +24,9 @@ const Blog = ({ data }) => {
                 >
                   <div className="img">
                     <Link
-                      href={`/blog/${convertToSlug(blog.title)}-${blog.id}`}
+                      href={`/blog/${convertToSlug(blog.title)}-${
+                        index + 1
+                      }-${totalBlogs}-${blog.id}`}
                     >
                       <a>
                         <img src={blog.img} alt="" />
@@ -48,15 +49,17 @@ const Blog = ({ data }) => {
                         <h4 className="title">
                           <Link
                             href={`/blog/${convertToSlug(blog.title)}-${
-                              blog.id
-                            }`}
+                              index + 1
+                            }-${totalBlogs}-${blog.id}`}
                           >
                             <a>{blog.title}</a>
                           </Link>
                         </h4>
                         <p>{blog.postDescriptions}</p>
                         <Link
-                          href={`/blog/${convertToSlug(blog.title)}-${blog.id}`}
+                          href={`/blog/${convertToSlug(blog.title)}-${
+                            index + 1
+                          }-${totalBlogs}-${blog.id}`}
                         >
                           <a className="simple-btn mt-30">Read More</a>
                         </Link>
