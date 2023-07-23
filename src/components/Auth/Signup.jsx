@@ -1,9 +1,13 @@
-import db, { auth , googleProvider } from "../../config/fire-config";
+import db, { auth, googleProvider } from "../../config/fire-config";
 import { collection, addDoc } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
 import { Field, Form, Formik } from "formik";
 import Link from "next/link";
-import { createUserWithEmailAndPassword, signOut , signInWithPopup  ,} from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signOut,
+  signInWithPopup,
+} from "firebase/auth";
 import { useRouter } from "next/router";
 import { AuthContext } from "../../context/AuthProvider";
 
@@ -77,7 +81,7 @@ const Signup = () => {
 
   useEffect(() => {
     if (user && roleInfo === "admin") router.push("/admin");
-    if (user) router.push("/");
+    if (user && roleInfo === "user") router.push("/");
   }, [user]);
   return (
     <>
