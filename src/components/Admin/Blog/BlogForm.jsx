@@ -1,14 +1,5 @@
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import db, { storage } from "../../../config/fire-config";
-import {
-  collection,
-  addDoc,
-  serverTimestamp,
-  updateDoc,
-  doc,
-  FieldValue,
-} from "firebase/firestore";
-
+import { storage } from "../../../config/fire-config";
 import { Field, Form, Formik } from "formik";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -82,63 +73,58 @@ const BlogForm = () => {
         storage,
         `blogImages/${paragraphsImg.name + paragraphsImg.size}`
       );
-      const imgUpload = await uploadBytes(storageRef, paragraphsImg);
-      const imageURL = await getDownloadURL(storageRef);
-      imageUrl = imageURL;
+      await uploadBytes(storageRef, paragraphsImg);
+      imageUrl = await getDownloadURL(storageRef);
     }
     const postData = {
       heading,
       paragraphs: paragraphs.split("."),
       paragraphsImg: imageUrl,
     };
-    console.log(postData);
-    console.log(postContent);
     setPostContent([...postContent, postData]);
     setHeading("");
     setParagraphs("");
     setParagraphsImg("");
   };
-  console.log(postContent);
 
-  const createBlog = async (
-    { title, postDescriptions, posterName, posterAvatar, postMeta, tags, img },
-    postContent
-  ) => {
-    const storageRef = ref(storage, `blogImages/${img.name + img.size}`);
-    const Tags = tags.split(",");
-    const imgUpload = await uploadBytes(storageRef, img);
-    const imageURL = await getDownloadURL(storageRef);
-    const blogCollection = collection(db, "blogs");
-    const res = await addDoc(blogCollection, {
-      title,
-      postDescriptions,
-      postContent,
-      tags: Tags,
-      img: imageURL,
-      posterName,
-      // posterAvatar,
-      postMeta,
-      postedDate: serverTimestamp(),
+  const createBlog = async (values, postContent) => {
+    const storageRef = ref(
+      storage,
+      `blogImages/${values.img.name + values.img.size}`
+    );
+    await uploadBytes(storageRef, values.img);
+    const image = await getDownloadURL(storageRef);
+    const response = await fetch("/api/Blog", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        values,
+        image,
+        postContent,
+      }),
     });
-    console.log(res.id);
-    const docRef = doc(db, "blogs", res.id);
-    await updateDoc(docRef, {
-      id: res.id,
-    });
-    setNotification("Blogpost created successfully");
+    const { message, error } = await response.json();
+    !error ? setNotification(message) : setNotification(error);
     clearNotification();
   };
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-    if (validateForm(values)) {
-      setErrMessage(null);
-      setSubmitting(false);
-      createBlog(values, postContent);
-      resetForm();
-      setTimeout(() => {
-        router.push("/admin");
-        setNotification("");
-      }, 2000);
+    try {
+      if (validateForm(values)) {
+        setErrMessage(null);
+        setSubmitting(false);
+        await createBlog(values, postContent);
+        resetForm();
+        setTimeout(() => {
+          router.push("/admin");
+          setNotification("");
+        }, 2000);
+      }
+    } catch (error) {
+      setNotification(error);
+      clearNotification();
     }
   };
 
@@ -158,7 +144,7 @@ const BlogForm = () => {
                   </button>
                 </div>
               </div>
-              <div className="row">
+              <div className="row mb-4">
                 <div className="col-lg-7 col-md-7">
                   <div className="blog-box p-4">
                     {errMessage && (

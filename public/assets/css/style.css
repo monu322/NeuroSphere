@@ -6630,6 +6630,7 @@ footer .item .copy-right p a {
 .blog-box {
   /* width: 95%; */
   box-shadow: 0 0 6px 0 rgba(179, 179, 184, 0.5);
+  border-radius: 4px;
 }
 
 .blog-box h4 {
