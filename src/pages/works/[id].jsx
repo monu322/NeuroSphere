@@ -161,7 +161,9 @@ const Index = () => {
               ))
             }
           </div>
+          <a href={`/works/${next}`} className="btn-curve btn-lit mt-4 "><span>Next Project</span></a>
         </div>
+        
       </div>
       <section className="block-sec pt-4">
         <div className="background bg-img section-padding pb-0 " data-background="/assets/img/1.jpg" data-overlay-dark="6">
@@ -206,7 +208,9 @@ const Index = () => {
                       ))
                     }
                   </Slider>
+                  
                   </div>
+                  
                 </div>
                 
               </div>
@@ -215,19 +219,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="skills-circle bg-gray pt-150 pb-50">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12 mt-4 pt-4">
-              <br/><br/>
-              <br/><br/>
-              <br/><br/>
-    
-              <a href={`/works/${next}`} className="btn-curve btn-lit mt-4 "><span>Next Project</span></a>
-            </div>
-          </div>
-        </div>
-      </section>
+      
       {/* <Clients /> */}
       <CallAction />
     </MainLayout>
