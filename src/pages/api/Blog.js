@@ -1,12 +1,15 @@
 import {
   addDoc,
   collection,
+  deleteDoc,
   doc,
+  getDocs,
+  orderBy,
+  query,
   serverTimestamp,
   updateDoc,
 } from "firebase/firestore";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import db, { storage } from "../../config/fire-config";
+import db from "../../config/fire-config";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
@@ -32,7 +35,7 @@ const handler = async (req, res) => {
       await updateDoc(docRef, {
         id: result.id,
       });
-      return res.status(201).json({ message: "Blog Created Successfully" });
+      return res.status(201).json({ message: "Blog created successfully" });
     } catch (error) {
       console.error("Error creating blog:", error);
       return res.status(500).json({ error: "Failed to create blog" });
@@ -57,10 +60,30 @@ const handler = async (req, res) => {
         postMeta,
         postedDate: serverTimestamp(),
       });
-      return res.status(201).json({ message: "Blog Updated Successfully" });
+      return res.status(201).json({ message: "Blog updated successfully" });
     } catch (error) {
       console.error("Error creating blog:", error);
       return res.status(500).json({ error: "Failed to update blog" });
+    }
+  }
+  if (req.method === "GET") {
+    try {
+      const blogCollection = collection(db, "blogs");
+      const q = query(blogCollection, orderBy("postedDate", "desc"));
+      const querySnapshot = await getDocs(q);
+      const data = querySnapshot.docs.map((doc) => doc.data());
+      return res.status(200).json({ data: data });
+    } catch (error) {
+      return res.status(500).json({ error });
+    }
+  }
+  if (req.method === "DELETE") {
+    const { id } = req.body;
+    try {
+      await deleteDoc(doc(db, "blogs", id));
+      res.status(200).json({ message: "Post deleted successfully" });
+    } catch (error) {
+      res.status(500).json({ error });
     }
   }
 };
