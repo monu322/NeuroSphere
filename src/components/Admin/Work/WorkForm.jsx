@@ -1,47 +1,29 @@
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import db, { storage } from "../../../config/fire-config";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 import React, { useState } from "react";
 import { Field, Form, Formik } from "formik";
 import { useRouter } from "next/router";
 
 const WorkForm = () => {
+  const [notification, setNotification] = useState("");
   const [errMessage, setErrMessage] = useState(null);
-  const [tags, setTags] = useState([]);
 
   const router = useRouter();
 
   const initialValues = {
-    type: " ",
-    link: " ",
-    img: " ",
-    wideImg: " ",
-    title: " ",
-    description: " ",
-    tags: " ",
-    objective: " ",
-    servicesIntro: " ",
-    services: " ",
-    outcomeText: " ",
-    outcomes: " ",
-  };
-
-  const handleTagKeyDown = (event) => {
-    if (event.key === "Enter" || event.key === " " || event.key === ",") {
-      event.preventDefault();
-
-      const tagValue = event.target.value.trim();
-      if (tags.includes(tagValue)) return null;
-      if (tagValue) {
-        setTags((prevTags) => [...prevTags, tagValue]);
-        event.target.value = "";
-      }
-    }
-  };
-
-  const handleTagRemove = (index) => {
-    setTags((prevTags) => prevTags.filter((_, i) => i !== index));
+    img: "",
+    type: "",
+    link: "",
+    wideImg: "",
+    title: "",
+    description: "",
+    tags: "",
+    objective: "",
+    servicesIntro: "",
+    services: "",
+    outcomeText: "",
+    outcomes: "",
   };
 
   const validateForm = (formValues) => {
@@ -49,7 +31,6 @@ const WorkForm = () => {
       !formValues.type ||
       !formValues.title ||
       !formValues.description ||
-      !formValues.tags ||
       !formValues.objective ||
       !formValues.servicesIntro ||
       !formValues.services ||
@@ -71,7 +52,7 @@ const WorkForm = () => {
       setErrMessage("Message must be at least 10 characters");
       return false;
     }
-    if (formValues.tags.length < 5) {
+    if (formValues.tags.length < 2) {
       setErrMessage("Name must be at least 5 characters");
       return false;
     }
@@ -95,84 +76,85 @@ const WorkForm = () => {
       setErrMessage("Message must be at least 10 characters");
       return false;
     }
+    if (!formValues.img) {
+      setErrMessage("Please select an image file");
+      return false;
+    }
+    if (!formValues.img.type.startsWith("image/")) {
+      setErrMessage("Please select an image");
+      return false;
+    }
     return true;
   };
 
-  const addWork = async (
-    {
-      type,
-      title,
-      description,
-      link,
-      objective,
-      servicesIntro,
-      services,
-      outcomeText,
-      outcomes,
-      img,
-      wideImg,
-    },
-    tags
-  ) => {
-    const ImgStorageRef = ref(storage, `workImages/img${img.name + img.size}`);
+  const clearNotification = () => {
+    setTimeout(() => {
+      setNotification("");
+    }, 2000);
+  };
+  const addWork = async (values) => {
+    const ImgStorageRef = ref(
+      storage,
+      `workImages/img${values.img.name + values.img.size}`
+    );
     const wideImgStorageRef = ref(
       storage,
-      `workImages/wideImg${wideImg.name + wideImg.size}`
+      `workImages/wideImg${values.wideImg.name + values.wideImg.size}`
     );
-    const imgUpload = await uploadBytes(ImgStorageRef, img);
-    const wideImgUpload = await uploadBytes(wideImgStorageRef, wideImg);
+    await uploadBytes(ImgStorageRef, values.img);
+    await uploadBytes(wideImgStorageRef, values.wideImg);
     const imageURL = await getDownloadURL(ImgStorageRef);
     const wideImageURL = await getDownloadURL(wideImgStorageRef);
-    const workCollection = collection(db, "works");
-    const res = await addDoc(workCollection, {
-      type,
-      title,
-      description,
-      tags,
-      link,
-      objective,
-      servicesIntro,
-      services,
-      outcomeText,
-      outcomes,
-      img: imageURL,
-      wideImg: wideImageURL,
-      date: serverTimestamp(),
+    const response = await fetch("/api/work", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ values, imageURL, wideImageURL }),
     });
-    console.log(res.id);
+    const { message, error } = await response.json();
+    !error ? setNotification(message) : setNotification(error);
+    clearNotification("");
   };
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-    if (validateForm(values)) {
-      setErrMessage(null);
-      setSubmitting(false);
-      addWork(values, tags);
-      resetForm();
-      setTimeout(() => {
-        router.push("/admin");
-      }, 2000);
+    try {
+      if (validateForm(values)) {
+        setErrMessage(null);
+        setSubmitting(false);
+        await addWork(values);
+        resetForm();
+        setTimeout(() => {
+          router.push("/admin");
+          setNotification("");
+        }, 2000);
+      }
+    } catch (error) {
+      setNotification(error);
+      clearNotification();
     }
   };
 
   return (
     <>
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-lg-10 col-md-9">
-            <div className="cont text-center h2">Create Work</div>
+      <div className="container mt-2">
+        {notification && <div className="notification">{notification}</div>}
+        <Formik const initialValues={initialValues} onSubmit={handleSubmit}>
+          {({ values, setFieldValue }) => (
+            <Form>
+              <div className="d-flex justify-content-between">
+                <div className="text-dark mb-3 blg-head">Create Work</div>
+                <div>
+                  <button type="submit" className="btn-blog">
+                    <span>Create</span>
+                  </button>
+                </div>
+              </div>
 
-            <div className="border border-secondary rounded border-2 p-4 w-75">
-              {" "}
-              {/* mb-100 */}
-              <Formik
-                const
-                initialValues={initialValues}
-                onSubmit={handleSubmit}
-              >
-                {({ values, setFieldValue }) => (
-                  <Form>
+              <div className="row mb-4">
+                <div className="col-lg-6 col-md-6">
+                  <div className="blog-box p-4">
                     {errMessage && <div className="messages">{errMessage}</div>}
-
                     <div className="controls blog-form">
                       <div className="form-group d-flex flex-column">
                         <label htmlFor="Type">Type</label>
@@ -198,45 +180,13 @@ const WorkForm = () => {
                       </div>
 
                       <div className="form-group d-flex flex-column">
-                        <label htmlFor="description">Description</label>
+                        <label htmlFor="Tags">Tags</label>
                         <Field
-                          as="textarea"
-                          id="form_description"
-                          name="description"
-                          placeholder="Description"
-                          rows="4"
-                          required="required"
-                          value={values.description}
+                          type="text"
+                          id="tags"
+                          placeholder="Tags"
+                          name="tags"
                         />
-                      </div>
-
-                      <div className="form-group d-flex flex-column">
-                        <div>
-                          <label htmlFor="Tags">Tags</label>
-                          <Field
-                            id="form_tags"
-                            type="text"
-                            name="tags"
-                            placeholder="Work Tag"
-                            required="required"
-                            onKeyDown={handleTagKeyDown}
-                            value={values.tags}
-                          />
-                          <div>
-                            {tags.map((tag, index) => (
-                              <span className="tag" key={index}>
-                                {tag}
-                                <button
-                                  type="button"
-                                  className="tag-remove"
-                                  onClick={() => handleTagRemove(index)}
-                                >
-                                  X
-                                </button>
-                              </span>
-                            ))}
-                          </div>
-                        </div>
                       </div>
 
                       <div className="form-group d-flex flex-column">
@@ -263,9 +213,121 @@ const WorkForm = () => {
                           value={values.objective}
                         />
                       </div>
-
                       <div className="form-group d-flex flex-column">
-                        <label htmlFor="servicesIntro">ServicesIntro</label>
+                        <label htmlFor="description">Description</label>
+                        <Field
+                          as="textarea"
+                          id="form_description"
+                          name="description"
+                          placeholder="Description"
+                          rows="4"
+                          required="required"
+                          value={values.description}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-6">
+                  <div className="row mb-4">
+                    <div className="col-lg-12">
+                      <div className="blog-box p-4">
+                        <div className="controls blog-form">
+                          <div className="form-group d-flex flex-column">
+                            <label htmlFor="Tag">Add Image</label>
+                            <input
+                              type="file"
+                              accept="image/*"
+                              onChange={(event) => {
+                                setFieldValue("img", event.target.files[0]);
+                              }}
+                            />
+                          </div>
+                          <div className="form-group d-flex flex-column">
+                            <label htmlFor="Tag">Add Wide Image</label>
+                            <input
+                              type="file"
+                              accept="image/*"
+                              onChange={(event) => {
+                                setFieldValue("wideImg", event.target.files[0]);
+                              }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-lg-12">
+                      <div className="blog-box p-4">
+                        <div className="controls blog-form">
+                          <div className="form-group d-flex flex-column">
+                            <label htmlFor="heading">
+                              Testimonials Content
+                            </label>
+                            <input
+                              id="heading"
+                              type="text"
+                              // value={heading}
+                              // onChange={handleHeadingChange}
+                              placeholder="Post Heading"
+                              className="border border-secondary"
+                            />
+                          </div>
+                          <div className="form-group d-flex flex-column">
+                            <label htmlFor="heading">Testimonials Name</label>
+                            <input
+                              id="heading"
+                              type="text"
+                              // value={heading}
+                              // onChange={handleHeadingChange}
+                              placeholder="Post Heading"
+                              className="border border-secondary"
+                            />
+                          </div>
+                          <div className="form-group d-flex flex-column">
+                            <label htmlFor="servicesIntro">
+                              Testimonials Details
+                            </label>
+                            <input
+                              id="heading"
+                              type="text"
+                              // value={heading}
+                              // onChange={handleHeadingChange}
+                              placeholder="Post Heading"
+                              className="border border-secondary"
+                            />
+                          </div>
+                          <div className="form-group d-flex flex-column">
+                            <label htmlFor="heading">Testimonials Image</label>
+                            <input
+                              type="file"
+                              accept="image/*"
+                              onChange={(event) => {
+                                setFieldValue("wideImg", event.target.files[0]);
+                              }}
+                            />
+                          </div>
+                          <button
+                            // onClick={addPostContent}
+                            type="button"
+                            className="btn_post-content"
+                            // disabled={isButtonDisabled}
+                          >
+                            Add
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="row mb-4">
+                <div className="col-lg-6 col-md-6">
+                  <div className="controls blog-form">
+                    <div className="blog-box p-4">
+                      <div className="form-group d-flex flex-column">
+                        <label htmlFor="servicesIntro">Service Intro</label>
                         <Field
                           as="textarea"
                           id="form_servicesIntro"
@@ -276,76 +338,162 @@ const WorkForm = () => {
                           value={values.servicesIntro}
                         />
                       </div>
-
                       <div className="form-group d-flex flex-column">
-                        <label htmlFor="services">Services</label>
-                        <Field
-                          as="textarea"
-                          id="form_services"
-                          name="services"
-                          placeholder="Services"
-                          rows="4"
-                          required="required"
-                          value={values.services}
-                        />
-                      </div>
-
-                      <div className="form-group d-flex flex-column">
-                        <label htmlFor="outcomeText">outcomeText</label>
-                        <Field
-                          as="textarea"
-                          id="form_outcomeText"
-                          name="outcomeText"
-                          placeholder="OutcomeText"
-                          rows="4"
-                          required="required"
-                          value={values.outcomeText}
-                        />
-                      </div>
-
-                      <div className="form-group d-flex flex-column">
-                        <label htmlFor="outcomes">outcomes</label>
-                        <Field
-                          as="textarea"
-                          id="form_outcomes"
-                          name="outcomes"
-                          placeholder="outcomes"
-                          rows="4"
-                          required="required"
-                          value={values.outcomes}
-                        />
-                      </div>
-
-                      <div className="form-group d-flex flex-column">
-                        <label htmlFor="Tag">Add Image</label>
+                        <label htmlFor="heading">Service Title</label>
                         <input
-                          type="file"
-                          accept="image/*"
-                          onChange={(event) => {
-                            setFieldValue("img", event.target.files[0]);
-                          }}
+                          id="heading"
+                          type="text"
+                          // value={heading}
+                          // onChange={handleHeadingChange}
+                          placeholder="Post Heading"
+                          className="border border-secondary"
                         />
                       </div>
                       <div className="form-group d-flex flex-column">
-                        <label htmlFor="Tag">Add Wide Image</label>
+                        <label htmlFor="heading">Service Description</label>
                         <input
-                          type="file"
-                          accept="image/*"
-                          onChange={(event) => {
-                            setFieldValue("wideImg", event.target.files[0]);
-                          }}
+                          id="heading"
+                          type="text"
+                          // value={heading}
+                          // onChange={handleHeadingChange}
+                          placeholder="Post Heading"
+                          className="border border-secondary"
                         />
                       </div>
-                      <button type="submit" className="btn-blog">
-                        <span>Add Work</span>
+                      <div className="form-group d-flex flex-column">
+                        <label htmlFor="heading">Service Icon Class</label>
+                        <input
+                          id="heading"
+                          type="text"
+                          // value={heading}
+                          // onChange={handleHeadingChange}
+                          placeholder="Post Heading"
+                          className="border border-secondary"
+                        />
+                      </div>
+                      <button
+                        // onClick={addPostContent}
+                        type="button"
+                        className="btn_post-content"
+                        // disabled={isButtonDisabled}
+                      >
+                        Add
                       </button>
                     </div>
-                  </Form>
-                )}
-              </Formik>
-            </div>
-          </div>
-        </div>
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-6">
+                  <div className="controls blog-form">
+                    <div className="blog-box p-4">
+                      <div className="form-group d-flex flex-column">
+                        <label htmlFor="servicesIntro">Outcome Text</label>
+                        <Field
+                          as="textarea"
+                          id="form_servicesIntro"
+                          name="servicesIntro"
+                          placeholder="ServicesIntro"
+                          rows="4"
+                          required="required"
+                          value={values.servicesIntro}
+                        />
+                      </div>
+                      <div className="form-group d-flex flex-column">
+                        <label htmlFor="heading">Outcome Title</label>
+                        <input
+                          id="heading"
+                          type="text"
+                          // value={heading}
+                          // onChange={handleHeadingChange}
+                          placeholder="Post Heading"
+                          className="border border-secondary"
+                        />
+                      </div>
+                      <div className="form-group d-flex flex-column">
+                        <label htmlFor="heading">Outcome Description</label>
+                        <input
+                          id="heading"
+                          type="text"
+                          // value={heading}
+                          // onChange={handleHeadingChange}
+                          placeholder="Post Heading"
+                          className="border border-secondary"
+                        />
+                      </div>
+                      <div className="form-group d-flex flex-column">
+                        <label htmlFor="heading">Outcome Icon Class</label>
+                        <input
+                          id="heading"
+                          type="text"
+                          // value={heading}
+                          // onChange={handleHeadingChange}
+                          placeholder="Post Heading"
+                          className="border border-secondary"
+                        />
+                      </div>
+                      <button
+                        // onClick={addPostContent}
+                        type="button"
+                        className="btn_post-content"
+                        // disabled={isButtonDisabled}
+                      >
+                        Add
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="row mb-4">
+                <div className="col-lg-6 col-md-6">
+                  <div className="controls blog-form">
+                    <div className="blog-box p-4">
+                      <div className="form-group d-flex flex-column">
+                        <label htmlFor="heading">Skill Title</label>
+                        <input
+                          id="heading"
+                          type="text"
+                          // value={heading}
+                          // onChange={handleHeadingChange}
+                          placeholder="Post Heading"
+                          className="border border-secondary"
+                        />
+                      </div>
+                      <div className="form-group d-flex flex-column">
+                        <label htmlFor="heading">Skill Subtitle</label>
+                        <input
+                          id="heading"
+                          type="text"
+                          // value={heading}
+                          // onChange={handleHeadingChange}
+                          placeholder="Post Heading"
+                          className="border border-secondary"
+                        />
+                      </div>
+                      <div className="form-group d-flex flex-column">
+                        <label htmlFor="heading">Skill Value</label>
+                        <input
+                          id="heading"
+                          type="text"
+                          // value={heading}
+                          // onChange={handleHeadingChange}
+                          placeholder="Post Heading"
+                          className="border border-secondary"
+                        />
+                      </div>
+                      <button
+                        // onClick={addPostContent}
+                        type="button"
+                        className="btn_post-content"
+                        // disabled={isButtonDisabled}
+                      >
+                        Add
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Form>
+          )}
+        </Formik>
       </div>
     </>
   );

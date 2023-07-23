@@ -106,7 +106,7 @@ const BlogForm = () => {
       }),
     });
     const { message, error } = await response.json();
-    !error ? setNotification(message) : setErrMessage(error);
+    !error ? setNotification(message) : setNotification(error);
     clearNotification();
   };
 
@@ -123,7 +123,8 @@ const BlogForm = () => {
         }, 2000);
       }
     } catch (error) {
-      setErrMessage(error);
+      setNotification(error);
+      clearNotification();
     }
   };
 
@@ -143,7 +144,7 @@ const BlogForm = () => {
                   </button>
                 </div>
               </div>
-              <div className="row">
+              <div className="row mb-4">
                 <div className="col-lg-7 col-md-7">
                   <div className="blog-box p-4">
                     {errMessage && (

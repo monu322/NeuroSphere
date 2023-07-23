@@ -1,45 +1,52 @@
 import React, { useEffect, useState } from "react";
-import db from "../../config/fire-config";
-import {
-  collection,
-  deleteDoc,
-  doc,
-  getDocs,
-  orderBy,
-  query,
-} from "firebase/firestore";
 import Link from "next/link";
 
 const Home = () => {
+  const [notification, setNotification] = useState("");
   const [blogData, setBlogData] = useState([]);
   const [workData, setWorkData] = useState([]);
 
+  const clearNotification = () => {
+    setTimeout(() => {
+      setNotification("");
+    }, 2000);
+  };
+
   const getBlogData = async () => {
-    const blogCollection = collection(db, "blogs");
-    const q = query(blogCollection, orderBy("postedDate", "desc"));
-    const querySnapshot = await getDocs(q);
-    const data = [];
-    querySnapshot.forEach((doc) => {
-      const docData = doc.data();
-      data.push(docData);
+    const response = await fetch("/api/Blog", {
+      method: "GET",
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
     });
-    setBlogData(data);
+    const { data, error } = await response.json();
+    data ? setBlogData(data) : setNotification(error);
+    clearNotification();
   };
 
   const getWorkData = async () => {
-    const workCollection = collection(db, "works");
-    const q = query(workCollection, orderBy("date", "desc"));
-    const querySnapshot = await getDocs(q);
-    const data = [];
-    querySnapshot.forEach((doc) => {
-      const docData = doc.data();
-      data.push(docData);
+    const response = await fetch("/api/work", {
+      method: "GET",
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
     });
-    setWorkData(data);
+    const { data, error } = await response.json();
+    data ? setWorkData(data) : setNotification(error);
+    clearNotification();
   };
 
   const handleDelete = async (id) => {
-    await deleteDoc(doc(db, "blogs", id));
+    const response = await fetch("/api/Blog", {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ id }),
+    });
+    const { message, error } = await response.json();
+    error ? setNotification(error) : setNotification(message);
+    clearNotification();
     getBlogData();
   };
 
@@ -71,7 +78,7 @@ const Home = () => {
                       <td>{index + 1}</td>
                       <td>{blog.title}</td>
                       <td>
-                        {blog.postedDate.toDate().toLocaleDateString("en-GB")}
+                        {/* {blog.postedDate.toDate().toLocaleDateString("en-GB")} */}
                       </td>
                       <td>{blog.posterName}</td>
                       <td>
@@ -93,7 +100,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {/* <div className="row text-dark">
+      <div className="row text-dark">
         <div className="col-lg-10 col-md-8">
           <div className="admin-home">
             <h5>Recently Added Works</h5>
@@ -101,9 +108,8 @@ const Home = () => {
               return (
                 <div key={work.title} className="display-blogs">
                   <h6>{work.title}</h6>
-                  {/* <p>{blog.content}</p> */}
-      {/* <span>{blog.date}</span> */}
-      {/* <span>
+
+                  <span>
                     <button className="control_btn pe-7s-trash"></button>
                     <button className="control_btn pe-7s-pen"></button>
                   </span>
@@ -118,22 +124,8 @@ const Home = () => {
               </span>
             </div>
           </div>
-        </div> 
-      </div>
-      <div className="row text-dark">
-        <div className="col-lg-10 col-md-8">
-          <div className="admin-home">
-            <h5>Recently Added Openings</h5>
-            <div className="display-blogs">
-              <p>Title</p>
-              <span>
-                <button className="control_btn pe-7s-trash"></button>
-                <button className="control_btn pe-7s-pen"></button>
-              </span>
-            </div>
-          </div>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
