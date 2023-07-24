@@ -62,8 +62,9 @@ const Signin = () => {
         userId: user?.user.uid,
         role: "user",
       });
-      return router.push("/");
     }
+
+    // handleLogin(role);
     router.push("/");
   };
 

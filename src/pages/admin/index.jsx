@@ -6,9 +6,9 @@ import Home from "../../components/Admin/Home";
 
 const Index = () => {
   const { roleInfo } = useContext(AuthContext);
-
-  const router = useRouter();
   console.log(roleInfo);
+  const router = useRouter();
+
   useEffect(() => {
     let body = document.querySelector("body");
     body.classList.add("bg-gr");

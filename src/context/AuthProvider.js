@@ -7,23 +7,26 @@ export const AuthContext = createContext();
 // const defaultAuthInfo = { isLoggedIn: false, roleAs: "user" };
 
 const AuthProvider = ({ children }) => {
-  const [roleInfo, setRoleInfo] = useState("user");
+  const [roleInfo, setRoleInfo] = useState("");
   const [user, setUser] = useState(null);
 
   const handleLogin = (role) => {
-    if (role === "user") {
-      setRoleInfo(role);
-    } else {
-      setRoleInfo(role);
-    }
+    setRoleInfo(role);
+    localStorage.setItem("roleAs", role);
   };
 
   useEffect(() => {
+    if (typeof window !== "undefined" && window.localStorage) {
+      let role = localStorage.getItem("roleAs");
+      setRoleInfo(role);
+    }
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
       } else {
         setUser(null);
+        setRoleInfo("");
+        localStorage.removeItem("roleAs");
       }
     });
 
