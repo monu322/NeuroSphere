@@ -2717,7 +2717,7 @@ body {
 }
 
 .page-header .img-wrapper .title h3 {
-  font-size: 40px;
+  font-size: min(40px, 5vw);
   font-weight: 900;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #fff;
@@ -3732,9 +3732,6 @@ body {
   }
   .md-pb80 {
     padding-bottom: 80px;
-  }
-  .page-header .img-wrapper .title h3 {
-    font-size: 50px;
   }
 }
 
@@ -6019,9 +6016,6 @@ footer .item .copy-right p a {
   }
   .lg-pr50 {
     padding-right: 50px !important;
-  }
-  .page-header .img-wrapper .title h3 {
-    font-size: 70px;
   }
 }
 
