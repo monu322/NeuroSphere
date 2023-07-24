@@ -59,7 +59,7 @@ const Index = () => {
     <MainLayout footerClass="bg-gray">
       <section className="page-header">
         <div className="container">
-          <div className="row align-items-start justify-content-start my-4">
+          <div className="row">
             <div className="col-lg-7 col-md-9">
               <div className="cont">
                 <h4>{work?.description}</h4>
@@ -74,7 +74,7 @@ const Index = () => {
                 rel="noreferrer"
                 href={work?.link}
                 target="_blank"
-                className="btn-curve btn-lit"
+                className="btn-curve btn-lit sm-mt120"
               >
                 <span>Visit Project</span>
               </a>

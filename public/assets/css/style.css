@@ -2717,7 +2717,7 @@ body {
 }
 
 .page-header .img-wrapper .title h3 {
-  font-size: 100px;
+  font-size: 40px;
   font-weight: 900;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #fff;
@@ -2773,6 +2773,7 @@ body {
   font-size: 60px;
   letter-spacing: 2px;
   text-transform: uppercase;
+  padding-bottom: 20px;
 }
 
 .works-header .capt h2 span {
@@ -3731,6 +3732,9 @@ body {
   }
   .md-pb80 {
     padding-bottom: 80px;
+  }
+  .page-header .img-wrapper .title h3 {
+    font-size: 50px;
   }
 }
 
@@ -6016,6 +6020,9 @@ footer .item .copy-right p a {
   .lg-pr50 {
     padding-right: 50px !important;
   }
+  .page-header .img-wrapper .title h3 {
+    font-size: 70px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -6072,6 +6079,9 @@ footer .item .copy-right p a {
   }
   .sm-mt0 {
     margin-top: 0px;
+  }
+  .sm-mt120 {
+    margin-top: 120px;
   }
   .container {
     max-width: 100%;
@@ -6228,8 +6238,10 @@ footer .item .copy-right p a {
     min-height: 50vh;
   }
   .page-header .img-wrapper .title h3 {
-    font-size: 48px;
+    font-size: min(40px, 5vw);
     margin-top: -41px;
+    margin-right: 0px;
+    margin-top: 30px;
   }
   .ui-slider.ui-main .parallax-slider .caption h1 {
     font-size: 48px;
