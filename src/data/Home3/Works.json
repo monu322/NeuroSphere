@@ -1140,6 +1140,126 @@
       "value": 95
     }
   ]
+},
+{
+  "id": 11,
+  "type": "ecommerce",
+  "link": "",
+  "img": "https://via.placeholder.com/340x350",
+  "wideImg": "https://via.placeholder.com/1140x570",
+  "title": "VapeBot's Ecommerce Software Ecosystem",
+  "description": "VapeBot's Ecommerce Software Ecosystem",
+  "tags": ["Ecommerce Software Ecosystem","Android App Development","Hybrid Application Development"],
+  "objective": "VapeBot, a leading manufacturer and distributor of vaping products, sought to enhance their customer experience and streamline operations by developing a comprehensive ecommerce software ecosystem. Their vision was to create a custom Android App to control the vending machines, an admin panel for managing products, vendors, and advertisements, and a Hybrid application to handle age verification and loyalty points for users.",
+  "servicesIntro": "NeuroSphere, a cutting-edge digital agency specializing in software development, took on the challenge to transform VapeBot's business. The execution process can be summarized into the following steps:",
+  "services": [
+    {
+      "id": 1,
+      "iconClass": "pe-7s-check",
+      "title": "Requirement Gathering",
+      "description": "NeuroSphere's team worked closely with VapeBot's stakeholders to understand their specific needs and objectives for the software ecosystem. Detailed discussions were conducted to identify the core features and functionalities required for each component."
+    },
+    {
+      "id": 2,
+      "iconClass": "pe-7s-pen",
+      "title": "Design and Prototyping",
+      "description": "Once the requirements were clear, NeuroSphere's design team created wireframes and prototypes for the Android App, admin panel, and Hybrid application. This allowed VapeBot to visualize the end product and provide feedback for further improvements."
+    },
+    {
+      "id": 3,
+      "iconClass": "pe-7s-tools",
+      "title": "Development",
+      "description": "The development team at NeuroSphere utilized their expertise in Android app development, web development, and Hybrid application development to bring the project to life. They followed agile methodologies to ensure regular updates and adaptability to any changes during the process."
+    },
+    {
+      "id": 4,
+      "iconClass": "pe-7s-look",
+      "title": "Testing and Quality Assurance",
+      "description": "Thorough testing was conducted to ensure the software ecosystem functioned seamlessly across different devices and platforms. This included rigorous testing of age verification, loyalty points, vending machine control, and other crucial aspects."
+    },
+    {
+      "id": 5,
+      "iconClass": "pe-7s-cloud-upload",
+      "title": "Deployment and Support",
+      "description": "After successful testing, the ecommerce software ecosystem was deployed on VapeBot's infrastructure. NeuroSphere provided ongoing support and maintenance to address any issues and keep the system up-to-date."
+    }
+  ],
+  "skillsUtilized": [
+    {
+      "id": 1,
+      "title": "Android App Development",
+      "subtitle": "",
+      "value": 90
+    },
+    {
+      "id": 2,
+      "title": "Web Development (Admin Panel)",
+      "subtitle": "",
+      "value": 85
+    },
+    {
+      "id": 3,
+      "title": "Hybrid Application Development",
+      "subtitle": "",
+      "value": 90
+    },
+    {
+      "id": 4,
+      "title": "User Interface (UI) and User Experience (UX) Design",
+      "subtitle": "",
+      "value": 95
+    },
+    {
+      "id": 5,
+      "title": "Database Management",
+      "subtitle": "",
+      "value": 80
+    },
+    {
+      "id": 6,
+      "title": "Security and Age Verification Implementation",
+      "subtitle": "",
+      "value": 90
+    }
+  ],
+  "outcomeText": "The collaboration between VapeBot and NeuroSphere resulted in a fully functional and user-friendly ecommerce software ecosystem. The key outcomes achieved were:",
+  "outcomes": [
+    {
+      "id": 1,
+      "iconClass": "pe-7s-smile",
+      "title": "Improved Customer Experience",
+      "description": "VapeBot's customers could now conveniently purchase vaping products through the custom Android App-operated vending machines, ensuring a smooth and hassle-free experience."
+    },
+    {
+      "id": 2,
+      "iconClass": "pe-7s-graph2",
+      "title": "Efficient Vendor Management",
+      "description": "The admin panel allowed VapeBot to manage products, vendors, and advertisements effortlessly, streamlining their internal operations."
+    },
+    {
+      "id": 3,
+      "iconClass": "pe-7s-refresh-2",
+      "title": "Enhanced User Verification and Loyalty Program",
+      "description": "The Hybrid application effectively verified user age before granting access to the products and facilitated the management of loyalty points to drive customer retention."
+    },
+    {
+      "id": 4,
+      "iconClass": "pe-7s-cash",
+      "title": "Increased Revenue and Growth",
+      "description": "The seamless ecommerce ecosystem led to an increase in sales and customer engagement, contributing to VapeBot's overall growth."
+    }
+  ],
+  "testimonialShortText": "",
+  "testimonials": [
+    {
+      "id": 1,
+      "img": "/assets/img/clients/3.jpg",
+      "content": "Working with NeuroSphere has been an absolute pleasure. Their team took our vision and turned it into a reality with their technical expertise and commitment to excellence. The ecommerce software ecosystem they developed for us has revolutionized our business, and we've seen a significant increase in customer satisfaction and sales. Their professionalism, communication, and attention to detail made the entire process seamless. We highly recommend NeuroSphere to anyone looking for top-notch software development services.",
+      "name": "John Smith",
+      "details": "CEO of VapeBot"
+    }
+  ]
 }
+
   ]
 }
