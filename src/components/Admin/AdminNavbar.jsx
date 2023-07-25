@@ -30,7 +30,7 @@ const AdminNavbar = () => {
             <Link href="/admin/works" className="nav-align">
               <a>
                 <span className="icon pe-7s-browser"></span>
-                <span>Add Works</span>
+                <span>Works</span>
               </a>
             </Link>
           </li>
