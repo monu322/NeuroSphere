@@ -1419,7 +1419,8 @@ body {
 [data-overlay-light] .container2 {
   position: relative;
   z-index: 2;
-  padding-top: 730px;
+  padding-top: 980px;
+  text-align: left;
 }
 
 [data-overlay-dark]:before,
@@ -6931,4 +6932,8 @@ footer .item .copy-right p a {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #fff;
   color: transparent;
+}
+
+.wide-img {
+  margin: 60px 0px;
 }

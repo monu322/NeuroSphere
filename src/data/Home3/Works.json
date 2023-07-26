@@ -24,7 +24,7 @@
   "works": [
     
     {
-      "id": 2,
+      "id": 1,
       "type": "ai",
       "link": "https://www.gloshospitals.nhs.uk/",
       "img": "/assets/img/works/nhs.jpg",
@@ -132,11 +132,11 @@
     },
     
     {
-      "id": 4,
+      "id": 2,
       "type": "web",
       "link": "https://vapebot.co.uk/",
       "img": "/assets/img/works/vapebot.png",
-      "wideImg": "https://via.placeholder.com/1140x570",
+      "wideImg": "/assets/img/works/vapebot-wide.jpg",
       "title": "VapeBot",
       "description": "VapeBot's Ecommerce Software Ecosystem",
       "tags": ["Ecommerce","Android","Hybrid"],
@@ -251,11 +251,11 @@
       ]
     },
     {
-      "id": 6,
+      "id": 3,
       "type": "ai",
       "link": "https://www.hamleys.com/",
       "img": "/assets/img/works/hamleys.png",
-      "wideImg": "/assets/img/works/1/wide.jpg",
+      "wideImg": "/assets/img/works/hamleys-wide.jpg",
       "title": "Hamley's Toy Store",
       "description": "A customer-centric retail company that utilizes technology, particularly machine learning, to enhance sales and predict product demand.",
       "tags": ["Data", "AI", "Automation"],
@@ -352,11 +352,11 @@
       ]
     },
     {
-      "id": 10,
+      "id": 4,
       "type": "web",
       "link": "https://www.infabytes.com/products/#infaweb",
       "img": "/assets/img/works/infaweb.jpg",
-      "wideImg": "/assets/img/works/infaweb.jpg",
+      "wideImg": "/assets/img/works/infa-wide.jpg",
       "title": "InfaBytes",
       "description": "NeuroSphere's Collaboration with InfaBytes to Develop an IoT Data Analytics SaaS Platform",
       "tags": ["IoT","SaaS","AI"],
@@ -475,7 +475,7 @@
       "type": "web",
       "link": "https://mttc.ac.in/",
       "img": "/assets/img/works/mttc.png",
-      "wideImg": "/assets/img/works/1/wide.jpg",
+      "wideImg": "/assets/img/works/mttc-wide.jpg",
       "title": "Mar Theophilus College",
       "description": "Mar Theophilus College is one of the best college located in trivandrum.",
       "tags": ["CMS Website", "Branding"],
@@ -566,11 +566,11 @@
       ]
     },
     {
-      "id": 3,
+      "id": 6,
       "type": "mob",
       "link": "https://eeziclean.com/",
       "img": "/assets/img/works/eeziclean.png",
-      "wideImg": "/assets/img/works/1/wide.jpg",
+      "wideImg": "/assets/img/works/eeziclean-wide.jpg",
       "title": "EeziClean",
       "description": "EziClean is a prominent laundry service provider offering convenient and efficient solutions for all your laundry needs.",
       "tags": ["Utility App", "Android", "iOS"],
@@ -667,11 +667,11 @@
       ]
     },
     {
-      "id": 6,
+      "id": 7,
       "type": "web",
       "link": "https://www.creed-realestate.com/",
       "img": "/assets/img/works/creed.png",
-      "wideImg": "/assets/img/works/1/wide.jpg",
+      "wideImg": "/assets/img/works/creed-wide.jpg",
       "title": "Creed Real Estate",
       "description": "Your Ultimate Platform for real estate market. Released as Android, iOS and Web Apps.",
       "tags": ["Web", "Branding", "Property CMS"],
@@ -780,7 +780,7 @@
       ]
     },
     {
-      "id": 1,
+      "id": 8,
       "type": "mob",
       "link": "https://www.agentpet.com/",
       "img": "/assets/img/works/dog.jpg",
@@ -917,11 +917,11 @@
       ]
     },
     {
-      "id": 7,
+      "id": 9,
       "type": "ai",
       "link": "https://www.thepeoplessupermarket.org/",
       "img": "/assets/img/works/tps.jpg",
-      "wideImg": "/assets/img/works/1/wide.jpg",
+      "wideImg": "/assets/img/works/tps-wide.jpg",
       "title": "The People's Supermarket",
       "description": "Your Ultimate Platform for Buying and Selling Pets and Pet Supplies! Released as Android, iOS and Web Apps.",
       "tags": ["Order Prediction", "Process Automation"],
@@ -1024,11 +1024,11 @@
       ]
     },
     {
-      "id": 9,
+      "id": 10,
       "type": "branding",
       "link": "https://www.prelondon.com/",
       "img": "/assets/img/works/pre.jpg",
-      "wideImg": "/assets/img/works/1/wide.jpg",
+      "wideImg": "/assets/img/works/pre-wide.jpg",
       "title": "Pre London",
       "description": "Pre London is an emerging online apparel store that offers modern and stylish clothing for fashion-forward individuals.",
       "tags": ["Ecommerce", "Branding", "Marketing"],

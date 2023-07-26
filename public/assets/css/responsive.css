@@ -125,7 +125,7 @@
   .call-action {
   }
   .project-title-container {
-    padding-top: 270px !important;
+    padding-top: 720px !important;
   }
 
   .page-header .img-wrapper {
@@ -183,7 +183,7 @@
   }
 
   [data-overlay-dark] .container2 {
-    padding-top: 360px;
+    padding-top: 680px;
   }
 
   .page-header .img-wrapper {
@@ -200,7 +200,9 @@
 
 @media screen and (max-width: 400px) {
   .project-title-container {
-    padding-top: 320px !important;
+    padding-top: 700px !important;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .visit-proj-link {
