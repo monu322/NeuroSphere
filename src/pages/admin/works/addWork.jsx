@@ -18,8 +18,7 @@ const Index = () => {
 
   return (
     <AdminLayout>
-      <WorkList />
-      {/* <WorkForm /> */}
+      <WorkForm />
     </AdminLayout>
   );
 };

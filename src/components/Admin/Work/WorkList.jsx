@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
-const Home = () => {
+const WorkList = () => {
   const [notification, setNotification] = useState("");
-  const [blogData, setBlogData] = useState([]);
+  const [workData, setWorkData] = useState([]);
 
   const clearNotification = () => {
     setTimeout(() => {
@@ -11,20 +11,20 @@ const Home = () => {
     }, 2000);
   };
 
-  const getBlogData = async () => {
-    const response = await fetch("/api/Blog", {
+  const getWorkData = async () => {
+    const response = await fetch("/api/work", {
       method: "GET",
       headers: {
         "Content-Type": "multipart/form-data",
       },
     });
     const { data, error } = await response.json();
-    data ? setBlogData(data) : setNotification(error);
+    data ? setWorkData(data) : setNotification(error);
     clearNotification();
   };
 
   const handleDelete = async (id) => {
-    const response = await fetch("/api/Blog", {
+    const response = await fetch("/api/work", {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -34,17 +34,41 @@ const Home = () => {
     const { message, error } = await response.json();
     error ? setNotification(error) : setNotification(message);
     clearNotification();
-    getBlogData();
+    getWorkData();
   };
 
+  //   const handleDelete = async (id) => {
+  //     try {
+  //       const response = await fetch(`/api/work/${id}`, {
+  //         method: "DELETE",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //       });
+
+  //       const { message, error } = await response.json();
+
+  //       if (error) {
+  //         setNotification(error);
+  //       } else {
+  //         setNotification(message);
+  //       }
+
+  //       clearNotification();
+  //       getWorkData();
+  //     } catch (error) {
+  //       console.error("Error while deleting the document:", error);
+  //     }
+  //   };
+
   useEffect(() => {
-    getBlogData();
+    getWorkData();
   }, []);
   return (
     <div className="container mt-4">
       <div className="row text-dark">
         <div className="col-lg-10 col-md-8 admin-home">
-          <h5>Recently Added Blogs</h5>
+          <h5>Recently Added Works</h5>
 
           <div>
             <table className="table__style">
@@ -52,30 +76,28 @@ const Home = () => {
                 <tr>
                   <th>Id</th>
                   <th>Title</th>
-                  <th>Date</th>
-                  <th>Author</th>
+                  {/* <th>Date</th> */}
+                  <th>Status</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {blogData?.map((blog, index) => {
+                {workData?.map((work, index) => {
                   return (
                     <tr key={index}>
                       <td>{index + 1}</td>
-                      <td>{blog.title}</td>
+                      <td>{work.title}</td>
+                      {/* <td>{work.date.toDate().toLocaleDateString("en-GB")}</td> */}
+                      <td>Published</td>
                       <td>
-                        {/* {blog.postedDate.toDate().toLocaleDateString("en-GB")} */}
-                      </td>
-                      <td>{blog.posterName}</td>
-                      <td>
-                        <Link href={`/admin/blog/${blog.id}`}>
+                        <Link href={`/admin/work/${work.id}`}>
                           <a>
                             <button className="control_btn pen pe-7s-pen mr-2"></button>
                           </a>
                         </Link>
                         <button
                           className="control_btn trash pe-7s-trash mr-2"
-                          onClick={() => handleDelete(blog.id)}
+                          onClick={() => handleDelete(work.id)}
                         ></button>
                       </td>
                     </tr>
@@ -84,10 +106,17 @@ const Home = () => {
               </tbody>
             </table>
           </div>
+          <Link href="/admin/works/addWork">
+            <div>
+              <button type="button" className="btn-blog">
+                <span>Add Work</span>
+              </button>
+            </div>
+          </Link>
         </div>
       </div>
     </div>
   );
 };
 
-export default Home;
+export default WorkList;
