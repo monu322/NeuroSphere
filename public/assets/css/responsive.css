@@ -48,6 +48,10 @@
     margin: auto;
   }
 
+  .visit-proj-link {
+    top: -50px !important;
+  }
+
   .testimonials .controls .float-right {
     /* float: left; */
     display: flex;
@@ -121,7 +125,7 @@
   .call-action {
   }
   .project-title-container {
-    padding-top: 150px;
+    padding-top: 270px !important;
   }
 
   .page-header .img-wrapper {
@@ -129,7 +133,7 @@
   }
 
   .page-header .cont {
-    padding-top: 150px;
+    padding-top: 270px;
   }
 
   .team-crs .item .info .social {
@@ -173,11 +177,33 @@
   .testi-section {
     padding-top: 40px !important;
   }
+
+  .page-header .img-wrapper .title h3 {
+    font-size: 50px;
+  }
+
+  [data-overlay-dark] .container2 {
+    padding-top: 360px;
+  }
+
+  .page-header .img-wrapper {
+    min-height: 45vh;
+  }
 }
 
 @media screen and (min-width: 767px) {
   .caption {
     margin: auto;
     width: 80%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .project-title-container {
+    padding-top: 320px !important;
+  }
+
+  .visit-proj-link {
+    top: -50px;
   }
 }

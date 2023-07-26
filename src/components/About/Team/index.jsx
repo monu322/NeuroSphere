@@ -36,10 +36,10 @@ const Team = ({ teamData }) => {
   const previous = () => sliderRef.current.slickPrev();
 
   return (
-    <section className="team-crs section-padding team-section-dark-bg pt-0">
+    <section className="team-crs section-padding team-section-dark-bg">
       <div className="container pt-2">
         <div className="row mt-4">
-          <div className="col-lg-4 valign mt-60 sm-mt0 lg-pl80">
+          <div className="col-lg-3 valign mt-60 sm-mt0 lg-pl80">
             <div className="full-width">
               <div className="sec-head custom-font mb-0">
                 <h6>Employees</h6>
@@ -58,9 +58,8 @@ const Team = ({ teamData }) => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="row justify-content-center">
-          <div className="col-lg-8">
+
+          <div className="col-lg-9">
             <Slider
               {...teamSliderSettings}
               ref={sliderRef}
@@ -166,6 +165,9 @@ const Team = ({ teamData }) => {
               ))}
             </Slider>
           </div>
+        </div>
+        <div className="row justify-content-center">
+
         </div>
       </div>
     </section>
