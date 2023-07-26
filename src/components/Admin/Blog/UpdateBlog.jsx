@@ -11,15 +11,18 @@ const UpdateBlogForm = ({ id }) => {
   const [errMessage, setErrMessage] = useState(null);
   const [notification, setNotification] = useState("");
   const [blogData, setBlogData] = useState("");
-  const [heading, setHeading] = useState("");
-  const [paragraphs, setParagraphs] = useState("");
-  const [postContent, setPostContent] = useState([]);
+  const [isPublished, setIsPublished] = useState(null);
+  const [postContent, setPostContent] = useState([
+    { heading: "", paragraphs: "", paragraphsImg: "" },
+  ]);
 
   const router = useRouter();
   const initialValues = {
     img: blogData.img || "",
     title: blogData?.title || "",
-    tags: blogData?.tags || "",
+    tags: Array.isArray(blogData?.tags)
+      ? blogData.tags.join(",")
+      : blogData?.tags || "",
     posterAvatar: blogData?.posterAvatar || "",
     posterName: blogData?.posterName || "",
     postDescriptions: blogData?.postDescriptions || "",
@@ -48,10 +51,10 @@ const UpdateBlogForm = ({ id }) => {
       setErrMessage("Please select an image file");
       return false;
     }
-    if (!formValues.img.type.startsWith("image/")) {
-      setErrMessage("Please select an image");
-      return false;
-    }
+    // if (!formValues.img.type.startsWith("image/")) {
+    //   setErrMessage("Please select an image");
+    //   return false;
+    // }
     return true;
   };
 
@@ -61,24 +64,27 @@ const UpdateBlogForm = ({ id }) => {
     }, 2000);
   };
 
-  const handleHeadingChange = (event) => {
-    setHeading(event.target.value);
-  };
-  const handleParagraphsChange = (event) => {
-    setParagraphs(event.target.value);
+  const handlePostContentChange = (index, field, value) => {
+    let postData = [...postContent];
+    postData[index][field] = value;
+    setPostContent(postData);
   };
 
-  const addPostContent = (event) => {
-    const postData = {
-      heading,
-      paragraphs: paragraphs.split("."),
-    };
-    setPostContent([...postContent, postData]);
-    setHeading("");
-    setParagraphs("");
+  const handleImageUpload = async (index, event) => {
+    const file = event.target.files[0];
+    const storageRef = ref(storage, `blogImages/${file.name + file.size}`);
+    await uploadBytes(storageRef, file);
+    const imageUrl = await getDownloadURL(storageRef);
+    handlePostContentChange(index, "paragraphsImg", imageUrl);
+  };
+  const addPostContent = () => {
+    const newPostContent = { heading: "", paragraphs: "", paragraphsImg: "" };
+
+    setPostContent([...postContent, newPostContent]);
   };
 
   const updateBlog = async (values, postContent) => {
+    setIsPublished(true);
     const storageRef = ref(
       storage,
       `blogImages/${values.img.name + values.img.size}`
@@ -96,6 +102,7 @@ const UpdateBlogForm = ({ id }) => {
         image,
         postContent,
         blogId,
+        isPublished,
       }),
     });
     const { message, error } = await response.json();
@@ -121,7 +128,11 @@ const UpdateBlogForm = ({ id }) => {
 
     if (docSnap.exists()) {
       console.log("Document data:", docSnap.data());
+      setIsPublished(docSnap.data().isPublished);
       setBlogData(docSnap.data());
+      if (docSnap.data()?.postContent) {
+        setPostContent(docSnap.data().postContent);
+      }
     } else {
       console.log("No such document");
     }
@@ -133,8 +144,9 @@ const UpdateBlogForm = ({ id }) => {
       getBlogDataWithId(id);
     }
   }, [id]);
-
-  const isButtonDisabled = !heading || !paragraphs;
+  useEffect(() => {
+    console.log("From the update form useeffect" + " " + isPublished);
+  }, [isPublished]);
 
   return (
     <>
@@ -148,10 +160,18 @@ const UpdateBlogForm = ({ id }) => {
           {({ values, isSubmitting, setFieldValue }) => (
             <Form>
               <div className="d-flex justify-content-between">
-                <div className="text-dark mb-3 blg-head">Update Blog</div>
+                {isPublished === false ? (
+                  <div className="text-dark mb-3 blg-head"> Saved Blog</div>
+                ) : (
+                  <div className="text-dark mb-3 blg-head"> Update Blog</div>
+                )}
                 <div>
                   <button type="submit" className="btn-blog">
-                    <span>Update</span>
+                    {isPublished === false ? (
+                      <span>Publish</span>
+                    ) : (
+                      <span>Update</span>
+                    )}
                   </button>
                 </div>
               </div>
@@ -195,39 +215,73 @@ const UpdateBlogForm = ({ id }) => {
 
                       <div className="form-group d-flex flex-column">
                         <h4 className="text-dark">Post Content</h4>
-                        <div className="controls blog-form">
-                          <div className="form-group d-flex flex-column">
-                            <label htmlFor="heading">Heading</label>
-                            <input
-                              id="heading"
-                              type="text"
-                              value={heading}
-                              onChange={handleHeadingChange}
-                              placeholder="Post Heading"
-                              className="border border-secondary"
-                            />
-                          </div>
+                        {postContent?.map((post, index) => {
+                          return (
+                            <div key={index} className="controls blog-form">
+                              <div className="form-group d-flex flex-column">
+                                <label htmlFor="heading">
+                                  Heading {index + 1}
+                                </label>
+                                <input
+                                  id="heading"
+                                  type="text"
+                                  value={post.heading}
+                                  onChange={(event) =>
+                                    handlePostContentChange(
+                                      index,
+                                      "heading",
+                                      event.target.value
+                                    )
+                                  }
+                                  placeholder="Post Heading"
+                                  className="border border-secondary"
+                                />
+                              </div>
 
-                          <div className="form-group d-flex flex-column">
-                            <label htmlFor="paragraphs">Paragraphs</label>
-                            <textarea
-                              id="paragraphs"
-                              value={paragraphs}
-                              onChange={handleParagraphsChange}
-                              placeholder="Post Paragraphs"
-                              className="border border-secondary post_para"
-                            />
-                          </div>
-
-                          <button
-                            onClick={addPostContent}
-                            type="button"
-                            className="btn_post-content"
-                            disabled={isButtonDisabled}
-                          >
-                            Add
-                          </button>
-                        </div>
+                              <div className="form-group d-flex flex-column">
+                                <label htmlFor="paragraphs">
+                                  Paragraphs {index + 1}
+                                </label>
+                                <textarea
+                                  id="paragraphs"
+                                  value={post.paragraphs}
+                                  onChange={(event) =>
+                                    handlePostContentChange(
+                                      index,
+                                      "paragraphs",
+                                      event.target.value
+                                    )
+                                  }
+                                  placeholder="Post Paragraphs"
+                                  className="border border-secondary post_para"
+                                />
+                              </div>
+                              <div className="form-group d-flex flex-column">
+                                {/* {paragraphsImg && (
+                              <PreviewImage imgUrl={paragraphsImg} />
+                            )} */}
+                                <label htmlFor="Tag">
+                                  Add Paragrapgh Image
+                                </label>
+                                <input
+                                  type="file"
+                                  accept="image/*"
+                                  onChange={(event) => {
+                                    handleImageUpload(index, event);
+                                  }}
+                                />
+                              </div>
+                            </div>
+                          );
+                        })}
+                        <button
+                          onClick={addPostContent}
+                          type="button"
+                          className="btn_post-content"
+                          // disabled={isButtonDisabled}
+                        >
+                          Add
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -275,7 +329,7 @@ const UpdateBlogForm = ({ id }) => {
 
                       <div className="controls blog-form">
                         <div className="form-group d-flex flex-column">
-                          <label htmlFor="posterName">Poster Name</label>
+                          <label htmlFor="posterName">Author Name</label>
                           <Field
                             id="posterName"
                             type="text"
@@ -285,9 +339,9 @@ const UpdateBlogForm = ({ id }) => {
                           />
                         </div>
                         <div className="form-group d-flex flex-column">
-                          {values.posterAvatar && (
+                          {/* {values.posterAvatar && (
                             <PreviewImage file={values.posterAvatar} />
-                          )}
+                          )} */}
                           {!values.posterAvatar ? (
                             <label htmlFor="Tag">Add Avatar</label>
                           ) : (

@@ -14,6 +14,7 @@ const Index = () => {
     body.classList.remove("d3-dark");
     if (roleInfo === "user") router.push("/");
   }, []);
+  if (roleInfo === "") return null;
 
   return (
     <AdminLayout>

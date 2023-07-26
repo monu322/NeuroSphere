@@ -2,8 +2,7 @@ import { useContext, useEffect } from "react";
 import { AuthContext } from "../../../context/AuthProvider";
 import AdminLayout from "../../../layouts/admin";
 import { useRouter } from "next/router";
-
-import BlogForm from "../../../components/Admin/Blog/BlogForm";
+import ClientForm from "../../../components/Admin/Client/ClientForm";
 
 const Index = () => {
   const { roleInfo } = useContext(AuthContext);
@@ -18,7 +17,7 @@ const Index = () => {
 
   return (
     <AdminLayout>
-      <BlogForm />
+      <ClientForm />
     </AdminLayout>
   );
 };
