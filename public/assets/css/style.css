@@ -1413,6 +1413,12 @@ body {
 [data-overlay-light] .container {
   position: relative;
   z-index: 2;
+}
+
+[data-overlay-dark] .container2,
+[data-overlay-light] .container2 {
+  position: relative;
+  z-index: 2;
   padding-top: 730px;
 }
 

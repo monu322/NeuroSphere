@@ -69,7 +69,7 @@ const Index = () => {
 
               <div className="img-wrapper bg-img parallaxie" data-overlay-dark="3">
                 <div className="title">
-                  <div className="container project-title-container">
+                  <div className="container container2 project-title-container">
                     <a rel="noreferrer" href={work?.link} target="_blank" className="btn-curve btn-lit visit-proj-link"><span>Visit Project</span></a>
                     <h3 className="work-title">{work?.title}</h3>
                     <img src={work?.wideImg} alt="image" />
