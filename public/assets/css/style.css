@@ -1413,6 +1413,7 @@ body {
 [data-overlay-light] .container {
   position: relative;
   z-index: 2;
+  padding-top: 730px;
 }
 
 [data-overlay-dark]:before,
@@ -6568,7 +6569,6 @@ footer .item .copy-right p a {
 }
 
 .project-title-container {
-  padding-top: 450px;
 }
 
 .project-title-container h3 {
@@ -6929,4 +6929,12 @@ footer .item .copy-right p a {
 
 .contact-page-info {
   padding: 90px 0px !important;
+}
+
+.work-title {
+  font-size: 100px;
+  font-weight: 900;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
+  color: transparent;
 }

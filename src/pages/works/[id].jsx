@@ -60,13 +60,25 @@ const Index = () => {
       <section className="page-header">
         <div className="container">
           <div className="row">
-            <div className="col-lg-7 col-md-9">
+            <div className="col-lg-12">
               <div className="cont">
                 <h4>{work?.description}</h4>
+              </div>
+
+              <div className="img-wrapper bg-img parallaxie" data-overlay-dark="3">
+                <div className="title">
+                  <div className="container project-title-container">
+                    <a rel="noreferrer" href={work?.link} target="_blank" className="btn-curve btn-lit visit-proj-link"><span>Visit Project</span></a>
+                    <h3 className="work-title">{work?.title}</h3>
+                    <img src={work?.wideImg} alt="image" />
+                    
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+<<<<<<< HEAD
         <div className="img-wrapper bg-img parallaxie" data-overlay-dark="3">
           <div className="title">
             <div className="container project-title-container">
@@ -83,6 +95,9 @@ const Index = () => {
             </div>
           </div>
         </div>
+=======
+
+>>>>>>> ed90f7911337560d824696ee7214eb0ce59fde09
       </section>
 
       <section className="intro-section section-padding pb-0">
