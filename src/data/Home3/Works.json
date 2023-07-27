@@ -22,8 +22,765 @@
     }
   ],
   "works": [
+    
     {
       "id": 1,
+      "type": "ai",
+      "link": "https://www.gloshospitals.nhs.uk/",
+      "img": "/assets/img/works/nhs.jpg",
+      "wideImg": "/assets/img/works/2/1.jpg",
+      "title": "NHS Foundation, UK",
+      "description": "Using Machine Learning to predict patient's risk of long stay, improving resource allocation, cost saving and better patient care.",
+      "tags": ["AI", "Machine Learning", "Healthcare"],
+      "objective": "The objective of this case study is to outline how our agency successfully assisted the NHS UK with AI consulting, specifically in utilizing existing data to develop a machine learning (ML) model capable of predicting the duration of a patient's stay. The goal was to provide the NHS with a valuable tool to optimize resource allocation and improve patient care.",
+      "servicesIntro": "Our agency collaborated closely with the NHS UK to understand their needs, collected and analyzed relevant patient data, and developed a machine learning model using XGBoost. The model was trained, validated, and deployed into the existing infrastructure, resulting in enhanced resource allocation, improved patient care, and cost savings for the healthcare system.",
+      "services": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-way",
+          "title": "Understanding Goals",
+          "description": "Our team engaged in comprehensive discussions with NHS stakeholders, including hospital administrators, doctors, and data analysts, to identify their specific requirements, challenges, and goals."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-magic-wand",
+          "title": "Data Collection",
+          "description": "We collaborated closely with the NHS to obtain the necessary data required for model development. This included anonymized patient records, demographic information, medical histories, diagnoses, treatments, and the corresponding lengths of stay."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-plugin",
+          "title": "Feature Engineering",
+          "description": "Leveraging our expertise in data science, we performed extensive feature engineering to extract relevant features from the collected dataset. This involved applying domain knowledge and considering factors such as age, gender, medical condition..."
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-look",
+          "title": "Model Selection and Development",
+          "description": "To tackle this regression problem, we experimented with various ML algorithms such as linear regression, decision trees, and gradient boosting techniques. After rigorous evaluation, we chose an ensemble learning method called XGBoost."
+        },
+        {
+          "id": 5,
+          "iconClass": "pe-7s-like2",
+          "title": "Model Training and Validation",
+          "description": "The selected ML model was trained using the preprocessed dataset, employing techniques like cross-validation and hyperparameter tuning to optimize performance."
+        },
+        {
+          "id": 6,
+          "iconClass": "pe-7s-like2",
+          "title": "Deployment and Integration",
+          "description": "Once the model demonstrated satisfactory performance, we integrated it into the existing NHS infrastructure to ensure seamless adoption. This involved creating an API that enabled easy access to the ML model, enabling real-time predictions based on input patient data."
+        }
+      ],
+      "outcomeText": "The collaboration between our agency and the NHS UK resulted in the successful development and deployment of an ML model to predict patient duration of stay. The key outcomes achieved were as follows:",
+      "outcomes": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-albums",
+          "title": "Enhanced Resource Allocation",
+          "description": "By accurately predicting patient lengths of stay, the NHS was able to optimize resource allocation, including bed management, staff scheduling, and resource planning. This led to improved operational efficiency, reduced wait times, and better utilization of healthcare resources."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-phone",
+          "title": "Improved Patient Care",
+          "description": "The website is developed with a responsive design approach, ensuring that it adapts and functions well on various screen sizes and resolutions. Users can access the platform conveniently from desktops, laptops, tablets, and smartphones, without compromising the user experience."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-cloud-upload",
+          "title": "Cost Savings",
+          "description": "The project involves the implementation of a robust backend infrastructure to handle various functionalities, such as user registration, pet listings, product listings, messaging, and payment processing. The backend systems are designed to support high traffic, ensuring scalability and reliability."
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-server",
+          "title": "Scalable Solution",
+          "description": " Efficient database management is implemented to store and retrieve data related to pets, users, products, and transactions. The database architecture is designed to handle large volumes of data while maintaining data integrity and security."
+        }
+      ],
+      "testimonialShortText": "",
+      "testimonials": [
+        {
+          "id": 1,
+          "img": "/assets/img/works/2/client.jpg",
+          "content": "Our partnership with NeuroSphere for AI consulting in developing a machine learning model to predict patient duration of stay has been invaluable. Their expertise in data analysis, model development, and seamless integration into our infrastructure has significantly improved resource allocation, patient care, and cost savings. We are impressed with their professionalism, collaboration, and the impactful outcomes delivered. Highly recommended!",
+          "name": "Simon Lanceley",
+          "details": "Director of Strategy, NHS Gloutershire"
+        }
+      ],
+      "skills": [
+        {
+          "id": 1,
+          "title": "Data collection",
+          "subtitle": "Development",
+          "value": 95
+        },
+        {
+          "id": 2,
+          "title": "Feature",
+          "subtitle": "Engineering",
+          "value": 85
+        },
+        {
+          "id": 3,
+          "title": "Machine",
+          "subtitle": "Learning",
+          "value": 90
+        }
+      ]
+    },
+    
+    {
+      "id": 2,
+      "type": "web",
+      "link": "https://vapebot.co.uk/",
+      "img": "/assets/img/works/vapebot.png",
+      "wideImg": "/assets/img/works/vapebot-wide.jpg",
+      "title": "VapeBot",
+      "description": "VapeBot's Ecommerce Software Ecosystem",
+      "tags": ["Ecommerce","Android","Hybrid"],
+      "objective": "VapeBot, a leading manufacturer and distributor of vaping products, sought to enhance their customer experience and streamline operations by developing a comprehensive ecommerce software ecosystem. Their vision was to create a custom Android App to control the vending machines, an admin panel for managing products, vendors, and advertisements, and a Hybrid application to handle age verification and loyalty points for users.",
+      "servicesIntro": "NeuroSphere, a cutting-edge digital agency specializing in software development, took on the challenge to transform VapeBot's business. The execution process can be summarized into the following steps:",
+      "services": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-check",
+          "title": "Requirement Gathering",
+          "description": "NeuroSphere's team worked closely with VapeBot's stakeholders to understand their specific needs and objectives for the software ecosystem. Detailed discussions were conducted to identify the core features and functionalities required for each component."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-pen",
+          "title": "Design and Prototyping",
+          "description": "Once the requirements were clear, NeuroSphere's design team created wireframes and prototypes for the Android App, admin panel, and Hybrid application. This allowed VapeBot to visualize the end product and provide feedback for further improvements."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-tools",
+          "title": "Development",
+          "description": "The development team at NeuroSphere utilized their expertise in Android app development, web development, and Hybrid application development to bring the project to life. They followed agile methodologies to ensure regular updates and adaptability to any changes during the process."
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-look",
+          "title": "Testing and Quality Assurance",
+          "description": "Thorough testing was conducted to ensure the software ecosystem functioned seamlessly across different devices and platforms. This included rigorous testing of age verification, loyalty points, vending machine control, and other crucial aspects."
+        },
+        {
+          "id": 5,
+          "iconClass": "pe-7s-cloud-upload",
+          "title": "Deployment and Support",
+          "description": "After successful testing, the ecommerce software ecosystem was deployed on VapeBot's infrastructure. NeuroSphere provided ongoing support and maintenance to address any issues and keep the system up-to-date."
+        }
+      ],
+      "skillsUtilized": [
+        {
+          "id": 1,
+          "title": "Android App Development",
+          "subtitle": "",
+          "value": 90
+        },
+        {
+          "id": 2,
+          "title": "Web Development (Admin Panel)",
+          "subtitle": "",
+          "value": 85
+        },
+        {
+          "id": 3,
+          "title": "Hybrid Application Development",
+          "subtitle": "",
+          "value": 90
+        },
+        {
+          "id": 4,
+          "title": "User Interface (UI) and User Experience (UX) Design",
+          "subtitle": "",
+          "value": 95
+        },
+        {
+          "id": 5,
+          "title": "Database Management",
+          "subtitle": "",
+          "value": 80
+        },
+        {
+          "id": 6,
+          "title": "Security and Age Verification Implementation",
+          "subtitle": "",
+          "value": 90
+        }
+      ],
+      "outcomeText": "The collaboration between VapeBot and NeuroSphere resulted in a fully functional and user-friendly ecommerce software ecosystem. The key outcomes achieved were:",
+      "outcomes": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-smile",
+          "title": "Improved Customer Experience",
+          "description": "VapeBot's customers could now conveniently purchase vaping products through the custom Android App-operated vending machines, ensuring a smooth and hassle-free experience."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-graph2",
+          "title": "Efficient Vendor Management",
+          "description": "The admin panel allowed VapeBot to manage products, vendors, and advertisements effortlessly, streamlining their internal operations."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-refresh-2",
+          "title": "Enhanced User Verification and Loyalty Program",
+          "description": "The Hybrid application effectively verified user age before granting access to the products and facilitated the management of loyalty points to drive customer retention."
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-cash",
+          "title": "Increased Revenue and Growth",
+          "description": "The seamless ecommerce ecosystem led to an increase in sales and customer engagement, contributing to VapeBot's overall growth."
+        }
+      ],
+      "testimonialShortText": "",
+      "testimonials": [
+        {
+          "id": 1,
+          "img": "/assets/img/clients/3.jpg",
+          "content": "Working with NeuroSphere has been an absolute pleasure. Their team took our vision and turned it into a reality with their technical expertise and commitment to excellence. The ecommerce software ecosystem they developed for us has revolutionized our business, and we've seen a significant increase in customer satisfaction and sales. Their professionalism, communication, and attention to detail made the entire process seamless. We highly recommend NeuroSphere to anyone looking for top-notch software development services.",
+          "name": "John Smith",
+          "details": "CEO of VapeBot"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "ai",
+      "link": "https://www.hamleys.com/",
+      "img": "/assets/img/works/hamleys.png",
+      "wideImg": "/assets/img/works/hamleys-wide.jpg",
+      "title": "Hamley's Toy Store",
+      "description": "A customer-centric retail company that utilizes technology, particularly machine learning, to enhance sales and predict product demand.",
+      "tags": ["Data", "AI", "Automation"],
+      "objective": "Develop a machine learning model that predicts product demand, automates ordering, and improves sales and customer satisfaction for Hameley's London.",
+      "servicesIntro": "To achieve the objectives of the Hameley's project, the development process involved several stages, including data assesment, ml model development, integration and automation, testing, and launch.",
+      "services": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-way",
+          "title": "Planning",
+          "description": "Conducted thorough market research and analysis to understand user needs, market trends, and competition."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-note2",
+          "title": "Data Assesment",
+          "description": "Analyzed and preprocessed extensive data from Hameley's London, ensuring accuracy and consistency for subsequent machine learning modeling."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-config",
+          "title": "ML Model Development",
+          "description": "Employed advanced machine learning techniques to build a robust predictive model, accurately forecasting product demand and trends using regression, time series analysis, and deep learning."
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-look",
+          "title": "Integration and Automation",
+          "description": "Integrated the ML model, enabling real-time predictions and automated ordering based on historical sales, seasonality, promotions, and external data for efficient inventory management."
+        },
+        {
+          "id": 5,
+          "iconClass": "pe-7s-look",
+          "title": "Testing",
+          "description": "Rigorous testing was conducted to ensure its accuracy, reliability, and adaptability to evolving market dynamics."
+        }
+      ],
+      "outcomeText": "The collaboration between NeuroSphere and Hameley's London yielded remarkable results, significantly improving the company's operations and overall performance:",
+      "outcomes": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-graph2",
+          "title": "Accurate Demand Forecasting",
+          "description": "The ML model developed by NeuroSphere enabled Hameley's London to predict product demand with high precision, minimizing inventory shortages and overstock situations."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-look",
+          "title": "Trend Identification",
+          "description": "By analyzing historical data and market trends, the ML model effectively identified emerging patterns, enabling Hameley's London to proactively adapt its product offerings and marketing strategies."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-config",
+          "title": "Automated Ordering Process",
+          "description": "The implementation of the ML model automated the ordering process, reducing manual effort and optimizing inventory management, ultimately resulting in cost savings and increased efficiency."
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-like2",
+          "title": "Enhanced Sales and Customer Satisfaction",
+          "description": "With accurate demand predictions, Hameley's London experienced improved product availability, timely reordering, and enhanced customer satisfaction, ultimately driving sales growth."
+        }
+      ],
+      "testimonialShortText": "",
+      "testimonials": [
+        {
+          "id": 1,
+          "img": "/assets/img/clients/1.jpg",
+          "content": "NeuroSphere's AI consulting revolutionized our business with accurate demand prediction, optimized inventory, and automated ordering, resulting in increased sales and satisfied customers. Highly recommended for exceptional skills and professionalism.",
+          "name": "Lufta Chen",
+          "details": "Head Of Sales, Hameley's London"
+        }
+      ],
+      "skills": [
+        {
+          "id": 1,
+          "title": "Data Analysis",
+          "subtitle": "Machine Learning",
+          "value": 90
+        },
+        {
+          "id": 2,
+          "title": "Machine Learning",
+          "subtitle": "Machine Learning",
+          "value": 85
+        },
+        {
+          "id": 3,
+          "title": "Python",
+          "subtitle": "Development",
+          "value": 85
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "web",
+      "link": "https://www.infabytes.com/products/#infaweb",
+      "img": "/assets/img/works/infaweb.jpg",
+      "wideImg": "/assets/img/works/infa-wide.jpg",
+      "title": "InfaBytes",
+      "description": "NeuroSphere's Collaboration with InfaBytes to Develop an IoT Data Analytics SaaS Platform",
+      "tags": ["IoT","SaaS","AI"],
+      "objective": "InfaBytes, a leading HVAC system provider, sought to enhance their services by offering a cloud-based Software-as-a-Service (SaaS) platform that would enable their customers to monitor and analyze the performance of their HVAC cooling systems. They partnered with NeuroSphere, a renowned technology agency, to design and implement a scalable and user-friendly platform to access real-time data insights and predictive analytics for their IoT-enabled cooling systems.",
+      "servicesIntro": "To achieve the objectives of the project, NeuroSphere followed a structured execution process, which included the following stages:",
+      "services": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-graph",
+          "title": "Project Planning and Requirements Gathering",
+          "description": "NeuroSphere's team of experts collaborated closely with InfaBytes to understand their specific business needs and goals for the platform. Key requirements included real-time data visualization, predictive analytics, user-friendly interface, and robust security features."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-settings",
+          "title": "Architecture and Technology Stack Selection",
+          "description": "After analyzing the requirements, NeuroSphere proposed a cloud-based solution using React for the front-end, Node.js for the back-end, and Python for predictive analysis. This combination ensured a responsive and efficient platform capable of handling large volumes of IoT data."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-display1",
+          "title": "Platform Development",
+          "description": "NeuroSphere's developers worked diligently to build the platform from the ground up. They designed a visually appealing and intuitive user interface for easy navigation and data interpretation. The back-end was developed to handle data processing, storage, and retrieval efficiently. Python libraries for predictive analysis were integrated seamlessly."
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-plugin",
+          "title": "Data Integration and Security",
+          "description": "NeuroSphere integrated the platform with InfaBytes' IoT devices to seamlessly gather real-time data from the HVAC cooling systems. Stringent security measures, including data encryption and user authentication, were implemented to safeguard sensitive customer information."
+        },
+        {
+          "id": 5,
+          "iconClass": "pe-7s-tools",
+          "title": "Testing and Quality Assurance",
+          "description": "Throughout the development process, rigorous testing and quality assurance were conducted to identify and rectify any bugs or performance issues. User feedback and iterative improvements played a pivotal role in refining the platform."
+        },
+        {
+          "id": 6,
+          "iconClass": "pe-7s-cloud-upload",
+          "title": "Deployment and Training",
+          "description": "Once the platform was ready, NeuroSphere assisted InfaBytes in deploying it to the cloud and provided comprehensive training to InfaBytes' team and end-users to ensure a smooth onboarding experience."
+        }
+      ],
+      "outcomeText": "The collaborative effort between NeuroSphere and InfaBytes resulted in the successful development and deployment of a cutting-edge SaaS platform to view and analyze IoT data from HVAC cooling systems. The platform's key features included real-time data visualization, predictive insights, and an intuitive user interface. InfaBytes' customers could now access crucial performance metrics, detect anomalies, and make data-driven decisions to optimize their cooling systems' efficiency.",
+      "outcomes": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-graph2",
+          "title": "Real-time Data Insights",
+          "description": "The platform provided real-time data visualization and analysis, enabling customers to monitor their HVAC cooling systems' performance instantly."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-tools",
+          "title": "Predictive Analytics",
+          "description": "The integration of Python-based predictive analysis allowed users to gain insights into potential system anomalies and make proactive decisions."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-gleam",
+          "title": "Intuitive User Interface",
+          "description": "The user interface was designed to be intuitive and easy to navigate, enabling users to interpret data effectively."
+        }
+      ],
+      "testimonialShortText": "",
+      "testimonials": [
+        {
+          "id": 1,
+          "img": "/assets/img/clients/2.jpg",
+          "content": "Working with NeuroSphere was an absolute pleasure. Their team demonstrated a deep understanding of our requirements and a strong commitment to delivering a high-quality solution. The cloud-based platform they developed exceeded our expectations, providing our customers with valuable insights into their HVAC cooling systems. The user-friendly interface and predictive analytics have enabled our clients to enhance system performance and reduce energy costs significantly. We highly recommend NeuroSphere for their technical expertise, professionalism, and exceptional service.",
+          "name": "InfaBytes",
+          "details": "HVAC System Provider"
+        }
+      ],
+      "skills": [
+        {
+          "id": 1,
+          "title": "Full-stack development expertise",
+          "subtitle": "React, Node.js, Python",
+          "value": 95
+        },
+        {
+          "id": 2,
+          "title": "Cloud computing and deployment knowledge",
+          "subtitle": "",
+          "value": 90
+        },
+        {
+          "id": 3,
+          "title": "IoT data integration and processing skills",
+          "subtitle": "",
+          "value": 85
+        },
+        {
+          "id": 4,
+          "title": "Data analytics and predictive analysis proficiency",
+          "subtitle": "",
+          "value": 90
+        },
+        {
+          "id": 5,
+          "title": "User experience (UX) and user interface (UI) design capabilities",
+          "subtitle": "",
+          "value": 85
+        },
+        {
+          "id": 6,
+          "title": "Strong project management and communication skills",
+          "subtitle": "",
+          "value": 95
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "web",
+      "link": "https://mttc.ac.in/",
+      "img": "/assets/img/works/mttc.png",
+      "wideImg": "/assets/img/works/mttc-wide.jpg",
+      "title": "Mar Theophilus College",
+      "description": "Mar Theophilus College is one of the best college located in trivandrum.",
+      "tags": ["CMS Website", "Branding"],
+      "objective": "The objective of the project is to setting up a user-friendly website powered by a CMS, ensuring a seamless online experience for the college and its stakeholders.",
+      "servicesIntro": "To achieve the objectives, the development process involved several stages, including web app development and cms, designing and maintenance.",
+      "services": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-way",
+          "title": "Planning",
+          "description": "Conducted discussions to understand their goals, target audience, and requirements, interviewing key stakeholders to identify essential features, design preferences, and content management needs."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-magic-wand",
+          "title": "CMS Selection and Designing",
+          "description": "Recommended a suitable CMS platform and implemented a collaborative design process to create a modern and user-friendly website."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-plugin",
+          "title": "Development",
+          "description": "Customized the chosen CMS platform, developing custom modules, integrations, and plugins to enhance functionality and seamlessly integrate with existing systems."
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-shuffle",
+          "title": "Content Migration",
+          "description": "Supported in migrating their existing website content to the new CMS platform."
+        },
+        {
+          "id": 6,
+          "iconClass": "pe-7s-like2",
+          "title": "Maintenance",
+          "description": "Conducted ongoing maintenance, security updates, bug fixes, and optimizations to ensure a smooth and secure user experience."
+        }
+      ],
+      "outcomeText": "The collaboration between NeuroSphere and Mar Theophilus College resulted in a highly successful website launch and achieved the set objectives. The outcomes of this engagement were:",
+      "outcomes": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-phone",
+          "title": "Modern Responsive Website",
+          "description": "NeuroSphere delivered a visually appealing and mobile-friendly website that aligned with Mar Theophilus College's branding and met modern design standards. The responsive design ensured an optimal user experience across various devices."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-display2",
+          "title": "Streamlined Content Management",
+          "description": "The implemented CMS empowered the college's staff to update and manage website content effortlessly. This streamlined content management process allowed for timely updates, enabling the college to provide accurate and up-to-date information to its audience."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-headphones",
+          "title": "Ongoing Support and Maintenance",
+          "description": "NeuroSphere's dedicated support team ensured the website's continuous operation, promptly addressing any technical issues that arose. Regular maintenance and updates guaranteed optimal performance and enhanced security."
+        }
+      ],
+      "testimonialShortText": "",
+      "testimonials": [
+        {
+          "id": 1,
+          "img": "/assets/img/clients/1.jpg",
+          "content": "NeuroSphere's exceptional support and expertise in website development resulted in a modern, user-friendly website for Mar Theophilus College. The implemented CMS made content management effortless, and ongoing maintenance ensured a seamless online experience. Highly recommended for organizations seeking digital solutions.",
+          "name": "Dr. Benedict",
+          "details": "Principal, Mar Theophilus College"
+        }
+      ],
+      "skills": [
+        {
+          "id": 1,
+          "title": "Web and CMS",
+          "subtitle": "Development",
+          "value": 95
+        },
+        {
+          "id": 2,
+          "title": "UI/UX",
+          "subtitle": "Design",
+          "value": 80
+        },
+        {
+          "id": 3,
+          "title": "Content Migration",
+          "subtitle": "Development",
+          "value": 90
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "type": "mob",
+      "link": "https://eeziclean.com/",
+      "img": "/assets/img/works/eeziclean.png",
+      "wideImg": "/assets/img/works/eeziclean-wide.jpg",
+      "title": "EeziClean",
+      "description": "EziClean is a prominent laundry service provider offering convenient and efficient solutions for all your laundry needs.",
+      "tags": ["Utility App", "Android", "iOS"],
+      "objective": "The primary objective of EziClean project is to provide customers with a user-friendly and convenient mobile application for seamless booking and tracking of laundry services.",
+      "servicesIntro": "To achieve the objectives of EziClean project, the development process involved several stages, including mobile and web app development, testing and quality assurance, and launch.",
+      "services": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-way",
+          "title": "Planning",
+          "description": "Conducted thorough market research and analysis to understand user needs, market trends, and competition."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-magic-wand",
+          "title": "UI/UX",
+          "description": "Created visually appealing app, ensuring a seamless user experience and intuitive navigation, while the admin panel's UI offered comprehensive insights into user data and app usage."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-plugin",
+          "title": "Development",
+          "description": "Developed the Android and iOS apps using appropriate programming languages, frameworks, and tools such as Java/Kotlin for Android and Swift for iOS"
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-look",
+          "title": "Testing and QA",
+          "description": "Tested the compatibility and responsiveness of the apps and website on various devices, browsers, and operating systems."
+        },
+        {
+          "id": 5,
+          "iconClass": "pe-7s-rocket",
+          "title": "Deployment",
+          "description": "Launched the mobile apps and website to the public, making them available for download and use."
+        },
+        {
+          "id": 6,
+          "iconClass": "pe-7s-like2",
+          "title": "Maintenance",
+          "description": "Conducted ongoing maintenance, security updates, and optimizations to ensure a smooth and secure user experience."
+        }
+      ],
+      "outcomeText": "The partnership between NeuroSphere and EziClean resulted in the successful development and launch of the laundry service app, complemented by the admin panel for comprehensive insights. The outcome achieved the following key milestones:",
+      "outcomes": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-smile",
+          "title": "Enhanced Customer Experience:",
+          "description": "The app provided an intuitive and user-friendly interface, enabling customers to easily book laundry services, select preferences, and track delivery status in real-time. The seamless experience led to improved customer satisfaction."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-graph2",
+          "title": "Increased Efficiency",
+          "description": "The automation of the booking process reduced manual efforts for both customers and EziClean. It streamlined operations and allowed the business to handle a larger volume of orders efficiently. The admin panel provided EziClean with valuable insights into user data and app usage, facilitating informed decision-making and operational improvements."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-users",
+          "title": "Expanded Customer Base",
+          "description": "The mobile app attracted new customers who preferred the convenience of booking laundry services through a mobile platform. The increased accessibility helped EziClean tap into previously untapped market segments. The admin panel's insights allowed EziClean to understand customer behavior and preferences, enabling targeted marketing strategies to further expand their customer base."
+        }
+      ],
+      "testimonialShortText": "",
+      "testimonials": [
+        {
+          "id": 1,
+          "img": "/assets/img/clients/1.jpg",
+          "content": "NeuroSphere's expertise and exceptional app development have revolutionized our business, surpassing expectations and providing valuable insights, making them our trusted technology partner.",
+          "name": "Sheikh Abdulsaud",
+          "details": "CEO, EziClean Pvt Ltd, UAE"
+        }
+      ],
+      "skills": [
+        {
+          "id": 1,
+          "title": "Mobile App",
+          "subtitle": "Development",
+          "value": 95
+        },
+        {
+          "id": 2,
+          "title": "Web App",
+          "subtitle": "Development",
+          "value": 95
+        },
+        {
+          "id": 3,
+          "title": "UI/UX",
+          "subtitle": "Design",
+          "value": 90
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "type": "web",
+      "link": "https://www.creed-realestate.com/",
+      "img": "/assets/img/works/creed.png",
+      "wideImg": "/assets/img/works/creed-wide.jpg",
+      "title": "Creed Real Estate",
+      "description": "Your Ultimate Platform for real estate market. Released as Android, iOS and Web Apps.",
+      "tags": ["Web", "Branding", "Property CMS"],
+      "objective": "The objective was to establish a modern online presence and improve brand image by creating an interactive website for easy property browsing and showcasing expertise in the real estate market.",
+      "servicesIntro": "To achieve the objectives of the Creed Real Estate project, the development process involved several stages, including mobile and web app development, SEO, branding,  and launch.",
+      "services": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-way",
+          "title": "Planning",
+          "description": "Conducted thorough market research and analysis to understand user needs, market trends, and competition."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-paper-plane",
+          "title": "Branding",
+          "description": "Undertook extensive research on the real estate market and competitor analysis to craft a unique brand identity."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-magic-wand",
+          "title": "UI/UX",
+          "description": "Created a user-friendly interface with a modern aesthetic, allowing effortless browsing, viewing of high-quality images, and access to detailed property information."
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-plugin",
+          "title": "Development",
+          "description": "Developed a user-friendly CMS-powered website, enabling easy property listing updates and content management for the client without technical expertise."
+        },
+        {
+          "id": 5,
+          "iconClass": "pe-7s-rocket",
+          "title": "SEO",
+          "description": "Optimized the website using SEO techniques, improving search engine rankings, and devised an effective social media marketing plan to enhance online presence and engage the target audience."
+        }
+      ],
+      "outcomeText": "The collaboration between our agency and the NHS UK resulted in the successful development and deployment of an ML model to predict patient duration of stay. The key outcomes achieved were as follows:",
+      "outcomes": [
+        {
+          "id": 1,
+          "iconClass": "pe-7s-target",
+          "title": "Branding and Logo Design",
+          "description": "Delivered a unique and visually appealing logo design that effectively represented Creed Real Estate London's brand values of professionalism, trust, and elegance."
+        },
+        {
+          "id": 2,
+          "iconClass": "pe-7s-browser",
+          "title": "Website Development",
+          "description": "NeuroSphere developed a modern and user-friendly website for Creed Real Estate London, incorporating intuitive navigation, clean interface design, and seamless property browsing functionalities. The website was built using a robust content management system (CMS) that allowed the client to easily update property listings and manage website content."
+        },
+        {
+          "id": 3,
+          "iconClass": "pe-7s-config",
+          "title": "CMS Integration",
+          "description": "NeuroSphere successfully integrated a content management system into the website, enabling Creed Real Estate London to have full control over their property listings, content updates, and website management without requiring technical expertise."
+        },
+        {
+          "id": 4,
+          "iconClass": "pe-7s-like2",
+          "title": "User Experience (UX) Design",
+          "description": "The website was designed with a focus on providing an exceptional user experience. NeuroSphere's design team implemented an intuitive interface, easy property search functionality, and high-quality images to ensure that users could effortlessly browse and explore property listings."
+        },
+        {
+          "id": 5,
+          "iconClass": "pe-7s-search",
+          "title": "Search Engine Optimization (SEO)",
+          "description": "NeuroSphere implemented industry-leading SEO techniques to optimize the website for search engines. This included thorough keyword research, on-page optimization, and meta tag optimization to improve the website's rankings in search engine results pages, ultimately driving more organic traffic to the site."
+        },
+        {
+          "id": 6,
+          "iconClass": "pe-7s-graph2",
+          "title": "Digital Marketing and Social Media Strategy",
+          "description": "NeuroSphere devised an effective digital marketing and social media strategy for Creed Real Estate London. This involved leveraging various social media platforms to enhance the agency's online presence, engage with the target audience, and drive traffic to the website."
+        }
+      ],
+      "testimonialShortText": "",
+      "testimonials": [
+        {
+          "id": 1,
+          "img": "/assets/img/clients/1.jpg",
+          "content": "NeuroSphere transformed our brand image, creating a strong online presence. Their creative logo design and intuitive website exceeded expectations, leading to increased leads and conversions. Highly recommended for brand enhancement and digital leverage.",
+          "name": "Renzel Holborn",
+          "details": "CEO of Creed Real Estate London"
+        }
+      ],
+      "skills": [
+        {
+          "id": 1,
+          "title": "Branding",
+          "subtitle": "Development",
+          "value": 85
+        },
+        {
+          "id": 2,
+          "title": "Web App",
+          "subtitle": "Development",
+          "value": 90
+        },
+        {
+          "id": 3,
+          "title": "UI/UX",
+          "subtitle": "Design",
+          "value": 90
+        }
+      ]
+    },
+    {
+      "id": 8,
       "type": "mob",
       "link": "https://www.agentpet.com/",
       "img": "/assets/img/works/dog.jpg",
@@ -160,528 +917,11 @@
       ]
     },
     {
-      "id": 2,
+      "id": 9,
       "type": "ai",
-      "link": "https://www.gloshospitals.nhs.uk/",
-      "img": "/assets/img/works/nhs.jpg",
-      "wideImg": "/assets/img/works/2/1.jpg",
-      "title": "NHS Foundation, UK",
-      "description": "Using Machine Learning to predict patient's risk of long stay, improving resource allocation, cost saving and better patient care.",
-      "tags": ["AI", "Machine Learning", "Healthcare"],
-      "objective": "The objective of this case study is to outline how our agency successfully assisted the NHS UK with AI consulting, specifically in utilizing existing data to develop a machine learning (ML) model capable of predicting the duration of a patient's stay. The goal was to provide the NHS with a valuable tool to optimize resource allocation and improve patient care.",
-      "servicesIntro": "Our agency collaborated closely with the NHS UK to understand their needs, collected and analyzed relevant patient data, and developed a machine learning model using XGBoost. The model was trained, validated, and deployed into the existing infrastructure, resulting in enhanced resource allocation, improved patient care, and cost savings for the healthcare system.",
-      "services": [
-        {
-          "id": 1,
-          "iconClass": "pe-7s-way",
-          "title": "Understanding Goals",
-          "description": "Our team engaged in comprehensive discussions with NHS stakeholders, including hospital administrators, doctors, and data analysts, to identify their specific requirements, challenges, and goals."
-        },
-        {
-          "id": 2,
-          "iconClass": "pe-7s-magic-wand",
-          "title": "Data Collection",
-          "description": "We collaborated closely with the NHS to obtain the necessary data required for model development. This included anonymized patient records, demographic information, medical histories, diagnoses, treatments, and the corresponding lengths of stay."
-        },
-        {
-          "id": 3,
-          "iconClass": "pe-7s-plugin",
-          "title": "Feature Engineering",
-          "description": "Leveraging our expertise in data science, we performed extensive feature engineering to extract relevant features from the collected dataset. This involved applying domain knowledge and considering factors such as age, gender, medical condition..."
-        },
-        {
-          "id": 4,
-          "iconClass": "pe-7s-look",
-          "title": "Model Selection and Development",
-          "description": "To tackle this regression problem, we experimented with various ML algorithms such as linear regression, decision trees, and gradient boosting techniques. After rigorous evaluation, we chose an ensemble learning method called XGBoost."
-        },
-        {
-          "id": 5,
-          "iconClass": "pe-7s-like2",
-          "title": "Model Training and Validation",
-          "description": "The selected ML model was trained using the preprocessed dataset, employing techniques like cross-validation and hyperparameter tuning to optimize performance."
-        },
-        {
-          "id": 6,
-          "iconClass": "pe-7s-like2",
-          "title": "Deployment and Integration",
-          "description": "Once the model demonstrated satisfactory performance, we integrated it into the existing NHS infrastructure to ensure seamless adoption. This involved creating an API that enabled easy access to the ML model, enabling real-time predictions based on input patient data."
-        }
-      ],
-      "outcomeText": "The collaboration between our agency and the NHS UK resulted in the successful development and deployment of an ML model to predict patient duration of stay. The key outcomes achieved were as follows:",
-      "outcomes": [
-        {
-          "id": 1,
-          "iconClass": "pe-7s-albums",
-          "title": "Enhanced Resource Allocation",
-          "description": "By accurately predicting patient lengths of stay, the NHS was able to optimize resource allocation, including bed management, staff scheduling, and resource planning. This led to improved operational efficiency, reduced wait times, and better utilization of healthcare resources."
-        },
-        {
-          "id": 2,
-          "iconClass": "pe-7s-phone",
-          "title": "Improved Patient Care",
-          "description": "The website is developed with a responsive design approach, ensuring that it adapts and functions well on various screen sizes and resolutions. Users can access the platform conveniently from desktops, laptops, tablets, and smartphones, without compromising the user experience."
-        },
-        {
-          "id": 3,
-          "iconClass": "pe-7s-cloud-upload",
-          "title": "Cost Savings",
-          "description": "The project involves the implementation of a robust backend infrastructure to handle various functionalities, such as user registration, pet listings, product listings, messaging, and payment processing. The backend systems are designed to support high traffic, ensuring scalability and reliability."
-        },
-        {
-          "id": 4,
-          "iconClass": "pe-7s-server",
-          "title": "Scalable Solution",
-          "description": " Efficient database management is implemented to store and retrieve data related to pets, users, products, and transactions. The database architecture is designed to handle large volumes of data while maintaining data integrity and security."
-        }
-      ],
-      "testimonialShortText": "",
-      "testimonials": [
-        {
-          "id": 1,
-          "img": "/assets/img/works/2/client.jpg",
-          "content": "Our partnership with NeuroSphere for AI consulting in developing a machine learning model to predict patient duration of stay has been invaluable. Their expertise in data analysis, model development, and seamless integration into our infrastructure has significantly improved resource allocation, patient care, and cost savings. We are impressed with their professionalism, collaboration, and the impactful outcomes delivered. Highly recommended!",
-          "name": "Simon Lanceley",
-          "details": "Director of Strategy, NHS Gloutershire"
-        }
-      ],
-      "skills": [
-        {
-          "id": 1,
-          "title": "Data collection",
-          "subtitle": "Development",
-          "value": 95
-        },
-        {
-          "id": 2,
-          "title": "Feature",
-          "subtitle": "Engineering",
-          "value": 85
-        },
-        {
-          "id": 3,
-          "title": "Machine",
-          "subtitle": "Learning",
-          "value": 90
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "type": "mob",
-      "link": "https://www.agentpet.com/",
-      "img": "/assets/img/works/eeziclean.png",
-      "wideImg": "/assets/img/works/1/wide.jpg",
-      "title": "EeziClean",
-      "description": "EziClean is a prominent laundry service provider offering convenient and efficient solutions for all your laundry needs.",
-      "tags": ["Utility App", "Android", "iOS"],
-      "objective": "The primary objective of EziClean project is to provide customers with a user-friendly and convenient mobile application for seamless booking and tracking of laundry services.",
-      "servicesIntro": "To achieve the objectives of EziClean project, the development process involved several stages, including mobile and web app development, testing and quality assurance, and launch.",
-      "services": [
-        {
-          "id": 1,
-          "iconClass": "pe-7s-way",
-          "title": "Planning",
-          "description": "Conducted thorough market research and analysis to understand user needs, market trends, and competition."
-        },
-        {
-          "id": 2,
-          "iconClass": "pe-7s-magic-wand",
-          "title": "UI/UX",
-          "description": "Created visually appealing app, ensuring a seamless user experience and intuitive navigation, while the admin panel's UI offered comprehensive insights into user data and app usage."
-        },
-        {
-          "id": 3,
-          "iconClass": "pe-7s-plugin",
-          "title": "Development",
-          "description": "Developed the Android and iOS apps using appropriate programming languages, frameworks, and tools such as Java/Kotlin for Android and Swift for iOS"
-        },
-        {
-          "id": 4,
-          "iconClass": "pe-7s-look",
-          "title": "Testing and QA",
-          "description": "Tested the compatibility and responsiveness of the apps and website on various devices, browsers, and operating systems."
-        },
-        {
-          "id": 5,
-          "iconClass": "pe-7s-rocket",
-          "title": "Deployment",
-          "description": "Launched the mobile apps and website to the public, making them available for download and use."
-        },
-        {
-          "id": 6,
-          "iconClass": "pe-7s-like2",
-          "title": "Maintenance",
-          "description": "Conducted ongoing maintenance, security updates, and optimizations to ensure a smooth and secure user experience."
-        }
-      ],
-      "outcomeText": "The partnership between NeuroSphere and EziClean resulted in the successful development and launch of the laundry service app, complemented by the admin panel for comprehensive insights. The outcome achieved the following key milestones:",
-      "outcomes": [
-        {
-          "id": 1,
-          "iconClass": "pe-7s-smile",
-          "title": "Enhanced Customer Experience:",
-          "description": "The app provided an intuitive and user-friendly interface, enabling customers to easily book laundry services, select preferences, and track delivery status in real-time. The seamless experience led to improved customer satisfaction."
-        },
-        {
-          "id": 2,
-          "iconClass": "pe-7s-graph2",
-          "title": "Increased Efficiency",
-          "description": "The automation of the booking process reduced manual efforts for both customers and EziClean. It streamlined operations and allowed the business to handle a larger volume of orders efficiently. The admin panel provided EziClean with valuable insights into user data and app usage, facilitating informed decision-making and operational improvements."
-        },
-        {
-          "id": 3,
-          "iconClass": "pe-7s-users",
-          "title": "Expanded Customer Base",
-          "description": "The mobile app attracted new customers who preferred the convenience of booking laundry services through a mobile platform. The increased accessibility helped EziClean tap into previously untapped market segments. The admin panel's insights allowed EziClean to understand customer behavior and preferences, enabling targeted marketing strategies to further expand their customer base."
-        }
-      ],
-      "testimonialShortText": "",
-      "testimonials": [
-        {
-          "id": 1,
-          "img": "/assets/img/clients/1.jpg",
-          "content": "NeuroSphere's expertise and exceptional app development have revolutionized our business, surpassing expectations and providing valuable insights, making them our trusted technology partner.",
-          "name": "Sheikh Abdulsaud",
-          "details": "CEO, EziClean Pvt Ltd, UAE"
-        }
-      ],
-      "skills": [
-        {
-          "id": 1,
-          "title": "Mobile App",
-          "subtitle": "Development",
-          "value": 95
-        },
-        {
-          "id": 2,
-          "title": "Web App",
-          "subtitle": "Development",
-          "value": 95
-        },
-        {
-          "id": 3,
-          "title": "UI/UX",
-          "subtitle": "Design",
-          "value": 90
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "type": "web",
-      "link": "https://www.agentpet.com/",
-      "img": "/assets/img/works/mttc.png",
-      "wideImg": "/assets/img/works/1/wide.jpg",
-      "title": "Mar Theophilus College",
-      "description": "Mar Theophilus College is one of the best college located in trivandrum.",
-      "tags": ["CMS Website", "Branding"],
-      "objective": "The objective of the project is to setting up a user-friendly website powered by a CMS, ensuring a seamless online experience for the college and its stakeholders.",
-      "servicesIntro": "To achieve the objectives, the development process involved several stages, including web app development and cms, designing and maintenance.",
-      "services": [
-        {
-          "id": 1,
-          "iconClass": "pe-7s-way",
-          "title": "Planning",
-          "description": "Conducted discussions to understand their goals, target audience, and requirements, interviewing key stakeholders to identify essential features, design preferences, and content management needs."
-        },
-        {
-          "id": 2,
-          "iconClass": "pe-7s-magic-wand",
-          "title": "CMS Selection and Designing",
-          "description": "Recommended a suitable CMS platform and implemented a collaborative design process to create a modern and user-friendly website."
-        },
-        {
-          "id": 3,
-          "iconClass": "pe-7s-plugin",
-          "title": "Development",
-          "description": "Customized the chosen CMS platform, developing custom modules, integrations, and plugins to enhance functionality and seamlessly integrate with existing systems."
-        },
-        {
-          "id": 4,
-          "iconClass": "pe-7s-shuffle",
-          "title": "Content Migration",
-          "description": "Supported in migrating their existing website content to the new CMS platform."
-        },
-        {
-          "id": 6,
-          "iconClass": "pe-7s-like2",
-          "title": "Maintenance",
-          "description": "Conducted ongoing maintenance, security updates, bug fixes, and optimizations to ensure a smooth and secure user experience."
-        }
-      ],
-      "outcomeText": "The collaboration between NeuroSphere and Mar Theophilus College resulted in a highly successful website launch and achieved the set objectives. The outcomes of this engagement were:",
-      "outcomes": [
-        {
-          "id": 1,
-          "iconClass": "pe-7s-phone",
-          "title": "Modern Responsive Website",
-          "description": "NeuroSphere delivered a visually appealing and mobile-friendly website that aligned with Mar Theophilus College's branding and met modern design standards. The responsive design ensured an optimal user experience across various devices."
-        },
-        {
-          "id": 2,
-          "iconClass": "pe-7s-display2",
-          "title": "Streamlined Content Management",
-          "description": "The implemented CMS empowered the college's staff to update and manage website content effortlessly. This streamlined content management process allowed for timely updates, enabling the college to provide accurate and up-to-date information to its audience."
-        },
-        {
-          "id": 3,
-          "iconClass": "pe-7s-headphones",
-          "title": "Ongoing Support and Maintenance",
-          "description": "NeuroSphere's dedicated support team ensured the website's continuous operation, promptly addressing any technical issues that arose. Regular maintenance and updates guaranteed optimal performance and enhanced security."
-        }
-      ],
-      "testimonialShortText": "",
-      "testimonials": [
-        {
-          "id": 1,
-          "img": "/assets/img/clients/1.jpg",
-          "content": "NeuroSphere's exceptional support and expertise in website development resulted in a modern, user-friendly website for Mar Theophilus College. The implemented CMS made content management effortless, and ongoing maintenance ensured a seamless online experience. Highly recommended for organizations seeking digital solutions.",
-          "name": "Dr. Benedict",
-          "details": "Principal, Mar Theophilus College"
-        }
-      ],
-      "skills": [
-        {
-          "id": 1,
-          "title": "Web and CMS",
-          "subtitle": "Development",
-          "value": 95
-        },
-        {
-          "id": 2,
-          "title": "UI/UX",
-          "subtitle": "Design",
-          "value": 80
-        },
-        {
-          "id": 3,
-          "title": "Content Migration",
-          "subtitle": "Development",
-          "value": 90
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "type": "web",
-      "link": "https://www.agentpet.com/",
-      "img": "/assets/img/works/creed.png",
-      "wideImg": "/assets/img/works/1/wide.jpg",
-      "title": "Creed Real Estate",
-      "description": "Your Ultimate Platform for real estate market. Released as Android, iOS and Web Apps.",
-      "tags": ["Web", "Branding", "Property CMS"],
-      "objective": "The objective was to establish a modern online presence and improve brand image by creating an interactive website for easy property browsing and showcasing expertise in the real estate market.",
-      "servicesIntro": "To achieve the objectives of the Creed Real Estate project, the development process involved several stages, including mobile and web app development, SEO, branding,  and launch.",
-      "services": [
-        {
-          "id": 1,
-          "iconClass": "pe-7s-way",
-          "title": "Planning",
-          "description": "Conducted thorough market research and analysis to understand user needs, market trends, and competition."
-        },
-        {
-          "id": 2,
-          "iconClass": "pe-7s-paper-plane",
-          "title": "Branding",
-          "description": "Undertook extensive research on the real estate market and competitor analysis to craft a unique brand identity."
-        },
-        {
-          "id": 3,
-          "iconClass": "pe-7s-magic-wand",
-          "title": "UI/UX",
-          "description": "Created a user-friendly interface with a modern aesthetic, allowing effortless browsing, viewing of high-quality images, and access to detailed property information."
-        },
-        {
-          "id": 4,
-          "iconClass": "pe-7s-plugin",
-          "title": "Development",
-          "description": "Developed a user-friendly CMS-powered website, enabling easy property listing updates and content management for the client without technical expertise."
-        },
-        {
-          "id": 5,
-          "iconClass": "pe-7s-rocket",
-          "title": "SEO",
-          "description": "Optimized the website using SEO techniques, improving search engine rankings, and devised an effective social media marketing plan to enhance online presence and engage the target audience."
-        }
-      ],
-      "outcomeText": "The collaboration between our agency and the NHS UK resulted in the successful development and deployment of an ML model to predict patient duration of stay. The key outcomes achieved were as follows:",
-      "outcomes": [
-        {
-          "id": 1,
-          "iconClass": "pe-7s-target",
-          "title": "Branding and Logo Design",
-          "description": "Delivered a unique and visually appealing logo design that effectively represented Creed Real Estate London's brand values of professionalism, trust, and elegance."
-        },
-        {
-          "id": 2,
-          "iconClass": "pe-7s-browser",
-          "title": "Website Development",
-          "description": "NeuroSphere developed a modern and user-friendly website for Creed Real Estate London, incorporating intuitive navigation, clean interface design, and seamless property browsing functionalities. The website was built using a robust content management system (CMS) that allowed the client to easily update property listings and manage website content."
-        },
-        {
-          "id": 3,
-          "iconClass": "pe-7s-config",
-          "title": "CMS Integration",
-          "description": "NeuroSphere successfully integrated a content management system into the website, enabling Creed Real Estate London to have full control over their property listings, content updates, and website management without requiring technical expertise."
-        },
-        {
-          "id": 4,
-          "iconClass": "pe-7s-like2",
-          "title": "User Experience (UX) Design",
-          "description": "The website was designed with a focus on providing an exceptional user experience. NeuroSphere's design team implemented an intuitive interface, easy property search functionality, and high-quality images to ensure that users could effortlessly browse and explore property listings."
-        },
-        {
-          "id": 5,
-          "iconClass": "pe-7s-search",
-          "title": "Search Engine Optimization (SEO)",
-          "description": "NeuroSphere implemented industry-leading SEO techniques to optimize the website for search engines. This included thorough keyword research, on-page optimization, and meta tag optimization to improve the website's rankings in search engine results pages, ultimately driving more organic traffic to the site."
-        },
-        {
-          "id": 6,
-          "iconClass": "pe-7s-graph2",
-          "title": "Digital Marketing and Social Media Strategy",
-          "description": "NeuroSphere devised an effective digital marketing and social media strategy for Creed Real Estate London. This involved leveraging various social media platforms to enhance the agency's online presence, engage with the target audience, and drive traffic to the website."
-        }
-      ],
-      "testimonialShortText": "",
-      "testimonials": [
-        {
-          "id": 1,
-          "img": "/assets/img/clients/1.jpg",
-          "content": "NeuroSphere transformed our brand image, creating a strong online presence. Their creative logo design and intuitive website exceeded expectations, leading to increased leads and conversions. Highly recommended for brand enhancement and digital leverage.",
-          "name": "Renzel Holborn",
-          "details": "CEO of Creed Real Estate London"
-        }
-      ],
-      "skills": [
-        {
-          "id": 1,
-          "title": "Branding",
-          "subtitle": "Development",
-          "value": 85
-        },
-        {
-          "id": 2,
-          "title": "Web App",
-          "subtitle": "Development",
-          "value": 90
-        },
-        {
-          "id": 3,
-          "title": "UI/UX",
-          "subtitle": "Design",
-          "value": 90
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "type": "ai",
-      "link": "https://www.agentpet.com/",
-      "img": "/assets/img/works/hamleys.png",
-      "wideImg": "/assets/img/works/1/wide.jpg",
-      "title": "Hamley's Toy Store",
-      "description": "A customer-centric retail company that utilizes technology, particularly machine learning, to enhance sales and predict product demand.",
-      "tags": ["Data", "AI", "Automation"],
-      "objective": "Develop a machine learning model that predicts product demand, automates ordering, and improves sales and customer satisfaction for Hameley's London.",
-      "servicesIntro": "To achieve the objectives of the Hameley's project, the development process involved several stages, including data assesment, ml model development, integration and automation, testing, and launch.",
-      "services": [
-        {
-          "id": 1,
-          "iconClass": "pe-7s-way",
-          "title": "Planning",
-          "description": "Conducted thorough market research and analysis to understand user needs, market trends, and competition."
-        },
-        {
-          "id": 2,
-          "iconClass": "pe-7s-note2",
-          "title": "Data Assesment",
-          "description": "Analyzed and preprocessed extensive data from Hameley's London, ensuring accuracy and consistency for subsequent machine learning modeling."
-        },
-        {
-          "id": 3,
-          "iconClass": "pe-7s-config",
-          "title": "ML Model Development",
-          "description": "Employed advanced machine learning techniques to build a robust predictive model, accurately forecasting product demand and trends using regression, time series analysis, and deep learning."
-        },
-        {
-          "id": 4,
-          "iconClass": "pe-7s-look",
-          "title": "Integration and Automation",
-          "description": "Integrated the ML model, enabling real-time predictions and automated ordering based on historical sales, seasonality, promotions, and external data for efficient inventory management."
-        },
-        {
-          "id": 5,
-          "iconClass": "pe-7s-look",
-          "title": "Testing",
-          "description": "Rigorous testing was conducted to ensure its accuracy, reliability, and adaptability to evolving market dynamics."
-        }
-      ],
-      "outcomeText": "The collaboration between NeuroSphere and Hameley's London yielded remarkable results, significantly improving the company's operations and overall performance:",
-      "outcomes": [
-        {
-          "id": 1,
-          "iconClass": "pe-7s-graph2",
-          "title": "Accurate Demand Forecasting",
-          "description": "The ML model developed by NeuroSphere enabled Hameley's London to predict product demand with high precision, minimizing inventory shortages and overstock situations."
-        },
-        {
-          "id": 2,
-          "iconClass": "pe-7s-look",
-          "title": "Trend Identification",
-          "description": "By analyzing historical data and market trends, the ML model effectively identified emerging patterns, enabling Hameley's London to proactively adapt its product offerings and marketing strategies."
-        },
-        {
-          "id": 3,
-          "iconClass": "pe-7s-config",
-          "title": "Automated Ordering Process",
-          "description": "The implementation of the ML model automated the ordering process, reducing manual effort and optimizing inventory management, ultimately resulting in cost savings and increased efficiency."
-        },
-        {
-          "id": 4,
-          "iconClass": "pe-7s-like2",
-          "title": "Enhanced Sales and Customer Satisfaction",
-          "description": "With accurate demand predictions, Hameley's London experienced improved product availability, timely reordering, and enhanced customer satisfaction, ultimately driving sales growth."
-        }
-      ],
-      "testimonialShortText": "",
-      "testimonials": [
-        {
-          "id": 1,
-          "img": "/assets/img/clients/1.jpg",
-          "content": "NeuroSphere's AI consulting revolutionized our business with accurate demand prediction, optimized inventory, and automated ordering, resulting in increased sales and satisfied customers. Highly recommended for exceptional skills and professionalism.",
-          "name": "Lufta Chen",
-          "details": "Head Of Sales, Hameley's London"
-        }
-      ],
-      "skills": [
-        {
-          "id": 1,
-          "title": "Data Analysis",
-          "subtitle": "Machine Learning",
-          "value": 90
-        },
-        {
-          "id": 2,
-          "title": "Machine Learning",
-          "subtitle": "Machine Learning",
-          "value": 85
-        },
-        {
-          "id": 3,
-          "title": "Python",
-          "subtitle": "Development",
-          "value": 85
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "type": "ai",
-      "link": "https://www.agentpet.com/",
+      "link": "https://www.thepeoplessupermarket.org/",
       "img": "/assets/img/works/tps.jpg",
-      "wideImg": "/assets/img/works/1/wide.jpg",
+      "wideImg": "/assets/img/works/tps-wide.jpg",
       "title": "The People's Supermarket",
       "description": "Your Ultimate Platform for Buying and Selling Pets and Pet Supplies! Released as Android, iOS and Web Apps.",
       "tags": ["Order Prediction", "Process Automation"],
@@ -783,138 +1023,12 @@
         }
       ]
     },
-
     {
-      "id": 8,
-      "type": "mob",
-      "link": "https://www.agentpet.com/",
-      "img": "/assets/img/works/trackerchat.jpg",
-      "wideImg": "/assets/img/works/1/wide.jpg",
-      "title": "Tracker Chat",
-      "description": "Chat application that provide a fun and secure platform for users to communicate.",
-      "tags": ["Chat App", "Android", "iOS"],
-      "objective": "The primary objective of the project is to create an intuitive and engaging chat experience while prioritizing data privacy and security.",
-      "servicesIntro": "To achieve the objectives of the Chat Application project, the development process involved several stages, including mobile and web app development, testing, and launch.",
-      "services": [
-        {
-          "id": 1,
-          "iconClass": "pe-7s-way",
-          "title": "Planning",
-          "description": "Conducted thorough market research and analysis to understand user needs, market trends, and competition."
-        },
-        {
-          "id": 2,
-          "iconClass": "pe-7s-magic-wand",
-          "title": "UI/UX",
-          "description": "Created an appealing and user-friendly design, ensuring a seamless experience across both Android and iOS platforms."
-        },
-        {
-          "id": 3,
-          "iconClass": "pe-7s-plugin",
-          "title": "Development",
-          "description": "Developed the Android and iOS apps using appropriate programming languages, frameworks, and tools such as Java/Kotlin for Android and Swift for iOS, with core functionalities, including push notifications, encryption, and authentication "
-        },
-        {
-          "id": 4,
-          "iconClass": "pe-7s-look",
-          "title": "Testing and QA",
-          "description": "Conducted thorough testing at each development stage. Our team performed functional, performance, and security testing, identifying and resolving any bugs or vulnerabilities."
-        },
-        {
-          "id": 5,
-          "iconClass": "pe-7s-rocket",
-          "title": "Deployment",
-          "description": "Deployed the chat application on the Google Play Store and Apple App Store and ensured a smooth launch and addressed any post-launch issues promptly."
-        }
-      ],
-      "testimonialShortText": "",
-      "testimonials": [
-        {
-          "id": 1,
-          "img": "/assets/img/clients/1.jpg",
-          "content": "NeuroSphere delivered exceptional work, turning our vision into reality and surpassing expectations. The developed chat application met our needs with a deep understanding of requirements. Highly recommended for their expertise, professionalism, and outstanding results.",
-          "name": "John Doe",
-          "details": "CEO, XYZ Company"
-        }
-      ],
-      "outcomeText": "The collaboration between our agency and the NHS UK resulted in the successful development and deployment of an ML model to predict patient duration of stay. The key outcomes achieved were as follows:",
-      "outcomes": [
-        {
-          "id": 1,
-          "iconClass": "pe-7s-chat",
-          "title": "Real-time Messaging",
-          "description": "The chat application implemented a robust real-time messaging system that allowed users to exchange messages instantly, creating a seamless and interactive chat experience."
-        },
-        {
-          "id": 2,
-          "iconClass": "pe-7s-upload",
-          "title": "Multimedia Sharing",
-          "description": "Users could easily share various forms of multimedia, including images, videos, and documents, within the chat application. This feature enhanced the communication experience by allowing users to express themselves more effectively."
-        },
-        {
-          "id": 3,
-          "iconClass": "pe-7s-lock",
-          "title": "User Authentication and Security",
-          "description": "The application incorporated secure user authentication mechanisms, ensuring that only authorized users could access the chat platform. Encryption protocols were implemented to safeguard user data and protect privacy, instilling trust and confidence in the application."
-        },
-        {
-          "id": 4,
-          "iconClass": "pe-7s-comment",
-          "title": "Push Notifications",
-          "description": "The chat application leveraged push notifications to keep users updated on new messages and activity even when the application was running in the background. This feature enabled users to stay connected and responsive."
-        },
-        {
-          "id": 5,
-          "iconClass": "pe-7s-gleam",
-          "title": "Cross-Platform Compatibility",
-          "description": "NeuroSphere ensured that the chat application was compatible with both Android and iOS platforms. The application was optimized to provide a consistent and smooth user experience across different devices and operating systems."
-        },
-        {
-          "id": 6,
-          "iconClass": "pe-7s-config",
-          "title": "Performance Optimization",
-          "description": "The development team focused on optimizing the application's performance to ensure fast and responsive messaging. Efforts were made to minimize latency and reduce resource consumption, resulting in a smooth and efficient chat experience."
-        },
-        {
-          "id": 7,
-          "iconClass": "pe-7s-graph2",
-          "title": "Scalability and Future Growth",
-          "description": "The architecture and design of the chat application were built with scalability in mind. This allowed for future expansion and integration of additional features, accommodating the client's long-term growth plans."
-        },
-        {
-          "id": 8,
-          "iconClass": "pe-7s-note2",
-          "title": "Adherence to App Store Guidelines",
-          "description": "The application was developed in accordance with the respective guidelines of the Google Play Store and Apple App Store. This ensured compliance with platform-specific requirements, facilitating a successful deployment and launch."
-        }
-      ],
-      "skills": [
-        {
-          "id": 1,
-          "title": "Mobile App",
-          "subtitle": "Development",
-          "value": 90
-        },
-        {
-          "id": 2,
-          "title": "Web App",
-          "subtitle": "Development",
-          "value": 95
-        },
-        {
-          "id": 3,
-          "title": "UI/UX",
-          "subtitle": "Design",
-          "value": 95
-        }
-      ]
-    },
-    {
-      "id": 9,
+      "id": 10,
       "type": "branding",
-      "link": "https://www.agentpet.com/",
+      "link": "https://www.prelondon.com/",
       "img": "/assets/img/works/pre.jpg",
-      "wideImg": "/assets/img/works/1/wide.jpg",
+      "wideImg": "/assets/img/works/pre-wide.jpg",
       "title": "Pre London",
       "description": "Pre London is an emerging online apparel store that offers modern and stylish clothing for fashion-forward individuals.",
       "tags": ["Ecommerce", "Branding", "Marketing"],
@@ -1022,5 +1136,6 @@
         }
       ]
     }
+
   ]
 }
