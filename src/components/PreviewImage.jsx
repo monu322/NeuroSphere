@@ -21,7 +21,7 @@ const PreviewImage = ({ file, imgUrl }) => {
       {preview ? (
         <img src={preview} alt="preview" className="w-10 h-10 mb-1" />
       ) : (
-        <img src={imgUrl} alt="preview" className="w-10 h-10 mb-1" />
+        <img src={imgUrl} alt="image" className="w-10 h-10 mb-1" />
       )}
     </div>
   );

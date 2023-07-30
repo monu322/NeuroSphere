@@ -3,7 +3,8 @@ import { useEffect } from "react";
 import Link from "next/link";
 
 const Blog = ({ data }) => {
-  const blogs = data;
+  const blogs = data.filter((blog) => blog.isPublished === true);
+  console.log(blogs);
   const totalBlogs = blogs.length - 1;
   function convertToSlug(Text) {
     return Text.toLowerCase()
