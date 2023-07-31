@@ -1,9 +1,48 @@
 import { Field, Form, Formik } from "formik";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 const ClientForm = () => {
   const [works, setWorks] = useState([]);
   const [notification, setNotification] = useState("");
+  const [errMessage, setErrMessage] = useState(null);
+  const router = useRouter();
+  const validateForm = (formValues) => {
+    if (
+      !formValues.name ||
+      !formValues.location ||
+      !formValues.description ||
+      !formValues.negatives ||
+      !formValues.positives ||
+      !formValues.contactName ||
+      !formValues.contactDesignation ||
+      !formValues.contactMail
+    ) {
+      setErrMessage("Please fill in all fields");
+      return false;
+    }
+    if (formValues.name.length < 3) {
+      setErrMessage("Name must be at least 3 characters");
+      return false;
+    }
+    if (formValues.description.length < 10) {
+      setErrMessage("Description must be at least 10 characters");
+      return false;
+    }
+    if (formValues.contactName.length < 3) {
+      setErrMessage("ContactName must be atleast three characters Long");
+      return false;
+    }
+    if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formValues.contactMail)
+    ) {
+      setErrMessage("Email is invalid");
+      return false;
+    }
+
+    return true;
+  };
+
   const clearNotification = () => {
     setTimeout(() => {
       setNotification("");
@@ -15,7 +54,6 @@ const ClientForm = () => {
     location: "",
     description: "",
     positives: "",
-    location: "",
     negatives: "",
     referenceProjects: [],
     contactName: "",
@@ -37,12 +75,49 @@ const ClientForm = () => {
       },
     });
     const { data, error } = await response.json();
-    data && setWorks(data);
+    if (data) {
+      setWorks(data);
+    } else {
+      setNotification(error);
+    }
   };
 
-  const handleSubmit = (values) => {
+  const saveClient = async (values) => {
     console.log(values);
+    const response = await fetch("/api/client/client", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ values: values }),
+    });
+    const { message, error } = await response.json();
+    if (error) {
+      setNotification(error);
+    } else {
+      setNotification(message);
+    }
+    clearNotification();
   };
+
+  const handleSubmit = async (values, { setSubmitting, resetForm }) => {
+    try {
+      if (validateForm(values)) {
+        setSubmitting(false);
+        await saveClient(values);
+        setNotification("Client saved successfully");
+        resetForm();
+        setTimeout(() => {
+          router.push("/admin");
+          setNotification("");
+        }, 2000);
+      }
+    } catch (error) {
+      // setNotification(error);
+      clearNotification();
+    }
+  };
+
   useEffect(() => {
     getWorks();
   }, []);
@@ -69,7 +144,7 @@ const ClientForm = () => {
               <div className="row mb-4">
                 <div className="col-lg-6 col-md-6">
                   <div className="blog-box p-4">
-                    {/* {errMessage && <div className="messages">{errMessage}</div>} */}
+                    {errMessage && <div className="messages">{errMessage}</div>}
                     <div className="controls blog-form">
                       <div className="form-group d-flex flex-column">
                         <label htmlFor="Name">Name</label>
@@ -140,12 +215,12 @@ const ClientForm = () => {
                             />
                           </div>
                           <div className="form-group d-flex flex-column">
-                            <label htmlFor="COnract Mail">Contact Mail</label>
+                            <label htmlFor="ContactMail">Contact Mail</label>
                             <Field
-                              type="text"
-                              id="form_mailPrimary"
+                              type="email"
+                              id="ContactMail"
                               name="contactMail"
-                              placeholder="Contact Mail"
+                              placeholder="johndoe@gmail.com"
                               required="required"
                               value={values.contactMail}
                             />
@@ -153,10 +228,10 @@ const ClientForm = () => {
                           <div className="form-group d-flex flex-column">
                             <label htmlFor="Secondary">Secondary Mail</label>
                             <Field
-                              type="text"
-                              id="form_mailPrimary"
+                              type="email"
+                              id="Secondary"
                               name="secondaryMail"
-                              placeholder="Secondary Mail"
+                              placeholder="doe34@gmail.com"
                               required="required"
                               value={values.secondaryMail}
                             />

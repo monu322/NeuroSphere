@@ -127,7 +127,11 @@ const BlogForm = () => {
       }),
     });
     const { message, error } = await response.json();
-    // !error ? setNotification(message) : setNotification(error);
+    if (error) {
+      setNotification(error);
+    } else {
+      setNotification(message);
+    }
     clearNotification();
   };
 
