@@ -1419,7 +1419,8 @@ body {
 [data-overlay-light] .container2 {
   position: relative;
   z-index: 2;
-  padding-top: 730px;
+  padding-top: 980px;
+  text-align: left;
 }
 
 [data-overlay-dark]:before,
@@ -6635,6 +6636,7 @@ footer .item .copy-right p a {
 }
 .blog-box {
   /* width: 95%; */
+  background-color: white !important;
   box-shadow: 0 0 6px 0 rgba(179, 179, 184, 0.5);
   border-radius: 4px;
 }
@@ -6934,4 +6936,37 @@ footer .item .copy-right p a {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #fff;
   color: transparent;
+}
+
+.wide-img {
+  margin: 60px 0px;
+}
+.status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #000;
+}
+.red {
+  background-color: rgb(241, 74, 74);
+}
+.green {
+  background-color: rgb(47, 192, 47);
+}
+.bg__admin {
+  background-color: #e7e9ec;
+}
+
+.mail .mail_body {
+  height: 55vh !important;
+}
+.rcpnt {
+  margin-right: 0.5rem !important;
+}
+.sub {
+  margin-right: 1.4rem !important;
+}
+.bdy {
+  margin-right: 2.7rem !important;
 }
