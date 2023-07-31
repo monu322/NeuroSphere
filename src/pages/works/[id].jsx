@@ -136,8 +136,8 @@ const Index = () => {
             }
           </div>
           <div className="row execution-row mb-80 pt-4">
-            <div className="col-lg-3 col-md-4 pt-4 mt-4">
-              <div className="htit sm-mb30 mt-4 ">
+            <div className="col-lg-3 col-md-4">
+              <div className="htit sm-mb30">
                 <h4>The Outcome</h4>
               </div>
             </div>

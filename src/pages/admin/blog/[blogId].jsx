@@ -15,6 +15,7 @@ const Index = () => {
     if (roleInfo === "user") router.push("/");
   }, []);
 
+  if (roleInfo === "") return null;
   return (
     <AdminLayout>
       <UpdateBlogForm id={blogId} />

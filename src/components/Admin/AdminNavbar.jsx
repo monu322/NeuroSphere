@@ -35,10 +35,10 @@ const AdminNavbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="/admin/openings" className="nav-align">
+            <Link href="/admin/clients" className="nav-align">
               <a>
                 <span className="icon pe-7s-portfolio"></span>
-                <span>Add Openings</span>
+                <span>Add Clients</span>
               </a>
             </Link>
           </li>

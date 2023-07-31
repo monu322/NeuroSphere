@@ -58,7 +58,7 @@ const handler = async (req, res) => {
   if (req.method === "GET") {
     try {
       const workCollection = collection(db, "works");
-      const q = query(workCollection, orderBy("date", "desc"));
+      const q = query(workCollection, orderBy("title"));
       const querySnapshot = await getDocs(q);
       const data = querySnapshot.docs.map((doc) => doc.data());
       return res.status(200).json({ data });

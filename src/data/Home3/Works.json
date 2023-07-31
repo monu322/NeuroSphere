@@ -103,7 +103,7 @@
       "testimonials": [
         {
           "id": 1,
-          "img": "/assets/img/works/2/client.jpg",
+          "img": "/assets/img/clients/1.jpg",
           "content": "Our partnership with NeuroSphere for AI consulting in developing a machine learning model to predict patient duration of stay has been invaluable. Their expertise in data analysis, model development, and seamless integration into our infrastructure has significantly improved resource allocation, patient care, and cost savings. We are impressed with their professionalism, collaboration, and the impactful outcomes delivered. Highly recommended!",
           "name": "Simon Lanceley",
           "details": "Director of Strategy, NHS Gloutershire"
@@ -243,9 +243,9 @@
       "testimonials": [
         {
           "id": 1,
-          "img": "/assets/img/clients/3.jpg",
+          "img": "/assets/img/clients/2.jpg",
           "content": "Working with NeuroSphere has been an absolute pleasure. Their team took our vision and turned it into a reality with their technical expertise and commitment to excellence. The ecommerce software ecosystem they developed for us has revolutionized our business, and we've seen a significant increase in customer satisfaction and sales. Their professionalism, communication, and attention to detail made the entire process seamless. We highly recommend NeuroSphere to anyone looking for top-notch software development services.",
-          "name": "John Smith",
+          "name": "Brash Behmanesh",
           "details": "CEO of VapeBot"
         }
       ]
@@ -324,10 +324,10 @@
       "testimonials": [
         {
           "id": 1,
-          "img": "/assets/img/clients/1.jpg",
+          "img": "/assets/img/clients/3.jpg",
           "content": "NeuroSphere's AI consulting revolutionized our business with accurate demand prediction, optimized inventory, and automated ordering, resulting in increased sales and satisfied customers. Highly recommended for exceptional skills and professionalism.",
-          "name": "Lufta Chen",
-          "details": "Head Of Sales, Hameley's London"
+          "name": "Darshan Mehta",
+          "details": "CEO of Reliance Brands"
         }
       ],
       "skills": [
@@ -425,10 +425,10 @@
       "testimonials": [
         {
           "id": 1,
-          "img": "/assets/img/clients/2.jpg",
+          "img": "/assets/img/clients/4.jpg",
           "content": "Working with NeuroSphere was an absolute pleasure. Their team demonstrated a deep understanding of our requirements and a strong commitment to delivering a high-quality solution. The cloud-based platform they developed exceeded our expectations, providing our customers with valuable insights into their HVAC cooling systems. The user-friendly interface and predictive analytics have enabled our clients to enhance system performance and reduce energy costs significantly. We highly recommend NeuroSphere for their technical expertise, professionalism, and exceptional service.",
-          "name": "InfaBytes",
-          "details": "HVAC System Provider"
+          "name": "Bala Krishna",
+          "details": "CEO & Director"
         }
       ],
       "skills": [
@@ -538,7 +538,7 @@
       "testimonials": [
         {
           "id": 1,
-          "img": "/assets/img/clients/1.jpg",
+          "img": "/assets/img/clients/5.jpg",
           "content": "NeuroSphere's exceptional support and expertise in website development resulted in a modern, user-friendly website for Mar Theophilus College. The implemented CMS made content management effortless, and ongoing maintenance ensured a seamless online experience. Highly recommended for organizations seeking digital solutions.",
           "name": "Dr. Benedict",
           "details": "Principal, Mar Theophilus College"
@@ -639,7 +639,7 @@
       "testimonials": [
         {
           "id": 1,
-          "img": "/assets/img/clients/1.jpg",
+          "img": "/assets/img/clients/6.jpg",
           "content": "NeuroSphere's expertise and exceptional app development have revolutionized our business, surpassing expectations and providing valuable insights, making them our trusted technology partner.",
           "name": "Sheikh Abdulsaud",
           "details": "CEO, EziClean Pvt Ltd, UAE"
@@ -752,7 +752,7 @@
       "testimonials": [
         {
           "id": 1,
-          "img": "/assets/img/clients/1.jpg",
+          "img": "/assets/img/clients/7.jpg",
           "content": "NeuroSphere transformed our brand image, creating a strong online presence. Their creative logo design and intuitive website exceeded expectations, leading to increased leads and conversions. Highly recommended for brand enhancement and digital leverage.",
           "name": "Renzel Holborn",
           "details": "CEO of Creed Real Estate London"
@@ -889,117 +889,10 @@
       "testimonials": [
         {
           "id": 1,
-          "img": "/assets/img/clients/1.jpg",
+          "img": "/assets/img/clients/8.jpg",
           "content": "The team at this company did an amazing job developing our mobile app. Their attention to detail and commitment to delivering a high-quality product was impressive. I highly recommend their app development services.",
-          "name": "Sheikh Abdulsaud",
-          "details": "CEO, EziClean Pvt Ltd, UAE"
-        }
-      ],
-      "skills": [
-        {
-          "id": 1,
-          "title": "Mobile App",
-          "subtitle": "Development",
-          "value": 90
-        },
-        {
-          "id": 2,
-          "title": "Web App",
-          "subtitle": "Development",
-          "value": 95
-        },
-        {
-          "id": 3,
-          "title": "UI/UX",
-          "subtitle": "Design",
-          "value": 85
-        }
-      ]
-    },
-    {
-      "id": 9,
-      "type": "ai",
-      "link": "https://www.thepeoplessupermarket.org/",
-      "img": "/assets/img/works/tps.jpg",
-      "wideImg": "/assets/img/works/tps-wide.jpg",
-      "title": "The People's Supermarket",
-      "description": "Your Ultimate Platform for Buying and Selling Pets and Pet Supplies! Released as Android, iOS and Web Apps.",
-      "tags": ["Order Prediction", "Process Automation"],
-      "objective": "The primary objective of the Agent Pet project is to create a comprehensive platform that facilitates the buying and selling of pets and pet supplies, catering to the needs of both pet enthusiasts and pet suppliers.",
-      "servicesIntro": "To achieve the objectives of the Agent Pet project, the development process involved several stages, including mobile and web app development, testing, and launch.",
-      "services": [
-        {
-          "id": 1,
-          "iconClass": "pe-7s-way",
-          "title": "Planning",
-          "description": "Conducted thorough market research and analysis to understand user needs, market trends, and competition."
-        },
-        {
-          "id": 2,
-          "iconClass": "pe-7s-magic-wand",
-          "title": "UI/UX",
-          "description": "Ensured seamless navigation, easy search and filtering options, and engaging user interactions."
-        },
-        {
-          "id": 3,
-          "iconClass": "pe-7s-plugin",
-          "title": "Development",
-          "description": "Developed the Android and iOS apps using appropriate programming languages, frameworks, and tools such as Java/Kotlin for Android and Swift for iOS"
-        },
-        {
-          "id": 4,
-          "iconClass": "pe-7s-look",
-          "title": "Testing and QA",
-          "description": "Tested the compatibility and responsiveness of the app and website on various devices, browsers, and operating systems."
-        },
-        {
-          "id": 5,
-          "iconClass": "pe-7s-rocket",
-          "title": "Deployment",
-          "description": "Launched the mobile apps and website to the public, making them available for download and use."
-        },
-        {
-          "id": 6,
-          "iconClass": "pe-7s-like2",
-          "title": "Maintenance",
-          "description": "Conducted ongoing maintenance, security updates, and optimizations to ensure a smooth and secure user experience."
-        }
-      ],
-      "outcomeText": "The collaboration between our agency and the NHS UK resulted in the successful development and deployment of an ML model to predict patient duration of stay. The key outcomes achieved were as follows:",
-      "outcomes": [
-        {
-          "id": 1,
-          "iconClass": "pe-7s-albums",
-          "title": "Enhanced Resource Allocation",
-          "description": "By accurately predicting patient lengths of stay, the NHS was able to optimize resource allocation, including bed management, staff scheduling, and resource planning. This led to improved operational efficiency, reduced wait times, and better utilization of healthcare resources."
-        },
-        {
-          "id": 2,
-          "iconClass": "pe-7s-phone",
-          "title": "Improved Patient Care",
-          "description": "The website is developed with a responsive design approach, ensuring that it adapts and functions well on various screen sizes and resolutions. Users can access the platform conveniently from desktops, laptops, tablets, and smartphones, without compromising the user experience."
-        },
-        {
-          "id": 3,
-          "iconClass": "pe-7s-cloud-upload",
-          "title": "Cost Savings",
-          "description": "The project involves the implementation of a robust backend infrastructure to handle various functionalities, such as user registration, pet listings, product listings, messaging, and payment processing. The backend systems are designed to support high traffic, ensuring scalability and reliability."
-        },
-        {
-          "id": 4,
-          "iconClass": "pe-7s-server",
-          "title": "Scalable Solution",
-          "description": " Efficient database management is implemented to store and retrieve data related to pets, users, products, and transactions. The database architecture is designed to handle large volumes of data while maintaining data integrity and security."
-        }
-      ],
-      "testimonialShortText": "",
-      "testimonials": [
-        {
-          "id": 1,
-          "img": "/assets/img/clients/1.jpg",
-          "content": "The team at this company did an amazing job developing our mobile app. Their attention to detail and commitment to delivering a high-quality product was impressive. I highly recommend their app development services.",
-          "name": "Sheikh Abdulsaud",
-          "details": "CEO, EziClean Pvt Ltd, UAE"
+          "name": "Varnit Mishra",
+          "details": "Founder, AgentPet"
         }
       ],
       "skills": [

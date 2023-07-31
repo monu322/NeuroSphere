@@ -8,10 +8,10 @@ import PreviewImage from "../../PreviewImage";
 const BlogForm = () => {
   const [errMessage, setErrMessage] = useState(null);
   const [notification, setNotification] = useState("");
-  const [heading, setHeading] = useState("");
-  const [paragraphs, setParagraphs] = useState("");
-  const [paragraphsImg, setParagraphsImg] = useState("");
-  const [postContent, setPostContent] = useState([]);
+  const [isPublished, setIsPublished] = useState(false);
+  const [postContent, setPostContent] = useState([
+    { heading: "", paragraphs: "", paragraphsImg: "" },
+  ]);
 
   const router = useRouter();
   const initialValues = {
@@ -59,35 +59,29 @@ const BlogForm = () => {
     }, 2000);
   };
 
-  const handleHeadingChange = (event) => {
-    setHeading(event.target.value);
-  };
-  const handleParagraphsChange = (event) => {
-    setParagraphs(event.target.value);
-  };
-
-  const addPostContent = async () => {
-    let imageUrl = "";
-    if (paragraphsImg) {
-      const storageRef = ref(
-        storage,
-        `blogImages/${paragraphsImg.name + paragraphsImg.size}`
-      );
-      await uploadBytes(storageRef, paragraphsImg);
-      imageUrl = await getDownloadURL(storageRef);
-    }
-    const postData = {
-      heading,
-      paragraphs: paragraphs.split("."),
-      paragraphsImg: imageUrl,
-    };
-    setPostContent([...postContent, postData]);
-    setHeading("");
-    setParagraphs("");
-    setParagraphsImg("");
+  const handlePostContentChange = (index, field, value) => {
+    let postData = [...postContent];
+    postData[index][field] = value;
+    setPostContent(postData);
   };
 
-  const createBlog = async (values, postContent) => {
+  const handleImageUpload = async (index, event) => {
+    const file = event.target.files[0];
+    const storageRef = ref(storage, `blogImages/${file.name + file.size}`);
+    await uploadBytes(storageRef, file);
+    const imageUrl = await getDownloadURL(storageRef);
+    handlePostContentChange(index, "paragraphsImg", imageUrl);
+  };
+
+  const addPostContent = () => {
+    console.log("clicked");
+    const newPostContent = { heading: "", paragraphs: "", paragraphsImg: "" };
+
+    setPostContent([...postContent, newPostContent]);
+    console.log(postContent);
+  };
+
+  const publishBlog = async (values, postContent) => {
     const storageRef = ref(
       storage,
       `blogImages/${values.img.name + values.img.size}`
@@ -103,10 +97,37 @@ const BlogForm = () => {
         values,
         image,
         postContent,
+        isPublished,
       }),
     });
     const { message, error } = await response.json();
     !error ? setNotification(message) : setNotification(error);
+    clearNotification();
+  };
+  const saveBlog = async (values, postContent) => {
+    let image = "";
+    if (values.img) {
+      const storageRef = ref(
+        storage,
+        `blogImages/${values.img.name + values.img.size}`
+      );
+      await uploadBytes(storageRef, values.img);
+      image = await getDownloadURL(storageRef);
+    }
+    const response = await fetch("/api/Blog", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        values,
+        image,
+        postContent,
+        isPublished,
+      }),
+    });
+    const { message, error } = await response.json();
+    // !error ? setNotification(message) : setNotification(error);
     clearNotification();
   };
 
@@ -115,7 +136,14 @@ const BlogForm = () => {
       if (validateForm(values)) {
         setErrMessage(null);
         setSubmitting(false);
-        await createBlog(values, postContent);
+        if (isPublished) {
+          await publishBlog(values, postContent);
+          setNotification("Blog published");
+        } else {
+          await saveBlog(values, postContent);
+          setNotification("Blog saved as draft");
+        }
+
         resetForm();
         setTimeout(() => {
           router.push("/admin");
@@ -128,19 +156,36 @@ const BlogForm = () => {
     }
   };
 
-  const isButtonDisabled = !heading;
+  const isButtonDisabled = !postContent;
   return (
     <>
       <div className="container mt-2">
         {notification && <div className="notification">{notification}</div>}
         <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-          {({ values, isSubmitting, setFieldValue }) => (
+          {({ values, isSubmitting, setFieldValue, submitForm }) => (
             <Form>
               <div className="d-flex justify-content-between">
                 <div className="text-dark mb-3 blg-head">Create Blog</div>
                 <div>
-                  <button type="submit" className="btn-blog">
-                    <span>Create</span>
+                  <button
+                    type="button"
+                    className="btn-blog mr-3"
+                    onClick={() => {
+                      setIsPublished(false);
+                      submitForm();
+                    }}
+                  >
+                    <span>Save</span>
+                  </button>
+                  <button
+                    type="button"
+                    className="btn-blog"
+                    onClick={() => {
+                      setIsPublished(true);
+                      submitForm();
+                    }}
+                  >
+                    <span>Publish</span>
                   </button>
                 </div>
               </div>
@@ -184,61 +229,78 @@ const BlogForm = () => {
 
                       <div className="form-group d-flex flex-column">
                         <h4 className="text-dark">Post Content</h4>
-                        <div className="controls blog-form">
-                          <div className="form-group d-flex flex-column">
-                            <label htmlFor="heading">Heading</label>
-                            <input
-                              id="heading"
-                              type="text"
-                              value={heading}
-                              onChange={handleHeadingChange}
-                              placeholder="Post Heading"
-                              className="border border-secondary"
-                            />
-                          </div>
+                        {postContent.map((post, index) => {
+                          return (
+                            <div key={index} className="controls blog-form">
+                              <div className="form-group d-flex flex-column">
+                                <label htmlFor="heading">
+                                  Heading {index + 1}
+                                </label>
+                                <input
+                                  id="heading"
+                                  type="text"
+                                  value={post.heading}
+                                  onChange={(event) =>
+                                    handlePostContentChange(
+                                      index,
+                                      "heading",
+                                      event.target.value
+                                    )
+                                  }
+                                  placeholder="Post Heading"
+                                  className="border border-secondary"
+                                />
+                              </div>
 
-                          <div className="form-group d-flex flex-column">
-                            <label htmlFor="paragraphs">Paragraphs</label>
-                            <textarea
-                              id="paragraphs"
-                              value={paragraphs}
-                              onChange={handleParagraphsChange}
-                              placeholder="Post Paragraphs"
-                              className="border border-secondary post_para"
-                            />
-                          </div>
-                          <div className="form-group d-flex flex-column">
-                            {/* {paragraphsImg && (
-                              <PreviewImage imgUrl={paragraphsImg} />
-                            )} */}
-                            {!paragraphsImg ? (
-                              <label htmlFor="Tag">Add Paragrapgh Image</label>
-                            ) : (
-                              <p>Paragraph Image</p>
-                            )}
-                            <input
-                              type="file"
-                              accept="image/*"
-                              onChange={(event) => {
-                                setParagraphsImg(event.target.files[0]);
-                              }}
-                            />
-                          </div>
-
-                          <button
-                            onClick={addPostContent}
-                            type="button"
-                            className="btn_post-content"
-                            disabled={isButtonDisabled}
-                          >
-                            Add
-                          </button>
-                        </div>
+                              <div className="form-group d-flex flex-column">
+                                <label htmlFor="paragraphs">
+                                  Paragraphs {index + 1}
+                                </label>
+                                <textarea
+                                  id="paragraphs"
+                                  value={post.paragraphs}
+                                  onChange={(event) =>
+                                    handlePostContentChange(
+                                      index,
+                                      "paragraphs",
+                                      event.target.value
+                                    )
+                                  }
+                                  placeholder="Post Paragraphs"
+                                  className="border border-secondary post_para"
+                                />
+                              </div>
+                              <div className="form-group d-flex flex-column">
+                                {post.paragraphsImg && (
+                                  <PreviewImage imgUrl={post.paragraphsImg} />
+                                )}
+                                <label htmlFor="Tag">
+                                  Add Paragrapgh Image
+                                </label>
+                                <input
+                                  type="file"
+                                  accept="image/*"
+                                  onChange={(event) => {
+                                    handleImageUpload(index, event);
+                                  }}
+                                />
+                              </div>
+                            </div>
+                          );
+                        })}
+                        <button
+                          onClick={addPostContent}
+                          type="button"
+                          className="btn_post-content"
+                          disabled={isButtonDisabled}
+                        >
+                          Add
+                        </button>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-4 col-md-3 w-25">
+                <div className="col-lg-5 col-md-4 w-25">
                   <div className="row">
                     <div className="blog-box p-4 w-100 mb-3">
                       {errMessage && (
@@ -281,7 +343,7 @@ const BlogForm = () => {
 
                       <div className="controls blog-form">
                         <div className="form-group d-flex flex-column">
-                          <label htmlFor="posterName">Poster Name</label>
+                          <label htmlFor="posterName">Author Name</label>
                           <Field
                             id="posterName"
                             type="text"

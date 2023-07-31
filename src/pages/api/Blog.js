@@ -13,7 +13,7 @@ import db from "../../config/fire-config";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
-    const { image, postContent } = req.body;
+    const { image, postContent, isPublished } = req.body;
     const { title, postDescriptions, tags, posterName, postMeta } =
       req.body.values;
 
@@ -28,6 +28,7 @@ const handler = async (req, res) => {
         img: image,
         posterName,
         // posterAvatar,
+        isPublished,
         postMeta,
         postedDate: serverTimestamp(),
       });
@@ -42,10 +43,10 @@ const handler = async (req, res) => {
     }
   }
   if (req.method === "PATCH") {
-    const { image, postContent, blogId } = req.body;
+    const { image, postContent, blogId, isPublished } = req.body;
     const { title, postDescriptions, tags, posterName, postMeta } =
       req.body.values;
-
+    console.log("From the backend" + isPublished);
     try {
       const Tags = tags.split(",");
       const ref = doc(db, "blogs", blogId);
@@ -56,6 +57,7 @@ const handler = async (req, res) => {
         tags: Tags,
         img: image,
         posterName,
+        isPublished: true,
         // posterAvatar,
         postMeta,
         postedDate: serverTimestamp(),

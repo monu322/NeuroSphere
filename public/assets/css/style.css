@@ -6756,7 +6756,7 @@ footer .item .copy-right p a {
   border-radius: 4px;
   /* background-color: #8ea9e5; */
   background-color: #222733;
-  padding: 10px 20px;
+  padding: 8px 16px;
   outline: none;
   color: white;
   cursor: pointer;
@@ -6926,6 +6926,9 @@ footer .item .copy-right p a {
   padding: 90px 0px !important;
 }
 
+.client {
+  height: 124px !important;
+}
 .work-title {
   font-size: 100px;
   font-weight: 900;
