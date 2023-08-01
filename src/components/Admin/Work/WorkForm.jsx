@@ -8,19 +8,24 @@ import { useRouter } from "next/router";
 const WorkForm = () => {
   const [notification, setNotification] = useState("");
   const [errMessage, setErrMessage] = useState(null);
-
-  // Initialize state for all services as an array of objects
   const [services, setServices] = useState([]);
+  const [outcomes, setOutcomes] = useState([]);
 
-  // Object to hold the input values for the new service
+  const router = useRouter();
+
   const [newService, setNewService] = useState({
     serviceTitle: "",
     serviceDecription: "",
     serviceIconClass: "",
   });
 
-  // Function to handle changes in the input fields
-  const handleInputChange = (e) => {
+  const [newOutcome, setNewOutcome] = useState({
+    outcomeTitle: "",
+    outcomeDescription: "",
+    outcomeIconClass: "",
+  });
+
+  const handleServiceChange = (e) => {
     const { name, value } = e.target;
     setNewService({
       ...newService,
@@ -28,12 +33,16 @@ const WorkForm = () => {
     });
   };
 
-  // Function to handle the click event and add a new service to the state
-  const handleAdd = () => {
-    // Update the state with the new service
-    setServices([...services, newService]);
+  const handleOutcomeChange = (e) => {
+    const { name, value } = e.target;
+    setNewOutcome({
+      ...newOutcome,
+      [name]: value,
+    });
+  };
 
-    // Reset the input values to empty after adding
+  const handleAddService = () => {
+    setServices([...services, newService]);
     setNewService({
       serviceTitle: "",
       serviceDecription: "",
@@ -42,11 +51,18 @@ const WorkForm = () => {
     console.log(JSON.stringify(services));
   };
 
-  const router = useRouter();
+  const handleAddOutcome = () => {
+    setOutcomes([...outcomes, newOutcome]);
+    setNewOutcome({
+      outcomeTitle: "",
+      outcomeDescription: "",
+      outcomeIconClass: "",
+    });
+    console.log(JSON.stringify(outcomes));
+  };
 
   const initialValues = {
     img: "",
-    // type: "",
     link: "",
     wideImg: "",
     title: "",
@@ -57,11 +73,11 @@ const WorkForm = () => {
     services: [],
     outcomeText: "",
     outcomes: [],
+    published: true,
   };
 
   const validateForm = (formValues) => {
     if (
-      // !formValues.type ||
       !formValues.title ||
       !formValues.description ||
       !formValues.objective ||
@@ -73,40 +89,38 @@ const WorkForm = () => {
       setErrMessage("Please fill in all fields");
       return false;
     }
-    // if (formValues.type.length < 5) {
-    //   setErrMessage("Name must be at least 5 characters");
-    //   return false;
-    // }
+
     if (formValues.title.length < 5) {
+      console.log("Length + " + formValues.title.length);
       setErrMessage("Name must be at least 5 characters");
       return false;
     }
     if (formValues.description.length < 10) {
-      setErrMessage("Message must be at least 10 characters");
+      setErrMessage("description must be at least 10 characters");
       return false;
     }
     if (formValues.tags.length < 2) {
-      setErrMessage("Name must be at least 5 characters");
+      setErrMessage("tags must be at least 5 characters");
       return false;
     }
     if (formValues.objective.length < 10) {
-      setErrMessage("Message must be at least 10 characters");
+      setErrMessage("Objective must be at least 10 characters");
       return false;
     }
     if (formValues.servicesIntro.length < 10) {
-      setErrMessage("Message must be at least 10 characters");
+      setErrMessage("Services Intro must be at least 10 characters");
       return false;
     }
-    if (formValues.services.length < 10) {
-      setErrMessage("Message must be at least 10 characters");
+    if (formValues.services.length > 2) {
+      setErrMessage("Services must be at least 10 characters");
       return false;
     }
     if (formValues.outcomeText.length < 10) {
-      setErrMessage("Message must be at least 10 characters");
+      setErrMessage("Outcome text must be at least 10 characters");
       return false;
     }
-    if (formValues.outcomes.length < 10) {
-      setErrMessage("Message must be at least 10 characters");
+    if (formValues.outcomes.length > 2) {
+      setErrMessage("Outcome must be at least 10 characters");
       return false;
     }
     if (!formValues.img) {
@@ -126,6 +140,7 @@ const WorkForm = () => {
     }, 2000);
   };
   const addWork = async (values) => {
+    console.log("Form " + JSON.stringify(values));
     const ImgStorageRef = ref(
       storage,
       `workImages/img${values.img.name + values.img.size}`
@@ -168,23 +183,38 @@ const WorkForm = () => {
     }
   };
 
+  const handleSave = async (values) => {
+    try {
+      values.published = false;
+      values.services = services;
+      values.outcomes = outcomes;
+      await addWork(values);
+
+      setTimeout(() => {
+        router.push("/admin/works");
+        setNotification("");
+      }, 2000);
+    } catch (error) {
+      setNotification(error);
+      clearNotification();
+    }
+  };
+
   return (
     <>
       <div className="mt-2 container">
         {notification && <div className="notification">{notification}</div>}
+        {errMessage && <div className="messages">{errMessage}</div>}
+        <div className="d-flex justify-content-center flex-column">
+          <div className="text-dark mb-3 blg-head mt-4 mb-4">Add New Work</div>
+        </div>
+
         <Formik const initialValues={initialValues} onSubmit={handleSubmit}>
           {({ values, setFieldValue }) => (
             <Form>
-              <div className="d-flex justify-content-center flex-column">
-                <div className="text-dark mb-3 blg-head mt-4 mb-4">
-                  Add New Work
-                </div>
-              </div>
-
               <div className="mb-4">
-                <div className="col-lg-6 col-md-6 mb-4">
+                <div className="col-lg-12 col-md-12 mb-4">
                   <div className="blog-box p-4">
-                    {errMessage && <div className="messages">{errMessage}</div>}
                     <div className="controls blog-form">
                       {/* <div className="form-group d-flex flex-column">
                         <label htmlFor="Type">Type</label>
@@ -376,7 +406,7 @@ const WorkForm = () => {
                           name="serviceTitle"
                           value={newService.serviceTitle}
                           // onChange={handleHeadingChange}
-                          onChange={handleInputChange}
+                          onChange={handleServiceChange}
                           placeholder="Post Heading"
                           className="border border-secondary"
                         />
@@ -389,7 +419,7 @@ const WorkForm = () => {
                           name="serviceDecription"
                           value={newService.serviceDecription}
                           // onChange={handleHeadingChange}
-                          onChange={handleInputChange}
+                          onChange={handleServiceChange}
                           placeholder="Post Heading"
                           className="border border-secondary"
                         />
@@ -402,14 +432,14 @@ const WorkForm = () => {
                           name="serviceIconClass"
                           value={newService.serviceIconClass}
                           // onChange={handleHeadingChange}
-                          onChange={handleInputChange}
+                          onChange={handleServiceChange}
                           placeholder="Post Heading"
                           className="border border-secondary"
                         />
                       </div>
                       <button
                         // onClick={addPostContent}
-                        onClick={handleAdd}
+                        onClick={handleAddService}
                         type="button"
                         className="btn_post-content"
                         // disabled={isButtonDisabled}
@@ -440,8 +470,10 @@ const WorkForm = () => {
                         <input
                           id="heading"
                           type="text"
+                          name="outcomeTitle"
                           // value={heading}
                           // onChange={handleHeadingChange}
+                          onChange={handleOutcomeChange}
                           placeholder="Post Heading"
                           className="border border-secondary"
                         />
@@ -451,8 +483,10 @@ const WorkForm = () => {
                         <input
                           id="heading"
                           type="text"
+                          name="outcomeDescription"
                           // value={heading}
                           // onChange={handleHeadingChange}
+                          onChange={handleOutcomeChange}
                           placeholder="Post Heading"
                           className="border border-secondary"
                         />
@@ -462,14 +496,17 @@ const WorkForm = () => {
                         <input
                           id="heading"
                           type="text"
+                          name="outcomeIconClass"
                           // value={heading}
                           // onChange={handleHeadingChange}
+                          onChange={handleOutcomeChange}
                           placeholder="Post Heading"
                           className="border border-secondary"
                         />
                       </div>
                       <button
                         // onClick={addPostContent}
+                        onClick={handleAddOutcome}
                         type="button"
                         className="btn_post-content"
                         // disabled={isButtonDisabled}
@@ -481,7 +518,7 @@ const WorkForm = () => {
                 </div>
               </div>
               <div className="mb-4">
-                <div className="col-lg-6 col-md-6">
+                {/* <div className="col-lg-6 col-md-6">
                   <div className="controls blog-form">
                     <div className="blog-box p-4">
                       <div className="form-group d-flex flex-column">
@@ -527,11 +564,15 @@ const WorkForm = () => {
                       </button>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="d-flex ml-3 mt-4">
                   <div>
-                    <button type="submit" className="btn-blog mr-4">
+                    <button
+                      type="button"
+                      onClick={() => handleSave(values)}
+                      className="btn-blog mr-4"
+                    >
                       <span>Save</span>
                     </button>
                   </div>

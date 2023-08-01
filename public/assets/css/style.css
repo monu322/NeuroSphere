@@ -6860,16 +6860,35 @@ footer .item .copy-right p a {
 .control_btn:focus {
   outline: none;
 }
-.notification {
+.messages {
   color: black;
   background-color: rgb(119, 224, 119);
   text-align: center;
-  /* display: inline-block; */
   padding: 8px 20px;
   border-radius: 3px;
   width: 25%;
   margin: auto;
   font-family: "poppins", sans-serif;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+}
+.notification {
+  color: black;
+  background-color: rgb(119, 224, 119);
+  text-align: center;
+  padding: 8px 20px;
+  border-radius: 3px;
+  width: 25%;
+  margin: auto;
+  font-family: "poppins", sans-serif;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
 }
 
 .logout {
