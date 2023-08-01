@@ -83,7 +83,7 @@ const Index = () => {
         </div>
 
       </section>
-      <section className="intro-section section-padding pb-0">
+      <section className="intro-section section-padding pb-0 work-intro-section">
       <img className="wide-img" src={work?.wideImg} alt="image" />
         <div className="container">
           <div className="row">
