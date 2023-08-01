@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Client from "./Client/Client";
+import ClientMailPreview from "../ClientMailPreview";
 
 const Home = () => {
   const [notification, setNotification] = useState("");
@@ -8,6 +10,7 @@ const Home = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [isPublished, setIsPublished] = useState(null);
   const [workData, setWorkData] = useState([]);
+  const [clientData, setClientData] = useState([]);
 
   const clearNotification = () => {
     setTimeout(() => {
@@ -46,6 +49,18 @@ const Home = () => {
   //   }
   // };
 
+  const getClientData = async () => {
+    const response = await fetch("/api/client/client", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const { data, error } = await response.json();
+    data ? setClientData(data) : setNotification(error);
+    clearNotification();
+  };
+
   const handleDelete = async (id) => {
     const response = await fetch("/api/Blog", {
       method: "DELETE",
@@ -65,8 +80,8 @@ const Home = () => {
     // getWorkData();
   }, []);
   useEffect(() => {
-    console.log(isPublished);
-  }, [isPublished]);
+    getClientData();
+  }, [clientData]);
 
   return (
     <>
@@ -77,7 +92,7 @@ const Home = () => {
             <div className="col-lg-10 col-md-8 admin-home">
               <h5>Saved Blogs</h5>
 
-              <div>
+              <div className="bg-white">
                 <table className="table__style">
                   <thead>
                     <tr>
@@ -122,7 +137,7 @@ const Home = () => {
           <div className="col-lg-10 col-md-8 admin-home">
             <h5>Recently Published Blogs</h5>
 
-            <div>
+            <div className="bg-white">
               <table className="table__style">
                 <thead>
                   <tr>
@@ -145,9 +160,7 @@ const Home = () => {
                         <td>{blog.posterName}</td>
                         <td>
                           <Link href={`/admin/blog/${blog.id}`}>
-                            <a>
-                              <button className="control_btn pen pe-7s-pen mr-3"></button>
-                            </a>
+                            <button className="control_btn pen pe-7s-pen mr-3"></button>
                           </Link>
                           <button
                             className="control_btn trash pe-7s-trash"
@@ -162,6 +175,7 @@ const Home = () => {
             </div>
           </div>
         </div>
+        <Client data={clientData} />
       </div>
     </>
   );

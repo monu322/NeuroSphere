@@ -209,3 +209,13 @@
     top: -50px;
   }
 }
+
+.visit-proj-link {
+  margin-top: 30px;
+}
+
+@media screen and (min-width: 800px) {
+  .work-intro-section {
+    padding-top: 0px;
+  }
+}
