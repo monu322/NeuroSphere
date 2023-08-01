@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Client from "./Client/Client";
 import ClientMailPreview from "../ClientMailPreview";
+import ConfirmBox from "./ConfirmBox";
 
 const Home = () => {
   const [notification, setNotification] = useState("");
@@ -11,6 +12,8 @@ const Home = () => {
   const [isPublished, setIsPublished] = useState(null);
   const [workData, setWorkData] = useState([]);
   const [clientData, setClientData] = useState([]);
+  const [showConfirmBox, setShowConfirmBox] = useState(false);
+  const [deleteId, setDeleteId] = useState("");
 
   const clearNotification = () => {
     setTimeout(() => {
@@ -27,8 +30,8 @@ const Home = () => {
     });
     const { data, error } = await response.json();
     console.log(data);
-    setFilteredData(data.filter((d) => d.isPublished === false));
-    setPublishedBlog(data.filter((d) => d.isPublished === true));
+    setFilteredData(data?.filter((d) => d.isPublished === false));
+    setPublishedBlog(data?.filter((d) => d.isPublished === true));
     data ? setBlogData(data) : setNotification(error);
     clearNotification();
   };
@@ -50,24 +53,32 @@ const Home = () => {
   // };
 
   const getClientData = async () => {
-    const response = await fetch("/api/client/client", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const { data, error } = await response.json();
-    data ? setClientData(data) : setNotification(error);
-    clearNotification();
+    try {
+      const response = await fetch("/api/client/client", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const { data, error } = await response.json();
+      if (data) {
+        setClientData(data);
+      } else {
+        setNotification(error);
+        clearNotification();
+      }
+    } catch (error) {
+      console.log("Error occured : ", error);
+    }
   };
 
-  const handleDelete = async (id) => {
+  const handleOnDeleteConfirm = async () => {
     const response = await fetch("/api/Blog", {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({ id }),
+      body: JSON.stringify({ id: deleteId }),
     });
     const { message, error } = await response.json();
     error ? setNotification(error) : setNotification(message);
@@ -75,19 +86,24 @@ const Home = () => {
     getBlogData();
   };
 
-  useEffect(() => {
-    getBlogData();
-    // getWorkData();
-  }, []);
+  const handleDelete = (id) => {
+    setShowConfirmBox(true);
+    setDeleteId(id);
+  };
+
   useEffect(() => {
     getClientData();
   }, [clientData]);
 
+  useEffect(() => {
+    getBlogData();
+    // getWorkData();
+  }, []);
   return (
     <>
       <div className="container mt-4">
         {notification && <div className="notification">{notification}</div>}
-        {filteredData[0]?.isPublished === false && (
+        {filteredData && filteredData[0]?.isPublished === false && (
           <div className="row text-dark">
             <div className="col-lg-10 col-md-8 admin-home">
               <h5>Saved Blogs</h5>
@@ -177,6 +193,30 @@ const Home = () => {
         </div>
         <Client data={clientData} />
       </div>
+      {showConfirmBox && (
+        <div>
+          <div className="confirm-container">
+            <div className="confirmation-text mt-4">
+              Are you sure you want to delete this ?
+            </div>
+            <div className="btn__container">
+              <buttoon
+                className="btn btn-secondary"
+                onClick={() => setShowConfirmBox(false)}
+              >
+                Cancel
+              </buttoon>
+              <buttoon
+                className="btn btn-danger"
+                onClick={handleOnDeleteConfirm}
+              >
+                Delete
+              </buttoon>
+            </div>
+          </div>
+          <div className="confirm_bg"></div>
+        </div>
+      )}
     </>
   );
 };

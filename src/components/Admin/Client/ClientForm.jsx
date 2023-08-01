@@ -60,6 +60,7 @@ const ClientForm = () => {
     contactDesignation: "",
     contactMail: "",
     secondaryMail: "",
+    recentAchievements: "",
     status: {
       firstMail: false,
       secondMail: false,
@@ -237,6 +238,28 @@ const ClientForm = () => {
                             />
                           </div>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="row mb-4">
+                <div className="col-lg-12 col-md-11">
+                  <div className="controls blog-form">
+                    <div className="blog-box p-4">
+                      <div className="form-group d-flex flex-column">
+                        <label htmlFor="Achievement">
+                          Recent Business Achievements
+                        </label>
+                        <Field
+                          as="textarea"
+                          type="email"
+                          id="Achievement"
+                          name="recentAchievements"
+                          placeholder="Recently achieved"
+                          required="required"
+                          value={values.recentAchievements}
+                        />
                       </div>
                     </div>
                   </div>

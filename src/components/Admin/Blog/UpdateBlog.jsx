@@ -106,8 +106,9 @@ const UpdateBlogForm = ({ id }) => {
       }),
     });
     const { message, error } = await response.json();
-    !error ? setNotification(message) : setErrMessage(error);
+    !error ? setNotification(message) : setNotification(error);
     clearNotification();
+    router.push("/admin");
   };
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
@@ -258,8 +259,8 @@ const UpdateBlogForm = ({ id }) => {
                               </div>
                               <div className="form-group d-flex flex-column">
                                 {/* {paragraphsImg && (
-                              <PreviewImage imgUrl={paragraphsImg} />
-                            )} */}
+                                  <PreviewImage imgUrl={paragraphsImg} />
+                                )} */}
                                 <label htmlFor="Tag">
                                   Add Paragrapgh Image
                                 </label>
