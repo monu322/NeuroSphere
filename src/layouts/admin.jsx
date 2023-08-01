@@ -32,7 +32,7 @@ const AdminLayout = ({ children, footerClass }) => {
 
       <div className="d-flex">
         <AdminNavbar />
-        <div className="main-content w-100 bg-white">
+        <div className="main-content w-100 bg__admin">
           <Controls />
           {children}
         </div>
