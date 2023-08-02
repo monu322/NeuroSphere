@@ -7,14 +7,15 @@ import {
   query,
   serverTimestamp,
   updateDoc,
+  deleteDoc
 } from "firebase/firestore";
 import db from "../../config/fire-config";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
-    const { imageURL, wideImageURL } = req.body;
+    const { imageURL, wideImageURL ,serviceImgUrl,testimonialImgUrl,outcomeImgUrl,} = req.body;
     const {
-      type,
+      // type,
       title,
       description,
       tags,
@@ -29,7 +30,7 @@ const handler = async (req, res) => {
       const Tags = tags.split(",");
       const workCollection = collection(db, "works");
       const result = await addDoc(workCollection, {
-        type,
+        // type,
         title,
         description,
         tags: Tags,
@@ -41,6 +42,9 @@ const handler = async (req, res) => {
         outcomes,
         img: imageURL,
         wideImg: wideImageURL,
+        testimonialImg: testimonialImgUrl,
+        serviceImg: serviceImgUrl,
+        outcomeImg: outcomeImgUrl,
         date: serverTimestamp(),
       });
       const docRef = doc(db, "works", result.id);
@@ -65,6 +69,24 @@ const handler = async (req, res) => {
       return res.status(500).json({ error });
     }
   }
-};
+    
+  if (req.method === "DELETE") {
+    try {
+      const { id } = req.body;
+      if (!id) {
+        return res.status(400).json({ error: "Document ID not provided." });
+      }
+
+      await deleteDoc(doc(db, "works", id));
+
+      return res.status(200).json({ message: "Document deleted successfully." });
+    } catch (error) {
+      console.error("Error while deleting the document:", error);
+      return res.status(500).json({ error: "An error occurred while deleting the document." });
+    }
+  }
+}
+
+
 
 export default handler;
