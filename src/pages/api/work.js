@@ -13,7 +13,7 @@ import db from "../../config/fire-config";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
-    const { imageURL, wideImageURL } = req.body;
+    const { imageURL, wideImageURL ,serviceImgUrl,testimonialImgUrl,outcomeImgUrl,} = req.body;
     const {
       // type,
       title,
@@ -42,6 +42,9 @@ const handler = async (req, res) => {
         outcomes,
         img: imageURL,
         wideImg: wideImageURL,
+        testimonialImg: testimonialImgUrl,
+        serviceImg: serviceImgUrl,
+        outcomeImg: outcomeImgUrl,
         date: serverTimestamp(),
       });
       const docRef = doc(db, "works", result.id);

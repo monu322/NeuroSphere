@@ -70,67 +70,76 @@ const WorkForm = () => {
     tags: "",
     objective: "",
     servicesIntro: "",
+    serviceImg: "",
     services: [],
     outcomeText: "",
+    outcomeImg: "",
     outcomes: [],
     published: true,
   };
 
   const validateForm = (formValues) => {
-    if (
-      !formValues.title ||
-      !formValues.description ||
-      !formValues.objective ||
-      !formValues.servicesIntro ||
-      !formValues.services ||
-      !formValues.outcomeText ||
-      !formValues.outcomes
-    ) {
-      setErrMessage("Please fill in all fields");
-      return false;
+    // Required field validation
+    const requiredFields = [
+      "title",
+      "description",
+      "objective",
+      "servicesIntro",
+      "outcomeText",
+      "img",
+      "wideImg",
+    ];
+
+    for (const field of requiredFields) {
+      if (!formValues[field]) {
+        setErrMessage("Please fill in all fields");
+        return false;
+      }
     }
 
+    // Field length validation
     if (formValues.title.length < 5) {
-      console.log("Length + " + formValues.title.length);
       setErrMessage("Name must be at least 5 characters");
       return false;
     }
+
     if (formValues.description.length < 10) {
-      setErrMessage("description must be at least 10 characters");
+      setErrMessage("Description must be at least 10 characters");
       return false;
     }
-    if (formValues.tags.length < 2) {
-      setErrMessage("tags must be at least 5 characters");
-      return false;
-    }
-    if (formValues.objective.length < 10) {
-      setErrMessage("Objective must be at least 10 characters");
-      return false;
-    }
+
     if (formValues.servicesIntro.length < 10) {
       setErrMessage("Services Intro must be at least 10 characters");
       return false;
     }
-    if (formValues.services.length > 2) {
-      setErrMessage("Services must be at least 10 characters");
-      return false;
-    }
+
     if (formValues.outcomeText.length < 10) {
       setErrMessage("Outcome text must be at least 10 characters");
       return false;
     }
-    if (formValues.outcomes.length > 2) {
-      setErrMessage("Outcome must be at least 10 characters");
+
+    // Services and Outcomes Length Validation
+    if (formValues.services.length < 2) {
+      setErrMessage("Services must have at least 2 items");
       return false;
     }
-    if (!formValues.img) {
-      setErrMessage("Please select an image file");
+
+    if (formValues.outcomes.length < 2) {
+      setErrMessage("Outcomes must have at least 2 items");
       return false;
     }
-    if (!formValues.img.type.startsWith("image/")) {
+
+    // Image and wideImg validation
+    if (!formValues.img || !formValues.img.type.startsWith("image/")) {
       setErrMessage("Please select an image");
       return false;
     }
+
+    if (!formValues.wideImg || !formValues.wideImg.type.startsWith("image/")) {
+      setErrMessage("Please select a wide image");
+      return false;
+    }
+
     return true;
   };
 
@@ -140,7 +149,6 @@ const WorkForm = () => {
     }, 2000);
   };
   const addWork = async (values) => {
-    console.log("Form " + JSON.stringify(values));
     const ImgStorageRef = ref(
       storage,
       `workImages/img${values.img.name + values.img.size}`
@@ -149,27 +157,58 @@ const WorkForm = () => {
       storage,
       `workImages/wideImg${values.wideImg.name + values.wideImg.size}`
     );
+    const testimonialImgStorageRef = ref(
+      storage,
+      `workImages/wideImg${
+        values.testimonialImg.name + values.testimonialImg.size
+      }`
+    );
+    const serviceImgStorageRef = ref(
+      storage,
+      `workImages/wideImg${values.serviceImg.name + values.serviceImg.size}`
+    );
+    const outcomeImgStorageRef = ref(
+      storage,
+      `workImages/wideImg${values.outcomeImg.name + values.outcomeImg.size}`
+    );
     await uploadBytes(ImgStorageRef, values.img);
     await uploadBytes(wideImgStorageRef, values.wideImg);
+    await uploadBytes(testimonialImgStorageRef, values.testimonialImg);
+    await uploadBytes(serviceImgStorageRef, values.serviceImg);
+    await uploadBytes(outcomeImgStorageRef, values.outcomeImg);
     const imageURL = await getDownloadURL(ImgStorageRef);
     const wideImageURL = await getDownloadURL(wideImgStorageRef);
+    const serviceImgUrl = await getDownloadURL(serviceImgStorageRef);
+    const testimonialImgUrl = await getDownloadURL(testimonialImgStorageRef);
+    const outcomeImgUrl = await getDownloadURL(outcomeImgStorageRef);
     const response = await fetch("/api/work", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ values, imageURL, wideImageURL }),
+      body: JSON.stringify({
+        values,
+        imageURL,
+        wideImageURL,
+        serviceImgUrl,
+        testimonialImgUrl,
+        outcomeImgUrl,
+      }),
     });
     const { message, error } = await response.json();
     !error ? setNotification(message) : setNotification(error);
     clearNotification("");
+    console.log("Form " + JSON.stringify(values));
   };
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
-      if (validateForm(values)) {
-        setErrMessage(null);
+      if (validateForm) {
+        console.log("Form validated");
+        setErrMessage("");
         setSubmitting(false);
+        values.services = services;
+        values.outcomes = outcomes;
         await addWork(values);
         resetForm();
         setTimeout(() => {
@@ -178,6 +217,7 @@ const WorkForm = () => {
         }, 2000);
       }
     } catch (error) {
+      console.log(error);
       setNotification(error);
       clearNotification();
     }
@@ -216,17 +256,6 @@ const WorkForm = () => {
                 <div className="col-lg-12 col-md-12 mb-4">
                   <div className="blog-box p-4">
                     <div className="controls blog-form">
-                      {/* <div className="form-group d-flex flex-column">
-                        <label htmlFor="Type">Type</label>
-                        <Field
-                          id="form_type"
-                          type="text"
-                          name="type"
-                          placeholder="Work Type"
-                          required="required"
-                          value={values.type}
-                        />
-                      </div> */}
                       <div className="form-group d-flex flex-column">
                         <label htmlFor="Title">Title</label>
                         <Field
@@ -288,7 +317,8 @@ const WorkForm = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-6 col-md-6">
+
+                <div className="col-lg-12 col-md-12">
                   <div className="row mb-4">
                     <div className="col-lg-12">
                       <div className="blog-box p-4">
@@ -317,8 +347,8 @@ const WorkForm = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="row mb-4">
-                    <div className="col-lg-12">
+                  <div className="mb-4">
+                    <div className="col-lg-12 col-md-12 ">
                       <div className="blog-box p-4">
                         <div className="controls blog-form">
                           <div className="form-group d-flex flex-column">
@@ -364,7 +394,10 @@ const WorkForm = () => {
                               type="file"
                               accept="image/*"
                               onChange={(event) => {
-                                setFieldValue("wideImg", event.target.files[0]);
+                                setFieldValue(
+                                  "testimonialImg",
+                                  event.target.files[0]
+                                );
                               }}
                             />
                           </div>
@@ -383,7 +416,7 @@ const WorkForm = () => {
                 </div>
               </div>
               <div className="mb-4">
-                <div className="col-lg-6 col-md-6 mb-4">
+                <div className="col-lg-12 col-md-12 mb-4">
                   <div className="controls blog-form">
                     <div className="blog-box p-4">
                       <div className="form-group d-flex flex-column">
@@ -396,6 +429,14 @@ const WorkForm = () => {
                           rows="4"
                           required="required"
                           value={values.servicesIntro}
+                        />
+                        <label htmlFor="Tag">Add Service Img</label>
+                        <input
+                          type="file"
+                          accept="image/*"
+                          onChange={(event) => {
+                            setFieldValue("serviceImg", event.target.files[0]);
+                          }}
                         />
                       </div>
                       <div className="form-group d-flex flex-column">
@@ -450,7 +491,7 @@ const WorkForm = () => {
                   </div>
                 </div>
 
-                <div className="col-lg-6 col-md-6 mb-4">
+                <div className="col-lg-12 col-md-12 mb-4">
                   <div className="controls blog-form">
                     <div className="blog-box p-4">
                       <div className="form-group d-flex flex-column">
@@ -464,6 +505,14 @@ const WorkForm = () => {
                           required="required"
                           value={values.outcomeText}
                         />
+                        <label htmlFor="Tag">Add Outcome Img</label>
+                        <input
+                          type="file"
+                          accept="image/*"
+                          onChange={(event) => {
+                            setFieldValue("outcomeImg", event.target.files[0]);
+                          }}
+                        />
                       </div>
                       <div className="form-group d-flex flex-column">
                         <label htmlFor="heading">Outcome Title</label>
@@ -471,7 +520,7 @@ const WorkForm = () => {
                           id="heading"
                           type="text"
                           name="outcomeTitle"
-                          // value={heading}
+                          value={newOutcome.outcomeTitle}
                           // onChange={handleHeadingChange}
                           onChange={handleOutcomeChange}
                           placeholder="Post Heading"
@@ -484,7 +533,7 @@ const WorkForm = () => {
                           id="heading"
                           type="text"
                           name="outcomeDescription"
-                          // value={heading}
+                          value={newOutcome.outcomeDescription}
                           // onChange={handleHeadingChange}
                           onChange={handleOutcomeChange}
                           placeholder="Post Heading"
@@ -497,7 +546,7 @@ const WorkForm = () => {
                           id="heading"
                           type="text"
                           name="outcomeIconClass"
-                          // value={heading}
+                          value={newOutcome.outcomeIconClass}
                           // onChange={handleHeadingChange}
                           onChange={handleOutcomeChange}
                           placeholder="Post Heading"
