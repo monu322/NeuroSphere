@@ -83,17 +83,18 @@ const Home = () => {
     const { message, error } = await response.json();
     error ? setNotification(error) : setNotification(message);
     clearNotification();
+    setShowConfirmBox(false);
     getBlogData();
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
     setShowConfirmBox(true);
     setDeleteId(id);
   };
 
   useEffect(() => {
     getClientData();
-  }, [clientData]);
+  }, []);
 
   useEffect(() => {
     getBlogData();

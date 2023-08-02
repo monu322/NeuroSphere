@@ -45,7 +45,6 @@ const Client = ({ data }) => {
                       <div className="d-flex justify-content-between">
                         <Link href={`/admin/clients/mail/${client.id}`}>
                           <div
-                            // onClick={(e) => handleMailPreview(client)}
                             className={
                               client.status.firstMail
                                 ? "status green"
@@ -58,7 +57,6 @@ const Client = ({ data }) => {
                         </Link>
                         <Link href={`/admin/clients/mail/${client.id}`}>
                           <div
-                            // onClick={(e) => handleMailPreview(client)}
                             className={
                               client.status.secondMail
                                 ? "status green"
@@ -98,8 +96,6 @@ const Client = ({ data }) => {
             </tbody>
           </table>
         </div>
-        {/* {mailPreview && <ClientMailPreview id={clientId} />} */}
-        {/* {mailPreview && <Email data={clientData} />} */}
       </div>
     </div>
   );

@@ -162,6 +162,24 @@ const Email = ({ clientId }) => {
                         <div>
                           <div className="mail__preview-container">
                             <div className="">
+                              <div className="text-dark">
+                                <div className="d-flex">
+                                  <p>To:</p>
+                                  <p className="text-dark ml-1">
+                                    {values.recipient}
+                                  </p>
+                                </div>
+                                <div className="d-flex">
+                                  <p>Subject:</p>
+                                  <p className="text-dark ml-1">
+                                    {values.subject}
+                                  </p>
+                                </div>
+                                <div className="d-flex">
+                                  <p>Body:</p>
+                                  <p className="text-dark ml-1">{emailBody}</p>
+                                </div>
+                              </div>
                               <buttoon
                                 className="btn btn-warning"
                                 onClick={() => setPreviewMode(false)}

@@ -55,13 +55,16 @@ const handler = async (req, res) => {
         postDescriptions,
         postContent,
         tags: Tags,
-        img: image,
         posterName,
         isPublished: true,
         // posterAvatar,
         postMeta,
-        postedDate: serverTimestamp(),
       });
+      if (image) {
+        await updateDoc(ref, {
+          img: image,
+        });
+      }
       return res.status(201).json({ message: "Blog updated successfully" });
     } catch (error) {
       console.error("Error creating blog:", error);
