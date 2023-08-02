@@ -21,6 +21,7 @@ const handler = async (req, res) => {
       contactDesignation,
       contactMail,
       secondaryMail,
+      recentAchievements,
       status,
     } = req.body.values;
 
@@ -37,6 +38,7 @@ const handler = async (req, res) => {
         contactDesignation,
         contactMail,
         secondaryMail,
+        recentAchievements,
         status,
       });
       const docRef = doc(db, "client", result.id);
@@ -55,7 +57,8 @@ const handler = async (req, res) => {
       const clientCollection = collection(db, "client");
       const querySnapshot = await getDocs(clientCollection);
       const data = querySnapshot.docs.map((doc) => doc.data());
-      return res.status(200).json({ data: data });
+      console.log(data);
+      return res.status(200).json({ data });
     } catch (error) {
       return res.status(500).json({ error });
     }

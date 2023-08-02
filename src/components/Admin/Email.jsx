@@ -44,14 +44,14 @@ const Email = ({ clientId }) => {
   }, []);
   useEffect(() => {
     if (clientData) {
-      const template = `Hello ${clientData?.contactName || ""},
+      const template = `Dear ${clientData?.contactName || ""},
 
-lorem ipsum dolor sit amet, consectetur adip nonum soc et dolore magna aliquet er at,
-consectetur adip nonum soc et dolor in diam nonum soc et dolor in diam nonum soc et dolor 
-in diam nonum soc et dolor in diam nonum soc et dolor.
-
-Best Regards,
-Neurosphere
+      I hope this email finds you in good health and high spirits. My name is Mahesh, and I am writing to you as the COO of NeuroSphere, a bespoke software solutions provider specialising in Web, Mobile, AI, and IoT domains. Before I proceed further, allow me to congratulate you regarding the [recent business achievement].
+      As a forward-thinking organisation, NeuroSphere is always on the lookout for opportunities to collaborate with ambitious and innovative organisations to address the complex challenges of the modern business landscape. After learning about your company’'s remarkable achievements, it became evident that our shared dedication to technological advancement and problem-solving could potentially lead to a fruitful partnership.
+      In light of this, I am eager to know about the technology-related challenges your company is currently facing. Our team at NeuroSphere possesses extensive expertise in crafting tailor-made software solutions that can empower businesses like yours to optimise operations, enhance efficiency, develop innovative solutions and stay ahead of the competition.
+      At NeuroSphere, we pride ourselves in fostering growth and success for our clients through innovative solutions. Read about how we have worked with the world largest toy store, Hamley's, increasing their sales using AI & Data, or how we helped the NHS with staff demand prediction. If bespoke end to end solutions is what you are looking for, here is how we helped InfaBytes develop an IoT data analysis platform, currently used by AWS Engineers, and  VapeBot to serve millions of users with a multi platform ecommerce ecosystem.
+      I would be delighted to arrange a meeting to discuss these prospects in more detail. This would provide us with a valuable opportunity to understand your company's unique requirements and identify areas where our expertise can offer optimal solutions.
+      You can use this link to schedule a meeting with me and my team to discuss your challenges and possible solutions.
 `;
       setEmailBody(template);
     }
@@ -69,7 +69,7 @@ Neurosphere
     const { message, error } = await mailRes.json();
     !error ? setNotification(message) : setNotification(error);
     clearNotification();
-    if (true) {
+    if (mailRes.ok) {
       console.log("Entered");
       const clientRes = await fetch("/api/client/client", {
         method: "PATCH",
@@ -160,10 +160,17 @@ Neurosphere
                       </div>
                       {previewMode && (
                         <div>
-                          <h3>Email Preview</h3>
-                          <p>Recipient: {values.recipient}</p>
-                          <p>Subject: {values.subject}</p>
-                          <p>Body: {values.body}</p>
+                          <div className="mail__preview-container">
+                            <div className="">
+                              <buttoon
+                                className="btn btn-warning"
+                                onClick={() => setPreviewMode(false)}
+                              >
+                                Close
+                              </buttoon>
+                            </div>
+                          </div>
+                          <div className="confirm_bg"></div>
                         </div>
                       )}
                     </div>

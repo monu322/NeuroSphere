@@ -74,7 +74,7 @@ const handler = async (req, res) => {
       const q = query(blogCollection, orderBy("postedDate", "desc"));
       const querySnapshot = await getDocs(q);
       const data = querySnapshot.docs.map((doc) => doc.data());
-      return res.status(200).json({ data: data });
+      return res.status(200).json({ data });
     } catch (error) {
       return res.status(500).json({ error });
     }

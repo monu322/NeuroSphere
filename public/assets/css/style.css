@@ -6599,6 +6599,7 @@ footer .item .copy-right p a {
   min-height: 100vh;
   background-color: #222733;
   border-right: 1px solid lightgray;
+  z-index: 5;
 }
 .admin-nav.admin {
   min-height: 100vh;
@@ -6988,4 +6989,54 @@ footer .item .copy-right p a {
 }
 .bdy {
   margin-right: 2.7rem !important;
+}
+
+/* ============== Confirm Box ============== */
+.confirm_bg {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 40%;
+  overflow: hidden;
+  z-index: 50;
+}
+.confirm-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  background-color: #222733;
+  width: 30%;
+  height: 20%;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -55%);
+  border-radius: 0.3rem;
+  padding: 1rem;
+  z-index: 999;
+}
+.btn__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.mail__preview-container {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  background-color: #222733;
+  width: 50%;
+  height: 60%;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -55%);
+  border-radius: 0.3rem;
+  padding: 1rem;
+  z-index: 999;
 }
