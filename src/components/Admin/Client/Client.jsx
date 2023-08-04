@@ -15,7 +15,7 @@ const Client = ({ data }) => {
 
   return (
     <div className="row text-dark">
-      <div className="col-lg-10 col-md-8 admin-home">
+      <div className="col-lg-11 col-md-10 admin-home">
         <h5>Clients</h5>
 
         <div className="bg-white">
