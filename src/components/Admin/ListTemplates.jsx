@@ -28,7 +28,10 @@ const ListTemplates = () => {
       </div>
       <div className="row">
         {templates?.map((template, index) => (
-          <div className="col-lg-5 col-md-3 m-4 w-20  template__container">
+          <div
+            key={index}
+            className="col-lg-5 col-md-3 m-4 w-20  template__container"
+          >
             <div className="template__head">
               <div className="d-flex px-3 py-1">
                 <p className="text-white-50 mr-2">Subject:</p>
