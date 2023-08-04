@@ -7,7 +7,13 @@ const AdminNavbar = () => {
     <div className="admin-nav ">
       <div className="admin flex flex-col justify-evenly pl-5 pt-3 sticky-top">
         <div className="logo mb-4">
-          <img src="/assets/img/neurosphere-logo.svg" alt="Neurosphere Logo" />
+          <Link href="/">
+            <img
+              className="admin-nav__logo"
+              src="/assets/img/neurosphere-logo.svg"
+              alt="Neurosphere Logo"
+            />
+          </Link>
         </div>
         <ul>
           <li className="nav-item ">
@@ -42,11 +48,12 @@ const AdminNavbar = () => {
               </a>
             </Link>
           </li>
+
           <li className="nav-item">
-            <Link href="/admin/works" className="nav-align">
+            <Link href="/admin/create-template" className="nav-align">
               <a>
                 <span className="icon pe-7s-browser"></span>
-                <span>Add Works</span>
+                <span>Create Template</span>
               </a>
             </Link>
           </li>

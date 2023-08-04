@@ -18,7 +18,7 @@ const UpdateBlogForm = ({ id }) => {
 
   const router = useRouter();
   const initialValues = {
-    img: blogData.img || "",
+    img: blogData?.img || "",
     title: blogData?.title || "",
     tags: Array.isArray(blogData?.tags)
       ? blogData.tags.join(",")
@@ -85,13 +85,14 @@ const UpdateBlogForm = ({ id }) => {
 
   const updateBlog = async (values, postContent) => {
     setIsPublished(true);
-    const storageRef = ref(
-      storage,
-      `blogImages/${values.img.name + values.img.size}`
-    );
-
-    await uploadBytes(storageRef, values.img);
-    const image = await getDownloadURL(storageRef);
+    if (values.img) {
+      const storageRef = ref(
+        storage,
+        `blogImages/${values.img.name + values.img.size}`
+      );
+      await uploadBytes(storageRef, values.img);
+      const image = await getDownloadURL(storageRef);
+    }
     const response = await fetch("/api/Blog", {
       method: "PATCH",
       headers: {
@@ -151,7 +152,7 @@ const UpdateBlogForm = ({ id }) => {
 
   return (
     <>
-      <div className="container mt-2">
+      <div className="container mt-2 mb-4">
         {notification && <div className="notification">{notification}</div>}
         <Formik
           initialValues={initialValues}
@@ -258,9 +259,9 @@ const UpdateBlogForm = ({ id }) => {
                                 />
                               </div>
                               <div className="form-group d-flex flex-column">
-                                {/* {paragraphsImg && (
-                                  <PreviewImage imgUrl={paragraphsImg} />
-                                )} */}
+                                {post.paragraphsImg && (
+                                  <PreviewImage imgUrl={post.paragraphsImg} />
+                                )}
                                 <label htmlFor="Tag">
                                   Add Paragrapgh Image
                                 </label>
@@ -305,7 +306,7 @@ const UpdateBlogForm = ({ id }) => {
                           />
                         </div>
                         <div className="form-group d-flex flex-column">
-                          {/* {values.img && <PreviewImage file={values.img} />} */}
+                          {values.img && <PreviewImage imgUrl={values.img} />}
                           {!values.img ? (
                             <label htmlFor="Tag">Add Image</label>
                           ) : (

@@ -1,21 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const PreviewImage = ({ file, imgUrl }) => {
   const [preview, setPreview] = useState(null);
-  // if (!file.startsWith("https://")) {
-  //   const reader = new FileReader();
-  //   reader.readAsDataURL(file);
-  //   reader.onload = () => {
-  //     setPreview(reader.result);
-  //   };
-  // }
-  if (!imgUrl) {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      setPreview(reader.result);
-    };
-  }
+  useEffect(() => {
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        setPreview(reader.result);
+      };
+    }
+  }, [file]);
   return (
     <div>
       {preview ? (

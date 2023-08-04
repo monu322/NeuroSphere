@@ -6,6 +6,7 @@ const ClientForm = () => {
   const [works, setWorks] = useState([]);
   const [notification, setNotification] = useState("");
   const [errMessage, setErrMessage] = useState(null);
+  const [templates, setTemplates] = useState([]);
   const router = useRouter();
   const validateForm = (formValues) => {
     if (
@@ -56,6 +57,7 @@ const ClientForm = () => {
     positives: "",
     negatives: "",
     referenceProjects: [],
+    template: "",
     contactName: "",
     contactDesignation: "",
     contactMail: "",
@@ -101,6 +103,19 @@ const ClientForm = () => {
     clearNotification();
   };
 
+  const getTemplates = async () => {
+    const response = await fetch("/api/mail-template", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const { data, error } = await response.json();
+    if (data) {
+      setTemplates(data);
+      console.log(data);
+    }
+  };
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
       if (validateForm(values)) {
@@ -121,6 +136,7 @@ const ClientForm = () => {
 
   useEffect(() => {
     getWorks();
+    getTemplates();
   }, []);
   useEffect(() => {
     console.log(works);
@@ -305,8 +321,35 @@ const ClientForm = () => {
                 <div className="col-lg-12 col-md-11">
                   <div className="controls blog-form">
                     <div className="blog-box p-4">
+                      <h4 className="text-dark fs-5">Select Template</h4>
+                      <div className="d-flex justify-content-between flex-wrap">
+                        {templates?.map((template, index) => (
+                          <div role="group" key={index}>
+                            <label className="d-flex">
+                              <div className="mr-2">
+                                <Field
+                                  type="checkbox"
+                                  name="template"
+                                  value={template.subject}
+                                />
+                              </div>
+                              <div className="text-secondary">
+                                {template.subject}
+                              </div>
+                            </label>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="row mb-4">
+                <div className="col-lg-12 col-md-11">
+                  <div className="controls blog-form">
+                    <div className="blog-box p-4">
                       <h4 className="text-dark fs-5">Reference Projects</h4>
-                      <div className="d-flex justify-content-between">
+                      <div className="d-flex justify-content-between flex-wrap">
                         {works?.map((work, index) => (
                           <div role="group" key={index}>
                             <label className="d-flex">

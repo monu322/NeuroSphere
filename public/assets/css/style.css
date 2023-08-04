@@ -6601,6 +6601,9 @@ footer .item .copy-right p a {
   border-right: 1px solid lightgray;
   z-index: 5;
 }
+.admin-nav__logo {
+  cursor: pointer;
+}
 .admin-nav.admin {
   min-height: 100vh;
 }
@@ -6883,7 +6886,7 @@ footer .item .copy-right p a {
   text-align: center;
   padding: 8px 20px;
   border-radius: 3px;
-  width: 25%;
+  width: 30%;
   margin: auto;
   font-family: "poppins", sans-serif;
   position: fixed;
@@ -7001,8 +7004,8 @@ footer .item .copy-right p a {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: #000;
-  opacity: 40%;
+  background-color: black;
+  opacity: 50%;
   overflow: hidden;
   z-index: 50;
 }
@@ -7030,7 +7033,8 @@ footer .item .copy-right p a {
   display: flex;
   flex-direction: column;
   position: fixed;
-  background-color: #222733;
+  overflow: scroll;
+  background-color: #f2f4f7;
   width: 50%;
   height: 60%;
   top: 50%;
@@ -7039,4 +7043,27 @@ footer .item .copy-right p a {
   border-radius: 0.3rem;
   padding: 1rem;
   z-index: 999;
+}
+
+.template__container {
+  padding-right: 0;
+  padding-left: 0;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+.template__box {
+  min-height: 400px;
+  max-height: 400px;
+  padding: 15px;
+  overflow: scroll;
+  border-radius: 2px;
+  background-color: white;
+}
+
+.template__head {
+  color: white;
+  font-size: 14px !important;
+  background-color: #333a4a;
+  border-radius: 2px;
 }
