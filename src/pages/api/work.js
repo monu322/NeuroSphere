@@ -19,12 +19,16 @@ const handler = async (req, res) => {
       title,
       description,
       tags,
-      link,
+      linkUrl,
       objective,
       servicesIntro,
       services,
       outcomeText,
       outcomes,
+      testimonialContent,
+      testimonialDetails,
+      testimonialName,
+      published
     } = req.body.values;
     try {
       const Tags = tags.split(",");
@@ -34,7 +38,7 @@ const handler = async (req, res) => {
         title,
         description,
         tags: Tags,
-        link,
+        linkUrl,
         objective,
         servicesIntro,
         services,
@@ -45,6 +49,10 @@ const handler = async (req, res) => {
         testimonialImg: testimonialImgUrl,
         serviceImg: serviceImgUrl,
         outcomeImg: outcomeImgUrl,
+        testimonialContent,
+        testimonialDetails,
+        testimonialName,
+        published,
         date: serverTimestamp(),
       });
       const docRef = doc(db, "works", result.id);

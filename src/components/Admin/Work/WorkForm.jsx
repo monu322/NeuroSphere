@@ -75,6 +75,10 @@ const WorkForm = () => {
     outcomeText: "",
     outcomeImg: "",
     outcomes: [],
+    testimonialImg: "",
+    testimonialDetails: "",
+    testimonialContent: "",
+    testimonialName: "",
     published: true,
   };
 
@@ -159,17 +163,17 @@ const WorkForm = () => {
     );
     const testimonialImgStorageRef = ref(
       storage,
-      `workImages/wideImg${
+      `workImages/testimonialImg${
         values.testimonialImg.name + values.testimonialImg.size
       }`
     );
     const serviceImgStorageRef = ref(
       storage,
-      `workImages/wideImg${values.serviceImg.name + values.serviceImg.size}`
+      `workImages/serviceImg${values.serviceImg.name + values.serviceImg.size}`
     );
     const outcomeImgStorageRef = ref(
       storage,
-      `workImages/wideImg${values.outcomeImg.name + values.outcomeImg.size}`
+      `workImages/outcomeImg${values.outcomeImg.name + values.outcomeImg.size}`
     );
     await uploadBytes(ImgStorageRef, values.img);
     await uploadBytes(wideImgStorageRef, values.wideImg);
@@ -324,35 +328,38 @@ const WorkForm = () => {
                       <div className="controls blog-form">
                         <div className="form-group d-flex flex-column">
                           <label htmlFor="heading">Testimonials Content</label>
-                          <input
+                          <Field
                             id="heading"
                             type="text"
-                            // value={heading}
+                            value={values.testimonialContent}
                             // onChange={handleHeadingChange}
+                            name="testimonialContent"
                             placeholder="Post Heading"
                             className="border border-secondary"
                           />
                         </div>
                         <div className="form-group d-flex flex-column">
                           <label htmlFor="heading">Testimonials Name</label>
-                          <input
+                          <Field
                             id="heading"
                             type="text"
-                            // value={heading}
+                            value={values.testimonialName}
                             // onChange={handleHeadingChange}
+                            name="testimonialName"
                             placeholder="Post Heading"
                             className="border border-secondary"
                           />
                         </div>
                         <div className="form-group d-flex flex-column">
-                          <label htmlFor="servicesIntro">
+                          <label htmlFor="testimonialDetails">
                             Testimonials Details
                           </label>
-                          <input
+                          <Field
                             id="heading"
                             type="text"
-                            // value={heading}
+                            value={values.testimonialDetails}
                             // onChange={handleHeadingChange}
+                            name="testimonialDetails"
                             placeholder="Post Heading"
                             className="border border-secondary"
                           />
@@ -434,7 +441,7 @@ const WorkForm = () => {
                         </div>
                         <div className="form-group d-flex flex-column">
                           <label htmlFor="heading">Service Title</label>
-                          <input
+                          <Field
                             id="heading"
                             type="text"
                             name="serviceTitle"
@@ -447,7 +454,7 @@ const WorkForm = () => {
                         </div>
                         <div className="form-group d-flex flex-column">
                           <label htmlFor="heading">Service Description</label>
-                          <input
+                          <Field
                             id="heading"
                             type="text"
                             name="serviceDecription"
@@ -460,7 +467,7 @@ const WorkForm = () => {
                         </div>
                         <div className="form-group d-flex flex-column">
                           <label htmlFor="heading">Service Icon Class</label>
-                          <input
+                          <Field
                             id="heading"
                             type="text"
                             name="serviceIconClass"
@@ -512,7 +519,7 @@ const WorkForm = () => {
                         </div>
                         <div className="form-group d-flex flex-column">
                           <label htmlFor="heading">Outcome Title</label>
-                          <input
+                          <Field
                             id="heading"
                             type="text"
                             name="outcomeTitle"
@@ -525,7 +532,7 @@ const WorkForm = () => {
                         </div>
                         <div className="form-group d-flex flex-column">
                           <label htmlFor="heading">Outcome Description</label>
-                          <input
+                          <Field
                             id="heading"
                             type="text"
                             name="outcomeDescription"
@@ -538,7 +545,7 @@ const WorkForm = () => {
                         </div>
                         <div className="form-group d-flex flex-column">
                           <label htmlFor="heading">Outcome Icon Class</label>
-                          <input
+                          <Field
                             id="heading"
                             type="text"
                             name="outcomeIconClass"

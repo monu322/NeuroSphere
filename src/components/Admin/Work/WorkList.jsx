@@ -66,7 +66,11 @@ const WorkList = () => {
                       <td>{index + 1}</td>
                       <td>{work.title}</td>
                       {/* <td>{work.date.toDate().toLocaleDateString("en-GB")}</td> */}
-                      <td>{work.published ? "Published" : "Not Published"}</td>
+                      <td>
+                        {work.published === true
+                          ? "Published"
+                          : "Not Published"}
+                      </td>
                       <td>
                         <Link href={`/admin/works/${work.id}`}>
                           <a>

@@ -4,33 +4,37 @@ import { serverTimestamp, updateDoc, doc, getDoc } from "firebase/firestore";
 import { Router, useRouter } from "next/router";
 import { Field, Form, Formik } from "formik";
 import React, { useEffect, useState } from "react";
+import LoadingScreen from "../../Loading-Screen/loading-screen";
 
 function UpdateWork({ id }) {
   const [workId] = useState(id);
   const [errMessage, setErrMessage] = useState(null);
   const [notification, setNotification] = useState("");
-  const [workData, setWorkData] = useState([]);
+  const [workData, setWorkData] = useState("");
   const [isPublished, setIsPublished] = useState(null);
   const [services, setServices] = useState({});
   const [outcomes, setOutcomes] = useState([]);
 
+  const router = useRouter();
+
   const initialValues = {
-    img: workData.img || "",
-    link: workData.url || "",
-    wideImg: workData.wideImg || "",
-    title: workData.title || "",
-    description: workData.description || "",
-    tags: workData.tags || "",
-    objective: workData.objective || "",
-    servicesIntro: workData.servicesIntro || "",
-    serviceImg: workData.serviceImg || "",
-    services: workData.services || [],
-    outcomeText: workData.outcomeText || "",
-    outcomeImg: workData.outcomeImg || "",
-    outcomes: workData.outcomes || [],
-    testimonialName: workData.testimonialName || "",
-    testimonialContent: workData.testimonialContent || "",
-    testimonialDetails: workData.testimonialDetails || "",
+    // img: workData.img || "",
+    link: workData?.url || "",
+    // wideImg: workData.wideImg || "",
+    title: workData?.title || "",
+    description: workData?.description || "",
+    tags: workData?.tags || "",
+    objective: workData?.objective || "",
+    servicesIntro: workData?.servicesIntro || "",
+    // serviceImg: workData.serviceImg || "",
+    services: workData?.services || [],
+    outcomeText: workData?.outcomeText || "",
+    // outcomeImg: workData.outcomeImg || "",
+    outcomes: workData?.outcomes || [],
+    testimonialName: workData?.testimonialName || "",
+    testimonialContent: workData?.testimonialContent || "",
+    testimonialDetails: workData?.testimonialDetails || "",
+    // testimonialImg: workData.testimonialImg,
     published: true,
   };
 
@@ -54,35 +58,54 @@ function UpdateWork({ id }) {
     clearNotification();
   };
 
+  const updateWork = async (values) => {
+    // const storageRef = ref(
+    //   storage,
+    //   `blogImages/${values.img.name + values.img.size}`
+    // );
+
+    // await uploadBytes(storageRef, values.img);
+    // const image = await getDownloadURL(storageRef);
+    const response = await fetch("/api/work", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        values,
+        workId,
+      }),
+    });
+    const { message, error } = await response.json();
+    !error ? setNotification(message) : setNotification(error);
+    clearNotification();
+    router.push("/admin");
+  };
+
   const getWorkDataWithId = async (id) => {
-    console.log("iddd " + id);
     const docRef = doc(db, "works", id);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      console.log("Documement exits : " + docSnap.data());
-      //   if (docSnap.data()?.workData) {
-      //     console.log("Documement exits again");
-      //     setWorkData(docSnap.data().workData);
-      //     console.log("work service " + JSON.stringify(workData));
-      //   }
+      console.log(JSON.stringify(docSnap.data()));
       setWorkData(docSnap.data());
     } else {
       console.log("No such document");
     }
   };
 
-  useEffect(() => {
+  const handleUpdate = async (values) => {
+    values.published = false;
+  };
+
+  useEffect(async () => {
     if (id) {
-      getWorkDataWithId(id);
+      await getWorkDataWithId(id);
     }
   }, [id]);
 
-  //   useEffect(() => {
-  //     getWorkData();
-  //   });
   if (!workData) {
-    return <p>Loading...</p>;
+    return <LoadingScreen />;
   }
   return (
     <>
@@ -90,7 +113,7 @@ function UpdateWork({ id }) {
         {notification && <div className="notification">{notification}</div>}
         {errMessage && <div className="messages">{errMessage}</div>}
 
-        <Formik initialValues={initialValues}>
+        <Formik initialValues={initialValues} enableReinitialize={true}>
           {({ values, setFieldValue }) => (
             <Form>
               <div className="">
@@ -103,10 +126,10 @@ function UpdateWork({ id }) {
                       <div>
                         <button
                           type="button"
-                          //   onClick={() => handleSave(values)}
+                          onClick={() => handleUpdate(values)}
                           className="btn-blog mr-4"
                         >
-                          <span>Save</span>
+                          <span>Update</span>
                         </button>
                       </div>
                       <div>
@@ -131,7 +154,7 @@ function UpdateWork({ id }) {
                             name="title"
                             placeholder="Work Title"
                             required="required"
-                            value={values.title || workData.title}
+                            // value={values.title}
                           />
                         </div>
 
@@ -142,7 +165,6 @@ function UpdateWork({ id }) {
                             id="tags"
                             placeholder="Tags"
                             name="tags"
-                            value={values.tags || workData.tags}
                           />
                         </div>
 
@@ -154,7 +176,6 @@ function UpdateWork({ id }) {
                             name="link"
                             placeholder="Link"
                             required="required"
-                            value={values.link || workData.link}
                           />
                         </div>
 
@@ -167,7 +188,6 @@ function UpdateWork({ id }) {
                             placeholder="Objective"
                             rows="4"
                             required="required"
-                            value={values.objective || workData.objective}
                           />
                         </div>
                         <div className="form-group d-flex flex-column">
@@ -179,7 +199,6 @@ function UpdateWork({ id }) {
                             placeholder="Description"
                             rows="4"
                             required="required"
-                            value={values.description || workData.description}
                           />
                         </div>
                       </div>
@@ -195,10 +214,6 @@ function UpdateWork({ id }) {
                             <Field
                               id="heading"
                               type="text"
-                              value={
-                                values.testimonialName ||
-                                workData.testimonialName
-                              }
                               // onChange={handleHeadingChange}
                               name="testimonialName"
                               placeholder="Post Heading"
@@ -216,10 +231,6 @@ function UpdateWork({ id }) {
                               // type="text"
                               as="textarea"
                               rows="4"
-                              value={
-                                values.testimonialContent ||
-                                workData.testimonialContent
-                              }
                               // onChange={handleHeadingChange}
                               placeholder="Post Heading"
                               className="border border-secondary"
@@ -236,10 +247,6 @@ function UpdateWork({ id }) {
                             // type="text"
                             as="textarea"
                             rows="4"
-                            value={
-                              values.testimonialDetails ||
-                              workData.testimonialDetails
-                            }
                             // onChange={handleHeadingChange}
                             placeholder="Post Heading"
                             className="border border-secondary"
@@ -308,9 +315,6 @@ function UpdateWork({ id }) {
                             placeholder="ServicesIntro"
                             rows="4"
                             required="required"
-                            value={
-                              values.servicesIntro || workData.servicesIntro
-                            }
                           />
                           <label htmlFor="Tag">Add Service Img</label>
                           <Field
@@ -325,8 +329,8 @@ function UpdateWork({ id }) {
                             }}
                           />
                         </div>
-                        {workData.services &&
-                          Object.keys(workData.services).map(
+                        {workData?.services &&
+                          Object.keys(workData?.services).map(
                             (service, index) => (
                               <div
                                 className="mb-5 mt-4 border-bottom border-dark"
@@ -340,10 +344,6 @@ function UpdateWork({ id }) {
                                     id="heading"
                                     type="text"
                                     name={`services[${service}].serviceTitle`}
-                                    value={
-                                      values.services[service]?.serviceTitle ||
-                                      workData.services[service]?.serviceTitle
-                                    }
                                     // onChange={handleHeadingChange}
                                     // onChange={handleServiceChange}
                                     placeholder="Post Heading"
@@ -358,12 +358,6 @@ function UpdateWork({ id }) {
                                     id="heading"
                                     type="text"
                                     name={`services[${service}].serviceIconClass`}
-                                    value={
-                                      values.services[service]
-                                        ?.serviceIconClass ||
-                                      workData.services[service]
-                                        ?.serviceIconClass
-                                    }
                                     // onChange={handleHeadingChange}
                                     // onChange={handleServiceChange}
                                     placeholder="Post Heading"
@@ -380,12 +374,6 @@ function UpdateWork({ id }) {
                                     as="textarea"
                                     rows="4"
                                     name={`services[${service}].serviceDecription`}
-                                    value={
-                                      values.services[service]
-                                        ?.serviceDecription ||
-                                      workData.services[service]
-                                        ?.serviceDecription
-                                    }
                                     // onChange={handleHeadingChange}
                                     // onChange={handleServiceChange}
                                     placeholder="Post Heading"
@@ -419,7 +407,6 @@ function UpdateWork({ id }) {
                             placeholder="Outcome Text"
                             rows="4"
                             required="required"
-                            value={values.outcomeText || workData.outcomeText}
                           />
                           <label htmlFor="Tag">Add Outcome Img</label>
                           <input
@@ -441,15 +428,13 @@ function UpdateWork({ id }) {
                                 key={index}
                               >
                                 <div className="form-group d-flex flex-column">
-                                  <label htmlFor="heading">Outcome Title</label>
-                                  <input
+                                  <label htmlFor="heading">
+                                    Outcome Title {index + 1}
+                                  </label>
+                                  <Field
                                     id="heading"
                                     type="text"
-                                    name={`outcomes[${index}].outcomeTitle`}
-                                    value={
-                                      values.outcomes[outcome]?.outcomeTitle ||
-                                      workData.outcomes[outcome]?.outcomeTitle
-                                    }
+                                    name={`outcomes[${outcome}].outcomeTitle`}
                                     // onChange={handleHeadingChange}
                                     // onChange={handleOutcomeChange}
                                     placeholder="Post Heading"
@@ -461,16 +446,10 @@ function UpdateWork({ id }) {
                                   <label htmlFor="heading">
                                     Outcome Icon Class
                                   </label>
-                                  <input
+                                  <Field
                                     id="heading"
                                     type="text"
-                                    name={`outcomes[${index}].outcomeIconClass`}
-                                    value={
-                                      values.outcomes[outcome]
-                                        ?.outcomeIconClass ||
-                                      workData.outcomes[outcome]
-                                        ?.outcomeIconClass
-                                    }
+                                    name={`outcomes[${outcome}].outcomeIconClass`}
                                     // onChange={handleHeadingChange}
                                     // onChange={handleOutcomeChange}
                                     placeholder="Post Heading"
@@ -486,13 +465,7 @@ function UpdateWork({ id }) {
                                     // type="text"
                                     as="textarea"
                                     rows="4"
-                                    name={`outcomes[${index}].outcomeDescription`}
-                                    value={
-                                      values.outcomes[outcome]
-                                        ?.outcomeDescription ||
-                                      workData.outcomes[outcome]
-                                        ?.outcomeDescription
-                                    }
+                                    name={`outcomes[${outcome}].outcomeDescription`}
                                     // onChange={handleHeadingChange}
                                     // onChange={handleOutcomeChange}
                                     placeholder="Post Heading"
