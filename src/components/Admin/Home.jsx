@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Client from "./Client/Client";
 import ClientMailPreview from "../ClientMailPreview";
-import ConfirmBox from "./ConfirmBox";
 
 const Home = () => {
   const [notification, setNotification] = useState("");
@@ -83,17 +82,18 @@ const Home = () => {
     const { message, error } = await response.json();
     error ? setNotification(error) : setNotification(message);
     clearNotification();
+    setShowConfirmBox(false);
     getBlogData();
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
     setShowConfirmBox(true);
     setDeleteId(id);
   };
 
   useEffect(() => {
     getClientData();
-  }, [clientData]);
+  }, []);
 
   useEffect(() => {
     getBlogData();
@@ -105,7 +105,7 @@ const Home = () => {
         {notification && <div className="notification">{notification}</div>}
         {filteredData && filteredData[0]?.isPublished === false && (
           <div className="row text-dark">
-            <div className="col-lg-10 col-md-8 admin-home">
+            <div className="col-lg-11 col-md-10 admin-home">
               <h5>Saved Blogs</h5>
 
               <div className="bg-white">
@@ -150,7 +150,7 @@ const Home = () => {
           </div>
         )}
         <div className="row text-dark">
-          <div className="col-lg-10 col-md-8 admin-home">
+          <div className="col-lg-11 col-md-10 admin-home">
             <h5>Recently Published Blogs</h5>
 
             <div className="bg-white">

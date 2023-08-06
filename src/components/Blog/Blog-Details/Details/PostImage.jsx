@@ -3,9 +3,9 @@
 const PostImage = ({ SingleBlog }) => {
   return (
     <div className="img">
-      <img src={SingleBlog.img} alt="" />
+      <img src={SingleBlog?.img} alt="Image" />
     </div>
-  )
-}
+  );
+};
 
-export default PostImage
+export default PostImage;
