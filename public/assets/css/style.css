@@ -7067,3 +7067,55 @@ footer .item .copy-right p a {
   background-color: #333a4a;
   border-radius: 2px;
 }
+
+.btn__mail-close {
+  display: flex;
+
+  justify-content: center;
+  align-content: center;
+  width: 5rem;
+}
+
+.template {
+  height: 85vh;
+}
+.template__col-1 {
+  border-radius: 3px;
+  background-color: #545e75;
+}
+.template__col-2 {
+  border-radius: 3px;
+}
+.template__section {
+  cursor: pointer;
+  border-bottom: 1px solid lightgray;
+}
+.template__body {
+  font-size: 14px;
+  font-family: "poppins", sans-serif;
+}
+.template .template__subject {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "poppins", sans-serif;
+}
+.template__preview-heading {
+  border-bottom: 1px solid lightgray;
+}
+
+.template__preview-subject {
+  font-size: 18px;
+  font-weight: 600;
+}
+.template__preview-body {
+  width: 100%;
+  max-height: 500px;
+}
+.template__preview-body .bdy {
+  font-size: 15px;
+}
+.mail__box {
+  overflow: scroll;
+  height: 80%;
+  background-color: rgb(243, 243, 246);
+}

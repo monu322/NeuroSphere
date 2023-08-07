@@ -179,12 +179,14 @@ const Email = ({ clientId }) => {
                                 <p className="text-dark ml-1">{emailBody}</p>
                               </div>
                             </div>
-                            <buttoon
-                              className="btn btn-warning"
-                              onClick={() => setPreviewMode(false)}
-                            >
-                              Close
-                            </buttoon>
+                            <div className="d-flex justify-content-end mr-3 mt-2">
+                              <buttoon
+                                className="btn btn-secondary btn__mail-close"
+                                onClick={() => setPreviewMode(false)}
+                              >
+                                Close
+                              </buttoon>
+                            </div>
                           </div>
                           <div className="confirm_bg"></div>
                         </div>
