@@ -19,7 +19,7 @@ const handler = async (req, res) => {
       title,
       description,
       tags,
-      linkUrl,
+      link,
       objective,
       servicesIntro,
       services,
@@ -38,7 +38,7 @@ const handler = async (req, res) => {
         title,
         description,
         tags: Tags,
-        linkUrl,
+        link,
         objective,
         servicesIntro,
         services,
@@ -63,6 +63,36 @@ const handler = async (req, res) => {
     } catch (error) {
       console.log("Error adding work:", error);
       res.status(500).json({ error: "Failed to add work" });
+    }
+  }
+
+    if (req.method === "PATCH") {
+
+       const {link , title , description , tags , 
+        objective , servicesIntro ,services ,
+         outcomeText ,outcomes , testimonialName ,
+          testimonialContent , testimonialDetails, published} = req.body.values;
+          const {imgUrl , testimonialImgUrl, wideImageURL, serviceImgUrl, outcomeImgUrl} = req.body;
+
+
+    console.log('Data from server : ' + JSON.stringify(req.body.values));
+    try {
+      const {workId} = req.body;;
+      console.log("WorkId : "+workId);
+      // const Tags = tags.split(",");
+      const ref = doc(db, "works", workId);
+      await updateDoc(ref, {
+        img:imgUrl,
+        wideImg:wideImageURL , serviceImg:serviceImgUrl , outcomeImg:outcomeImgUrl , testimonialImg:testimonialImgUrl,
+        link , title , description , tags , 
+        objective , servicesIntro , services ,
+         outcomeText , outcomes , testimonialName ,
+          testimonialContent , testimonialDetails , published
+      });
+      res.status(201).json({ message: "work updated successfully" });
+    } catch (error) {
+      console.error("Error creating work:", error);
+      return res.status(500).json({ error: "Failed to update work" });
     }
   }
 

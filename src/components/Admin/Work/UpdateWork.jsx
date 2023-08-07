@@ -5,36 +5,36 @@ import { Router, useRouter } from "next/router";
 import { Field, Form, Formik } from "formik";
 import React, { useEffect, useState } from "react";
 import LoadingScreen from "../../Loading-Screen/loading-screen";
+import PreviewImage from "../../PreviewImage";
 
 function UpdateWork({ id }) {
   const [workId] = useState(id);
   const [errMessage, setErrMessage] = useState(null);
   const [notification, setNotification] = useState("");
   const [workData, setWorkData] = useState("");
-  const [isPublished, setIsPublished] = useState(null);
-  const [services, setServices] = useState({});
-  const [outcomes, setOutcomes] = useState([]);
+  const [selectedImg, setSelectedimg] = useState(null);
+  const [showPreviewImage, setShowPreviewImage] = useState(false);
 
   const router = useRouter();
 
   const initialValues = {
-    // img: workData.img || "",
+    img: workData?.img || "",
     link: workData?.url || "",
-    // wideImg: workData.wideImg || "",
+    wideImg: workData?.wideImg || "",
     title: workData?.title || "",
     description: workData?.description || "",
     tags: workData?.tags || "",
     objective: workData?.objective || "",
     servicesIntro: workData?.servicesIntro || "",
-    // serviceImg: workData.serviceImg || "",
+    serviceImg: workData?.serviceImg || "",
     services: workData?.services || [],
     outcomeText: workData?.outcomeText || "",
-    // outcomeImg: workData.outcomeImg || "",
+    outcomeImg: workData?.outcomeImg || "",
     outcomes: workData?.outcomes || [],
     testimonialName: workData?.testimonialName || "",
     testimonialContent: workData?.testimonialContent || "",
     testimonialDetails: workData?.testimonialDetails || "",
-    // testimonialImg: workData.testimonialImg,
+    testimonialImg: workData?.testimonialImg,
     published: true,
   };
 
@@ -59,13 +59,38 @@ function UpdateWork({ id }) {
   };
 
   const updateWork = async (values) => {
-    // const storageRef = ref(
-    //   storage,
-    //   `blogImages/${values.img.name + values.img.size}`
-    // );
+    const ImgstorageRef = ref(
+      storage,
+      `workImages/${values.img.name + values.img.size}`
+    );
+    const testimonialImgstorageRef = ref(
+      storage,
+      `workImages/${values.testimonialImg.name + values.testimonialImg.size}`
+    );
+    const wideImgstorageRef = ref(
+      storage,
+      `workImages/${values.wideImg.name + values.wideImg.size}`
+    );
+    const serviceImgstorageRef = ref(
+      storage,
+      `workImages/${values.serviceImg.name + values.serviceImg.size}`
+    );
+    const outcomeImgstorageRef = ref(
+      storage,
+      `workImages/${values.outcomeImg.name + values.outcomeImg.size}`
+    );
+    await uploadBytes(ImgstorageRef, values.img);
+    await uploadBytes(testimonialImgstorageRef, values.testimonialImg);
+    await uploadBytes(wideImgstorageRef, values.wideImg);
+    await uploadBytes(serviceImgstorageRef, values.serviceImg);
+    await uploadBytes(outcomeImgstorageRef, values.outcomeImg);
+    const imgUrl = await getDownloadURL(ImgstorageRef);
+    const testimonialImgUrl = await getDownloadURL(testimonialImgstorageRef);
+    const wideImgUrl = await getDownloadURL(wideImgstorageRef);
+    const serviceImgUrl = await getDownloadURL(serviceImgstorageRef);
+    const outcomeImgUrl = await getDownloadURL(serviceImgstorageRef);
 
-    // await uploadBytes(storageRef, values.img);
-    // const image = await getDownloadURL(storageRef);
+    console.log("img url : " + testimonialImgUrl);
     const response = await fetch("/api/work", {
       method: "PATCH",
       headers: {
@@ -74,12 +99,17 @@ function UpdateWork({ id }) {
       body: JSON.stringify({
         values,
         workId,
+        imgUrl,
+        testimonialImgUrl,
+        wideImgUrl,
+        serviceImgUrl,
+        outcomeImgUrl,
       }),
     });
     const { message, error } = await response.json();
     !error ? setNotification(message) : setNotification(error);
     clearNotification();
-    router.push("/admin");
+    // router.push("/admin/works");
   };
 
   const getWorkDataWithId = async (id) => {
@@ -96,6 +126,12 @@ function UpdateWork({ id }) {
 
   const handleUpdate = async (values) => {
     values.published = false;
+    await updateWork(values);
+  };
+
+  const handleImgPreview = async (file) => {
+    if (file) {
+    }
   };
 
   useEffect(async () => {
@@ -254,16 +290,50 @@ function UpdateWork({ id }) {
                         </div>
                         <div className="form-group d-flex flex-column pt-4">
                           <label htmlFor="heading">Testimonials Image</label>
-                          <input
-                            type="file"
-                            accept="image/*"
-                            onChange={(event) => {
-                              setFieldValue(
-                                "testimonialImg",
-                                event.target.files[0]
-                              );
-                            }}
-                          />
+                          {values?.testimonialImg ? (
+                            <>
+                              {/* <span>{values.img}</span> */}
+                              <div className="d-flex">
+                                <button
+                                  className="btn-blog mt-4 mb-4 w-25"
+                                  onClick={() =>
+                                    setShowPreviewImage(!showPreviewImage)
+                                  }
+                                >
+                                  {showPreviewImage ? "close" : "preview Image"}
+                                </button>
+                                {showPreviewImage && (
+                                  <button
+                                    className="btn-blog mt-4 mb-4 w-25 ml-3"
+                                    onClick={() => {
+                                      setFieldValue("testimonialImg", "");
+                                    }}
+                                  >
+                                    Remove
+                                  </button>
+                                )}
+                              </div>
+                              {showPreviewImage && (
+                                <img
+                                  // URL.createObjectURL(values.img)
+                                  src={values.testimonialImg}
+                                  alt="imgg"
+                                  className="w-50"
+                                />
+                                // <PreviewImage imgUrl={values.img} />
+                              )}
+                            </>
+                          ) : (
+                            <Field
+                              type="file"
+                              accept="image/*"
+                              name="testimonialImg"
+                              onChange={(event) => {
+                                setFieldValue("img", event.target.files[0]);
+                                // handleImgPreview(values.img);
+                              }}
+                            />
+                          )}
                         </div>
                       </div>
                     </div>
@@ -277,25 +347,97 @@ function UpdateWork({ id }) {
                       <div className="controls blog-form">
                         <div className="form-group d-flex flex-column">
                           <label htmlFor="Tag">Add Image</label>
-                          <Field
-                            type="file"
-                            accept="image/*"
-                            name="img"
-                            onChange={(event) => {
-                              setFieldValue("img", event.target.files[0]);
-                            }}
-                          />
+                          {values?.img ? (
+                            <>
+                              {/* <span>{values.img}</span> */}
+                              <div className="d-flex">
+                                <button
+                                  className="btn-blog mt-4 mb-4 w-25"
+                                  onClick={() =>
+                                    setShowPreviewImage(!showPreviewImage)
+                                  }
+                                >
+                                  {showPreviewImage ? "close" : "preview Image"}
+                                </button>
+                                {showPreviewImage && (
+                                  <button
+                                    className="btn-blog mt-4 mb-4 w-25 ml-3"
+                                    onClick={() => {
+                                      setFieldValue("img", "");
+                                    }}
+                                  >
+                                    Remove
+                                  </button>
+                                )}
+                              </div>
+                              {showPreviewImage && (
+                                <img
+                                  // URL.createObjectURL(values.img)
+                                  src={values.img}
+                                  alt="imgg"
+                                  className="w-50"
+                                />
+                                // <PreviewImage imgUrl={values.img} />
+                              )}
+                            </>
+                          ) : (
+                            <Field
+                              type="file"
+                              accept="image/*"
+                              name="img"
+                              onChange={(event) => {
+                                setFieldValue("img", event.target.files[0]);
+                                // handleImgPreview(values.img);
+                              }}
+                            />
+                          )}
                         </div>
                         <div className="form-group d-flex flex-column">
                           <label htmlFor="Tag">Add Wide Image</label>
-                          <Field
-                            type="file"
-                            accept="image/*"
-                            name="wideImg"
-                            onChange={(event) => {
-                              setFieldValue("wideImg", event.target.files[0]);
-                            }}
-                          />
+                          {values?.wideImg ? (
+                            <>
+                              {/* <span>{values.img}</span> */}
+                              <div className="d-flex">
+                                <button
+                                  className="btn-blog mt-4 mb-4 w-25"
+                                  onClick={() =>
+                                    setShowPreviewImage(!showPreviewImage)
+                                  }
+                                >
+                                  {showPreviewImage ? "close" : "preview Image"}
+                                </button>
+                                {showPreviewImage && (
+                                  <button
+                                    className="btn-blog mt-4 mb-4 w-25 ml-3"
+                                    onClick={() => {
+                                      setFieldValue("wideImg", "");
+                                    }}
+                                  >
+                                    Remove
+                                  </button>
+                                )}
+                              </div>
+                              {showPreviewImage && (
+                                <img
+                                  // URL.createObjectURL(values.img)
+                                  src={values.wideImg}
+                                  alt="imgg"
+                                  className="w-50"
+                                />
+                                // <PreviewImage imgUrl={values.img} />
+                              )}
+                            </>
+                          ) : (
+                            <Field
+                              type="file"
+                              accept="image/*"
+                              name="wideImg"
+                              onChange={(event) => {
+                                setFieldValue("wideImg", event.target.files[0]);
+                                // handleImgPreview(values.img);
+                              }}
+                            />
+                          )}
                         </div>
                       </div>
                     </div>
@@ -317,17 +459,53 @@ function UpdateWork({ id }) {
                             required="required"
                           />
                           <label htmlFor="Tag">Add Service Img</label>
-                          <Field
-                            type="file"
-                            accept="image/*"
-                            name="serviceImg"
-                            onChange={(event) => {
-                              setFieldValue(
-                                "serviceImg",
-                                event.target.files[0]
-                              );
-                            }}
-                          />
+                          {values?.serviceImg ? (
+                            <>
+                              {/* <span>{values.img}</span> */}
+                              <div className="d-flex">
+                                <button
+                                  className="btn-blog mt-4 mb-4 w-25"
+                                  onClick={() =>
+                                    setShowPreviewImage(!showPreviewImage)
+                                  }
+                                >
+                                  {showPreviewImage ? "close" : "preview Image"}
+                                </button>
+                                {showPreviewImage && (
+                                  <button
+                                    className="btn-blog mt-4 mb-4 w-25 ml-3"
+                                    onClick={() => {
+                                      setFieldValue("serviceImg", "");
+                                    }}
+                                  >
+                                    Remove
+                                  </button>
+                                )}
+                              </div>
+                              {showPreviewImage && (
+                                <img
+                                  // URL.createObjectURL(values.img)
+                                  src={values.serviceImg}
+                                  alt="imgg"
+                                  className="w-50"
+                                />
+                                // <PreviewImage imgUrl={values.img} />
+                              )}
+                            </>
+                          ) : (
+                            <Field
+                              type="file"
+                              accept="image/*"
+                              name="serviceImg"
+                              onChange={(event) => {
+                                setFieldValue(
+                                  "serviceImg",
+                                  event.target.files[0]
+                                );
+                                // handleImgPreview(values.img);
+                              }}
+                            />
+                          )}
                         </div>
                         {workData?.services &&
                           Object.keys(workData?.services).map(
@@ -409,16 +587,50 @@ function UpdateWork({ id }) {
                             required="required"
                           />
                           <label htmlFor="Tag">Add Outcome Img</label>
-                          <input
-                            type="file"
-                            accept="image/*"
-                            onChange={(event) => {
-                              setFieldValue(
-                                "outcomeImg",
-                                event.target.files[0]
-                              );
-                            }}
-                          />
+                          {values?.outcomeImg ? (
+                            <>
+                              {/* <span>{values.img}</span> */}
+                              <div className="d-flex">
+                                <button
+                                  className="btn-blog mt-4 mb-4 w-25"
+                                  onClick={() =>
+                                    setShowPreviewImage(!showPreviewImage)
+                                  }
+                                >
+                                  {showPreviewImage ? "close" : "preview Image"}
+                                </button>
+                                {showPreviewImage && (
+                                  <button
+                                    className="btn-blog mt-4 mb-4 w-25 ml-3"
+                                    onClick={() => {
+                                      setFieldValue("outcomeImg", "");
+                                    }}
+                                  >
+                                    Remove
+                                  </button>
+                                )}
+                              </div>
+                              {showPreviewImage && (
+                                <img
+                                  // URL.createObjectURL(values.img)
+                                  src={values.outcomeImg}
+                                  alt="imgg"
+                                  className="w-50"
+                                />
+                                // <PreviewImage imgUrl={values.img} />
+                              )}
+                            </>
+                          ) : (
+                            <Field
+                              type="file"
+                              accept="image/*"
+                              name="outcomeImg"
+                              onChange={(event) => {
+                                setFieldValue("img", event.target.files[0]);
+                                // handleImgPreview(values.img);
+                              }}
+                            />
+                          )}
                         </div>
                         {workData?.outcomes &&
                           Object.keys(workData?.outcomes).map(
