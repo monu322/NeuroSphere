@@ -50,10 +50,10 @@ const AdminNavbar = () => {
           </li>
 
           <li className="nav-item">
-            <Link href="/admin/create-template" className="nav-align">
+            <Link href="/admin/templates" className="nav-align">
               <a>
                 <span className="icon pe-7s-browser"></span>
-                <span>Create Template</span>
+                <span>Templates</span>
               </a>
             </Link>
           </li>

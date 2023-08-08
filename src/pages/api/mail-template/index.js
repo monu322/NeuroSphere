@@ -1,11 +1,13 @@
 import {
   addDoc,
   collection,
+  deleteDoc,
   doc,
+  getDoc,
   getDocs,
   updateDoc,
 } from "firebase/firestore";
-import db from "../../config/fire-config";
+import db from "../../../config/fire-config";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
@@ -35,6 +37,33 @@ const handler = async (req, res) => {
       return res.status(200).json({ data });
     } catch (error) {
       return res.status(500).json({ error });
+    }
+  }
+
+  if (req.method === "PATCH") {
+    const { subject, body, employees } = req.body.values;
+    const { templateId } = req.body;
+    try {
+      const templateRef = doc(db, "templates", templateId);
+      await updateDoc(templateRef, {
+        subject,
+        body,
+      });
+      return res.status(201).json({ message: "Template updated successfully" });
+    } catch (error) {
+      console.error("Error creating blog:", error);
+      return res.status(500).json({ error: "Failed to update template" });
+    }
+  }
+
+  if (req.method === "DELETE") {
+    const { id } = req.body;
+    try {
+      await deleteDoc(doc(db, "templates", id));
+      res.status(200).json({ message: "Templates deleted successfully" });
+    } catch (error) {
+      console.log("Error while deleting the template", error);
+      res.status(500).json({ error });
     }
   }
 };

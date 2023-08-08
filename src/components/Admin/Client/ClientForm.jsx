@@ -104,7 +104,7 @@ const ClientForm = () => {
   };
 
   const getTemplates = async () => {
-    const response = await fetch("/api/mail-template", {
+    const response = await fetch("/api/mail-template/", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -322,15 +322,15 @@ const ClientForm = () => {
                   <div className="controls blog-form">
                     <div className="blog-box p-4">
                       <h4 className="text-dark fs-5">Select Template</h4>
-                      <div className="d-flex justify-content-between flex-wrap">
+                      <div className="">
                         {templates?.map((template, index) => (
                           <div role="group" key={index}>
-                            <label className="d-flex">
-                              <div className="mr-2">
+                            <label className="d-flex justify-content-evenly flex-wrap">
+                              <div className="mr-1">
                                 <Field
                                   type="checkbox"
                                   name="template"
-                                  value={template.subject}
+                                  value={template.id}
                                 />
                               </div>
                               <div className="text-secondary">
@@ -351,9 +351,9 @@ const ClientForm = () => {
                       <h4 className="text-dark fs-5">Reference Projects</h4>
                       <div className="d-flex justify-content-between flex-wrap">
                         {works?.map((work, index) => (
-                          <div role="group" key={index}>
-                            <label className="d-flex">
-                              <div className="mr-2">
+                          <div role="group" key={index} className="mr-3">
+                            <label className="d-flex justify-content-evenly flex-wrap">
+                              <div className="mr-1">
                                 <Field
                                   type="checkbox"
                                   name="referenceProjects"
