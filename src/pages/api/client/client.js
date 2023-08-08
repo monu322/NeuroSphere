@@ -16,6 +16,7 @@ const handler = async (req, res) => {
       description,
       positives,
       negatives,
+      template,
       referenceProjects,
       contactName,
       contactDesignation,
@@ -38,6 +39,7 @@ const handler = async (req, res) => {
         contactDesignation,
         contactMail,
         secondaryMail,
+        template,
         recentAchievements,
         status,
       });
@@ -57,7 +59,6 @@ const handler = async (req, res) => {
       const clientCollection = collection(db, "client");
       const querySnapshot = await getDocs(clientCollection);
       const data = querySnapshot.docs.map((doc) => doc.data());
-      console.log(data);
       return res.status(200).json({ data });
     } catch (error) {
       return res.status(500).json({ error });

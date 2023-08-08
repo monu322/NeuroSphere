@@ -3,10 +3,11 @@ import {
   collection,
   deleteDoc,
   doc,
+  getDoc,
   getDocs,
   updateDoc,
 } from "firebase/firestore";
-import db from "../../config/fire-config";
+import db from "../../../config/fire-config";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
@@ -38,6 +39,7 @@ const handler = async (req, res) => {
       return res.status(500).json({ error });
     }
   }
+
   if (req.method === "PATCH") {
     const { subject, body, employees } = req.body.values;
     const { templateId } = req.body;

@@ -58,7 +58,7 @@ const ListTemplates = () => {
           <div className="col-lg-12 col-md-10 admin-home">
             <div className="d-flex justify-content-between">
               <h4 className="blg-head">Email Templates</h4>
-              <Link href="/admin/template">
+              <Link href="/admin/create-template">
                 <button type="button" className="btn-blog ">
                   Create
                 </button>
