@@ -6,6 +6,7 @@ const ListTemplates = () => {
   const [showConfirmBox, setShowConfirmBox] = useState(false);
   const [deleteId, setDeleteId] = useState("");
   const [templates, setTemplates] = useState([]);
+  const [filteredTemplate, setFilteredTemplate] = useState();
 
   const clearNotification = () => {
     setTimeout(() => {
@@ -23,6 +24,7 @@ const ListTemplates = () => {
     const { data, error } = await response.json();
     if (data) {
       setTemplates(data);
+      setFilteredTemplate([data[0]]);
       console.log(data);
     }
   };
@@ -47,58 +49,74 @@ const ListTemplates = () => {
     getTemplates();
   };
 
+  const handleTemplateView = (id) => {
+    const filteredData = templates.filter((t) => t.id === id);
+    setFilteredTemplate(filteredData);
+  };
+  useEffect(() => {
+    console.log(filteredTemplate);
+  }, [filteredTemplate]);
+
   useEffect(() => {
     getTemplates();
   }, []);
+
   return (
     <>
-      <div className="container mt-4">
+      <div className="">
         {notification && <div className="notification">{notification}</div>}
-        <div className="row text-dark">
-          <div className="col-lg-12 col-md-10 admin-home">
-            <div className="d-flex justify-content-between">
-              <h4 className="blg-head">Email Templates</h4>
-              <Link href="/admin/create-template">
-                <button type="button" className="btn-blog ">
-                  Create
-                </button>
-              </Link>
+        <div className="row m-4 template">
+          <div className="col-lg-3 col-md-3 template__col-1 mr-4">
+            <div className="">
+              {templates.map((template, index) => (
+                <div
+                  className="template__section p-3 mt-2"
+                  key={index}
+                  onClick={() => handleTemplateView(template.id)}
+                >
+                  <h5 className="template__subject">{template.subject}</h5>
+                  <p className="template__body">
+                    {template.body.split(" ").slice(0, 10).join(" ")}
+                  </p>
+                </div>
+              ))}
             </div>
+            <Link href="/admin/create-template">
+              <div className="template__create">Create New Template</div>
+            </Link>
           </div>
-        </div>
-        <div className="row">
-          {templates?.map((template, index) => (
-            <div
-              key={index}
-              className="col-lg-5 col-md-3 m-4 w-20  template__container"
-            >
-              <div className="template__head">
-                <div className="d-flex px-3 py-1">
-                  <p className="text-white-50 mr-2">Subject:</p>
-                  <p className="text-white">{template.subject}</p>
+          {filteredTemplate && (
+            <div className="col-lg-8 col-md-8 bg-white template__col-2">
+              <div className="template__preview-heading pb-3">
+                Template Preview
+              </div>
+              <div className="w-100 d-flex align-items-center px-3 my-2">
+                <p className="template__preview--subtitle">Subject:</p>
+                <h5 className="template__preview-subject ml-2 template__text">
+                  {filteredTemplate[0].subject}
+                </h5>
+              </div>
+              <div className="p-3 rounded mail__box mb-2">
+                <div className="mt-1 d-flex template__preview-body">
+                  <p className="template__preview--subtitle">Body:</p>
+                  <p className="template__text bdy ml-2">
+                    {filteredTemplate[0].body}
+                  </p>
                 </div>
               </div>
-              <div className="template__box">
-                <div className="px-2 py-1" key={index}>
-                  <div className="text-dark">
-                    <p>Body:</p>
-                    <p className="text-dark">{template.body}</p>
-                  </div>
-                  <div className="d-flex mt-3 justify-content-between">
-                    <Link href={`/admin/template/${template.id}`}>
-                      <button className="btn btn-success">Edit</button>
-                    </Link>
-                    <button
-                      className="btn btn-danger"
-                      onClick={() => handleDelete(template.id)}
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </div>
+              <div className="d-flex justify-content-between">
+                <Link href={`/admin/create-template/${filteredTemplate[0].id}`}>
+                  <button className="btn btn-success">Edit &rarr;</button>
+                </Link>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => handleDelete(filteredTemplate[0].id)}
+                >
+                  Delete
+                </button>
               </div>
             </div>
-          ))}
+          )}
         </div>
       </div>
       {showConfirmBox && (
