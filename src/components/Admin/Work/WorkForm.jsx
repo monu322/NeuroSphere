@@ -92,6 +92,15 @@ const WorkForm = () => {
       "outcomeText",
       "img",
       "wideImg",
+      "testimonialName",
+      "testimonialContent",
+      "testimonialDetails",
+      "serviceTitle",
+      "serviceDescription",
+      "serviceIconClass",
+      "outcomeTitle",
+      "outcomeDescription",
+      "outcomeIconClass",
     ];
 
     for (const field of requiredFields) {
@@ -153,38 +162,61 @@ const WorkForm = () => {
     }, 2000);
   };
   const addWork = async (values) => {
-    const ImgStorageRef = ref(
-      storage,
-      `workImages/img${values.img.name + values.img.size}`
-    );
-    const wideImgStorageRef = ref(
-      storage,
-      `workImages/wideImg${values.wideImg.name + values.wideImg.size}`
-    );
-    const testimonialImgStorageRef = ref(
-      storage,
-      `workImages/testimonialImg${
-        values.testimonialImg.name + values.testimonialImg.size
-      }`
-    );
-    const serviceImgStorageRef = ref(
-      storage,
-      `workImages/serviceImg${values.serviceImg.name + values.serviceImg.size}`
-    );
-    const outcomeImgStorageRef = ref(
-      storage,
-      `workImages/outcomeImg${values.outcomeImg.name + values.outcomeImg.size}`
-    );
-    await uploadBytes(ImgStorageRef, values.img);
-    await uploadBytes(wideImgStorageRef, values.wideImg);
-    await uploadBytes(testimonialImgStorageRef, values.testimonialImg);
-    await uploadBytes(serviceImgStorageRef, values.serviceImg);
-    await uploadBytes(outcomeImgStorageRef, values.outcomeImg);
-    const imageURL = await getDownloadURL(ImgStorageRef);
-    const wideImageURL = await getDownloadURL(wideImgStorageRef);
-    const serviceImgUrl = await getDownloadURL(serviceImgStorageRef);
-    const testimonialImgUrl = await getDownloadURL(testimonialImgStorageRef);
-    const outcomeImgUrl = await getDownloadURL(outcomeImgStorageRef);
+    let imageURL = "";
+    let wideImageURL = "";
+    let testimonialImgUrl = "";
+    let serviceImgUrl = "";
+    let outcomeImgUrl = "";
+    if (values.img) {
+      console.log("values.img present");
+      const ImgStorageRef = ref(
+        storage,
+        `workImages/img${values.img.name + values.img.size}`
+      );
+      await uploadBytes(ImgStorageRef, values.img);
+      imageURL = await getDownloadURL(ImgStorageRef);
+    }
+
+    if (values.wideImg) {
+      console.log("inside wideImg");
+      const wideImgStorageRef = ref(
+        storage,
+        `workImages/wideImg${values.wideImg.name + values.wideImg.size}`
+      );
+      await uploadBytes(wideImgStorageRef, values.wideImg);
+      wideImageURL = await getDownloadURL(wideImgStorageRef);
+    }
+    if (values.testimonialImg) {
+      const testimonialImgStorageRef = ref(
+        storage,
+        `workImages/testimonialImg${
+          values.testimonialImg.name + values.testimonialImg.size
+        }`
+      );
+      await uploadBytes(testimonialImgStorageRef, values.testimonialImg);
+      testimonialImgUrl = await getDownloadURL(testimonialImgStorageRef);
+    }
+    if (values.serviceImg) {
+      const serviceImgStorageRef = ref(
+        storage,
+        `workImages/serviceImg${
+          values.serviceImg.name + values.serviceImg.size
+        }`
+      );
+      await uploadBytes(serviceImgStorageRef, values.serviceImg);
+      serviceImgUrl = await getDownloadURL(serviceImgStorageRef);
+    }
+    if (values.outcomeImg) {
+      const outcomeImgStorageRef = ref(
+        storage,
+        `workImages/outcomeImg${
+          values.outcomeImg.name + values.outcomeImg.size
+        }`
+      );
+      await uploadBytes(outcomeImgStorageRef, values.outcomeImg);
+      outcomeImgUrl = await getDownloadURL(outcomeImgStorageRef);
+    }
+
     const response = await fetch("/api/work", {
       method: "POST",
       headers: {
@@ -202,7 +234,12 @@ const WorkForm = () => {
     const { message, error } = await response.json();
     !error ? setNotification(message) : setNotification(error);
     clearNotification("");
-    console.log("Form " + JSON.stringify(values));
+    console.log("Work added");
+    console.log("img : " + imageURL);
+    console.log("wideImg : " + wideImageURL);
+    console.log("testiImg : " + testimonialImgUrl);
+    console.log("out : " + outcomeImgUrl);
+    console.log("ser : " + serviceImgUrl);
   };
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
@@ -233,7 +270,7 @@ const WorkForm = () => {
       values.services = services;
       values.outcomes = outcomes;
       await addWork(values);
-
+      // resetForm();
       setTimeout(() => {
         router.push("/admin/works");
         setNotification("");
@@ -491,6 +528,53 @@ const WorkForm = () => {
                     </div>
                   </div>
 
+                  {/* {services?.map((service, index) => {
+                    <div className="col-lg-6 col-md-12 mb-4" key={index}>
+                      <div className="controls blog-form">
+                        <div className="blog-box p-4">
+                          <div className="form-group d-flex flex-column">
+                            <label htmlFor="heading">Service Title</label>
+                            <Field
+                              id="heading"
+                              type="text"
+                              name="serviceTitle"
+                              value={service.serviceTitle}
+                              // onChange={handleHeadingChange}
+                              onChange={handleServiceChange}
+                              placeholder="Post Heading"
+                              className="border border-secondary"
+                            />
+                          </div>
+                          <div className="form-group d-flex flex-column">
+                            <label htmlFor="heading">Service Description</label>
+                            <Field
+                              id="heading"
+                              type="text"
+                              name="serviceDecription"
+                              value={service.serviceDecription}
+                              // onChange={handleHeadingChange}
+                              onChange={handleServiceChange}
+                              placeholder="Post Heading"
+                              className="border border-secondary"
+                            />
+                          </div>
+                          <div className="form-group d-flex flex-column">
+                            <label htmlFor="heading">Service Icon Class</label>
+                            <Field
+                              id="heading"
+                              type="text"
+                              name="serviceIconClass"
+                              value={service.serviceIconClass}
+                              // onChange={handleHeadingChange}
+                              onChange={handleServiceChange}
+                              placeholder="Post Heading"
+                              className="border border-secondary"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>;
+                  })} */}
                   <div className="col-lg-6 col-md-12 mb-4">
                     <div className="controls blog-form">
                       <div className="blog-box p-4">

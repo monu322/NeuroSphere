@@ -72,7 +72,7 @@ const handler = async (req, res) => {
         objective , servicesIntro ,services ,
          outcomeText ,outcomes , testimonialName ,
           testimonialContent , testimonialDetails, published} = req.body.values;
-          const {imgUrl , testimonialImgUrl, wideImageURL, serviceImgUrl, outcomeImgUrl} = req.body;
+          const {imageURL , testimonialImgUrl, wideImageURL, serviceImgUrl, outcomeImgUrl} = req.body;
 
 
     console.log('Data from server : ' + JSON.stringify(req.body.values));
@@ -82,7 +82,7 @@ const handler = async (req, res) => {
       // const Tags = tags.split(",");
       const ref = doc(db, "works", workId);
       await updateDoc(ref, {
-        img:imgUrl,
+        img:imageURL,
         wideImg:wideImageURL , serviceImg:serviceImgUrl , outcomeImg:outcomeImgUrl , testimonialImg:testimonialImgUrl,
         link , title , description , tags , 
         objective , servicesIntro , services ,

@@ -20,7 +20,6 @@ const WorkList = () => {
     });
     const { data, error } = await response.json();
     data ? setWorkData(data) : setNotification(error);
-    console.log("data error " + error);
     clearNotification();
   };
 
