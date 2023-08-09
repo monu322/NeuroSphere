@@ -37,33 +37,10 @@ const WorkList = () => {
     getWorkData();
   };
 
-  //   const handleDelete = async (id) => {
-  //     try {
-  //       const response = await fetch(`/api/work/${id}`, {
-  //         method: "DELETE",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //       });
-
-  //       const { message, error } = await response.json();
-
-  //       if (error) {
-  //         setNotification(error);
-  //       } else {
-  //         setNotification(message);
-  //       }
-
-  //       clearNotification();
-  //       getWorkData();
-  //     } catch (error) {
-  //       console.error("Error while deleting the document:", error);
-  //     }
-  //   };
-
   useEffect(() => {
     getWorkData();
   }, []);
+
   return (
     <div className="container mt-4">
       <div className="row text-dark">
@@ -88,9 +65,13 @@ const WorkList = () => {
                       <td>{index + 1}</td>
                       <td>{work.title}</td>
                       {/* <td>{work.date.toDate().toLocaleDateString("en-GB")}</td> */}
-                      <td>{work.published ? "Published" : "Not Published"}</td>
                       <td>
-                        <Link href={`/admin/work/${work.id}`}>
+                        {work.published === true
+                          ? "Published"
+                          : "Not Published"}
+                      </td>
+                      <td>
+                        <Link href={`/admin/works/${work.id}`}>
                           <a>
                             <button className="control_btn pen pe-7s-pen mr-2"></button>
                           </a>
