@@ -59,12 +59,20 @@ function UpdateWork({ id }) {
   };
 
   const updateWork = async (values) => {
-    let imageURL = workData?.img || "";
-    let wideImageURL = workData?.wideImg || "";
-    let testimonialImgUrl = workData?.testimonialImg || "";
-    let serviceImgUrl = workData?.serviceImg || "";
-    let outcomeImgUrl = workData?.outcomeImg || "";
-    if (values.img) {
+    console.log("In updateWork Function");
+    console.log("value of values : " + JSON.stringify(values));
+    console.log("Value of workdata.img :" + workData.img);
+    console.log("Value of workdata.wideImg :" + workData.wideImg);
+    console.log("Value of workdata.testiImg :" + workData.testimonialImg);
+    console.log("Value of workdata.serImg :" + workData.serviceImg);
+    console.log("Value of workdata.outImg :" + workData.outcomeImg);
+
+    let imageURL = values.img;
+    let wideImageURL = values.wideImg;
+    let testimonialImgUrl = values.testimonialImg;
+    let serviceImgUrl = values.serviceImg;
+    let outcomeImgUrl = values.outcomeImg;
+    if (!imageURL && values.img) {
       console.log("values.img present after update");
       const ImgStorageRef = ref(
         storage,
@@ -74,7 +82,7 @@ function UpdateWork({ id }) {
       imageURL = await getDownloadURL(ImgStorageRef);
     }
 
-    if (values.wideImg) {
+    if (!wideImageURL && values.wideImg) {
       console.log("inside wideImg");
       const wideImgStorageRef = ref(
         storage,
@@ -83,7 +91,7 @@ function UpdateWork({ id }) {
       await uploadBytes(wideImgStorageRef, values.wideImg);
       wideImageURL = await getDownloadURL(wideImgStorageRef);
     }
-    if (values.testimonialImg) {
+    if (!testimonialImgUrl && values.testimonialImg) {
       console.log("in testi");
       console.log(values.testimonialImg);
       const testimonialImgStorageRef = ref(
@@ -95,7 +103,7 @@ function UpdateWork({ id }) {
       await uploadBytes(testimonialImgStorageRef, values.testimonialImg);
       testimonialImgUrl = await getDownloadURL(testimonialImgStorageRef);
     }
-    if (values.serviceImg) {
+    if (!serviceImgUrl && values.serviceImg) {
       console.log("in ser");
       const serviceImgStorageRef = ref(
         storage,
@@ -106,7 +114,7 @@ function UpdateWork({ id }) {
       await uploadBytes(serviceImgStorageRef, values.serviceImg);
       serviceImgUrl = await getDownloadURL(serviceImgStorageRef);
     }
-    if (values.outcomeImg) {
+    if (!outcomeImgUrl && values.outcomeImg) {
       console.log("in out");
       const outcomeImgStorageRef = ref(
         storage,

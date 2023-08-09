@@ -91,7 +91,7 @@ const handler = async (req, res) => {
       });
       res.status(201).json({ message: "work updated successfully" });
     } catch (error) {
-      console.error("Error creating work:", error);
+      console.error("Error updating work:", error);
       return res.status(500).json({ error: "Failed to update work" });
     }
   }

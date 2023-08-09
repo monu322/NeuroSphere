@@ -295,7 +295,7 @@ const WorkForm = () => {
             <Form>
               <div className=" container mb-4">
                 <div className="row">
-                  <div className="col-lg-6 col-md-12 mb-4">
+                  <div className="col-lg-12 col-md-12 mb-4">
                     <div className="blog-box p-4">
                       <div className="controls blog-form">
                         <div className="form-group d-flex flex-column">
@@ -360,14 +360,15 @@ const WorkForm = () => {
                     </div>
                   </div>
                   {/* <div className="mb-4"> */}
-                  <div className="col-lg-6 col-md-12 ">
+                  <div className="col-lg-12 col-md-12 ">
                     <div className="blog-box p-4">
                       <div className="controls blog-form">
                         <div className="form-group d-flex flex-column">
                           <label htmlFor="heading">Testimonials Content</label>
                           <Field
                             id="heading"
-                            type="text"
+                            as="textarea"
+                            rows="4"
                             value={values.testimonialContent}
                             // onChange={handleHeadingChange}
                             name="testimonialContent"
@@ -393,7 +394,8 @@ const WorkForm = () => {
                           </label>
                           <Field
                             id="heading"
-                            type="text"
+                            as="textarea"
+                            rows="4"
                             value={values.testimonialDetails}
                             // onChange={handleHeadingChange}
                             name="testimonialDetails"
@@ -419,7 +421,7 @@ const WorkForm = () => {
                   </div>
                   {/* </div> */}
 
-                  <div className="col-lg-6 col-md-12">
+                  <div className="col-lg-12 col-md-12">
                     {/* <div className="row mb-4">
                       <div className="col-lg-12"> */}
                     <div className="blog-box p-4">
@@ -450,7 +452,7 @@ const WorkForm = () => {
                     </div> */}
                   </div>
                   {/* <div className="mb-4"> */}
-                  <div className="col-lg-6 col-md-12 mb-4">
+                  <div className="col-lg-12 col-md-12 mb-4">
                     <div className="controls blog-form">
                       <div className="blog-box p-4">
                         <div className="form-group d-flex flex-column">
@@ -493,7 +495,8 @@ const WorkForm = () => {
                           <label htmlFor="heading">Service Description</label>
                           <Field
                             id="heading"
-                            type="text"
+                            as="textarea"
+                            rows="4"
                             name="serviceDecription"
                             value={newService.serviceDecription}
                             // onChange={handleHeadingChange}
@@ -575,7 +578,7 @@ const WorkForm = () => {
                       </div>
                     </div>;
                   })} */}
-                  <div className="col-lg-6 col-md-12 mb-4">
+                  <div className="col-lg-12 col-md-12 mb-4">
                     <div className="controls blog-form">
                       <div className="blog-box p-4">
                         <div className="form-group d-flex flex-column">
@@ -618,7 +621,8 @@ const WorkForm = () => {
                           <label htmlFor="heading">Outcome Description</label>
                           <Field
                             id="heading"
-                            type="text"
+                            as="textarea"
+                            rows="4"
                             name="outcomeDescription"
                             value={newOutcome.outcomeDescription}
                             // onChange={handleHeadingChange}
