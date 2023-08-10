@@ -2,11 +2,12 @@ import { Field, Form, Formik } from "formik";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
-const ClientForm = () => {
+const UpdateClientForm = ({ id }) => {
   const [works, setWorks] = useState([]);
   const [notification, setNotification] = useState("");
   const [errMessage, setErrMessage] = useState(null);
   const [templates, setTemplates] = useState([]);
+  const [clientDetails, setClientDetails] = useState();
   const router = useRouter();
   const validateForm = (formValues) => {
     if (
@@ -51,23 +52,23 @@ const ClientForm = () => {
   };
 
   const initialValues = {
-    name: "",
-    location: "",
-    description: "",
-    positives: "",
-    negatives: "",
-    referenceProjects: [],
-    template: "",
-    contactName: "",
-    contactDesignation: "",
-    contactMail: "",
-    secondaryMail: "",
-    recentAchievements: "",
+    name: clientDetails?.name || "",
+    location: clientDetails?.location || "",
+    description: clientDetails?.description || "",
+    positives: clientDetails?.positives || "",
+    negatives: clientDetails?.negatives || "",
+    referenceProjects: clientDetails?.works || [],
+    template: clientDetails?.template || "",
+    contactName: clientDetails?.contactName || "",
+    contactDesignation: clientDetails?.contactDesignation || "",
+    contactMail: clientDetails?.contactMail || "",
+    secondaryMail: clientDetails?.secondaryMail || "",
+    recentAchievements: clientDetails?.recentAchievements || "",
     status: {
-      firstMail: false,
-      secondMail: false,
-      replied: false,
-      meetingScheduled: false,
+      firstMail: clientDetails?.status?.firstMail || false,
+      secondMail: clientDetails?.status?.secondMail || false,
+      replied: clientDetails?.status?.replied || false,
+      meetingScheduled: clientDetails?.status?.meetingScheduled || false,
     },
   };
   const getWorks = async () => {
@@ -85,10 +86,10 @@ const ClientForm = () => {
     }
   };
 
-  const saveClient = async (values) => {
+  const updateClient = async (values) => {
     console.log(values);
-    const response = await fetch("/api/client/client", {
-      method: "POST",
+    const response = await fetch(`/api/client/${id}`, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
@@ -104,7 +105,7 @@ const ClientForm = () => {
   };
 
   const getTemplates = async () => {
-    const response = await fetch("/api/mail-template/", {
+    const response = await fetch("/api/mail-template", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -116,43 +117,66 @@ const ClientForm = () => {
       console.log(data);
     }
   };
+
+  const getClientDetails = async (id) => {
+    const response = await fetch(`/api/client/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const { data, error } = await response.json();
+    data && setClientDetails(data);
+    error && setNotification(error);
+  };
+
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
       if (validateForm(values)) {
         setSubmitting(false);
-        await saveClient(values);
-        setNotification("Client Created successfully");
+        await updateClient(values);
+        setNotification("Client saved successfully");
+        resetForm();
         setTimeout(() => {
           router.push("/admin");
           setNotification("");
         }, 2000);
       }
     } catch (error) {
-      // setNotification(error);
+      setNotification(error);
       clearNotification();
     }
   };
 
   useEffect(() => {
+    if (id) {
+      getClientDetails(id);
+    }
     getWorks();
     getTemplates();
   }, []);
+
   useEffect(() => {
     console.log(works);
     console.log(initialValues.referenceProjects);
   }, [works, initialValues.referenceProjects]);
+
   return (
     <>
       <div className="container mt-2">
         {notification && <div className="notification">{notification}</div>}
-        <Formik const initialValues={initialValues} onSubmit={handleSubmit}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+          enableReinitialize={true}
+        >
           {({ values, setFieldValue }) => (
             <Form>
               <div className="d-flex justify-content-between">
-                <div className="text-dark mb-3 blg-head">Add Client</div>
+                <div className="text-dark mb-3 blg-head">Update Client</div>
                 <div>
                   <button type="submit" className="btn-blog">
-                    <span>Add</span>
+                    <span>Update</span>
                   </button>
                 </div>
               </div>
@@ -376,4 +400,4 @@ const ClientForm = () => {
   );
 };
 
-export default ClientForm;
+export default UpdateClientForm;

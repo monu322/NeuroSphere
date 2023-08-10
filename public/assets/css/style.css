@@ -7158,3 +7158,12 @@ footer .item .copy-right p a {
   color: white;
   background-color: #333b4f;
 }
+
+.edit {
+  font-size: 18px;
+  color: rgb(89, 165, 122);
+}
+.delete {
+  font-size: 17px;
+  color: rgb(224, 140, 132);
+}

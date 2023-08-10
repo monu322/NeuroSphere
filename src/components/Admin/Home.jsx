@@ -130,15 +130,17 @@ const Home = () => {
                           </td>
                           <td>{blog.posterName}</td>
                           <td>
-                            <Link href={`/admin/blog/${blog.id}`}>
-                              <a>
-                                <button className="control_btn pen pe-7s-pen mr-3"></button>
-                              </a>
-                            </Link>
-                            <button
-                              className="control_btn trash pe-7s-trash"
-                              onClick={() => handleDelete(blog.id)}
-                            ></button>
+                            <div className="d-flex justify-content-evenly align-items-center">
+                              <Link href={`/admin/blog/${blog.id}`}>
+                                <a>
+                                  <button className="control_btn fas edit fa-edit mr-3"></button>
+                                </a>
+                              </Link>
+                              <button
+                                className="control_btn delete fas fa-trash-alt"
+                                onClick={() => handleDelete(blog.id)}
+                              ></button>
+                            </div>
                           </td>
                         </tr>
                       );
@@ -175,13 +177,17 @@ const Home = () => {
                         </td>
                         <td>{blog.posterName}</td>
                         <td>
-                          <Link href={`/admin/blog/${blog.id}`}>
-                            <button className="control_btn pen pe-7s-pen mr-3"></button>
-                          </Link>
-                          <button
-                            className="control_btn trash pe-7s-trash"
-                            onClick={() => handleDelete(blog.id)}
-                          ></button>
+                          <div className="d-flex justify-content-evenly align-items-center mr-1">
+                            <Link href={`/admin/blog/${blog.id}`}>
+                              <a>
+                                <button className="control_btn fas edit fa-edit mr-3"></button>
+                              </a>
+                            </Link>
+                            <button
+                              className="control_btn delete fas fa-trash-alt"
+                              onClick={() => handleDelete(blog.id)}
+                            ></button>
+                          </div>
                         </td>
                       </tr>
                     );
@@ -191,7 +197,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <Client data={clientData} />
+        <Client data={clientData} getClientsData={getClientData} />
       </div>
       {showConfirmBox && (
         <div>

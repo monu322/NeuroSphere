@@ -68,18 +68,19 @@ const ListTemplates = () => {
         <div className="row m-4 template">
           <div className="col-lg-3 col-md-3 template__col-1 mr-4">
             <div className="">
-              {templates.map((template, index) => (
-                <div
-                  className="template__section p-3 mt-2"
-                  key={index}
-                  onClick={() => handleTemplateView(template.id)}
-                >
-                  <h5 className="template__subject">{template.subject}</h5>
-                  <p className="template__body">
-                    {template.body.split(" ").slice(0, 10).join(" ")}
-                  </p>
-                </div>
-              ))}
+              {templates &&
+                templates.map((template, index) => (
+                  <div
+                    className="template__section p-3 mt-2"
+                    key={index}
+                    onClick={() => handleTemplateView(template.id)}
+                  >
+                    <h5 className="template__subject">{template.subject}</h5>
+                    <p className="template__body">
+                      {template.body.split(" ").slice(0, 10).join(" ")}
+                    </p>
+                  </div>
+                ))}
             </div>
             <Link href="/admin/create-template">
               <div className="template__create">Create New Template</div>
