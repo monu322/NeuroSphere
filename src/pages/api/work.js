@@ -25,6 +25,10 @@ const handler = async (req, res) => {
       services,
       outcomeText,
       outcomes,
+      testimonialContent,
+      testimonialDetails,
+      testimonialName,
+      published
     } = req.body.values;
     try {
       const Tags = tags.split(",");
@@ -45,6 +49,10 @@ const handler = async (req, res) => {
         testimonialImg: testimonialImgUrl,
         serviceImg: serviceImgUrl,
         outcomeImg: outcomeImgUrl,
+        testimonialContent,
+        testimonialDetails,
+        testimonialName,
+        published,
         date: serverTimestamp(),
       });
       const docRef = doc(db, "works", result.id);
@@ -55,6 +63,36 @@ const handler = async (req, res) => {
     } catch (error) {
       console.log("Error adding work:", error);
       res.status(500).json({ error: "Failed to add work" });
+    }
+  }
+
+    if (req.method === "PATCH") {
+
+       const {link , title , description , tags , 
+        objective , servicesIntro ,services ,
+         outcomeText ,outcomes , testimonialName ,
+          testimonialContent , testimonialDetails, published} = req.body.values;
+          const {imageURL , testimonialImgUrl, wideImageURL, serviceImgUrl, outcomeImgUrl} = req.body;
+
+
+    console.log('Data from server : ' + JSON.stringify(req.body.values));
+    try {
+      const {workId} = req.body;;
+      console.log("WorkId : "+workId);
+      // const Tags = tags.split(",");
+      const ref = doc(db, "works", workId);
+      await updateDoc(ref, {
+        img:imageURL,
+        wideImg:wideImageURL , serviceImg:serviceImgUrl , outcomeImg:outcomeImgUrl , testimonialImg:testimonialImgUrl,
+        link , title , description , tags , 
+        objective , servicesIntro , services ,
+         outcomeText , outcomes , testimonialName ,
+          testimonialContent , testimonialDetails , published
+      });
+      res.status(201).json({ message: "work updated successfully" });
+    } catch (error) {
+      console.error("Error updating work:", error);
+      return res.status(500).json({ error: "Failed to update work" });
     }
   }
 
