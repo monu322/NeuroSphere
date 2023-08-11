@@ -24,6 +24,7 @@ const BlogTable = ({ heading, filteredData, publishedBlog, onDeleteClick }) => {
                 ? publishedBlog.map((blog, index) => {
                     return (
                       <TableBody
+                        key={index}
                         blog={blog}
                         index={index}
                         onDeleteClick={onDeleteClick}
@@ -33,6 +34,7 @@ const BlogTable = ({ heading, filteredData, publishedBlog, onDeleteClick }) => {
                 : filteredData?.map((blog, index) => {
                     return (
                       <TableBody
+                        key={index}
                         blog={blog}
                         index={index}
                         onDeleteClick={onDeleteClick}
@@ -49,13 +51,9 @@ const BlogTable = ({ heading, filteredData, publishedBlog, onDeleteClick }) => {
 
 export default BlogTable;
 
-const TableBody = ({ blog, index, onDeleteClick }) => {
-  const handleOnClick = (id) => {
-    onDeleteClick(id);
-  };
-
+const TableBody = ({ blog, index, onDeleteClick, key }) => {
   return (
-    <tr key={index}>
+    <tr key={key}>
       <td>{index + 1}</td>
       <td>{blog.title}</td>
       <td>{/* {blog.postedDate.toDate().toLocaleDateString("en-GB")} */}</td>
