@@ -355,6 +355,7 @@ const FormRow = ({ title, templates, works }) => {
               {templates
                 ? templates.map((template, index) => (
                     <FormRowField
+                      key={index}
                       index={index}
                       name="template"
                       value={template.id}
@@ -363,6 +364,7 @@ const FormRow = ({ title, templates, works }) => {
                   ))
                 : works?.map((work, index) => (
                     <FormRowField
+                      key={index}
                       index={index}
                       name="referenceProjects"
                       value={work.title}
