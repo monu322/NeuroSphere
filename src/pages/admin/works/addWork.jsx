@@ -1,8 +1,6 @@
 import { useContext, useEffect } from "react";
 import AdminLayout from "../../../layouts/admin";
-
 import WorkForm from "../../../components/Admin/Work/WorkForm";
-import WorkList from "../../../components/Admin/Work/WorkList";
 import { useRouter } from "next/router";
 import { AuthContext } from "../../../context/AuthProvider";
 
