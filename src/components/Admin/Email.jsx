@@ -1,6 +1,7 @@
 import { Field, Form, Formik } from "formik";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import MailPreviewModal from "../Modals/MailPreviewModal";
 
 const Email = ({ clientId }) => {
   const [errMessage, setErrMessage] = useState(null);
@@ -26,6 +27,10 @@ const Email = ({ clientId }) => {
 
   const handlePreview = () => {
     !previewMode ? setPreviewMode(true) : setPreviewMode(false);
+  };
+
+  const handleClosePreview = () => {
+    setPreviewMode(false);
   };
 
   const handleOnChange = (event) => {
@@ -111,7 +116,7 @@ const Email = ({ clientId }) => {
       const { message, error } = await clientRes.json();
       !error ? setNotification(message) : setNotification(error);
       clearNotification();
-      //   router.push("/admin");
+      router.push("/admin");
     }
   };
   {
@@ -189,37 +194,11 @@ const Email = ({ clientId }) => {
                         </button>
                       </div>
                       {previewMode && (
-                        <div>
-                          <div className="mail__preview-container">
-                            <div className="text-dark">
-                              <div className="d-flex">
-                                <p>To:</p>
-                                <p className="text-dark ml-1">
-                                  {values.recipient}
-                                </p>
-                              </div>
-                              <div className="d-flex">
-                                <p>Subject:</p>
-                                <p className="text-dark ml-1">
-                                  {values.subject}
-                                </p>
-                              </div>
-                              <div className="d-flex">
-                                <p>Body:</p>
-                                <p className="text-dark ml-1">{emailBody}</p>
-                              </div>
-                            </div>
-                            <div className="d-flex justify-content-end mr-3 mt-2">
-                              <buttoon
-                                className="btn btn-secondary btn__mail-close"
-                                onClick={() => setPreviewMode(false)}
-                              >
-                                Close
-                              </buttoon>
-                            </div>
-                          </div>
-                          <div className="confirm_bg"></div>
-                        </div>
+                        <MailPreviewModal
+                          emailBody={emailBody}
+                          values={values}
+                          onClose={handleClosePreview}
+                        />
                       )}
                     </div>
                   </div>

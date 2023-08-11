@@ -7163,7 +7163,13 @@ footer .item .copy-right p a {
   font-size: 18px;
   color: rgb(89, 165, 122);
 }
+.edit:hover {
+  color: rgb(64, 140, 97);
+}
 .delete {
   font-size: 17px;
-  color: rgb(224, 140, 132);
+  color: rgb(224, 132, 124);
+}
+.delete:hover {
+  color: rgb(216, 101, 90);
 }
