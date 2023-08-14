@@ -81,11 +81,11 @@ const WorkList = () => {
                       <td>
                         <Link href={`/admin/works/${work.id}`}>
                           <a>
-                            <button className="control_btn pen pe-7s-pen mr-2"></button>
+                            <button className="control_btn fas edit fa-edit mr-2"></button>
                           </a>
                         </Link>
                         <button
-                          className="control_btn trash pe-7s-trash mr-2"
+                          className="control_btn delete fas fa-trash-alt"
                           onClick={() => handleDelete(work.id)}
                         ></button>
                       </td>

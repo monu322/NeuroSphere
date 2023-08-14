@@ -19,6 +19,7 @@ function UpdateWork({ id }) {
   const [workData, setWorkData] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
   const [showPreviewImage, setShowPreviewImage] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
 
@@ -41,6 +42,83 @@ function UpdateWork({ id }) {
     testimonialDetails: workData.testimonialDetails || "",
     testimonialImg: workData.testimonialImg || "",
     published: true,
+  };
+
+  const validateForm = (formValues) => {
+    // Required field validation
+    const requiredFields = [
+      "title",
+      "description",
+      "objective",
+      "servicesIntro",
+      "outcomeText",
+      "img",
+      "wideImg",
+      "testimonialName",
+      "testimonialContent",
+      "testimonialDetails",
+      // "serviceTitle",
+      // "serviceDescription",
+      // "serviceIconClass",
+      // "outcomeTitle",
+      // "outcomeDescription",
+      // "outcomeIconClass",
+    ];
+
+    for (const field of requiredFields) {
+      if (!formValues[field]) {
+        console.log(field);
+        setErrMessage("Please fill in all fields");
+        clearErrorMessage();
+        return false;
+      }
+    }
+
+    // Field length validation
+    if (formValues.title.length < 5) {
+      setErrMessage("Name must be at least 5 characters");
+      clearErrorMessage();
+      return false;
+    }
+
+    if (formValues.description.length < 10) {
+      setErrMessage("Description must be at least 10 characters");
+      clearErrorMessage();
+      return false;
+    }
+
+    if (formValues.objective.length < 10) {
+      setErrMessage("Description must be at least 10 characters");
+      clearErrorMessage();
+      return false;
+    }
+
+    if (formValues.servicesIntro.length < 10) {
+      setErrMessage("Services Intro must be at least 10 characters");
+      clearErrorMessage();
+      return false;
+    }
+
+    if (formValues.outcomeText.length < 10) {
+      setErrMessage("Outcome text must be at least 10 characters");
+      clearErrorMessage();
+      return false;
+    }
+
+    // Image and wideImg validation
+    // if (!formValues.img || !formValues.img.type.startsWith("image/")) {
+    //   setErrMessage("Please select an image");
+    //   clearErrorMessage();
+    //   return false;
+    // }
+
+    // if (!formValues.wideImg || !formValues.wideImg.type.startsWith("image/")) {
+    //   setErrMessage("Please select a wide image");
+    //   clearErrorMessage();
+    //   return false;
+    // }
+
+    return true;
   };
 
   const clearNotification = () => {
@@ -130,6 +208,7 @@ function UpdateWork({ id }) {
         outcomeImgUrl,
       }),
     });
+    setLoading(false);
     const { message, error } = await response.json();
     !error ? setNotification(message) : setNotification(error);
     clearNotification();
@@ -143,6 +222,7 @@ function UpdateWork({ id }) {
 
     if (docSnap.exists()) {
       setWorkData(docSnap.data());
+      setLoading(false);
       console.log("Fetched work data");
     } else {
       setErrMessage("No such document");
@@ -184,16 +264,38 @@ function UpdateWork({ id }) {
 
   const handleUpdate = async (values) => {
     values.published = false;
+    setLoading(true);
     await updateWork(values);
   };
 
+  const handleSubmit = async (values, { setSubmitting, resetForm }) => {
+    try {
+      if (validateForm(values)) {
+        console.log("Form validated");
+        setErrMessage("");
+        setSubmitting(false);
+        await updateWork(values);
+        resetForm();
+        setTimeout(() => {
+          router.push("/admin/works");
+          setNotification("");
+        }, 2000);
+      }
+    } catch (error) {
+      console.log(error);
+      setNotification("Error while submitting");
+      clearNotification();
+    }
+  };
+
   useEffect(async () => {
+    setLoading(true);
     if (id) {
       await getWorkDataWithId(id);
     }
   }, [id]);
 
-  if (!workData) {
+  if (!workData || loading) {
     return <LoadingScreen />;
   }
   return (
@@ -202,13 +304,17 @@ function UpdateWork({ id }) {
         {notification && <div className="notification">{notification}</div>}
         {errMessage && <div className="messages">{errMessage}</div>}
 
-        <Formik initialValues={initialValues} enableReinitialize={true}>
+        <Formik
+          initialValues={initialValues}
+          enableReinitialize={true}
+          onSubmit={handleSubmit}
+        >
           {({ values, setFieldValue }) => (
             <Form>
               <div className="">
                 <div className="d-flex justify-content-between">
                   <div className="text-dark mb-3 blg-head mt-4 mb-4">
-                    Add New Work
+                    Edit Work
                   </div>
                   <div className="mb-4">
                     <div className="d-flex ml-3 mt-4">
@@ -292,7 +398,7 @@ function UpdateWork({ id }) {
                       </div>
                     </div>
                   </div>
-                  <div className="col-lg-12 col-md-12">
+                  <div className="col-lg-12 col-md-12 mb-4">
                     <div className="blog-box p-4">
                       <div className="controls blog-form">
                         <div className="form-group d-flex flex-column">
@@ -340,6 +446,7 @@ function UpdateWork({ id }) {
                             <>
                               <div className="d-flex">
                                 <button
+                                  type="button"
                                   className="btn-blog mt-4 mb-4 w-25"
                                   onClick={() =>
                                     setShowPreviewImage(!showPreviewImage)
@@ -389,7 +496,7 @@ function UpdateWork({ id }) {
                       </div>
                     </div>
                   </div>
-                  <div className="col-lg-12 col-md-12">
+                  <div className="col-lg-12 col-md-12 mb-4">
                     <div className="blog-box p-4">
                       <div className="controls blog-form">
                         <div className="form-group d-flex flex-column">
@@ -398,6 +505,7 @@ function UpdateWork({ id }) {
                             <>
                               <div className="d-flex">
                                 <button
+                                  type="button"
                                   className="btn-blog mt-4 mb-4 w-25"
                                   onClick={() =>
                                     setShowPreviewImage(!showPreviewImage)
@@ -444,6 +552,7 @@ function UpdateWork({ id }) {
                             <>
                               <div className="d-flex">
                                 <button
+                                  type="button"
                                   className="btn-blog mt-4 mb-4 w-25"
                                   onClick={() =>
                                     setShowPreviewImage(!showPreviewImage)
@@ -489,7 +598,7 @@ function UpdateWork({ id }) {
                       </div>
                     </div>
                   </div>
-                  <div className="col-lg-12 col-md-12 mb-4 mt-4">
+                  <div className="col-lg-12 col-md-12 mb-4">
                     <div className="controls blog-form">
                       <div className="blog-box p-4">
                         <div className="form-group d-flex flex-column">
@@ -507,6 +616,7 @@ function UpdateWork({ id }) {
                             <>
                               <div className="d-flex">
                                 <button
+                                  type="button"
                                   className="btn-blog mt-4 mb-4 w-25"
                                   onClick={() =>
                                     setShowPreviewImage(!showPreviewImage)
@@ -557,7 +667,7 @@ function UpdateWork({ id }) {
                           Object.keys(workData?.services).map(
                             (service, index) => (
                               <div
-                                className="mb-5 mt-4 border-bottom border-dark"
+                                className="mb-4 border-bottom border-dark"
                                 key={index}
                               >
                                 <div className="form-group d-flex flex-column">
@@ -652,7 +762,7 @@ function UpdateWork({ id }) {
                     </div>
                   </div>
 
-                  <div className="col-lg-12 col-md-12 mb-4 mt-4">
+                  <div className="col-lg-12 col-md-12 mb-4">
                     <div className="controls blog-form">
                       <div className="blog-box p-4">
                         <div className="form-group d-flex flex-column">
@@ -680,6 +790,7 @@ function UpdateWork({ id }) {
                                 </button>
                                 {showPreviewImage && (
                                   <button
+                                    type="button"
                                     className="btn-blog mt-4 mb-4 w-25 ml-3"
                                     onClick={() => {
                                       setFieldValue("outcomeImg", "");
@@ -720,7 +831,7 @@ function UpdateWork({ id }) {
                           Object.keys(workData?.outcomes).map(
                             (outcome, index) => (
                               <div
-                                className="mb-5 mt-4 border-bottom border-dark"
+                                className="mb-4 mt-4 border-bottom border-dark"
                                 key={index}
                               >
                                 <div className="form-group d-flex flex-column">
