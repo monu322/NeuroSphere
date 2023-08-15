@@ -96,7 +96,7 @@ const Client = ({ data, getClientsData }) => {
                       <td>{client.contactMail}</td>
                       <td>
                         <ButtonsAction
-                          to={`/clients/${client.id}`}
+                          to={`clients/${client.id}`}
                           onDeleteClick={handleDelete}
                           data={client.id}
                         />

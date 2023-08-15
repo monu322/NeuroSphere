@@ -84,10 +84,24 @@ const Home = () => {
   useEffect(() => {
     getBlogData();
   }, []);
-
+  const sendMailToClients = async () => {
+    console.log("Clicked");
+    try {
+      const response = await fetch("http://localhost:3005/api/send-emails", {
+        method: "POST",
+      });
+      const { message } = response.json();
+      console.log(message);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
   return (
     <>
       <div className="container mt-4">
+        <button className="btn btn-primary" onClick={sendMailToClients}>
+          Send
+        </button>
         {notification && <div className="notification">{notification}</div>}
         {filteredData && filteredData[0]?.isPublished === false && (
           <BlogTable

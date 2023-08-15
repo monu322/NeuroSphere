@@ -65,10 +65,10 @@ const UpdateClientForm = ({ id }) => {
     secondaryMail: clientDetails?.secondaryMail || "",
     recentAchievements: clientDetails?.recentAchievements || "",
     status: {
-      firstMail: clientDetails?.status?.firstMail || false,
-      secondMail: clientDetails?.status?.secondMail || false,
-      replied: clientDetails?.status?.replied || false,
-      meetingScheduled: clientDetails?.status?.meetingScheduled || false,
+      firstMail: clientDetails?.status?.firstMail || 0,
+      secondMail: clientDetails?.status?.secondMail || 0,
+      replied: clientDetails?.status?.replied || 0,
+      meetingScheduled: clientDetails?.status?.meetingScheduled || 0,
     },
   };
   const getWorks = async () => {
@@ -372,7 +372,7 @@ const UpdateClientForm = ({ id }) => {
                   <div className="controls blog-form">
                     <div className="blog-box p-4">
                       <h4 className="text-dark fs-5">Reference Projects</h4>
-                      <div className="d-flex justify-content-between flex-wrap">
+                      <div className="d-flex justify-content-evenly flex-wrap mr-3">
                         {works?.map((work, index) => (
                           <div role="group" key={index} className="mr-3">
                             <label className="d-flex justify-content-evenly flex-wrap">

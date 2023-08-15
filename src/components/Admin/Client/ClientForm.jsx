@@ -64,10 +64,10 @@ const ClientForm = () => {
     secondaryMail: "",
     recentAchievements: "",
     status: {
-      firstMail: false,
-      secondMail: false,
-      replied: false,
-      meetingScheduled: false,
+      firstMail: 0,
+      secondMail: 0,
+      replied: 0,
+      meetingScheduled: 0,
     },
   };
   const getWorks = async () => {
@@ -169,7 +169,6 @@ const ClientForm = () => {
                         type="text"
                         name="name"
                         placeholder="Name"
-                        required="required"
                         value={values.name}
                       />
                       <FormInput
@@ -179,7 +178,6 @@ const ClientForm = () => {
                         type="text"
                         name="location"
                         placeholder="Location"
-                        required="required"
                         value={values.location}
                       />
                       <FormInput
@@ -191,7 +189,6 @@ const ClientForm = () => {
                         name="description"
                         placeholder="Description"
                         rows="4"
-                        required="required"
                         value={values.description}
                       />
                     </div>
@@ -209,7 +206,6 @@ const ClientForm = () => {
                             id="form_name"
                             name="contactName"
                             placeholder="Contact Name"
-                            required="required"
                             value={values.contactName}
                           />
                           <FormInput
@@ -219,7 +215,6 @@ const ClientForm = () => {
                             id="form_designation"
                             name="contactDesignation"
                             placeholder="Designation"
-                            required="required"
                             value={values.designation}
                           />
                           <FormInput
@@ -229,7 +224,6 @@ const ClientForm = () => {
                             id="ContactMail"
                             name="contactMail"
                             placeholder="johndoe@gmail.com"
-                            required="required"
                             value={values.contactMail}
                           />
                           <FormInput
@@ -239,7 +233,6 @@ const ClientForm = () => {
                             id="Secondary"
                             name="secondaryMail"
                             placeholder="doe34@gmail.com"
-                            required="required"
                             value={values.secondaryMail}
                           />
                         </div>
@@ -260,7 +253,6 @@ const ClientForm = () => {
                         id="Achievement"
                         name="recentAchievements"
                         placeholder="Recently achieved"
-                        required="required"
                         value={values.recentAchievements}
                       />
                     </div>
@@ -278,7 +270,6 @@ const ClientForm = () => {
                         type="text"
                         name="positives"
                         placeholder="Positives"
-                        required="required"
                         value={values.positives}
                       />
                     </div>
@@ -294,7 +285,6 @@ const ClientForm = () => {
                         type="text"
                         name="negatives"
                         placeholder="Negatives"
-                        required="required"
                         value={values.negatives}
                       />
                     </div>
@@ -320,7 +310,6 @@ const FormInput = ({
   type,
   name,
   placeholder,
-  required,
   value,
   as,
   rows,
@@ -335,7 +324,7 @@ const FormInput = ({
         type={type}
         name={name}
         placeholder={placeholder}
-        required={required}
+        required="required"
         value={value}
         as={as}
         rows={rows}
@@ -351,7 +340,7 @@ const FormRow = ({ title, templates, works }) => {
         <div className="controls blog-form">
           <div className="blog-box p-4">
             <h4 className="text-dark fs-5">{title}</h4>
-            <div className="">
+            <div className="d-flex justify-content-start flex-wrap">
               {templates
                 ? templates.map((template, index) => (
                     <FormRowField
@@ -382,7 +371,7 @@ const FormRow = ({ title, templates, works }) => {
 const FormRowField = ({ index, name, value, text }) => {
   return (
     <div role="group" key={index}>
-      <label className="d-flex justify-content-evenly flex-wrap">
+      <label className="d-flex justify-content-evenly flex-wrap mr-3">
         <div className="mr-1">
           <Field type="checkbox" name={name} value={value} />
         </div>
