@@ -4,7 +4,9 @@ import Link from "next/link";
 import WorksData from "../../data/Home3/Works.json";
 import initIsotope from "../../common/initIsotope";
 
-const Works = () => {
+const Works = ({ works }) => {
+  // const WorksData = works;
+  console.log(JSON.stringify(works));
   useEffect(() => {
     setTimeout(() => {
       if (window.Isotope) initIsotope();
@@ -32,15 +34,15 @@ const Works = () => {
           {/* gallery */}
           <div className="gallery full-width">
             <div className="row">
-              {WorksData.works.map((work, index) => (
+              {works.map((work, index) => (
                 <div
-                  className={`col-lg-4 col-md-6 items ${work.type} ${
+                  className={`col-lg-4 col-md-6 items ${work?.type} ${
                     (index === 0 || index === 2) && "lg-mr"
                   }`}
                   key={index}
                 >
                   <div className="item-img wow fadeInUp" data-wow-delay=".4s">
-                    <Link href={`/works/${index + 1}`}>
+                    <Link href={`/casestudies/${work.id}`}>
                       <a>
                         <img src={work.img} alt="image" />
                       </a>
