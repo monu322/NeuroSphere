@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Works from "../../components/Works1";
+import WorksFromDb from "../../components/Works1/indexTestDb";
 import WorksLayout from "../../layouts/works";
 import {
   Timestamp,
@@ -20,7 +21,7 @@ const Index = ({ data }) => {
 
   return (
     <WorksLayout footerClass="bg-gray">
-      <Works works={data} />
+      <WorksFromDb works={data} />
     </WorksLayout>
   );
 };
