@@ -69,13 +69,13 @@ const ClientProspect = () => {
                         <p className="company-name">Microsoft</p>
                         <div className="company-links">
                           <a href="#">
-                            <i class="fab fa-linkedin mr-1 item-1"></i>
+                            <i className="fab fa-linkedin mr-1 item-1"></i>
                           </a>
                           <a href="#">
-                            <i class="fab fa-facebook-square mr-1 item-2"></i>
+                            <i className="fab fa-facebook-square mr-1 item-2"></i>
                           </a>
                           <a href="#">
-                            <i class="fab fa-twitter-square item-3"></i>
+                            <i className="fab fa-twitter-square item-3"></i>
                           </a>
                         </div>
                       </div>
@@ -99,13 +99,13 @@ const ClientProspect = () => {
                         <p className="company-name">Linkedin</p>
                         <div className="company-links">
                           <a href="#">
-                            <i class="fab fa-linkedin mr-1 item-1"></i>
+                            <i className="fab fa-linkedin mr-1 item-1"></i>
                           </a>
                           <a href="#">
-                            <i class="fab fa-facebook-square mr-1 item-2"></i>
+                            <i className="fab fa-facebook-square mr-1 item-2"></i>
                           </a>
                           <a href="#">
-                            <i class="fab fa-twitter-square item-3"></i>
+                            <i className="fab fa-twitter-square item-3"></i>
                           </a>
                         </div>
                       </div>
@@ -129,13 +129,13 @@ const ClientProspect = () => {
                         <p className="company-name">Bloomberg</p>
                         <div className="company-links">
                           <a href="#">
-                            <i class="fab fa-linkedin mr-1 item-1"></i>
+                            <i className="fab fa-linkedin mr-1 item-1"></i>
                           </a>
                           <a href="#">
-                            <i class="fab fa-facebook-square mr-1 item-2"></i>
+                            <i className="fab fa-facebook-square mr-1 item-2"></i>
                           </a>
                           <a href="#">
-                            <i class="fab fa-twitter-square item-3"></i>
+                            <i className="fab fa-twitter-square item-3"></i>
                           </a>
                         </div>
                       </div>
@@ -159,13 +159,13 @@ const ClientProspect = () => {
                         <p className="company-name">FaceBook</p>
                         <div className="company-links">
                           <a href="#">
-                            <i class="fab fa-linkedin mr-1 item-1"></i>
+                            <i className="fab fa-linkedin mr-1 item-1"></i>
                           </a>
                           <a href="#">
-                            <i class="fab fa-facebook-square mr-1 item-2"></i>
+                            <i className="fab fa-facebook-square mr-1 item-2"></i>
                           </a>
                           <a href="#">
-                            <i class="fab fa-twitter-square item-3"></i>
+                            <i className="fab fa-twitter-square item-3"></i>
                           </a>
                         </div>
                       </div>
