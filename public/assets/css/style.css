@@ -7173,3 +7173,51 @@ footer .item .copy-right p a {
 .delete:hover {
   color: rgb(216, 101, 90);
 }
+.client__filter {
+  border: 1px solid rgb(188, 192, 195);
+  font-size: 14px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 10rem;
+}
+.client__filter .icon {
+  color: gray;
+}
+.client__filter .input {
+  border: none;
+  background-color: white !important;
+}
+
+.company-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0852c2 !important;
+}
+/* .company-logo {
+  width: 50px;
+  height: 50px;
+} */
+.fab.fa-microsoft {
+  font-size: 30px !important;
+}
+.company-logo .fab.fa-linkedin,
+.company-logo .fab.fa-facebook {
+  font-size: 30px !important;
+  color: #2e74dd;
+}
+
+.company-links {
+  font-size: 16px;
+  color: #919191;
+}
+.company-links .item-1:hover {
+  color: #2e74dd;
+}
+.company-links .item-2:hover {
+  color: #2e74dd;
+}
+.company-links .item-3:hover {
+  color: #2e74dd;
+}

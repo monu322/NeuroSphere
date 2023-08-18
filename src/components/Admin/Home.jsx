@@ -99,9 +99,9 @@ const Home = () => {
   return (
     <>
       <div className="container mt-4">
-        <button className="btn btn-primary" onClick={sendMailToClients}>
+        {/* <button className="btn btn-primary" onClick={sendMailToClients}>
           Send
-        </button>
+        </button> */}
         {notification && <div className="notification">{notification}</div>}
         {filteredData && filteredData[0]?.isPublished === false && (
           <BlogTable
