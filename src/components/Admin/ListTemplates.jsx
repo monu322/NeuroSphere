@@ -1,12 +1,14 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import ConfirmModal from "../Modals/ConfirmModal";
+import TemplatePreviewModal from "../TemplatePreview";
 
 const ListTemplates = () => {
   const [notification, setNotification] = useState("");
   const [showConfirmBox, setShowConfirmBox] = useState(false);
   const [deleteId, setDeleteId] = useState("");
   const [templates, setTemplates] = useState([]);
-  const [filteredTemplate, setFilteredTemplate] = useState();
+  const [filteredTemplate, setFilteredTemplate] = useState(null);
 
   const clearNotification = () => {
     setTimeout(() => {
@@ -31,7 +33,15 @@ const ListTemplates = () => {
 
   const handleDelete = async (id) => {
     setShowConfirmBox(true);
-    setDeleteId(id);
+  };
+
+  const handleOnDeleteClick = () => {
+    setShowConfirmBox(true);
+    setDeleteId(filteredTemplate[0].id);
+  };
+
+  const handleOnCancel = () => {
+    setShowConfirmBox(false);
   };
 
   const handleOnDeleteConfirm = async () => {
@@ -87,62 +97,18 @@ const ListTemplates = () => {
             </Link>
           </div>
           {filteredTemplate && (
-            <div className="col-lg-8 col-md-8 bg-white template__col-2">
-              <div className="template__preview-heading pb-3">
-                Template Preview
-              </div>
-              <div className="w-100 d-flex align-items-center px-3 my-2">
-                <p className="template__preview--subtitle">Subject:</p>
-                <h5 className="template__preview-subject ml-2 template__text">
-                  {filteredTemplate[0].subject}
-                </h5>
-              </div>
-              <div className="p-3 rounded mail__box mb-2">
-                <div className="mt-1 d-flex template__preview-body">
-                  <p className="template__preview--subtitle">Body:</p>
-                  <p className="template__text bdy ml-2">
-                    {filteredTemplate[0].body}
-                  </p>
-                </div>
-              </div>
-              <div className="d-flex justify-content-between">
-                <Link href={`/admin/create-template/${filteredTemplate[0].id}`}>
-                  <button className="btn btn-success">Edit &rarr;</button>
-                </Link>
-                <button
-                  className="btn btn-danger"
-                  onClick={() => handleDelete(filteredTemplate[0].id)}
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
+            <TemplatePreviewModal
+              filteredTemplate={filteredTemplate}
+              onDeleteClick={handleOnDeleteClick}
+            />
           )}
         </div>
       </div>
       {showConfirmBox && (
-        <div>
-          <div className="confirm-container">
-            <div className="confirmation-text mt-4">
-              Are you sure you want to delete this ?
-            </div>
-            <div className="btn__container">
-              <buttoon
-                className="btn btn-secondary"
-                onClick={() => setShowConfirmBox(false)}
-              >
-                Cancel
-              </buttoon>
-              <buttoon
-                className="btn btn-danger"
-                onClick={handleOnDeleteConfirm}
-              >
-                Delete
-              </buttoon>
-            </div>
-          </div>
-          <div className="confirm_bg"></div>
-        </div>
+        <ConfirmModal
+          onCancel={handleOnCancel}
+          onConfirm={handleOnDeleteConfirm}
+        />
       )}
     </>
   );

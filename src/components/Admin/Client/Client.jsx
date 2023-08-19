@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import ClientMailPreview from "../../ClientMailPreview";
-import Email from "../Email";
+import React, { useState } from "react";
 import Link from "next/link";
+import ConfirmModal from "../../Modals/ConfirmModal";
+import ButtonsAction from "../Buttons";
 
 const Client = ({ data, getClientsData }) => {
   const [notification, setNotification] = useState("");
@@ -17,6 +17,10 @@ const Client = ({ data, getClientsData }) => {
   const handleDelete = async (id) => {
     setShowConfirmBox(true);
     setDeleteId(id);
+  };
+
+  const handleOnCancel = () => {
+    setShowConfirmBox(false);
   };
 
   const handleOnDeleteConfirm = async () => {
@@ -68,64 +72,34 @@ const Client = ({ data, getClientsData }) => {
                       <td>
                         <div className="d-flex justify-content-between">
                           <Link href={`/admin/clients/mail/${client.id}`}>
-                            <div
-                              className={
-                                client.status.firstMail
-                                  ? "status green"
-                                  : "status red"
-                              }
-                              data-toggle="tooltip"
-                              data-placement="top"
+                            <MailStatus
+                              mail={client.status.firstMail}
                               title="First Mail"
-                            ></div>
+                            />
                           </Link>
                           <Link href={`/admin/clients/mail/${client.id}`}>
-                            <div
-                              className={
-                                client.status.secondMail
-                                  ? "status green"
-                                  : "status red"
-                              }
-                              data-toggle="tooltip"
-                              data-placement="top"
+                            <MailStatus
+                              mail={client.status.secondMail}
                               title="Second Mail"
-                            ></div>
+                            />
                           </Link>
-                          <div
-                            className={
-                              client.status.replied
-                                ? "status green"
-                                : "status red"
-                            }
-                            data-toggle="tooltip"
-                            data-placement="top"
+                          <MailStatus
+                            mail={client.status.replied}
                             title="Replied"
-                          ></div>
-                          <div
-                            className={
-                              client.status.meetingScheduled
-                                ? "status green"
-                                : "status red"
-                            }
-                            data-toggle="tooltip"
-                            data-placement="top"
+                          />
+                          <MailStatus
+                            mail={client.status.meetingScheduled}
                             title="Meeting Scheduled"
-                          ></div>
+                          />
                         </div>
                       </td>
                       <td>{client.contactMail}</td>
                       <td>
-                        <div className="d-flex justify-content-evenly align-items-center">
-                          <Link href={`/admin/clients/${client.id}`}>
-                            <a>
-                              <button className="control_btn fas edit fa-edit mr-3"></button>
-                            </a>
-                          </Link>
-                          <button
-                            className="control_btn delete fas fa-trash-alt"
-                            onClick={() => handleDelete(client.id)}
-                          ></button>
-                        </div>
+                        <ButtonsAction
+                          to={`clients/${client.id}`}
+                          onDeleteClick={handleDelete}
+                          data={client.id}
+                        />
                       </td>
                     </tr>
                   );
@@ -136,31 +110,24 @@ const Client = ({ data, getClientsData }) => {
         </div>
       </div>
       {showConfirmBox && (
-        <div>
-          <div className="confirm-container">
-            <div className="confirmation-text mt-4">
-              Are you sure you want to delete this ?
-            </div>
-            <div className="btn__container">
-              <buttoon
-                className="btn btn-secondary"
-                onClick={() => setShowConfirmBox(false)}
-              >
-                Cancel
-              </buttoon>
-              <buttoon
-                className="btn btn-danger"
-                onClick={handleOnDeleteConfirm}
-              >
-                Delete
-              </buttoon>
-            </div>
-          </div>
-          <div className="confirm_bg"></div>
-        </div>
+        <ConfirmModal
+          onCancel={handleOnCancel}
+          onConfirm={handleOnDeleteConfirm}
+        />
       )}
     </>
   );
 };
 
 export default Client;
+
+const MailStatus = ({ mail, title }) => {
+  return (
+    <div
+      className={mail ? "status green" : "status red"}
+      data-toggle="tooltip"
+      data-placement="top"
+      title={title}
+    ></div>
+  );
+};

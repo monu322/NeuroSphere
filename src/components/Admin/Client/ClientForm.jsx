@@ -64,10 +64,10 @@ const ClientForm = () => {
     secondaryMail: "",
     recentAchievements: "",
     status: {
-      firstMail: false,
-      secondMail: false,
-      replied: false,
-      meetingScheduled: false,
+      firstMail: 0,
+      secondMail: 0,
+      replied: 0,
+      meetingScheduled: 0,
     },
   };
   const getWorks = async () => {
@@ -162,42 +162,35 @@ const ClientForm = () => {
                   <div className="blog-box p-4">
                     {errMessage && <div className="messages">{errMessage}</div>}
                     <div className="controls blog-form">
-                      <div className="form-group d-flex flex-column">
-                        <label htmlFor="Name">Name</label>
-                        <Field
-                          id="form_name"
-                          type="text"
-                          name="name"
-                          placeholder="Name"
-                          required="required"
-                          value={values.name}
-                        />
-                      </div>
-                      <div className="form-group d-flex flex-column">
-                        <label htmlFor="Location">Location</label>
-                        <Field
-                          id="form_Location"
-                          type="text"
-                          name="location"
-                          placeholder="Location"
-                          required="required"
-                          value={values.location}
-                        />
-                      </div>
-
-                      <div className="form-group d-flex flex-column">
-                        <label htmlFor="description">Description</label>
-                        <Field
-                          className="client"
-                          as="textarea"
-                          id="form_description"
-                          name="description"
-                          placeholder="Description"
-                          rows="4"
-                          required="required"
-                          value={values.description}
-                        />
-                      </div>
+                      <FormInput
+                        label="Name"
+                        htmlFor="Name"
+                        id="form_name"
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        value={values.name}
+                      />
+                      <FormInput
+                        label="Location"
+                        htmlFor="Location"
+                        id="form_Location"
+                        type="text"
+                        name="location"
+                        placeholder="Location"
+                        value={values.location}
+                      />
+                      <FormInput
+                        label="Description"
+                        htmlFor="description"
+                        className="client"
+                        as="textarea"
+                        id="form_description"
+                        name="description"
+                        placeholder="Description"
+                        rows="4"
+                        value={values.description}
+                      />
                     </div>
                   </div>
                 </div>
@@ -206,52 +199,42 @@ const ClientForm = () => {
                     <div className="col-lg-12">
                       <div className="blog-box p-4">
                         <div className="controls blog-form">
-                          <div className="form-group d-flex flex-column">
-                            <label htmlFor="Contact Name">Contact Name</label>
-                            <Field
-                              type="text"
-                              id="form_name"
-                              name="contactName"
-                              placeholder="Contact Name"
-                              required="required"
-                              value={values.contactName}
-                            />
-                          </div>
-                          <div className="form-group d-flex flex-column">
-                            <label htmlFor="Contact Designation">
-                              Contact Designation
-                            </label>
-                            <Field
-                              type="text"
-                              id="form_designation"
-                              name="contactDesignation"
-                              placeholder="Designation"
-                              required="required"
-                              value={values.designation}
-                            />
-                          </div>
-                          <div className="form-group d-flex flex-column">
-                            <label htmlFor="ContactMail">Contact Mail</label>
-                            <Field
-                              type="email"
-                              id="ContactMail"
-                              name="contactMail"
-                              placeholder="johndoe@gmail.com"
-                              required="required"
-                              value={values.contactMail}
-                            />
-                          </div>
-                          <div className="form-group d-flex flex-column">
-                            <label htmlFor="Secondary">Secondary Mail</label>
-                            <Field
-                              type="email"
-                              id="Secondary"
-                              name="secondaryMail"
-                              placeholder="doe34@gmail.com"
-                              required="required"
-                              value={values.secondaryMail}
-                            />
-                          </div>
+                          <FormInput
+                            label="Contact Name"
+                            htmlFor="Contact Name"
+                            type="text"
+                            id="form_name"
+                            name="contactName"
+                            placeholder="Contact Name"
+                            value={values.contactName}
+                          />
+                          <FormInput
+                            label="Contact Designation"
+                            htmlFor="Contact Designation"
+                            type="text"
+                            id="form_designation"
+                            name="contactDesignation"
+                            placeholder="Designation"
+                            value={values.designation}
+                          />
+                          <FormInput
+                            label="ContactMail"
+                            htmlFor="Contact Mail"
+                            type="email"
+                            id="ContactMail"
+                            name="contactMail"
+                            placeholder="johndoe@gmail.com"
+                            value={values.contactMail}
+                          />
+                          <FormInput
+                            label="Secondary Mail"
+                            htmlFor="Secondary"
+                            type="email"
+                            id="Secondary"
+                            name="secondaryMail"
+                            placeholder="doe34@gmail.com"
+                            value={values.secondaryMail}
+                          />
                         </div>
                       </div>
                     </div>
@@ -262,20 +245,16 @@ const ClientForm = () => {
                 <div className="col-lg-12 col-md-11">
                   <div className="controls blog-form">
                     <div className="blog-box p-4">
-                      <div className="form-group d-flex flex-column">
-                        <label htmlFor="Achievement">
-                          Recent Business Achievements
-                        </label>
-                        <Field
-                          as="textarea"
-                          type="email"
-                          id="Achievement"
-                          name="recentAchievements"
-                          placeholder="Recently achieved"
-                          required="required"
-                          value={values.recentAchievements}
-                        />
-                      </div>
+                      <FormInput
+                        label="Recent Business Achievements"
+                        htmlFor="Achievement"
+                        as="textarea"
+                        type="email"
+                        id="Achievement"
+                        name="recentAchievements"
+                        placeholder="Recently achieved"
+                        value={values.recentAchievements}
+                      />
                     </div>
                   </div>
                 </div>
@@ -284,90 +263,36 @@ const ClientForm = () => {
                 <div className="col-lg-6 col-md-6">
                   <div className="controls blog-form">
                     <div className="blog-box p-4">
-                      <div className="form-group d-flex flex-column">
-                        <label htmlFor="Positives">Positives</label>
-                        <Field
-                          id="form_positives"
-                          type="text"
-                          name="positives"
-                          placeholder="Positives"
-                          required="required"
-                          value={values.positives}
-                        />
-                      </div>
+                      <FormInput
+                        label="Positives"
+                        htmlFor="Positives"
+                        id="form_positives"
+                        type="text"
+                        name="positives"
+                        placeholder="Positives"
+                        value={values.positives}
+                      />
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-6 col-md-6">
                   <div className="controls blog-form">
                     <div className="blog-box p-4">
-                      <div className="form-group d-flex flex-column">
-                        <label htmlFor="Negatives">Negatives</label>
-                        <Field
-                          id="form_negatives"
-                          type="text"
-                          name="negatives"
-                          placeholder="Negatives"
-                          required="required"
-                          value={values.negatives}
-                        />
-                      </div>
+                      <FormInput
+                        label="Negatives"
+                        htmlFor="Negatives"
+                        id="form_negatives"
+                        type="text"
+                        name="negatives"
+                        placeholder="Negatives"
+                        value={values.negatives}
+                      />
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="row mb-4">
-                <div className="col-lg-12 col-md-11">
-                  <div className="controls blog-form">
-                    <div className="blog-box p-4">
-                      <h4 className="text-dark fs-5">Select Template</h4>
-                      <div className="">
-                        {templates?.map((template, index) => (
-                          <div role="group" key={index}>
-                            <label className="d-flex justify-content-evenly flex-wrap">
-                              <div className="mr-1">
-                                <Field
-                                  type="checkbox"
-                                  name="template"
-                                  value={template.id}
-                                />
-                              </div>
-                              <div className="text-secondary">
-                                {template.subject}
-                              </div>
-                            </label>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="row mb-4">
-                <div className="col-lg-12 col-md-11">
-                  <div className="controls blog-form">
-                    <div className="blog-box p-4">
-                      <h4 className="text-dark fs-5">Reference Projects</h4>
-                      <div className="d-flex justify-content-between flex-wrap">
-                        {works?.map((work, index) => (
-                          <div role="group" key={index} className="mr-3">
-                            <label className="d-flex justify-content-evenly flex-wrap">
-                              <div className="mr-1">
-                                <Field
-                                  type="checkbox"
-                                  name="referenceProjects"
-                                  value={work.title}
-                                />
-                              </div>
-                              <div className="text-secondary">{work.title}</div>
-                            </label>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <FormRow title="Select Templates" templates={templates} />
+              <FormRow title="Reference Projects" works={works} />
             </Form>
           )}
         </Formik>
@@ -377,3 +302,81 @@ const ClientForm = () => {
 };
 
 export default ClientForm;
+
+const FormInput = ({
+  htmlFor,
+  label,
+  id,
+  type,
+  name,
+  placeholder,
+  value,
+  as,
+  rows,
+  className,
+}) => {
+  return (
+    <div className="form-group d-flex flex-column">
+      <label htmlFor={htmlFor}>{label}</label>
+      <Field
+        className={className}
+        id={id}
+        type={type}
+        name={name}
+        placeholder={placeholder}
+        required="required"
+        value={value}
+        as={as}
+        rows={rows}
+      />
+    </div>
+  );
+};
+
+const FormRow = ({ title, templates, works }) => {
+  return (
+    <div className="row mb-4">
+      <div className="col-lg-12 col-md-11">
+        <div className="controls blog-form">
+          <div className="blog-box p-4">
+            <h4 className="text-dark fs-5">{title}</h4>
+            <div className="d-flex justify-content-start flex-wrap">
+              {templates
+                ? templates.map((template, index) => (
+                    <FormRowField
+                      key={index}
+                      index={index}
+                      name="template"
+                      value={template.id}
+                      text={template.subject}
+                    />
+                  ))
+                : works?.map((work, index) => (
+                    <FormRowField
+                      key={index}
+                      index={index}
+                      name="referenceProjects"
+                      value={work.title}
+                      text={work.title}
+                    />
+                  ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const FormRowField = ({ index, name, value, text }) => {
+  return (
+    <div role="group" key={index}>
+      <label className="d-flex justify-content-evenly flex-wrap mr-3">
+        <div className="mr-1">
+          <Field type="checkbox" name={name} value={value} />
+        </div>
+        <div className="text-secondary">{text}</div>
+      </label>
+    </div>
+  );
+};
