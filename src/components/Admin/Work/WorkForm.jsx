@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 const WorkForm = () => {
   const [notification, setNotification] = useState("");
   const [errMessage, setErrMessage] = useState(null);
-  const [services, setServices] = useState([]);
+  const [allServices, setAllServices] = useState([]);
   const [outcomes, setOutcomes] = useState([]);
 
   const router = useRouter();
@@ -42,13 +42,13 @@ const WorkForm = () => {
   };
 
   const handleAddService = () => {
-    setServices([...services, newService]);
+    setAllServices([...allServices, newService]);
     setNewService({
       serviceTitle: "",
       serviceDecription: "",
       serviceIconClass: "",
     });
-    console.log(JSON.stringify(services));
+    console.log(JSON.stringify(allServices));
   };
 
   const handleAddOutcome = () => {
@@ -95,17 +95,19 @@ const WorkForm = () => {
       "testimonialName",
       "testimonialContent",
       "testimonialDetails",
-      "serviceTitle",
-      "serviceDescription",
-      "serviceIconClass",
-      "outcomeTitle",
-      "outcomeDescription",
-      "outcomeIconClass",
+      // "serviceTitle",
+      // "serviceDescription",
+      // "serviceIconClass",
+      // "outcomeTitle",
+      // "outcomeDescription",
+      // "outcomeIconClass",
     ];
 
     for (const field of requiredFields) {
       if (!formValues[field]) {
+        console.log(field);
         setErrMessage("Please fill in all fields");
+        clearErrorMessage();
         return false;
       }
     }
@@ -113,43 +115,57 @@ const WorkForm = () => {
     // Field length validation
     if (formValues.title.length < 5) {
       setErrMessage("Name must be at least 5 characters");
+      clearErrorMessage();
       return false;
     }
 
     if (formValues.description.length < 10) {
       setErrMessage("Description must be at least 10 characters");
+      clearErrorMessage();
+      return false;
+    }
+
+    if (formValues.objective.length < 10) {
+      setErrMessage("Description must be at least 10 characters");
+      clearErrorMessage();
       return false;
     }
 
     if (formValues.servicesIntro.length < 10) {
       setErrMessage("Services Intro must be at least 10 characters");
+      clearErrorMessage();
       return false;
     }
 
     if (formValues.outcomeText.length < 10) {
       setErrMessage("Outcome text must be at least 10 characters");
+      clearErrorMessage();
       return false;
     }
 
     // Services and Outcomes Length Validation
-    if (formValues.services.length < 2) {
+    if (allServices.length < 2) {
       setErrMessage("Services must have at least 2 items");
+      clearErrorMessage();
       return false;
     }
 
-    if (formValues.outcomes.length < 2) {
+    if (outcomes.length < 2) {
       setErrMessage("Outcomes must have at least 2 items");
+      clearErrorMessage();
       return false;
     }
 
     // Image and wideImg validation
     if (!formValues.img || !formValues.img.type.startsWith("image/")) {
       setErrMessage("Please select an image");
+      clearErrorMessage();
       return false;
     }
 
     if (!formValues.wideImg || !formValues.wideImg.type.startsWith("image/")) {
       setErrMessage("Please select a wide image");
+      clearErrorMessage();
       return false;
     }
 
@@ -159,6 +175,12 @@ const WorkForm = () => {
   const clearNotification = () => {
     setTimeout(() => {
       setNotification("");
+    }, 2000);
+  };
+
+  const clearErrorMessage = () => {
+    setTimeout(() => {
+      setErrMessage("");
     }, 2000);
   };
   const addWork = async (values) => {
@@ -235,20 +257,15 @@ const WorkForm = () => {
     !error ? setNotification(message) : setNotification(error);
     clearNotification("");
     console.log("Work added");
-    console.log("img : " + imageURL);
-    console.log("wideImg : " + wideImageURL);
-    console.log("testiImg : " + testimonialImgUrl);
-    console.log("out : " + outcomeImgUrl);
-    console.log("ser : " + serviceImgUrl);
   };
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
-      if (validateForm) {
+      if (validateForm(values)) {
         console.log("Form validated");
         setErrMessage("");
         setSubmitting(false);
-        values.services = services;
+        values.services = allServices;
         values.outcomes = outcomes;
         await addWork(values);
         resetForm();
@@ -259,15 +276,20 @@ const WorkForm = () => {
       }
     } catch (error) {
       console.log(error);
-      setNotification(error);
+      setNotification("Error while submitting");
       clearNotification();
     }
   };
 
   const handleSave = async (values) => {
+    if (!values.title) {
+      setErrMessage("Enter a Title to Save");
+      clearErrorMessage();
+      return;
+    }
     try {
       values.published = false;
-      values.services = services;
+      values.services = allServices;
       values.outcomes = outcomes;
       await addWork(values);
       // resetForm();
@@ -286,13 +308,35 @@ const WorkForm = () => {
       <div className="mt-2 container">
         {notification && <div className="notification">{notification}</div>}
         {errMessage && <div className="messages">{errMessage}</div>}
-        <div className="d-flex justify-content-center flex-column">
-          <div className="text-dark mb-3 blg-head mt-4 mb-4">Add New Work</div>
-        </div>
 
         <Formik const initialValues={initialValues} onSubmit={handleSubmit}>
-          {({ values, setFieldValue }) => (
+          {({ values, setFieldValue, setSubmitting }) => (
             <Form>
+              <div>
+                <div className="d-flex justify-content-between">
+                  <div className="text-dark mb-3 blg-head mt-4 mb-4">
+                    Add New Work
+                  </div>
+                  <div className="mb-4">
+                    <div className="d-flex ml-3 mt-4">
+                      <div>
+                        <button
+                          type="button"
+                          onClick={() => handleSave(values)}
+                          className="btn-blog mr-4"
+                        >
+                          <span>Save</span>
+                        </button>
+                      </div>
+                      <div>
+                        <button type="submit" className="btn-blog">
+                          <span>Publish</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div className=" container mb-4">
                 <div className="row">
                   <div className="col-lg-12 col-md-12 mb-4">
@@ -360,7 +404,7 @@ const WorkForm = () => {
                     </div>
                   </div>
                   {/* <div className="mb-4"> */}
-                  <div className="col-lg-12 col-md-12 ">
+                  <div className="col-lg-12 col-md-12 mb-4">
                     <div className="blog-box p-4">
                       <div className="controls blog-form">
                         <div className="form-group d-flex flex-column">
@@ -421,7 +465,7 @@ const WorkForm = () => {
                   </div>
                   {/* </div> */}
 
-                  <div className="col-lg-12 col-md-12">
+                  <div className="col-lg-12 col-md-12 mb-4">
                     {/* <div className="row mb-4">
                       <div className="col-lg-12"> */}
                     <div className="blog-box p-4">
@@ -485,7 +529,6 @@ const WorkForm = () => {
                             type="text"
                             name="serviceTitle"
                             value={newService.serviceTitle}
-                            // onChange={handleHeadingChange}
                             onChange={handleServiceChange}
                             placeholder="Post Heading"
                             className="border border-secondary"
@@ -499,7 +542,6 @@ const WorkForm = () => {
                             rows="4"
                             name="serviceDecription"
                             value={newService.serviceDecription}
-                            // onChange={handleHeadingChange}
                             onChange={handleServiceChange}
                             placeholder="Post Heading"
                             className="border border-secondary"
@@ -512,18 +554,15 @@ const WorkForm = () => {
                             type="text"
                             name="serviceIconClass"
                             value={newService.serviceIconClass}
-                            // onChange={handleHeadingChange}
                             onChange={handleServiceChange}
                             placeholder="Post Heading"
                             className="border border-secondary"
                           />
                         </div>
                         <button
-                          // onClick={addPostContent}
                           onClick={handleAddService}
                           type="button"
                           className="btn_post-content"
-                          // disabled={isButtonDisabled}
                         >
                           Add
                         </button>
@@ -531,12 +570,14 @@ const WorkForm = () => {
                     </div>
                   </div>
 
-                  {/* {services?.map((service, index) => {
-                    <div className="col-lg-6 col-md-12 mb-4" key={index}>
+                  {allServices?.map((service, index) => (
+                    <div className="col-lg-12 col-md-12 mb-4" key={index}>
                       <div className="controls blog-form">
                         <div className="blog-box p-4">
                           <div className="form-group d-flex flex-column">
-                            <label htmlFor="heading">Service Title</label>
+                            <label htmlFor="heading">
+                              Service Title {index + 1}
+                            </label>
                             <Field
                               id="heading"
                               type="text"
@@ -552,7 +593,8 @@ const WorkForm = () => {
                             <label htmlFor="heading">Service Description</label>
                             <Field
                               id="heading"
-                              type="text"
+                              as="textarea"
+                              rows="4"
                               name="serviceDecription"
                               value={service.serviceDecription}
                               // onChange={handleHeadingChange}
@@ -576,8 +618,8 @@ const WorkForm = () => {
                           </div>
                         </div>
                       </div>
-                    </div>;
-                  })} */}
+                    </div>
+                  ))}
                   <div className="col-lg-12 col-md-12 mb-4">
                     <div className="controls blog-form">
                       <div className="blog-box p-4">
@@ -656,25 +698,54 @@ const WorkForm = () => {
                       </div>
                     </div>
                   </div>
-                  {/* </div> */}
-                  <div className="mb-4">
-                    <div className="d-flex ml-3 mt-4">
-                      <div>
-                        <button
-                          type="button"
-                          onClick={() => handleSave(values)}
-                          className="btn-blog mr-4"
-                        >
-                          <span>Save</span>
-                        </button>
-                      </div>
-                      <div>
-                        <button type="submit" className="btn-blog">
-                          <span>Publish</span>
-                        </button>
+                  {outcomes?.map((outcome, index) => (
+                    <div className="col-lg-12 col-md-12 mb-4" key={index}>
+                      <div className="controls blog-form">
+                        <div className="blog-box p-4">
+                          <div className="form-group d-flex flex-column">
+                            <label htmlFor="heading">Outcome Title</label>
+                            <Field
+                              id="heading"
+                              type="text"
+                              name="outcomeTitle"
+                              value={outcome.outcomeTitle}
+                              // onChange={handleHeadingChange}
+                              onChange={handleOutcomeChange}
+                              placeholder="Post Heading"
+                              className="border border-secondary"
+                            />
+                          </div>
+                          <div className="form-group d-flex flex-column">
+                            <label htmlFor="heading">Outcome Description</label>
+                            <Field
+                              id="heading"
+                              as="textarea"
+                              rows="4"
+                              name="outcomeDescription"
+                              value={outcome.outcomeDescription}
+                              // onChange={handleHeadingChange}
+                              onChange={handleOutcomeChange}
+                              placeholder="Post Heading"
+                              className="border border-secondary"
+                            />
+                          </div>
+                          <div className="form-group d-flex flex-column">
+                            <label htmlFor="heading">Outcome Icon Class</label>
+                            <Field
+                              id="heading"
+                              type="text"
+                              name="outcomeIconClass"
+                              value={outcome.outcomeIconClass}
+                              // onChange={handleHeadingChange}
+                              onChange={handleOutcomeChange}
+                              placeholder="Post Heading"
+                              className="border border-secondary"
+                            />
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </Form>

@@ -43,10 +43,18 @@ const WorkList = () => {
 
   return (
     <div className="container mt-4">
-      <div className="row text-dark">
+      <div className="row text-dark justify-content-center">
         <div className="col-lg-10 col-md-8 admin-home">
-          <h5>Recently Added Works</h5>
-
+          <div className="d-flex justify-content-between py-3">
+            <h5>Recently Added Works</h5>
+            <Link href="/admin/works/addWork">
+              <div>
+                <button type="button" className="btn-blog">
+                  <span>Add Work</span>
+                </button>
+              </div>
+            </Link>
+          </div>
           <div>
             <table className="table__style">
               <thead>
@@ -73,11 +81,11 @@ const WorkList = () => {
                       <td>
                         <Link href={`/admin/works/${work.id}`}>
                           <a>
-                            <button className="control_btn pen pe-7s-pen mr-2"></button>
+                            <button className="control_btn fas edit fa-edit mr-2"></button>
                           </a>
                         </Link>
                         <button
-                          className="control_btn trash pe-7s-trash mr-2"
+                          className="control_btn delete fas fa-trash-alt"
                           onClick={() => handleDelete(work.id)}
                         ></button>
                       </td>
@@ -87,13 +95,6 @@ const WorkList = () => {
               </tbody>
             </table>
           </div>
-          <Link href="/admin/works/addWork">
-            <div>
-              <button type="button" className="btn-blog">
-                <span>Add Work</span>
-              </button>
-            </div>
-          </Link>
         </div>
       </div>
     </div>
