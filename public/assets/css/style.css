@@ -7189,6 +7189,9 @@ footer .item .copy-right p a {
   border: none;
   background-color: white !important;
 }
+.client__filter label:hover {
+  cursor: pointer;
+}
 
 .company-name {
   font-size: 14px;
@@ -7220,4 +7223,42 @@ footer .item .copy-right p a {
 }
 .company-links .item-3:hover {
   color: #2e74dd;
+}
+
+/* ============== Shimmer UI ============== */
+
+/* .shimmer__data {
+  padding: 0 !important;
+  width: 20px;
+  height: 10px;
+  background-color: gray;
+  margin: 20px;
+} */
+.shimmer__data span {
+  display: inline-block;
+  width: 125px;
+  height: 15px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #dddcdc, #f1f0f0);
+}
+.shimmer__company-name {
+  display: inline-block;
+  width: 100px;
+  height: 13px;
+  font-size: 14px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #dddcdc, #f1f0f0);
+}
+.shimmer__company-logo {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(to right, #dddcdc, #f1f0f0);
+}
+
+.shimmer__company-links .shimmer__item {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background: linear-gradient(to right, #dddcdc, #f1f0f0);
 }
