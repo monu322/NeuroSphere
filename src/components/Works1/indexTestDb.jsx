@@ -42,7 +42,7 @@ const WorksFromDb = ({ works }) => {
                   key={index}
                 >
                   <div className="item-img wow fadeInUp" data-wow-delay=".4s">
-                    <Link href={`/casestudies/${work.id}`}>
+                    <Link href={`/casestudies/${work.projectId}`}>
                       <a>
                         <img src={work.img} alt="image" />
                       </a>

@@ -9,6 +9,7 @@ import {
   getDocs,
   orderBy,
   query,
+  where,
 } from "firebase/firestore";
 
 import Slider from "react-slick";
@@ -22,9 +23,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 const Split = dynamic(() => import("../../components/Split"), { ssr: false });
 
-const Index = ({ work, allWorks }) => {
-  console.log("Work data");
-  console.log(work);
+const Index = ({ projectId, allWorks }) => {
   const testimonialsSliderSettings = {
     dots: true,
     infinite: true,
@@ -35,7 +34,13 @@ const Index = ({ work, allWorks }) => {
   };
 
   const router = useRouter();
-  const currentWorkIndex = allWorks.findIndex((w) => w.id === work.id);
+  const currentWorkIndex = allWorks.findIndex((w) => w.projectId === projectId);
+  const work = allWorks[currentWorkIndex];
+  console.log("Work data");
+  console.log(work);
+
+  // const currentWorkIndex = work?.projectId;
+  console.log("project id : " + currentWorkIndex);
 
   const getNextWorkIndex = () => {
     if (currentWorkIndex === allWorks.length - 1) {
@@ -46,7 +51,7 @@ const Index = ({ work, allWorks }) => {
 
   const handleNextProjectClick = () => {
     const nextWorkIndex = getNextWorkIndex();
-    const nextWorkId = allWorks[nextWorkIndex].id;
+    const nextWorkId = allWorks[nextWorkIndex].projectId;
     router.push(`/casestudies/${nextWorkId}`);
   };
 
@@ -266,41 +271,46 @@ const convertTimestampToDate = (timestamp) =>
 
 export async function getServerSideProps(context) {
   try {
-    const { id } = context.query;
-    const workDocRef = doc(db, "works", id);
-    const workDocSnapshot = await getDoc(workDocRef);
+    const projectId = Number(context.query.id);
+    console.log("project id from server : " + projectId);
+    // const workDocRef = doc(db, "works", projectId);
+    // const workDocSnapshot = await getDoc(workDocRef);
+    // console.log("work exist : " + JSON.stringify(workDocSnapshot.data()));
+    // if (workDocSnapshot.exists()) {
+    //   // console.log("work exist : " + workDocSnapshot);
+    //   const work = workDocSnapshot.data();
 
-    if (workDocSnapshot.exists()) {
-      const work = workDocSnapshot.data();
+    //   const serializableWork = {
+    //     ...work,
+    //     date: work.date.toDate().toString(),
+    //   };
 
-      const serializableWork = {
-        ...work,
-        date: work.date.toDate().toString(),
-      };
+    const workCollection = collection(db, "works");
+    const q = query(workCollection, orderBy("date"));
+    const querySnapshot = await getDocs(q);
+    const allWorks = querySnapshot.docs.map((doc) => {
+      const docData = doc.data();
+      docData.date = convertTimestampToDate(docData.date).getTime();
 
-      const workCollection = collection(db, "works");
-      const q = query(workCollection, orderBy("date"));
-      const querySnapshot = await getDocs(q);
-      const allWorks = querySnapshot.docs.map((doc) => {
-        const docData = doc.data();
-        docData.date = convertTimestampToDate(docData.date).getTime();
-
-        return {
-          id: doc.id,
-          ...docData,
-        };
-      });
       return {
-        props: {
-          work: serializableWork,
-          allWorks,
-        },
+        id: doc.id,
+        ...docData,
       };
-    } else {
-      return {
-        notFound: true,
-      };
-    }
+    });
+    return {
+      props: {
+        // work: serializableWork,
+        projectId,
+        allWorks,
+      },
+    };
+    // }
+    // //  else {
+    // //   console.log("No document found");
+    // //   return {
+    // //     notFound: true,
+    // //   };
+    // // }
   } catch (error) {
     console.error("Error fetching work data:", error);
 
