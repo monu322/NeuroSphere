@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
 import Client from "./Client/Client";
-import ClientMailPreview from "../ClientMailPreview";
+import ConfirmModal from "../Modals/ConfirmModal";
+import BlogTable from "../BlogTable";
 
 const Home = () => {
   const [notification, setNotification] = useState("");
   const [blogData, setBlogData] = useState([]);
   const [publishedBlog, setPublishedBlog] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
-  const [isPublished, setIsPublished] = useState(null);
-  const [workData, setWorkData] = useState([]);
   const [clientData, setClientData] = useState([]);
   const [showConfirmBox, setShowConfirmBox] = useState(false);
   const [deleteId, setDeleteId] = useState("");
@@ -34,22 +32,6 @@ const Home = () => {
     data ? setBlogData(data) : setNotification(error);
     clearNotification();
   };
-
-  // const getWorkData = async () => {
-  //   try {
-  //     const response = await fetch("/api/work", {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "multipart/form-data",
-  //       },
-  //     });
-  //     const { data, error } = await response.json();
-  //     data ? setWorkData(data) : setNotification(error);
-  //     clearNotification();
-  //   } catch (error) {
-  //     setNotification(error);
-  //   }
-  // };
 
   const getClientData = async () => {
     try {
@@ -86,7 +68,11 @@ const Home = () => {
     getBlogData();
   };
 
-  const handleDelete = async (id) => {
+  const handleOnCancel = () => {
+    setShowConfirmBox(false);
+  };
+
+  const handleDelete = (id) => {
     setShowConfirmBox(true);
     setDeleteId(id);
   };
@@ -97,125 +83,45 @@ const Home = () => {
 
   useEffect(() => {
     getBlogData();
-    // getWorkData();
   }, []);
+  const sendMailToClients = async () => {
+    console.log("Clicked");
+    try {
+      const response = await fetch("http://localhost:3005/api/send-emails", {
+        method: "POST",
+      });
+      const { message } = response.json();
+      console.log(message);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
   return (
     <>
       <div className="container mt-4">
+        {/* <button className="btn btn-primary" onClick={sendMailToClients}>
+          Send
+        </button> */}
         {notification && <div className="notification">{notification}</div>}
         {filteredData && filteredData[0]?.isPublished === false && (
-          <div className="row text-dark">
-            <div className="col-lg-11 col-md-10 admin-home">
-              <h5>Saved Blogs</h5>
-
-              <div className="bg-white">
-                <table className="table__style">
-                  <thead>
-                    <tr>
-                      <th>Id</th>
-                      <th>Title</th>
-                      <th>Date</th>
-                      <th>Author</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {filteredData?.map((blog, index) => {
-                      return (
-                        <tr key={index}>
-                          <td>{index + 1}</td>
-                          <td>{blog.title}</td>
-                          <td>
-                            {/* {blog.postedDate.toDate().toLocaleDateString("en-GB")} */}
-                          </td>
-                          <td>{blog.posterName}</td>
-                          <td>
-                            <Link href={`/admin/blog/${blog.id}`}>
-                              <a>
-                                <button className="control_btn pen pe-7s-pen mr-3"></button>
-                              </a>
-                            </Link>
-                            <button
-                              className="control_btn trash pe-7s-trash"
-                              onClick={() => handleDelete(blog.id)}
-                            ></button>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+          <BlogTable
+            heading="Saved Blog"
+            filteredData={filteredData}
+            onDeleteClick={handleDelete}
+          />
         )}
-        <div className="row text-dark">
-          <div className="col-lg-11 col-md-10 admin-home">
-            <h5>Recently Published Blogs</h5>
-
-            <div className="bg-white">
-              <table className="table__style">
-                <thead>
-                  <tr>
-                    <th>Id</th>
-                    <th>Title</th>
-                    <th>Date</th>
-                    <th>Author</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {publishedBlog?.map((blog, index) => {
-                    return (
-                      <tr key={index}>
-                        <td>{index + 1}</td>
-                        <td>{blog.title}</td>
-                        <td>
-                          {/* {blog.postedDate.toDate().toLocaleDateString("en-GB")} */}
-                        </td>
-                        <td>{blog.posterName}</td>
-                        <td>
-                          <Link href={`/admin/blog/${blog.id}`}>
-                            <button className="control_btn pen pe-7s-pen mr-3"></button>
-                          </Link>
-                          <button
-                            className="control_btn trash pe-7s-trash"
-                            onClick={() => handleDelete(blog.id)}
-                          ></button>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        <Client data={clientData} />
+        <BlogTable
+          heading="Published Blog"
+          publishedBlog={publishedBlog}
+          onDeleteClick={handleDelete}
+        />
+        <Client data={clientData} getClientsData={getClientData} />
       </div>
       {showConfirmBox && (
-        <div>
-          <div className="confirm-container">
-            <div className="confirmation-text mt-4">
-              Are you sure you want to delete this ?
-            </div>
-            <div className="btn__container">
-              <buttoon
-                className="btn btn-secondary"
-                onClick={() => setShowConfirmBox(false)}
-              >
-                Cancel
-              </buttoon>
-              <buttoon
-                className="btn btn-danger"
-                onClick={handleOnDeleteConfirm}
-              >
-                Delete
-              </buttoon>
-            </div>
-          </div>
-          <div className="confirm_bg"></div>
-        </div>
+        <ConfirmModal
+          onCancel={handleOnCancel}
+          onConfirm={handleOnDeleteConfirm}
+        />
       )}
     </>
   );

@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react";
-import AdminLayout from "../../../layouts/admin";
-import WorkForm from "../../../components/Admin/Work/WorkForm";
-import { useRouter } from "next/router";
 import { AuthContext } from "../../../context/AuthProvider";
+import AdminLayout from "../../../layouts/admin";
+import { useRouter } from "next/router";
+import ClientProspect from "../../../components/Admin/Client/ClientProspect";
 
 const Index = () => {
   const { roleInfo } = useContext(AuthContext);
@@ -13,10 +13,11 @@ const Index = () => {
     body.classList.remove("d3-dark");
     if (roleInfo === "user") router.push("/");
   }, []);
+  if (roleInfo === "") return null;
 
   return (
     <AdminLayout>
-      <WorkForm />
+      <ClientProspect />
     </AdminLayout>
   );
 };

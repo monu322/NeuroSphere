@@ -74,7 +74,6 @@ const BlogForm = () => {
   };
 
   const addPostContent = () => {
-    console.log("clicked");
     const newPostContent = { heading: "", paragraphs: "", paragraphsImg: "" };
 
     setPostContent([...postContent, newPostContent]);

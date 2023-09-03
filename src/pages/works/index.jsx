@@ -13,7 +13,7 @@ const Index = () => {
     <WorksLayout footerClass="bg-gray">
       <Works />
     </WorksLayout>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;

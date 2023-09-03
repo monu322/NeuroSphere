@@ -16,71 +16,12 @@ const AdminNavbar = () => {
           </Link>
         </div>
         <ul>
-          <li className="nav-item ">
-            <Link href="/admin" className="nav-align">
-              <a>
-                <span className="icon pe-7s-home"></span>
-                <span>Home</span>
-              </a>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link href="/admin/blog" className="nav-align">
-              <a>
-                <span className="icon pe-7s-next-2"></span>
-                <span>Create Blogs</span>
-              </a>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link href="/admin/works" className="nav-align">
-              <a>
-                <span className="icon pe-7s-browser"></span>
-                <span>Works</span>
-              </a>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link href="/admin/clients" className="nav-align">
-              <a>
-                <span className="icon pe-7s-portfolio"></span>
-                <span>Add Clients</span>
-              </a>
-            </Link>
-          </li>
-
-          <li className="nav-item">
-            <Link href="/admin/create-template" className="nav-align">
-              <a>
-                <span className="icon pe-7s-browser"></span>
-                <span>Create Template</span>
-              </a>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link href="/admin/works" className="nav-align">
-              <a>
-                <span className="icon pe-7s-browser"></span>
-                <span>Add Works</span>
-              </a>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link href="/admin/works" className="nav-align">
-              <a>
-                <span className="icon pe-7s-browser"></span>
-                <span>Add Works</span>
-              </a>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link href="/admin/works" className="nav-align">
-              <a>
-                <span className="icon pe-7s-browser"></span>
-                <span>Add Works</span>
-              </a>
-            </Link>
-          </li>
+          <NavItem to="" icon="home" label="Home" />
+          <NavItem to="blog" icon="rss" label="Create Blogs" />
+          <NavItem to="works" icon="briefcase" label="Works" />
+          <NavItem to="clients" icon="users" label="Add Clients" />
+          <NavItem to="templates" icon="copy" label="Templates" />
+          <NavItem to="clients/prospect" icon="users" label="Clients" />
         </ul>
       </div>
     </div>
@@ -88,3 +29,16 @@ const AdminNavbar = () => {
 };
 
 export default AdminNavbar;
+
+const NavItem = ({ to, icon, label }) => {
+  return (
+    <li className="nav-item ">
+      <Link href={`/admin/${to}`} className="nav-align">
+        <a>
+          <i className={`fas fa-${icon} mr-2`}></i>
+          <span>{label}</span>
+        </a>
+      </Link>
+    </li>
+  );
+};
