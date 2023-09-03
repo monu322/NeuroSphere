@@ -13,7 +13,7 @@ const PostContent = ({ SingleBlog }) => {
                 ? SingleBlog.postContent.map((content) => {
                     return (
                       <div key={content.heading}>
-                        <h3>{content.heading}</h3>
+                        <h2>{content.heading}</h2>
                         {content.paragraphsImg ? (
                           <div className="img p-4">
                             <img
