@@ -7262,3 +7262,6 @@ footer .item .copy-right p a {
   height: 13px;
   background: linear-gradient(to right, #dddcdc, #f1f0f0);
 }
+.blog-title {
+  font-size: 45px;
+}

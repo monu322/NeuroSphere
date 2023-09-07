@@ -31,7 +31,7 @@ const Details = ({ blog, currentIndex, totalBlogs, blogs }) => {
           <div className="row justify-content-center">
             <div className="col-lg-11">
               <div className="cont">
-                <h2>{article?.title}</h2>
+                <h1 className="blog-title">{article?.title}</h1>
                 <span>{article?.posterName + ", "}</span>
               </div>
             </div>
