@@ -118,18 +118,31 @@ const ClientProspect = () => {
                               width={35}
                               height={35}
                               src={p.logo}
+                              alt="logo"
                             />
                           </div>
                           <div className="links">
                             <p className="company-name">{p.name}</p>
                             <div className="company-links">
-                              <a href={p.links.linkedin} target="_blank">
+                              <a
+                                href={p.links.linkedin}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
                                 <i className="fab fa-linkedin mr-1 item-1"></i>
                               </a>
-                              <a href={p.links.facebook} target="_blank">
+                              <a
+                                href={p.links.facebook}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
                                 <i className="fab fa-facebook-square mr-1 item-2"></i>
                               </a>
-                              <a href={p.links.twitter} target="_blank">
+                              <a
+                                href={p.links.twitter}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
                                 <i className="fab fa-twitter-square item-3"></i>
                               </a>
                             </div>
