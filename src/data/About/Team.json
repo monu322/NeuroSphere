@@ -20,7 +20,7 @@
   {
     "name": "Emil Mathew Sam",
     "postition": "Head of Design",
-    "img": "/assets/img/team/4.jpg",
+    "img": "/assets/img/team/02.jpg",
     "fb":"https://www.facebook.com/emil.evo10/",
     "linkedin":"https://www.linkedin.com/in/emilmathewsam",
     "dribble":"https://instagram.com/emilandlife",
@@ -29,7 +29,7 @@
   {
     "name": "Ajo T P",
     "postition": "Full-stack Developer",
-    "img": "/assets/img/team/5.jpg",
+    "img": "/assets/img/team/02.jpg",
     "fb":"https://www.facebook.com/ajo.tpanthezham",
     "twitter":"",
     "github":"https://github.com/AjoPanthezham",
@@ -38,7 +38,7 @@
   {
     "name": "Join our team",
     "postition": "See Open Positions",
-    "img": "/assets/img/team/6.jpg",
+    "img": "/assets/img/team/02.jpg",
     "link":"/careers"
   }
 ]
