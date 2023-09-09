@@ -24,12 +24,13 @@ const MainLayout = ({ children, footerClass }) => {
     <>
       <Head>
         <link rel="stylesheet" href="/assets/css/style.css" />
+        <link rel="stylesheet" href="/assets/css/style2.css" />
         <link rel="stylesheet" href="/assets/css/base.css" />
         <link rel="stylesheet" href="/assets/css/responsive.css" />
       </Head>
 
       <Navbar navbarRef={navbarRef} logoRef={logoRef} />
-      { children }
+      {children}
       <Footer classText={footerClass} />
     </>
   );
