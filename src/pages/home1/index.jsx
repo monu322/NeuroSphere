@@ -31,7 +31,7 @@ const Index = (props) => {
       <Works worksData={WorksData} />
       <Testimonials testimonialsData={TestimonialsData} />
       {/* <Clients /> */}
-      <Team teamData={TeamData} />
+      {/* <Team teamData={TeamData} /> */}
       {/* <Blogs /> */}
     </MainLayout>
   );
