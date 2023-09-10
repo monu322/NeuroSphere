@@ -29,10 +29,16 @@
   grid-column: span 4;
   grid-row: span 2;
   position: relative;
+  height: 444px;
+  overflow: hidden;
 }
 
 .team-member img {
-  max-width: 100%;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0px;
+  left: 0px;
   height: auto;
 }
 
@@ -42,7 +48,7 @@
   left: 0;
   padding-top: 60%;
   padding-left: 2rem;
-  
+
   opacity: 0;
   transition: 600ms;
   width: 100%;
@@ -59,11 +65,10 @@
   color: white;
   line-height: 1.5;
   padding-top: 1rem;
-  
 }
 
-.social{
-    padding-top: 10px;
+.social {
+  padding-top: 10px;
 }
 
 .social > a {
@@ -75,7 +80,6 @@
   font-size: 12px;
   text-align: center;
   margin-left: 5px;
-
 }
 
 @media screen and (min-width: 767px) {
@@ -89,8 +93,13 @@
   .team-member {
     grid-column: span 6;
     grid-row: span 2;
+    height: 400px;
   }
 
+  .team-member img {
+    width: auto;
+    height: 100%;
+  }
 }
 
 @media screen and (min-width: 991px) {
@@ -99,6 +108,7 @@
     grid-template-columns: repeat(12, 1fr);
     margin-left: 8rem;
     margin-right: 8rem;
+    position: relative;
   }
 
   .team-member {
@@ -106,64 +116,66 @@
     grid-row: span 2;
   }
 
-  .team-member:hover:nth-child(1) .details {
-    /* clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); */
-    /* clip-path: circle(); */
-    clip-path: polygon(100% 35%, 0 0, 37% 100%);
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid #75dab4;
-    padding-left: 40%;
-    content: "";
-    position: absolute;
-    top: calc(50% - 20vw);
-    left: calc(50% - 20vw);
-    width: 40vw;
-    height: 40vw;
-    background: #121212;
-    z-index: 2;
-  }
-
-  .team-member:hover:nth-child(2) .details {
-   
-    clip-path: circle();
-
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid #75dab4;
-    padding-left: 40%;
-    content: "";
-    position: absolute;
-    top: calc(50% - 20vw);
-    left: calc(50% - 20vw);
-    width: 40vw;
-    height: 40vw;
-    background: #121212;
-    z-index: 2;
-  }
-  .team-member:hover:nth-child(3) .details {
-  
-    clip-path: inset(5% 20% 15% 10%);;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid #75dab4;
-    padding-left: 40%;
-    content: "";
-    position: absolute;
-    top: calc(50% - 20vw);
-    left: calc(50% - 20vw);
-    width: 40vw;
-    height: 40vw;
-    background: #121212;
-    z-index: 2;
-  }
+  .team-member:hover:nth-child(1) .details,
   .team-member:hover:nth-child(4) .details {
     /* clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); */
     /* clip-path: circle(); */
     clip-path: polygon(100% 35%, 0 0, 37% 100%);
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid #75dab4;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #75dab4;
+    padding-left: 40%;
+    content: "";
+    position: absolute;
+    top: calc(50% - 20vw);
+    left: calc(50% - 20vw);
+    width: 40vw;
+    height: 40vw;
+    background: #121212;
+    z-index: 2;
+  }
+
+  .team-member:hover:nth-child(2) .details,
+  .team-member:hover:nth-child(5) .details {
+    clip-path: circle();
+
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #75dab4;
+    padding-left: 40%;
+    content: "";
+    position: absolute;
+    top: calc(50% - 20vw);
+    left: calc(50% - 20vw);
+    width: 40vw;
+    height: 40vw;
+    background: #121212;
+    z-index: 2;
+  }
+  .team-member:hover:nth-child(3) .detail,
+  .team-member:hover:nth-child(7) .details {
+    clip-path: inset(5% 20% 15% 10%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #75dab4;
+    padding-left: 40%;
+    content: "";
+    position: absolute;
+    top: calc(50% - 20vw);
+    left: calc(50% - 20vw);
+    width: 40vw;
+    height: 40vw;
+    background: #121212;
+    z-index: 2;
+  }
+  .team-member:hover:nth-child(4) .details,
+  .team-member:hover:nth-child(9) .details {
+    /* clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); */
+    /* clip-path: circle(); */
+    clip-path: polygon(100% 35%, 0 0, 37% 100%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #75dab4;
     padding-left: 40%;
     content: "";
     position: absolute;

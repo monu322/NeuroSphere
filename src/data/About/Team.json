@@ -10,7 +10,7 @@
   },
   {
     "name": "Vinu Zachariah",
-    "postition": "Head of Engineering",
+    "postition": "Chief of Technology",
     "img": "/assets/img/team/02.jpg",
     "github":"",
     "twitter":"",
@@ -19,21 +19,37 @@
   },
   {
     "name": "Emil Mathew Sam",
-    "postition": "Head of Design",
-    "img": "/assets/img/team/4.jpg",
+    "postition": "UI/UX Designer",
+    "img": "/assets/img/team/04.jpg",
     "fb":"https://www.facebook.com/emil.evo10/",
     "linkedin":"https://www.linkedin.com/in/emilmathewsam",
-    "dribble":"https://instagram.com/emilandlife",
     "insta":"https://instagram.com/emilandlife"
   },
   {
     "name": "Ajo T P",
-    "postition": "Full-stack Developer",
-    "img": "/assets/img/team/5.jpg",
-    "fb":"https://www.facebook.com/ajo.tpanthezham",
+    "postition": "Project Manager, Full-stack Developer",
+    "img": "/assets/img/team/05.jpg",
     "twitter":"",
-    "github":"https://github.com/AjoPanthezham",
-    "insta":""
+    "github":"",
+    "linkedin":""
+  },
+  {
+    "name": "Abhishek William",
+    "postition": "Full-stack JS Developer",
+    "img": "/assets/img/team/06.jpg",
+    "fb":"",
+    "twitter":"",
+    "github":"",
+    "linkedin":"https://www.linkedin.com/in/abishek-william"
+  },
+  {
+    "name": "Anurenj Sudheer",
+    "postition": "Mobile App Developer",
+    "img": "/assets/img/team/07.jpg",
+    "fb":"",
+    "twitter":"",
+    "github":"",
+    "linkedin":"https://www.linkedin.com/in/anurenj-sudheer"
   },
   {
     "name": "Join our team",
