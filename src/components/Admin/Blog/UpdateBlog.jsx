@@ -84,6 +84,7 @@ const UpdateBlogForm = ({ id }) => {
   };
 
   const updateBlog = async (values, postContent) => {
+    let image;
     setIsPublished(true);
     if (values.img) {
       const storageRef = ref(
@@ -91,7 +92,7 @@ const UpdateBlogForm = ({ id }) => {
         `blogImages/${values.img.name + values.img.size}`
       );
       await uploadBytes(storageRef, values.img);
-      const image = await getDownloadURL(storageRef);
+      image = await getDownloadURL(storageRef);
     }
     const response = await fetch("/api/Blog", {
       method: "PATCH",
@@ -109,7 +110,7 @@ const UpdateBlogForm = ({ id }) => {
     const { message, error } = await response.json();
     !error ? setNotification(message) : setNotification(error);
     clearNotification();
-    router.push("/admin");
+    router.push("/admin/blog");
   };
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
@@ -118,7 +119,7 @@ const UpdateBlogForm = ({ id }) => {
       setSubmitting(false);
       await updateBlog(values, postContent);
       setTimeout(() => {
-        router.push("/admin");
+        router.push("/admin/blog");
         setNotification("");
       }, 2000);
     }

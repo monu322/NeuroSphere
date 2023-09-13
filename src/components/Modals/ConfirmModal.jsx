@@ -8,12 +8,12 @@ const ConfirmModal = ({ onConfirm, onCancel }) => {
           Are you sure you want to delete this ?
         </div>
         <div className="btn__container">
-          <buttoon className="btn btn-secondary" onClick={onCancel}>
+          <button className="btn btn-secondary" onClick={onCancel}>
             Cancel
-          </buttoon>
-          <buttoon className="btn btn-danger" onClick={onConfirm}>
+          </button>
+          <button className="btn btn-danger" onClick={onConfirm}>
             Delete
-          </buttoon>
+          </button>
         </div>
       </div>
       <div className="confirm_bg"></div>

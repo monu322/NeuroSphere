@@ -149,7 +149,7 @@ const BlogForm = () => {
 
         resetForm();
         setTimeout(() => {
-          router.push("/admin");
+          router.push("/admin/blog");
           setNotification("");
         }, 2000);
       }

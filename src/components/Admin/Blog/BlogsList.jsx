@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Client from "./Client/Client";
-import ConfirmModal from "../Modals/ConfirmModal";
-import BlogTable from "../BlogTable";
+import BlogTable from "../../BlogTable";
+import ConfirmModal from "../../Modals/ConfirmModal";
 
-const Home = () => {
+const BlogsList = () => {
   const [notification, setNotification] = useState("");
   const [blogData, setBlogData] = useState([]);
   const [publishedBlog, setPublishedBlog] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
-  const [clientData, setClientData] = useState([]);
   const [showConfirmBox, setShowConfirmBox] = useState(false);
   const [deleteId, setDeleteId] = useState("");
 
@@ -27,30 +25,10 @@ const Home = () => {
     });
     const { data, error } = await response.json();
     console.log(data);
-    setFilteredData(data?.filter((d) => d.isPublished === false));
+    // setFilteredData(data?.filter((d) => d.isPublished === false));
     setPublishedBlog(data?.filter((d) => d.isPublished === true));
     data ? setBlogData(data) : setNotification(error);
     clearNotification();
-  };
-
-  const getClientData = async () => {
-    try {
-      const response = await fetch("/api/client/client", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const { data, error } = await response.json();
-      if (data) {
-        setClientData(data);
-      } else {
-        setNotification(error);
-        clearNotification();
-      }
-    } catch (error) {
-      console.log("Error occured : ", error);
-    }
   };
 
   const handleOnDeleteConfirm = async () => {
@@ -78,35 +56,18 @@ const Home = () => {
   };
 
   useEffect(() => {
-    getClientData();
-  }, []);
-
-  useEffect(() => {
     getBlogData();
   }, []);
-  const sendMailToClients = async () => {
-    console.log("Clicked");
-    try {
-      const response = await fetch("http://localhost:3005/api/send-emails", {
-        method: "POST",
-      });
-      const { message } = response.json();
-      console.log(message);
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
+
   return (
     <>
       <div className="container mt-4">
-        {/* <button className="btn btn-primary" onClick={sendMailToClients}>
-          Send
-        </button> */}
         {notification && <div className="notification">{notification}</div>}
-        {/* {filteredData && filteredData[0]?.isPublished === false && (
-         
-        )} */}
-        <Client data={clientData} getClientsData={getClientData} />
+        <BlogTable
+          heading="Published Blogs"
+          publishedBlog={publishedBlog}
+          onDeleteClick={handleDelete}
+        />
       </div>
       {showConfirmBox && (
         <ConfirmModal
@@ -118,4 +79,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default BlogsList;

@@ -44,6 +44,20 @@ const BlogTable = ({ heading, filteredData, publishedBlog, onDeleteClick }) => {
             </tbody>
           </table>
         </div>
+        <div className="d-flex justify-content-between">
+          {heading === "Published Blogs" ? (
+            <Link href="/admin/drafts">
+              <button className="btn-blog">View Drafts &rarr;</button>
+            </Link>
+          ) : (
+            <Link href="/admin/blog">
+              <button className="btn-blog">View Published Blogs &rarr;</button>
+            </Link>
+          )}
+          <Link href="/admin/blog/create">
+            <button className="btn-blog">Create &#43;</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

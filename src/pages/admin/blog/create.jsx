@@ -4,9 +4,8 @@ import AdminLayout from "../../../layouts/admin";
 import { useRouter } from "next/router";
 
 import BlogForm from "../../../components/Admin/Blog/BlogForm";
-import BlogsList from "../../../components/Admin/Blog/BlogsList";
 
-const Index = () => {
+const create = () => {
   const { roleInfo } = useContext(AuthContext);
   const router = useRouter();
   useEffect(() => {
@@ -19,10 +18,9 @@ const Index = () => {
 
   return (
     <AdminLayout>
-      {/* <BlogForm /> */}
-      <BlogsList />
+      <BlogForm />
     </AdminLayout>
   );
 };
 
-export default Index;
+export default create;
