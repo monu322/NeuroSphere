@@ -7068,6 +7068,200 @@ footer .item .copy-right p a {
   border-radius: 2px;
 }
 
+.btn__mail-close {
+  display: flex;
+
+  justify-content: center;
+  align-content: center;
+  width: 5rem;
+}
+
+.template {
+  height: 85vh;
+}
+.template__col-1 {
+  position: relative;
+  border-radius: 3px;
+  background-color: #545e75;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.template__col-2 {
+  border-radius: 3px;
+}
+.template__section {
+  cursor: pointer;
+  border-bottom: 1px solid lightgray;
+  overflow: scroll;
+}
+.template__body {
+  color: #d8d8d8;
+  font-size: 13px;
+  font-family: "poppins", sans-serif;
+}
+.template .template__subject {
+  font-size: 14px;
+  font-weight: 500;
+  color: #f4f5f5;
+  font-family: "poppins", sans-serif;
+}
+.template__preview-heading {
+  margin-left: 10px;
+  margin-top: 20px;
+  border-bottom: 1px solid lightgray;
+  color: rgb(134, 134, 134);
+  font-size: 18px;
+}
+
+.template__preview-subject {
+  font-size: 17px;
+  font-weight: 400;
+}
+.template__preview-body {
+  width: 100%;
+  max-height: 500px;
+}
+.template__preview-body .bdy {
+  font-size: 15px;
+}
+.mail__box {
+  overflow: scroll;
+  height: 75%;
+  background-color: rgb(248, 248, 248);
+}
+.template__preview--subtitle {
+  font-size: 16px;
+  color: #645d5d5d;
+}
+
+.template__text {
+  color: #3d3939 !important;
+}
+
+.template__create {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  padding: 10px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #222733;
+  cursor: pointer;
+}
+
+.template__create:hover {
+  color: white;
+  background-color: #333b4f;
+}
+
+.edit {
+  font-size: 18px;
+  color: rgb(89, 165, 122);
+}
+.edit:hover {
+  color: rgb(64, 140, 97);
+}
+.delete {
+  font-size: 17px;
+  color: rgb(224, 132, 124);
+}
+.delete:hover {
+  color: rgb(216, 101, 90);
+}
+.client__filter {
+  border: 1px solid rgb(188, 192, 195);
+  font-size: 14px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 10rem;
+}
+.client__filter .icon {
+  color: gray;
+}
+.client__filter .input {
+  border: none;
+  background-color: white !important;
+}
+.client__filter label:hover {
+  cursor: pointer;
+}
+
+.company-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0852c2 !important;
+}
+/* .company-logo {
+  width: 50px;
+  height: 50px;
+} */
+.fab.fa-microsoft {
+  font-size: 30px !important;
+}
+.company-logo .fab.fa-linkedin,
+.company-logo .fab.fa-facebook {
+  font-size: 30px !important;
+  color: #2e74dd;
+}
+
+.company-links {
+  font-size: 16px;
+  color: #919191;
+}
+.company-links .item-1:hover {
+  color: #0072b1;
+}
+.company-links .item-2:hover {
+  color: #1877f2;
+}
+.company-links .item-3:hover {
+  color: #00acee;
+}
+
+/* ============== Shimmer UI ============== */
+
+/* .shimmer__data {
+  padding: 0 !important;
+  width: 20px;
+  height: 10px;
+  background-color: gray;
+  margin: 20px;
+} */
+.shimmer__data span {
+  display: inline-block;
+  width: 125px;
+  height: 15px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #dddcdc, #f1f0f0);
+}
+.shimmer__company-name {
+  display: inline-block;
+  width: 100px;
+  height: 13px;
+  font-size: 14px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #dddcdc, #f1f0f0);
+}
+.shimmer__company-logo {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(to right, #dddcdc, #f1f0f0);
+}
+
+.shimmer__company-links .shimmer__item {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background: linear-gradient(to right, #dddcdc, #f1f0f0);
+}
 .blog-title {
   font-size: 45px;
 }
