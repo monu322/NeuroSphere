@@ -1,11 +1,11 @@
 import { useContext, useEffect } from "react";
-import { AuthContext } from "../../../context/AuthProvider";
 import AdminLayout from "../../../layouts/admin";
-import { useRouter } from "next/router";
 
 import BlogForm from "../../../components/Admin/Blog/BlogForm";
+import { AuthContext } from "../../../context/AuthProvider";
+import { useRouter } from "next/router";
 
-const create = () => {
+const Index = () => {
   const { roleInfo } = useContext(AuthContext);
   const router = useRouter();
   useEffect(() => {
@@ -23,4 +23,4 @@ const create = () => {
   );
 };
 
-export default create;
+export default Index;
