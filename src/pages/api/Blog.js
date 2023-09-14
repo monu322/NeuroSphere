@@ -56,7 +56,7 @@ const handler = async (req, res) => {
         postContent,
         tags: Tags,
         posterName,
-        isPublished: true,
+        isPublished,
         // posterAvatar,
         postMeta,
       });

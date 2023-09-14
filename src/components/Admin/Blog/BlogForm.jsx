@@ -301,7 +301,7 @@ const BlogForm = () => {
                     </div>
                   </div>
 
-                  <div className="row">
+                  {/* <div className="row">
                     <div className="blog-box p-4 w-100 mb-3">
                       <div className="controls blog-form">
                         <div className="form-group d-flex flex-column">
@@ -353,7 +353,7 @@ const BlogForm = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="col-lg-5 col-md-4 w-25">
                   <div className="row">
