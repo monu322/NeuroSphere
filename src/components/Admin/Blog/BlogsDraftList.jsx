@@ -36,7 +36,7 @@ const BlogsDraftList = () => {
     const response = await fetch("/api/Blog", {
       method: "DELETE",
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ id: deleteId }),
     });

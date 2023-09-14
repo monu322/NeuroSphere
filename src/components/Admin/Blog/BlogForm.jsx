@@ -162,7 +162,7 @@ const BlogForm = () => {
   const isButtonDisabled = !postContent;
   return (
     <>
-      <div className="container mt-2">
+      <div className="container mt-2 position-relative">
         {notification && <div className="notification">{notification}</div>}
         <Formik initialValues={initialValues} onSubmit={handleSubmit}>
           {({ values, isSubmitting, setFieldValue, submitForm }) => (
@@ -193,7 +193,7 @@ const BlogForm = () => {
                 </div>
               </div>
               <div className="row mb-4">
-                <div className="col-lg-7 col-md-7">
+                <div className="col-lg-6 col-md-5 mr-3">
                   <div className="blog-box p-4">
                     {errMessage && (
                       <div className="form_Messages text-danger">
@@ -202,8 +202,8 @@ const BlogForm = () => {
                     )}
 
                     <div className="controls blog-form">
-                      <div className="form-group d-flex flex-column">
-                        <label htmlFor="Title">Blog Title</label>
+                      <div className="form-group">
+                        <label htmlFor="Title">Title</label>
                         <Field
                           id="form_title"
                           type="text"
@@ -216,16 +216,14 @@ const BlogForm = () => {
 
                       <div className="form-group d-flex flex-column">
                         <div>
-                          <label htmlFor="postDescriptions">
-                            Post Description
-                          </label>
+                          <label htmlFor="postDescriptions">Intro</label>
                           <Field
                             required="required"
                             as="textarea"
                             type="text"
                             id="postDescriptions"
                             name="postDescriptions"
-                            placeholder="Post Description"
+                            placeholder="Blog Intro"
                           />
                         </div>
                       </div>
@@ -299,6 +297,60 @@ const BlogForm = () => {
                         >
                           Add
                         </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="blog-box p-4 w-100 mb-3">
+                      <div className="controls blog-form">
+                        <div className="form-group d-flex flex-column">
+                          <label htmlFor="Title">Title</label>
+                          <Field
+                            id="form_title"
+                            type="text"
+                            name="title"
+                            placeholder="Blog Title"
+                            required="required"
+                            className="border border-secondary"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="blog-box p-4 w-100 mb-3">
+                      <div className="controls blog-form">
+                        <div className="form-group d-flex flex-column">
+                          <label htmlFor="postDescriptions">Intro</label>
+                          <Field
+                            required="required"
+                            as="textarea"
+                            type="text"
+                            id="postDescriptions"
+                            name="postDescriptions"
+                            placeholder="Blog Intro"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="blog-box p-4 w-100 mb-3">
+                      <div className="controls blog-form border rounded p-2">
+                        <div className="form-group">
+                          <div className="d-flex">
+                            <div className="text-black">Section Title:</div>
+                            <input type="text" className="w-50" />
+                          </div>
+                          <div className="">
+                            <div className="d-flex border mt-1">
+                              <div className="text-dark">Paragraph Title</div>
+                              <input type="text" className="w-75" />
+                            </div>
+                            <div className=""></div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
