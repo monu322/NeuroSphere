@@ -75,7 +75,7 @@ const TableBody = ({ blog, index, onDeleteClick, key }) => {
       <td>
         <ButtonsAction
           to={`blog/${blog.id}`}
-          onDeleteClick={onDeleteClick}
+          onDeleteClick={() => onDeleteClick(blog.id)}
           data={blog.id}
         />
       </td>

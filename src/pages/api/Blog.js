@@ -56,7 +56,7 @@ const handler = async (req, res) => {
         postContent,
         tags: Tags,
         posterName,
-        isPublished: true,
+        isPublished,
         // posterAvatar,
         postMeta,
       });
@@ -88,7 +88,7 @@ const handler = async (req, res) => {
       await deleteDoc(doc(db, "blogs", id));
       res.status(200).json({ message: "Post deleted successfully" });
     } catch (error) {
-      res.status(500).json({ error });
+      res.status(500).json({ error: "Error" });
     }
   }
 };

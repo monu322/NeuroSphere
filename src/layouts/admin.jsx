@@ -30,7 +30,7 @@ const AdminLayout = ({ children, footerClass }) => {
         <link rel="stylesheet" href="/assets/css/responsive.css" />
       </Head>
 
-      <div className="d-flex">
+      <div className="d-flex position-relative">
         <AdminNavbar />
         <div className="main-content w-100 bg__admin">
           <Controls />

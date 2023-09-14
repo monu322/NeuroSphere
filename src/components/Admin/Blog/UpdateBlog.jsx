@@ -12,6 +12,7 @@ const UpdateBlogForm = ({ id }) => {
   const [notification, setNotification] = useState("");
   const [blogData, setBlogData] = useState("");
   const [isPublished, setIsPublished] = useState(null);
+  const [save, setSave] = useState(null);
   const [postContent, setPostContent] = useState([
     { heading: "", paragraphs: "", paragraphsImg: "" },
   ]);
@@ -113,15 +114,52 @@ const UpdateBlogForm = ({ id }) => {
     router.push("/admin/blog");
   };
 
+  const saveBlog = async (values, postContent) => {
+    let image;
+    if (values.img) {
+      const storageRef = ref(
+        storage,
+        `blogImages/${values.img.name + values.img.size}`
+      );
+      await uploadBytes(storageRef, values.img);
+      image = await getDownloadURL(storageRef);
+    }
+    const response = await fetch("/api/Blog", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        values,
+        image,
+        postContent,
+        blogId,
+        isPublished,
+      }),
+    });
+    const { message, error } = await response.json();
+    if (error) {
+      setNotification(error);
+    } else {
+      setNotification(message);
+    }
+    clearNotification();
+  };
+
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     if (validateForm(values)) {
       setErrMessage(null);
       setSubmitting(false);
-      await updateBlog(values, postContent);
-      setTimeout(() => {
-        router.push("/admin/blog");
-        setNotification("");
-      }, 2000);
+      if (save) {
+        await saveBlog(values, postContent);
+        setNotification("Blog saved as draft");
+        setTimeout(() => {
+          router.push("/admin/drafts");
+          setNotification("");
+        }, 2000);
+      } else {
+        await updateBlog(values, postContent);
+      }
     }
   };
 
@@ -160,22 +198,52 @@ const UpdateBlogForm = ({ id }) => {
           onSubmit={handleSubmit}
           enableReinitialize={true}
         >
-          {({ values, isSubmitting, setFieldValue }) => (
+          {({ values, isSubmitting, setFieldValue, submitForm }) => (
             <Form>
+              <div className="row">
+                <div className="col-lg-10"></div>
+              </div>
               <div className="d-flex justify-content-between">
                 {isPublished === false ? (
-                  <div className="text-dark mb-3 blg-head"> Saved Blog</div>
+                  <div className="text-dark mb-3 blg-head"> Saved Blogs</div>
                 ) : (
                   <div className="text-dark mb-3 blg-head"> Update Blog</div>
                 )}
                 <div>
-                  <button type="submit" className="btn-blog">
-                    {isPublished === false ? (
-                      <span>Publish</span>
-                    ) : (
+                  {isPublished === false ? (
+                    <>
+                      <button
+                        type="button"
+                        className="btn-blog mr-3"
+                        onClick={() => {
+                          setSave(true);
+                          submitForm();
+                        }}
+                      >
+                        Save
+                      </button>
+                      <button
+                        type="button"
+                        className="btn-blog"
+                        onClick={() => {
+                          setIsPublished(true);
+                          submitForm();
+                        }}
+                      >
+                        Publish
+                      </button>
+                    </>
+                  ) : (
+                    <button
+                      type="button"
+                      className="btn-blog"
+                      onClick={() => {
+                        submitForm();
+                      }}
+                    >
                       <span>Update</span>
-                    )}
-                  </button>
+                    </button>
+                  )}
                 </div>
               </div>
               <div className="row">
@@ -289,7 +357,7 @@ const UpdateBlogForm = ({ id }) => {
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-4 col-md-3 w-25">
+                <div className="col-lg-5 col-md-4">
                   <div className="row">
                     <div className="blog-box p-4 w-100 mb-3">
                       {errMessage && (
