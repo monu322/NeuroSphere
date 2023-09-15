@@ -14,7 +14,7 @@ const Controls = () => {
   };
 
   return (
-    <div className=" admin-controls">
+    <div className="admin-controls fix-controls">
       <input type="text" placeholder="Search" />
       <div className="user-details">
         <ul className="d-flex justify-content-between">

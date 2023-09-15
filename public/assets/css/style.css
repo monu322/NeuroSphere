@@ -6778,14 +6778,26 @@ footer .item .copy-right p a {
   cursor: pointer;
 }
 .admin-controls {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  width: 83%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgb(221, 214, 214);
   padding: 4px 4px 4px 10px;
-  background-color: rgba(253, 251, 251, 0.541);
+  /* background-color: rgba(253, 251, 251, 0.541); */
+  background-color: white;
 }
-
+.fix-top {
+  position: fixed;
+  z-index: 99;
+  top: 70px;
+  width: 83%;
+  background-color: #e7e9eb;
+  padding: 10px 16px;
+}
 .admin-controls input {
   background-color: rgba(234, 234, 234, 0.57);
   border: none;
@@ -6793,7 +6805,12 @@ footer .item .copy-right p a {
   border-radius: 4px;
   padding: 6px 12px;
 }
-
+.blg__form--pad {
+  padding-top: 140px;
+}
+.head__padding {
+  padding-top: 70px;
+}
 .admin-controls .user-details {
   display: flex;
   justify-content: space-between;
@@ -7264,4 +7281,14 @@ footer .item .copy-right p a {
 }
 .blog-title {
   font-size: 45px;
+}
+.spinner {
+  font-size: 18px;
+  color: #222733;
+  margin-left: 6px;
+}
+.check {
+  font-size: 18px;
+  margin-left: 6px;
+  color: green;
 }

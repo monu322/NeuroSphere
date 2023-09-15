@@ -37,7 +37,7 @@ const ClientProspect = () => {
   };
   console.log(prospect);
   return (
-    <div className="container mt-2">
+    <div className="container mt-2 head__padding">
       <div className="row">
         <div className="btn btn-primary" onClick={handleProspect}>
           Prospect

@@ -61,7 +61,7 @@ const BlogsList = () => {
 
   return (
     <>
-      <div className="container mt-4">
+      <div className="container mt-4 head__padding">
         {notification && <div className="notification">{notification}</div>}
         <BlogTable
           heading="Published Blogs"

@@ -62,7 +62,7 @@ const BlogsDraftList = () => {
 
   return (
     <>
-      <div className="container mt-4">
+      <div className="container mt-4 head__padding">
         {/* <button className="btn btn-primary" onClick={sendMailToClients}>
           Send
         </button> */}

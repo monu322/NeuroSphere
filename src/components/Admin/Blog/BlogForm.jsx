@@ -162,7 +162,7 @@ const BlogForm = () => {
   const isButtonDisabled = !postContent;
   return (
     <>
-      <div className="container mt-2 position-relative">
+      <div className="container mt-2 head__padding">
         {notification && <div className="notification">{notification}</div>}
         <Formik initialValues={initialValues} onSubmit={handleSubmit}>
           {({ values, isSubmitting, setFieldValue, submitForm }) => (

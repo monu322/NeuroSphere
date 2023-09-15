@@ -11,6 +11,8 @@ const UpdateBlogForm = ({ id }) => {
   const [errMessage, setErrMessage] = useState(null);
   const [notification, setNotification] = useState("");
   const [blogData, setBlogData] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const [isPublished, setIsPublished] = useState(null);
   const [save, setSave] = useState(null);
   const [postContent, setPostContent] = useState([
@@ -108,10 +110,13 @@ const UpdateBlogForm = ({ id }) => {
         isPublished,
       }),
     });
+    if (response.ok) {
+      setIsSuccess(true);
+    }
     const { message, error } = await response.json();
     !error ? setNotification(message) : setNotification(error);
     clearNotification();
-    router.push("/admin/blog");
+    // router.push("/admin/blog");
   };
 
   const saveBlog = async (values, postContent) => {
@@ -147,6 +152,7 @@ const UpdateBlogForm = ({ id }) => {
   };
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
+    setIsLoading(true);
     if (validateForm(values)) {
       setErrMessage(null);
       setSubmitting(false);
@@ -159,6 +165,7 @@ const UpdateBlogForm = ({ id }) => {
         }, 2000);
       } else {
         await updateBlog(values, postContent);
+        setIsLoading(false);
       }
     }
   };
@@ -191,62 +198,66 @@ const UpdateBlogForm = ({ id }) => {
 
   return (
     <>
-      <div className="container mt-2 mb-4">
-        {notification && <div className="notification">{notification}</div>}
-        <Formik
-          initialValues={initialValues}
-          onSubmit={handleSubmit}
-          enableReinitialize={true}
-        >
-          {({ values, isSubmitting, setFieldValue, submitForm }) => (
-            <Form>
-              <div className="row">
-                <div className="col-lg-10"></div>
-              </div>
-              <div className="d-flex justify-content-between">
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        enableReinitialize={true}
+      >
+        {({ values, isSubmitting, setFieldValue, submitForm }) => (
+          <Form>
+            <div className="d-flex justify-content-between fix-top">
+              {isPublished === false ? (
+                <div className="text-dark pb-2 blg-head"> Saved Blogs</div>
+              ) : (
+                <div className="text-dark pb-2 blg-head"> Update Blog</div>
+              )}
+              <div>
                 {isPublished === false ? (
-                  <div className="text-dark mb-3 blg-head"> Saved Blogs</div>
-                ) : (
-                  <div className="text-dark mb-3 blg-head"> Update Blog</div>
-                )}
-                <div>
-                  {isPublished === false ? (
-                    <>
-                      <button
-                        type="button"
-                        className="btn-blog mr-3"
-                        onClick={() => {
-                          setSave(true);
-                          submitForm();
-                        }}
-                      >
-                        Save
-                      </button>
-                      <button
-                        type="button"
-                        className="btn-blog"
-                        onClick={() => {
-                          setIsPublished(true);
-                          submitForm();
-                        }}
-                      >
-                        Publish
-                      </button>
-                    </>
-                  ) : (
+                  <>
+                    <button
+                      type="button"
+                      className="btn-blog mr-3"
+                      onClick={() => {
+                        setSave(true);
+                        submitForm();
+                      }}
+                    >
+                      Save
+                    </button>
                     <button
                       type="button"
                       className="btn-blog"
                       onClick={() => {
+                        setIsPublished(true);
                         submitForm();
                       }}
                     >
-                      <span>Update</span>
+                      Publish
                     </button>
-                  )}
-                </div>
+                  </>
+                ) : (
+                  <button
+                    type="button"
+                    className="btn-blog"
+                    onClick={() => {
+                      submitForm();
+                    }}
+                  >
+                    <span>Update</span>
+                  </button>
+                )}
+                {isLoading && (
+                  <i className="fas fa-spinner fa-spin spinner"></i>
+                )}
+                {isSuccess && <i className="fas fa-check check"></i>}
               </div>
-              <div className="row">
+            </div>
+            <div className="container mt-2 mb-4">
+              {notification && (
+                <div className="notification">{notification}</div>
+              )}
+
+              <div className="row blg__form--pad">
                 <div className="col-lg-7 col-md-7">
                   <div className="blog-box p-4">
                     {errMessage && (
@@ -445,10 +456,10 @@ const UpdateBlogForm = ({ id }) => {
                   </div>
                 </div>
               </div>
-            </Form>
-          )}
-        </Formik>
-      </div>
+            </div>
+          </Form>
+        )}
+      </Formik>
     </>
   );
 };
