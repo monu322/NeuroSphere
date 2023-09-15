@@ -34,7 +34,7 @@ const MailTemplate = ({ clientId }) => {
   };
   return (
     <>
-      <div className="container mt-2">
+      <div className="container mt-2 head__padding">
         {notification && <div className="notification">{notification}</div>}
         <Formik const initialValues={initialValues} onSubmit={handleSubmit}>
           {({ values, setFieldValue }) => (

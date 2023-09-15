@@ -75,7 +75,7 @@ const ListTemplates = () => {
     <>
       <div className="">
         {notification && <div className="notification">{notification}</div>}
-        <div className="row m-4 template">
+        <div className="row m-4 template head__padding">
           <div className="col-lg-3 col-md-3 template__col-1 mr-4">
             <div className="">
               {templates &&

@@ -42,7 +42,7 @@ const WorkList = () => {
   }, []);
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 head__padding">
       <div className="row text-dark justify-content-center">
         <div className="col-lg-10 col-md-8 admin-home">
           <div className="d-flex justify-content-between py-3">

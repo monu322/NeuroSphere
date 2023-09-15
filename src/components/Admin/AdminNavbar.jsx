@@ -21,7 +21,7 @@ const AdminNavbar = () => {
           <NavItem to="works" icon="briefcase" label="Works" />
           <NavItem to="clients" icon="users" label="Add Clients" />
           <NavItem to="templates" icon="copy" label="Templates" />
-          <NavItem to="clients/prospect" icon="users" label="Clients" />
+          {/* <NavItem to="clients/prospect" icon="users" label="Clients" /> */}
         </ul>
       </div>
     </div>

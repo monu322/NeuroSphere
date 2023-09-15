@@ -40,7 +40,7 @@ const Client = ({ data, getClientsData }) => {
 
   return (
     <>
-      <div className="row text-dark">
+      <div className="row text-dark head__padding">
         {notification && <div className="notification">{notification}</div>}
         <div className="col-lg-11 col-md-10 admin-home">
           <h5>Clients</h5>

@@ -162,7 +162,7 @@ const BlogForm = () => {
   const isButtonDisabled = !postContent;
   return (
     <>
-      <div className="container mt-2 position-relative">
+      <div className="container mt-2 head__padding">
         {notification && <div className="notification">{notification}</div>}
         <Formik initialValues={initialValues} onSubmit={handleSubmit}>
           {({ values, isSubmitting, setFieldValue, submitForm }) => (
@@ -193,7 +193,7 @@ const BlogForm = () => {
                 </div>
               </div>
               <div className="row mb-4">
-                <div className="col-lg-6 col-md-5 mr-3">
+                <div className="col-lg-7 col-md-7 mr-3">
                   <div className="blog-box p-4">
                     {errMessage && (
                       <div className="form_Messages text-danger">
@@ -355,7 +355,7 @@ const BlogForm = () => {
                     </div>
                   </div> */}
                 </div>
-                <div className="col-lg-5 col-md-4 w-25">
+                <div className="col-lg-4 col-md-4">
                   <div className="row">
                     <div className="blog-box p-4 w-100 mb-3">
                       {errMessage && (

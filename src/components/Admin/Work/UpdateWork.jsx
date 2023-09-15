@@ -300,7 +300,7 @@ function UpdateWork({ id }) {
   }
   return (
     <>
-      <div className="mt-2 container">
+      <div className="mt-2 container head__padding">
         {notification && <div className="notification">{notification}</div>}
         {errMessage && <div className="messages">{errMessage}</div>}
 
