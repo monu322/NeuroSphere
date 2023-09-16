@@ -9,6 +9,7 @@ const BlogForm = () => {
   const [errMessage, setErrMessage] = useState(null);
   const [notification, setNotification] = useState("");
   const [isPublished, setIsPublished] = useState(false);
+  const [imagePreview, setImagePreview] = useState(null);
   const [postContent, setPostContent] = useState([
     { heading: "", paragraphs: "", paragraphsImg: "" },
   ]);
@@ -272,9 +273,12 @@ const BlogForm = () => {
                                 />
                               </div>
                               <div className="form-group d-flex flex-column">
-                                {post.paragraphsImg && (
-                                  <PreviewImage imgUrl={post.paragraphsImg} />
-                                )}
+                                {(imagePreview && (
+                                  <PreviewImage imgUrl={imagePreview} />
+                                )) ||
+                                  (post.paragraphsImg && (
+                                    <PreviewImage imgUrl={post.paragraphsImg} />
+                                  ))}
                                 <label htmlFor="Tag">
                                   Add Paragrapgh Image
                                 </label>
@@ -282,6 +286,9 @@ const BlogForm = () => {
                                   type="file"
                                   accept="image/*"
                                   onChange={(event) => {
+                                    setImagePreview(
+                                      URL.createObjectURL(event.target.files[0])
+                                    );
                                     handleImageUpload(index, event);
                                   }}
                                 />
@@ -343,12 +350,9 @@ const BlogForm = () => {
                             <div className="text-black">Section Title:</div>
                             <input type="text" className="w-50" />
                           </div>
-                          <div className="">
-                            <div className="d-flex border mt-1">
-                              <div className="text-dark">Paragraph Title</div>
-                              <input type="text" className="w-75" />
-                            </div>
-                            <div className=""></div>
+                          <div className="row">
+                            <div className="col-lg-8"></div>
+                            <div className="col-lg-4"></div>
                           </div>
                         </div>
                       </div>
@@ -383,7 +387,8 @@ const BlogForm = () => {
                             type="file"
                             accept="image/*"
                             onChange={(event) => {
-                              setFieldValue("img", event.target.files[0]);
+                              // setFieldValue("img", event.target.files[0]);
+                              handleImageUpload(index, event);
                             }}
                           />
                         </div>
