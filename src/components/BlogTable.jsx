@@ -6,7 +6,27 @@ const BlogTable = ({ heading, filteredData, publishedBlog, onDeleteClick }) => {
   return (
     <div className="row text-dark">
       <div className="col-lg-11 col-md-10 admin-home">
-        <h5>{heading}</h5>
+        <div className="d-flex justify-content-between align-items-center">
+          <div className="">
+            <h5>{heading}</h5>
+          </div>
+          <div className="">
+            <Link href="/admin/blog/create">
+              <button className="btn-blog mr-1">Create &#43;</button>
+            </Link>
+            {heading === "Published Blogs" ? (
+              <Link href="/admin/drafts">
+                <button className="btn-blog">View Drafts &rarr;</button>
+              </Link>
+            ) : (
+              <Link href="/admin/blog">
+                <button className="btn-blog">
+                  View Published Blogs &rarr;
+                </button>
+              </Link>
+            )}
+          </div>
+        </div>
 
         <div className="bg-white">
           <table className="table__style">
@@ -43,20 +63,6 @@ const BlogTable = ({ heading, filteredData, publishedBlog, onDeleteClick }) => {
                   })}
             </tbody>
           </table>
-        </div>
-        <div className="d-flex justify-content-between">
-          {heading === "Published Blogs" ? (
-            <Link href="/admin/drafts">
-              <button className="btn-blog">View Drafts &rarr;</button>
-            </Link>
-          ) : (
-            <Link href="/admin/blog">
-              <button className="btn-blog">View Published Blogs &rarr;</button>
-            </Link>
-          )}
-          <Link href="/admin/blog/create">
-            <button className="btn-blog">Create &#43;</button>
-          </Link>
         </div>
       </div>
     </div>

@@ -163,38 +163,41 @@ const BlogForm = () => {
   const isButtonDisabled = !postContent;
   return (
     <>
-      <div className="container mt-2 head__padding">
-        {notification && <div className="notification">{notification}</div>}
-        <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-          {({ values, isSubmitting, setFieldValue, submitForm }) => (
-            <Form>
-              <div className="d-flex justify-content-between">
-                <div className="text-dark mb-3 blg-head">Create Blog</div>
-                <div>
-                  <button
-                    type="button"
-                    className="btn-blog mr-3"
-                    onClick={() => {
-                      setIsPublished(false);
-                      submitForm();
-                    }}
-                  >
-                    <span>Save</span>
-                  </button>
-                  <button
-                    type="button"
-                    className="btn-blog"
-                    onClick={() => {
-                      setIsPublished(true);
-                      submitForm();
-                    }}
-                  >
-                    <span>Publish</span>
-                  </button>
-                </div>
+      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+        {({ values, isSubmitting, setFieldValue, submitForm }) => (
+          <Form>
+            <div className="d-flex justify-content-between fix-top">
+              <div className="text-dark pb-2 blg-head">Create Blog</div>
+              <div>
+                <button
+                  type="button"
+                  className="btn-blog mr-3"
+                  onClick={() => {
+                    setIsPublished(false);
+                    submitForm();
+                  }}
+                >
+                  <span>Save</span>
+                </button>
+                <button
+                  type="button"
+                  className="btn-blog"
+                  onClick={() => {
+                    setIsPublished(true);
+                    submitForm();
+                  }}
+                >
+                  <span>Publish</span>
+                </button>
               </div>
-              <div className="row mb-4">
-                <div className="col-lg-7 col-md-7 mr-3">
+            </div>
+            <div className="container mt-2 mb-4">
+              {notification && (
+                <div className="notification">{notification}</div>
+              )}
+
+              <div className="row mb-4 blg__form--pad">
+                <div className="col-lg-7 col-md-7">
                   <div className="blog-box p-4">
                     {errMessage && (
                       <div className="form_Messages text-danger">
@@ -286,9 +289,9 @@ const BlogForm = () => {
                                   type="file"
                                   accept="image/*"
                                   onChange={(event) => {
-                                    setImagePreview(
-                                      URL.createObjectURL(event.target.files[0])
-                                    );
+                                    // setImagePreview(
+                                    //   URL.createObjectURL(event.target.files[0])
+                                    // );
                                     handleImageUpload(index, event);
                                   }}
                                 />
@@ -359,7 +362,7 @@ const BlogForm = () => {
                     </div>
                   </div> */}
                 </div>
-                <div className="col-lg-4 col-md-4">
+                <div className="col-lg-5 col-md-4">
                   <div className="row">
                     <div className="blog-box p-4 w-100 mb-3">
                       {errMessage && (
@@ -387,8 +390,7 @@ const BlogForm = () => {
                             type="file"
                             accept="image/*"
                             onChange={(event) => {
-                              // setFieldValue("img", event.target.files[0]);
-                              handleImageUpload(index, event);
+                              setFieldValue("img", event.target.files[0]);
                             }}
                           />
                         </div>
@@ -448,10 +450,10 @@ const BlogForm = () => {
                   </div>
                 </div>
               </div>
-            </Form>
-          )}
-        </Formik>
-      </div>
+            </div>
+          </Form>
+        )}
+      </Formik>
     </>
   );
 };

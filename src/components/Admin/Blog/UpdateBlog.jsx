@@ -14,6 +14,7 @@ const UpdateBlogForm = ({ id }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isPublished, setIsPublished] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
   const [save, setSave] = useState(null);
   const [unpublish, setUnpublish] = useState(false);
   const [postContent, setPostContent] = useState([
@@ -213,6 +214,12 @@ const UpdateBlogForm = ({ id }) => {
     }
   };
 
+  const handlePreview = () => {
+    console.log("clicked preview");
+    const liveWebsiteUrl = "https://www.neurosphere.tech/blog";
+    window.open(liveWebsiteUrl, "_blank");
+  };
+
   const getBlogDataWithId = async (id) => {
     const docRef = doc(db, "blogs", id);
     const docSnap = await getDoc(docRef);
@@ -235,9 +242,9 @@ const UpdateBlogForm = ({ id }) => {
       getBlogDataWithId(id);
     }
   }, [id]);
-  useEffect(() => {
-    console.log("From the update form useeffect" + " " + isPublished);
-  }, [isPublished]);
+  // useEffect(() => {
+  //   console.log("From the update form useeffect" + " " + isPublished);
+  // }, [isPublished]);
 
   return (
     <>
@@ -257,6 +264,13 @@ const UpdateBlogForm = ({ id }) => {
               <div>
                 {isPublished === false ? (
                   <>
+                    <button
+                      type="button"
+                      className="btn-blog mr-3"
+                      onClick={handlePreview}
+                    >
+                      Preview
+                    </button>
                     <button
                       type="button"
                       className="btn-blog mr-3"
@@ -280,6 +294,13 @@ const UpdateBlogForm = ({ id }) => {
                   </>
                 ) : (
                   <>
+                    <button
+                      type="button"
+                      className="btn-blog mr-3"
+                      onClick={handlePreview}
+                    >
+                      Preview
+                    </button>
                     <button
                       type="button"
                       className="btn-blog mr-3"
@@ -394,9 +415,12 @@ const UpdateBlogForm = ({ id }) => {
                                 />
                               </div>
                               <div className="form-group d-flex flex-column">
-                                {post.paragraphsImg && (
-                                  <PreviewImage imgUrl={post.paragraphsImg} />
-                                )}
+                                {(imagePreview && (
+                                  <PreviewImage imgUrl={imagePreview} />
+                                )) ||
+                                  (post.paragraphsImg && (
+                                    <PreviewImage imgUrl={post.paragraphsImg} />
+                                  ))}
                                 <label htmlFor="Tag">
                                   Add Paragrapgh Image
                                 </label>
@@ -404,6 +428,9 @@ const UpdateBlogForm = ({ id }) => {
                                   type="file"
                                   accept="image/*"
                                   onChange={(event) => {
+                                    setImagePreview(
+                                      URL.createObjectURL(event.target.files[0])
+                                    );
                                     handleImageUpload(index, event);
                                   }}
                                 />
