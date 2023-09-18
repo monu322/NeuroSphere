@@ -1,9 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import Link from "next/link";
+import { AuthContext } from "../../../context/AuthProvider";
 
 const Blog = ({ data }) => {
-  const blogs = data.filter((blog) => blog.isPublished === true);
+  let blogs;
+  const { roleInfo } = useContext(AuthContext);
+  if (roleInfo === "user" || roleInfo === null) {
+    blogs = data.filter((blog) => blog.isPublished === true);
+  } else {
+    blogs = data;
+  }
+
   console.log(blogs);
   const totalBlogs = blogs.length - 1;
   function convertToSlug(Text) {
@@ -11,6 +19,9 @@ const Blog = ({ data }) => {
       .replace(/ /g, "-")
       .replace(/[^\w-]+/g, "");
   }
+  useEffect(() => {
+    console.log(blogs, roleInfo);
+  }, [roleInfo, blogs]);
 
   return (
     <section className="blog-pg section-padding pt-0">

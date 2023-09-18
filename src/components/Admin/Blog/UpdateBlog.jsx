@@ -14,7 +14,9 @@ const UpdateBlogForm = ({ id }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isPublished, setIsPublished] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
   const [save, setSave] = useState(null);
+  const [unpublish, setUnpublish] = useState(false);
   const [postContent, setPostContent] = useState([
     { heading: "", paragraphs: "", paragraphsImg: "" },
   ]);
@@ -86,6 +88,37 @@ const UpdateBlogForm = ({ id }) => {
     setPostContent([...postContent, newPostContent]);
   };
 
+  const unPublishBlog = async (values, postContent) => {
+    let image;
+    if (values.img) {
+      const storageRef = ref(
+        storage,
+        `blogImages/${values.img.name + values.img.size}`
+      );
+      await uploadBytes(storageRef, values.img);
+      image = await getDownloadURL(storageRef);
+    }
+    const response = await fetch("/api/Blog", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        values,
+        image,
+        postContent,
+        blogId,
+        unpublish,
+      }),
+    });
+    if (response.ok) {
+      setIsSuccess(true);
+    }
+    const { message, error } = await response.json();
+    !error ? setNotification(message) : setNotification(error);
+    clearNotification();
+    // router.push("/admin/blog");
+  };
   const updateBlog = async (values, postContent) => {
     let image;
     setIsPublished(true);
@@ -142,6 +175,10 @@ const UpdateBlogForm = ({ id }) => {
         isPublished,
       }),
     });
+    if (response.ok) {
+      setIsSuccess(true);
+      setIsLoading(false);
+    }
     const { message, error } = await response.json();
     if (error) {
       setNotification(error);
@@ -156,18 +193,35 @@ const UpdateBlogForm = ({ id }) => {
     if (validateForm(values)) {
       setErrMessage(null);
       setSubmitting(false);
+
       if (save) {
         await saveBlog(values, postContent);
+        setIsLoading(false);
+        setIsSuccess(true);
         setNotification("Blog saved as draft");
         setTimeout(() => {
           router.push("/admin/drafts");
           setNotification("");
         }, 2000);
       } else {
-        await updateBlog(values, postContent);
-        setIsLoading(false);
+        if (unpublish) {
+          await unPublishBlog(values, postContent);
+        } else {
+          await updateBlog(values, postContent);
+          setIsLoading(false);
+        }
       }
     }
+  };
+
+  const handlePreview = (Text) => {
+    const slug = Text.toLowerCase()
+      .replace(/ /g, "-")
+      .replace(/[^\w-]+/g, "");
+    console.log("clicked preview");
+    const liveWebsiteUrl = "https://www.neurosphere.tech/blog";
+    const blogUrl = `${liveWebsiteUrl}/${slug}-1-10-${id}`;
+    window.open(blogUrl, "_blank");
   };
 
   const getBlogDataWithId = async (id) => {
@@ -192,9 +246,9 @@ const UpdateBlogForm = ({ id }) => {
       getBlogDataWithId(id);
     }
   }, [id]);
-  useEffect(() => {
-    console.log("From the update form useeffect" + " " + isPublished);
-  }, [isPublished]);
+  // useEffect(() => {
+  //   console.log("From the update form useeffect" + " " + isPublished);
+  // }, [isPublished]);
 
   return (
     <>
@@ -217,6 +271,13 @@ const UpdateBlogForm = ({ id }) => {
                     <button
                       type="button"
                       className="btn-blog mr-3"
+                      onClick={() => handlePreview(blogData.title)}
+                    >
+                      Preview
+                    </button>
+                    <button
+                      type="button"
+                      className="btn-blog mr-3"
                       onClick={() => {
                         setSave(true);
                         submitForm();
@@ -236,15 +297,34 @@ const UpdateBlogForm = ({ id }) => {
                     </button>
                   </>
                 ) : (
-                  <button
-                    type="button"
-                    className="btn-blog"
-                    onClick={() => {
-                      submitForm();
-                    }}
-                  >
-                    <span>Update</span>
-                  </button>
+                  <>
+                    <button
+                      type="button"
+                      className="btn-blog mr-3"
+                      onClick={() => handlePreview(blogData.title)}
+                    >
+                      Preview
+                    </button>
+                    <button
+                      type="button"
+                      className="btn-blog mr-3"
+                      onClick={() => {
+                        setUnpublish(true);
+                        submitForm();
+                      }}
+                    >
+                      <span>Unpublish</span>
+                    </button>
+                    <button
+                      type="button"
+                      className="btn-blog"
+                      onClick={() => {
+                        submitForm();
+                      }}
+                    >
+                      <span>Update</span>
+                    </button>
+                  </>
                 )}
                 {isLoading && (
                   <i className="fas fa-spinner fa-spin spinner"></i>
@@ -339,9 +419,12 @@ const UpdateBlogForm = ({ id }) => {
                                 />
                               </div>
                               <div className="form-group d-flex flex-column">
-                                {post.paragraphsImg && (
-                                  <PreviewImage imgUrl={post.paragraphsImg} />
-                                )}
+                                {(imagePreview && (
+                                  <PreviewImage imgUrl={imagePreview} />
+                                )) ||
+                                  (post.paragraphsImg && (
+                                    <PreviewImage imgUrl={post.paragraphsImg} />
+                                  ))}
                                 <label htmlFor="Tag">
                                   Add Paragrapgh Image
                                 </label>
@@ -349,6 +432,9 @@ const UpdateBlogForm = ({ id }) => {
                                   type="file"
                                   accept="image/*"
                                   onChange={(event) => {
+                                    setImagePreview(
+                                      URL.createObjectURL(event.target.files[0])
+                                    );
                                     handleImageUpload(index, event);
                                   }}
                                 />

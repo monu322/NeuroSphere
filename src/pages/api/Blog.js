@@ -43,13 +43,27 @@ const handler = async (req, res) => {
     }
   }
   if (req.method === "PATCH") {
-    const { image, postContent, blogId, isPublished } = req.body;
+    const { image, postContent, blogId, isPublished, unpublish } = req.body;
     const { title, postDescriptions, tags, posterName, postMeta } =
       req.body.values;
     console.log("From the backend" + isPublished);
     try {
       const Tags = tags.split(",");
       const ref = doc(db, "blogs", blogId);
+      if (unpublish) {
+        await updateDoc(ref, {
+          title,
+          postDescriptions,
+          postContent,
+          tags: Tags,
+          posterName,
+          isPublished: false,
+          postMeta,
+        });
+        return res
+          .status(201)
+          .json({ message: "Unpublished the Blog successfully" });
+      }
       await updateDoc(ref, {
         title,
         postDescriptions,

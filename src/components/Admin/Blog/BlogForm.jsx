@@ -9,6 +9,9 @@ const BlogForm = () => {
   const [errMessage, setErrMessage] = useState(null);
   const [notification, setNotification] = useState("");
   const [isPublished, setIsPublished] = useState(false);
+  const [imagePreview, setImagePreview] = useState(
+    Array(postContent?.length).fill(null)
+  );
   const [postContent, setPostContent] = useState([
     { heading: "", paragraphs: "", paragraphsImg: "" },
   ]);
@@ -162,38 +165,41 @@ const BlogForm = () => {
   const isButtonDisabled = !postContent;
   return (
     <>
-      <div className="container mt-2 head__padding">
-        {notification && <div className="notification">{notification}</div>}
-        <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-          {({ values, isSubmitting, setFieldValue, submitForm }) => (
-            <Form>
-              <div className="d-flex justify-content-between">
-                <div className="text-dark mb-3 blg-head">Create Blog</div>
-                <div>
-                  <button
-                    type="button"
-                    className="btn-blog mr-3"
-                    onClick={() => {
-                      setIsPublished(false);
-                      submitForm();
-                    }}
-                  >
-                    <span>Save</span>
-                  </button>
-                  <button
-                    type="button"
-                    className="btn-blog"
-                    onClick={() => {
-                      setIsPublished(true);
-                      submitForm();
-                    }}
-                  >
-                    <span>Publish</span>
-                  </button>
-                </div>
+      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+        {({ values, isSubmitting, setFieldValue, submitForm }) => (
+          <Form>
+            <div className="d-flex justify-content-between fix-top">
+              <div className="text-dark pb-2 blg-head">Create Blog</div>
+              <div>
+                <button
+                  type="button"
+                  className="btn-blog mr-3"
+                  onClick={() => {
+                    setIsPublished(false);
+                    submitForm();
+                  }}
+                >
+                  <span>Save</span>
+                </button>
+                <button
+                  type="button"
+                  className="btn-blog"
+                  onClick={() => {
+                    setIsPublished(true);
+                    submitForm();
+                  }}
+                >
+                  <span>Publish</span>
+                </button>
               </div>
-              <div className="row mb-4">
-                <div className="col-lg-7 col-md-7 mr-3">
+            </div>
+            <div className="container mt-2 mb-4">
+              {notification && (
+                <div className="notification">{notification}</div>
+              )}
+
+              <div className="row mb-4 blg__form--pad">
+                <div className="col-lg-7 col-md-7">
                   <div className="blog-box p-4">
                     {errMessage && (
                       <div className="form_Messages text-danger">
@@ -272,9 +278,12 @@ const BlogForm = () => {
                                 />
                               </div>
                               <div className="form-group d-flex flex-column">
-                                {post.paragraphsImg && (
-                                  <PreviewImage imgUrl={post.paragraphsImg} />
-                                )}
+                                {(imagePreview[index] && (
+                                  <PreviewImage imgUrl={imagePreview[index]} />
+                                )) ||
+                                  (post.paragraphsImg && (
+                                    <PreviewImage imgUrl={post.paragraphsImg} />
+                                  ))}
                                 <label htmlFor="Tag">
                                   Add Paragrapgh Image
                                 </label>
@@ -282,6 +291,14 @@ const BlogForm = () => {
                                   type="file"
                                   accept="image/*"
                                   onChange={(event) => {
+                                    const file = event.target.files[0];
+                                    const imageUrl = URL.createObjectURL(file);
+
+                                    // Update the imagePreviews state for the current index
+                                    const newImagePreview = [...imagePreview];
+                                    newImagePreview[index] = imageUrl;
+                                    setImagePreview(newImagePreview);
+
                                     handleImageUpload(index, event);
                                   }}
                                 />
@@ -343,19 +360,16 @@ const BlogForm = () => {
                             <div className="text-black">Section Title:</div>
                             <input type="text" className="w-50" />
                           </div>
-                          <div className="">
-                            <div className="d-flex border mt-1">
-                              <div className="text-dark">Paragraph Title</div>
-                              <input type="text" className="w-75" />
-                            </div>
-                            <div className=""></div>
+                          <div className="row">
+                            <div className="col-lg-8"></div>
+                            <div className="col-lg-4"></div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div> */}
                 </div>
-                <div className="col-lg-4 col-md-4">
+                <div className="col-lg-5 col-md-4">
                   <div className="row">
                     <div className="blog-box p-4 w-100 mb-3">
                       {errMessage && (
@@ -443,10 +457,10 @@ const BlogForm = () => {
                   </div>
                 </div>
               </div>
-            </Form>
-          )}
-        </Formik>
-      </div>
+            </div>
+          </Form>
+        )}
+      </Formik>
     </>
   );
 };
