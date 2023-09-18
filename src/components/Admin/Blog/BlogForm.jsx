@@ -9,7 +9,9 @@ const BlogForm = () => {
   const [errMessage, setErrMessage] = useState(null);
   const [notification, setNotification] = useState("");
   const [isPublished, setIsPublished] = useState(false);
-  const [imagePreview, setImagePreview] = useState(null);
+  const [imagePreview, setImagePreview] = useState(
+    Array(postContent?.length).fill(null)
+  );
   const [postContent, setPostContent] = useState([
     { heading: "", paragraphs: "", paragraphsImg: "" },
   ]);
@@ -276,8 +278,8 @@ const BlogForm = () => {
                                 />
                               </div>
                               <div className="form-group d-flex flex-column">
-                                {(imagePreview && (
-                                  <PreviewImage imgUrl={imagePreview} />
+                                {(imagePreview[index] && (
+                                  <PreviewImage imgUrl={imagePreview[index]} />
                                 )) ||
                                   (post.paragraphsImg && (
                                     <PreviewImage imgUrl={post.paragraphsImg} />
@@ -289,9 +291,14 @@ const BlogForm = () => {
                                   type="file"
                                   accept="image/*"
                                   onChange={(event) => {
-                                    // setImagePreview(
-                                    //   URL.createObjectURL(event.target.files[0])
-                                    // );
+                                    const file = event.target.files[0];
+                                    const imageUrl = URL.createObjectURL(file);
+
+                                    // Update the imagePreviews state for the current index
+                                    const newImagePreview = [...imagePreview];
+                                    newImagePreview[index] = imageUrl;
+                                    setImagePreview(newImagePreview);
+
                                     handleImageUpload(index, event);
                                   }}
                                 />

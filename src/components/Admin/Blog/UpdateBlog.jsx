@@ -214,10 +214,14 @@ const UpdateBlogForm = ({ id }) => {
     }
   };
 
-  const handlePreview = () => {
+  const handlePreview = (Text) => {
+    const slug = Text.toLowerCase()
+      .replace(/ /g, "-")
+      .replace(/[^\w-]+/g, "");
     console.log("clicked preview");
     const liveWebsiteUrl = "https://www.neurosphere.tech/blog";
-    window.open(liveWebsiteUrl, "_blank");
+    const blogUrl = `${liveWebsiteUrl}/${slug}-1-10-${id}`;
+    window.open(blogUrl, "_blank");
   };
 
   const getBlogDataWithId = async (id) => {
@@ -267,7 +271,7 @@ const UpdateBlogForm = ({ id }) => {
                     <button
                       type="button"
                       className="btn-blog mr-3"
-                      onClick={handlePreview}
+                      onClick={() => handlePreview(blogData.title)}
                     >
                       Preview
                     </button>
@@ -297,7 +301,7 @@ const UpdateBlogForm = ({ id }) => {
                     <button
                       type="button"
                       className="btn-blog mr-3"
-                      onClick={handlePreview}
+                      onClick={() => handlePreview(blogData.title)}
                     >
                       Preview
                     </button>
