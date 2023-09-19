@@ -354,19 +354,77 @@ const BlogForm = () => {
                   </div>
                   <div className="row">
                     <div className="blog-box p-4 w-100 mb-3">
-                      <div className="controls blog-form border rounded p-2">
-                        <div className="form-group">
-                          <div className="d-flex">
-                            <div className="text-black">Section Title:</div>
-                            <input type="text" className="w-50" />
+                      <div className="controls blog-form">
+                        <div className="section border">
+                          <div className="d-flex section__title">
+                            <div
+                              className="text-black mr-1 p-1"
+                              htmlFor="Section-Title"
+                            >
+                              Section Title:
+                            </div>
+                            <input
+                              type="text"
+                              id="Section-Title"
+                              className="w-75"
+                              placeholder="Enter Title Here"
+                            />
                           </div>
                           <div className="row">
-                            <div className="col-lg-8"></div>
-                            <div className="col-lg-4"></div>
+                            <div className="col-lg-8 mt-2">
+                              <div className="border">
+                                <div className="d-flex paragraph__title align-items-center ">
+                                  <div
+                                    className="text-black p-1"
+                                    htmlFor="Paragraph-Title"
+                                  >
+                                    Paragraph Title:
+                                  </div>
+                                  <div className="flex-grow-1">
+                                    <input
+                                      type="text"
+                                      id="Paragraph-Title"
+                                      className="w-100 p-1"
+                                      placeholder="Enter Paragraph Title Here"
+                                    />
+                                  </div>
+                                </div>
+                                <textarea
+                                  id="paragraphs"
+                                  
+                                  placeholder="Post Paragraphs"
+                                  className="border border-secondary post_para w-100"
+                                />
+                              </div>
+                            </div>
+                            <div className="col-lg-4 mt-2">
+                              <div className="border-dashed w-100 h-75"></div>
+                             
+                              <input
+                                type="file"
+                                accept="image/*"
+                                className="mt-2"
+                                onChange={(event) => {
+                                  const file = event.target.files[0];
+                                  const imageUrl = URL.createObjectURL(file);
+
+                                  const newImagePreview = [...imagePreview];
+                                  newImagePreview[index] = imageUrl;
+                                  setImagePreview(newImagePreview);
+
+                                  handleImageUpload(index, event);
+                                }}
+                              />
+                            </div>
                           </div>
+                          <button className="btn-blog m-1">ADD &#43;</button>
                         </div>
+
                       </div>
                     </div>
+                    <button className="btn-blog ml-2 mt-1 mb-3">
+                      ADD SECTION
+                    </button>
                   </div> */}
                 </div>
                 <div className="col-lg-5 col-md-4">
