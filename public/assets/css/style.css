@@ -6664,6 +6664,25 @@ footer .item .copy-right p a {
 .post_para {
   height: 150px !important;
 }
+
+.section__title {
+  font-weight: 500;
+}
+.paragraph__title {
+  font-weight: 500;
+}
+.section .section__title {
+  border: 1px solid rgb(160, 158, 158);
+}
+.section .section__title input,
+.paragraph__title input {
+  border: none !important;
+  outline: none !important;
+}
+.border-dashed {
+  border: 1px dashed rgb(160, 158, 158);
+}
+
 /* ============= [ Login ] =============== */
 
 .signup__cont {
