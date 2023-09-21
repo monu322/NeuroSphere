@@ -12,6 +12,7 @@
     "@ckeditor/ckeditor5-build-classic": "^39.0.2",
     "@ckeditor/ckeditor5-react": "^6.1.0",
     "@react-google-maps/api": "^2.8.1",
+    "compressorjs": "^1.2.1",
     "dotenv": "^16.3.1",
     "firebase": "^9.22.2",
     "formik": "^2.2.9",
