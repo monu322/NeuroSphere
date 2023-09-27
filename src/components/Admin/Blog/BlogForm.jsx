@@ -4,6 +4,7 @@ import { Field, Form, Formik } from "formik";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import PreviewImage from "../../PreviewImage";
+import Compressor from "compressorjs";
 
 const BlogForm = () => {
   const [errMessage, setErrMessage] = useState(null);
@@ -70,8 +71,23 @@ const BlogForm = () => {
 
   const handleImageUpload = async (index, event) => {
     const file = event.target.files[0];
-    const storageRef = ref(storage, `blogImages/${file.name + file.size}`);
-    await uploadBytes(storageRef, file);
+
+    const compressedFile = await new Promise((resolve) => {
+      new Compressor(file, {
+        maxWidth: 1500,
+        quality: 0.8,
+        success(result) {
+          resolve(result);
+        },
+        error(err) {
+          console.error("Image compression error:", err);
+          resolve(file);
+        },
+      });
+    });
+
+    const storageRef = ref(storage, `blogImages/${compressedFile.name}`);
+    await uploadBytes(storageRef, compressedFile);
     const imageUrl = await getDownloadURL(storageRef);
     handlePostContentChange(index, "paragraphsImg", imageUrl);
   };
@@ -84,57 +100,103 @@ const BlogForm = () => {
   };
 
   const publishBlog = async (values, postContent) => {
-    const storageRef = ref(
-      storage,
-      `blogImages/${values.img.name + values.img.size}`
-    );
-    await uploadBytes(storageRef, values.img);
-    const image = await getDownloadURL(storageRef);
-    const response = await fetch("/api/Blog", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        values,
-        image,
-        postContent,
-        isPublished,
-      }),
-    });
-    const { message, error } = await response.json();
-    !error ? setNotification(message) : setNotification(error);
-    clearNotification();
+    try {
+      let compressedImg = values.img;
+      let storageRef;
+
+      if (values.img) {
+        compressedImg = await new Promise((resolve) => {
+          new Compressor(values.img, {
+            maxWidth: 1500,
+            quality: 0.8,
+            success(result) {
+              resolve(result);
+            },
+            error(err) {
+              console.error("Image compression error:", err);
+              resolve(values.img);
+            },
+          });
+        });
+
+        storageRef = ref(storage, `blogImages/${compressedImg.name}`);
+        await uploadBytes(storageRef, compressedImg);
+      }
+
+      const image = compressedImg ? await getDownloadURL(storageRef) : null;
+
+      const response = await fetch("/api/Blog", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          values,
+          image,
+          postContent,
+          isPublished,
+        }),
+      });
+
+      const { message, error } = await response.json();
+      !error ? setNotification(message) : setNotification(error);
+      clearNotification();
+    } catch (error) {
+      console.error("Error publishing blog:", error);
+      setNotification("Error publishing blog");
+      clearNotification();
+    }
   };
+
   const saveBlog = async (values, postContent) => {
-    let image = "";
-    if (values.img) {
-      const storageRef = ref(
-        storage,
-        `blogImages/${values.img.name + values.img.size}`
-      );
-      await uploadBytes(storageRef, values.img);
-      image = await getDownloadURL(storageRef);
+    try {
+      let image = "";
+
+      if (values.img) {
+        const compressedImg = await new Promise((resolve) => {
+          new Compressor(values.img, {
+            maxWidth: 1500,
+            quality: 0.8,
+            success(result) {
+              resolve(result);
+            },
+            error(err) {
+              console.error("Image compression error:", err);
+              resolve(values.img);
+            },
+          });
+        });
+
+        const storageRef = ref(storage, `blogImages/${compressedImg.name}`);
+        await uploadBytes(storageRef, compressedImg);
+        image = await getDownloadURL(storageRef);
+      }
+
+      const response = await fetch("/api/Blog", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          values,
+          image,
+          postContent,
+          isPublished,
+        }),
+      });
+
+      const { message, error } = await response.json();
+      if (error) {
+        setNotification(error);
+      } else {
+        setNotification(message);
+      }
+      clearNotification();
+    } catch (error) {
+      console.error("Error saving blog:", error);
+      setNotification("Error saving blog");
+      clearNotification();
     }
-    const response = await fetch("/api/Blog", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        values,
-        image,
-        postContent,
-        isPublished,
-      }),
-    });
-    const { message, error } = await response.json();
-    if (error) {
-      setNotification(error);
-    } else {
-      setNotification(message);
-    }
-    clearNotification();
   };
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
@@ -391,7 +453,6 @@ const BlogForm = () => {
                                 </div>
                                 <textarea
                                   id="paragraphs"
-                                  
                                   placeholder="Post Paragraphs"
                                   className="border border-secondary post_para w-100"
                                 />
@@ -399,7 +460,7 @@ const BlogForm = () => {
                             </div>
                             <div className="col-lg-4 mt-2">
                               <div className="border-dashed w-100 h-75"></div>
-                             
+
                               <input
                                 type="file"
                                 accept="image/*"
@@ -419,7 +480,6 @@ const BlogForm = () => {
                           </div>
                           <button className="btn-blog m-1">ADD &#43;</button>
                         </div>
-
                       </div>
                     </div>
                     <button className="btn-blog ml-2 mt-1 mb-3">
