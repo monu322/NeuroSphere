@@ -4,9 +4,15 @@ import { serverTimestamp, updateDoc, doc, getDoc } from "firebase/firestore";
 import { Field, Form, Formik } from "formik";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import CKEditor from "../../CKEditor";
 import PreviewImage from "../../PreviewImage";
+import uploadImage from "../../ImageUpload";
+import Compressor from "compressorjs";
+// import { storage } from "../../../config/fire-config";
 
 const UpdateBlogForm = ({ id }) => {
+  const [editorLoaded, setEditorLoaded] = useState(false);
+  const [data, setData] = useState("");
   const [blogId] = useState(id);
   const [errMessage, setErrMessage] = useState(null);
   const [notification, setNotification] = useState("");
@@ -17,6 +23,9 @@ const UpdateBlogForm = ({ id }) => {
   const [imagePreview, setImagePreview] = useState(null);
   const [save, setSave] = useState(null);
   const [unpublish, setUnpublish] = useState(false);
+  const [postContent, setPostContent] = useState([
+    { heading: "", paragraphs: "", paragraphsImg: "" },
+  ]);
 
   const router = useRouter();
   const initialValues = {
@@ -70,14 +79,6 @@ const UpdateBlogForm = ({ id }) => {
     let postData = [...postContent];
     postData[index][field] = value;
     setPostContent(postData);
-  };
-
-  const handleImageUpload = async (index, event) => {
-    const file = event.target.files[0];
-    const storageRef = ref(storage, `blogImages/${file.name + file.size}`);
-    await uploadBytes(storageRef, file);
-    const imageUrl = await getDownloadURL(storageRef);
-    handlePostContentChange(index, "paragraphsImg", imageUrl);
   };
 
   const unPublishBlog = async (values, postContent) => {
@@ -144,14 +145,25 @@ const UpdateBlogForm = ({ id }) => {
     // router.push("/admin/blog");
   };
 
-  const saveBlog = async (values, postContent) => {
-    let image;
+  const saveBlog = async (values, data) => {
+    let image = "";
     if (values.img) {
-      const storageRef = ref(
-        storage,
-        `blogImages/${values.img.name + values.img.size}`
-      );
-      await uploadBytes(storageRef, values.img);
+      const compressedImg = await new Promise((resolve) => {
+        new Compressor(values.img, {
+          maxWidth: 1500,
+          quality: 0.8,
+          success(result) {
+            resolve(result);
+          },
+          error(err) {
+            console.error("Image compression error:", err);
+            resolve(values.img);
+          },
+        });
+      });
+
+      const storageRef = ref(storage, `blogImages/${compressedImg.name}`);
+      await uploadBytes(storageRef, compressedImg);
       image = await getDownloadURL(storageRef);
     }
     const response = await fetch("/api/Blog", {
@@ -162,7 +174,7 @@ const UpdateBlogForm = ({ id }) => {
       body: JSON.stringify({
         values,
         image,
-        postContent,
+        data,
         blogId,
         isPublished,
       }),
@@ -224,14 +236,12 @@ const UpdateBlogForm = ({ id }) => {
       console.log("Document data:", docSnap.data());
       setIsPublished(docSnap.data().isPublished);
       setBlogData(docSnap.data());
-      if (docSnap.data()?.postContent) {
-        setPostContent(docSnap.data().postContent);
-      }
+      setData(docSnap.data().data);
     } else {
       console.log("No such document");
     }
   };
-  console.log(blogData);
+  console.log(blogData.data);
 
   useEffect(() => {
     if (id) {
@@ -241,6 +251,14 @@ const UpdateBlogForm = ({ id }) => {
   // useEffect(() => {
   //   console.log("From the update form useeffect" + " " + isPublished);
   // }, [isPublished]);
+
+  useEffect(() => {
+    setEditorLoaded(true);
+  }, []);
+
+  //   useEffect(() => {
+  //     setEditorData(data);
+  //   }, [data]);
 
   return (
     <>
@@ -330,7 +348,7 @@ const UpdateBlogForm = ({ id }) => {
               )}
 
               <div className="row blg__form--pad">
-                <div className="col-lg-7 col-md-7">
+                <div className="col-lg-12 col-md-12 mb-3">
                   <div className="blog-box p-4">
                     {errMessage && (
                       <div className="form_Messages text-danger">
@@ -353,90 +371,127 @@ const UpdateBlogForm = ({ id }) => {
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-5 col-md-4">
-                  <div className="row">
-                    <div className="blog-box p-4 w-100 mb-3">
-                      {errMessage && (
-                        <div className="messages">{errMessage}</div>
-                      )}
-
-                      <div className="controls blog-form">
-                        <div className="form-group d-flex flex-column">
-                          <label htmlFor="Tag">Tags</label>
+                <div className="col-lg-12 col-md-12 mb-3">
+                  <div className="blog-box p-4">
+                    <div className="controls blog-form">
+                      <div className="form-group d-flex flex-column">
+                        <div>
+                          <label htmlFor="postDescriptions">Description</label>
                           <Field
+                            required="required"
+                            as="textarea"
                             type="text"
-                            id="tags"
-                            placeholder="Tags"
-                            name="tags"
-                          />
-                        </div>
-                        <div className="form-group d-flex flex-column">
-                          {values.img && <PreviewImage imgUrl={values.img} />}
-                          {!values.img ? (
-                            <label htmlFor="Tag">Add Image</label>
-                          ) : (
-                            <p>Post Image</p>
-                          )}
-                          <input
-                            type="file"
-                            accept="image/*"
-                            onChange={(event) => {
-                              setFieldValue("img", event.target.files[0]);
-                            }}
+                            id="postDescriptions"
+                            name="postDescriptions"
+                            placeholder="Blog Intro"
                           />
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className="row">
-                    <div className="blog-box p-4 w-100 mb-3">
-                      {errMessage && (
-                        <div className="messages">{errMessage}</div>
-                      )}
-
-                      <div className="controls blog-form">
-                        <div className="form-group d-flex flex-column">
-                          <label htmlFor="posterName">Author Name</label>
-                          <Field
-                            id="posterName"
-                            type="text"
-                            name="posterName"
-                            placeholder="Poster Name"
-                            className="border border-secondary"
-                          />
-                        </div>
-                        <div className="form-group d-flex flex-column">
-                          {/* {values.posterAvatar && (
-                            <PreviewImage file={values.posterAvatar} />
-                          )} */}
-                          {!values.posterAvatar ? (
-                            <label htmlFor="Tag">Add Avatar</label>
-                          ) : (
-                            <p></p>
-                          )}
-                          <input
-                            type="file"
-                            accept="image/*"
-                            onChange={(event) => {
-                              setFieldValue(
-                                "posterAvatar",
-                                event.target.files[0]
-                              );
+                </div>
+                <div className="col-lg-12 col-md-12 mb-3">
+                  <div className="blog-box p-4">
+                    <div className="controls blog-form">
+                      <div className="form-group d-flex flex-column">
+                        <div>
+                          <label htmlFor="postDescriptions">Content</label>
+                          <CKEditor
+                            data={data}
+                            name="description"
+                            onChange={(data) => {
+                              setData(data);
+                              setBlogData({ ...blogData, data: data });
+                              console.log(blogData);
                             }}
-                          />
-                        </div>
-                        <div className="form-group d-flex flex-column">
-                          <label htmlFor="postMeta">Post Meta</label>
-
-                          <Field
-                            id="postMeta"
-                            type="text"
-                            name="postMeta"
-                            placeholder="Post Meta"
-                            className="border border-secondary"
+                            editorLoaded={editorLoaded}
+                            uploadImage={uploadImage}
                           />
                         </div>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="row mb-4">
+                <div className="col-lg-6 col-md-6">
+                  <div className="blog-box p-4 w-100">
+                    {errMessage && <div className="messages">{errMessage}</div>}
+
+                    <div className="controls blog-form">
+                      <div className="form-group d-flex flex-column">
+                        <label htmlFor="Tag">Tags</label>
+                        <Field
+                          type="text"
+                          id="tags"
+                          placeholder="Tags"
+                          name="tags"
+                        />
+                      </div>
+                      <div className="form-group d-flex flex-column">
+                        {values.img && <PreviewImage imgUrl={values.img} />}
+                        {!values.img ? (
+                          <label htmlFor="Tag">Add Image</label>
+                        ) : (
+                          <p>Post Image</p>
+                        )}
+                        <input
+                          type="file"
+                          accept="image/*"
+                          onChange={(event) => {
+                            setFieldValue("img", event.target.files[0]);
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-6">
+                  <div className="blog-box p-4 w-100">
+                    {errMessage && <div className="messages">{errMessage}</div>}
+
+                    <div className="controls blog-form">
+                      <div className="form-group d-flex flex-column">
+                        <label htmlFor="posterName">Author Name</label>
+                        <Field
+                          id="posterName"
+                          type="text"
+                          name="posterName"
+                          placeholder="Poster Name"
+                          className="border border-secondary"
+                        />
+                      </div>
+                      <div className="form-group d-flex flex-column">
+                        {values.posterAvatar && (
+                          <PreviewImage file={values.posterAvatar} />
+                        )}
+                        {!values.posterAvatar ? (
+                          <label htmlFor="Tag">Add Avatar</label>
+                        ) : (
+                          <p></p>
+                        )}
+                        <input
+                          type="file"
+                          accept="image/*"
+                          onChange={(event) => {
+                            setFieldValue(
+                              "posterAvatar",
+                              event.target.files[0]
+                            );
+                          }}
+                        />
+                      </div>
+                      {/* <div className="form-group d-flex flex-column">
+                        <label htmlFor="postMeta">Post Meta</label>
+
+                        <Field
+                          id="postMeta"
+                          type="text"
+                          name="postMeta"
+                          placeholder="Post Meta"
+                          className="border border-secondary"
+                        />
+                      </div> */}
                     </div>
                   </div>
                 </div>

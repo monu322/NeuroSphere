@@ -12,24 +12,53 @@ import {
 import db from "../../config/fire-config";
 
 const handler = async (req, res) => {
+  // if (req.method === "POST") {
+  //   const { image, postContent, isPublished } = req.body;
+  //   const { title, postDescriptions, tags, posterName, postMeta } =
+  //     req.body.values;
+
+  //   try {
+  //     const Tags = tags.split(",");
+  //     const blogCollection = collection(db, "blogs");
+  //     const result = await addDoc(blogCollection, {
+  //       title,
+  //       postDescriptions,
+  //       postContent,
+  //       tags: Tags,
+  //       img: image,
+  //       posterName,
+  //       // posterAvatar,
+  //       isPublished,
+  //       postMeta,
+  //       postedDate: serverTimestamp(),
+  //     });
+  //     const docRef = doc(db, "blogs", result.id);
+  //     await updateDoc(docRef, {
+  //       id: result.id,
+  //     });
+  //     return res.status(201).json({ message: "Blog created successfully" });
+  //   } catch (error) {
+  //     console.error("Error creating blog:", error);
+  //     return res.status(500).json({ error: "Failed to create blog" });
+  //   }
+  // }
+
   if (req.method === "POST") {
-    const { image, postContent, isPublished } = req.body;
-    const { title, postDescriptions, tags, posterName, postMeta } =
-      req.body.values;
+    const { data, isPublished, image } = req.body;
+    const { title, postDescriptions, tags, posterName } = req.body.values;
 
     try {
       const Tags = tags.split(",");
       const blogCollection = collection(db, "blogs");
       const result = await addDoc(blogCollection, {
         title,
-        postDescriptions,
-        postContent,
-        tags: Tags,
         img: image,
+        postDescriptions,
+        data,
+        tags: Tags,
         posterName,
         // posterAvatar,
         isPublished,
-        postMeta,
         postedDate: serverTimestamp(),
       });
       const docRef = doc(db, "blogs", result.id);
@@ -42,8 +71,9 @@ const handler = async (req, res) => {
       return res.status(500).json({ error: "Failed to create blog" });
     }
   }
+
   if (req.method === "PATCH") {
-    const { image, postContent, blogId, isPublished, unpublish } = req.body;
+    const { image, data, blogId, isPublished, unpublish } = req.body;
     const { title, postDescriptions, tags, posterName, postMeta } =
       req.body.values;
     console.log("From the backend" + isPublished);
@@ -54,7 +84,7 @@ const handler = async (req, res) => {
         await updateDoc(ref, {
           title,
           postDescriptions,
-          postContent,
+          data,
           tags: Tags,
           posterName,
           isPublished: false,
@@ -67,7 +97,7 @@ const handler = async (req, res) => {
       await updateDoc(ref, {
         title,
         postDescriptions,
-        postContent,
+        data,
         tags: Tags,
         posterName,
         isPublished,
