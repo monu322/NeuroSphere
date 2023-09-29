@@ -42,7 +42,7 @@ const Index = ({
       <Services servicesData={ServicesData} />
       <Testimonials testimonialsData={TestimonialsData} />
       {/* <Skills skillsData={SkillsData} /> */}
-      <Team teamData={TeamData} />
+      {/* <Team teamData={TeamData} /> */}
       <Minimal minimalData={MinimalData} />
       {/* <Clients clientsData={ClientsData} /> */}
       <CallAction />
