@@ -4,6 +4,7 @@ import AdminLayout from "../../../layouts/admin";
 import BlogForm from "../../../components/Admin/Blog/BlogForm";
 import { AuthContext } from "../../../context/AuthProvider";
 import { useRouter } from "next/router";
+import CreateBlog from "../../../components/Admin/Blog/CreateBlog";
 
 const Index = () => {
   const { roleInfo } = useContext(AuthContext);
@@ -18,7 +19,8 @@ const Index = () => {
 
   return (
     <AdminLayout>
-      <BlogForm />
+      {/* <BlogForm /> */}
+      <CreateBlog />
     </AdminLayout>
   );
 };

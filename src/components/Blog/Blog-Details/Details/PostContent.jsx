@@ -3,13 +3,14 @@ import { Fragment } from "react";
 import Link from "next/link";
 
 const PostContent = ({ SingleBlog }) => {
+  console.log(SingleBlog.data);
   return (
     <div className="content pt-20">
       <div className="row justify-content-center">
         <div className="col-lg-10">
           <div className="cont">
             <div className="spacial">
-              {SingleBlog?.postContent
+              {/* {SingleBlog?.postContent
                 ? SingleBlog.postContent.map((content) => {
                     return (
                       <div key={content.heading}>
@@ -27,26 +28,17 @@ const PostContent = ({ SingleBlog }) => {
                           ""
                         )}
                         <p>{content.paragraphs}</p>
-                        {/* {content.images
-                          ? content.images.map((img) => {
-                              return (
-                                <>
-                                  <div className="img p-4">
-                                    <img
-                                      key={content.id}
-                                      className="img-sec"
-                                      src={img}
-                                      alt={content.heading}
-                                    />
-                                  </div>
-                                </>
-                              );
-                            })
-                          : ""} */}
                       </div>
                     );
                   })
-                : ""}
+                : ""} */}
+              {SingleBlog?.data ? (
+                <div
+                  dangerouslySetInnerHTML={{ __html: SingleBlog.data }}
+                ></div>
+              ) : (
+                ""
+              )}
             </div>
 
             {/* <ul>
