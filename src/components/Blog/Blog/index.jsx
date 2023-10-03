@@ -34,7 +34,7 @@ const Blog = ({ data }) => {
                   className={`item ${index !== blogs.length - 1 && "mb-80"}`}
                   key={blog.id}
                 >
-                  <div className="img">
+                  <div className="img postImage">
                     <Link
                       href={`/blog/${convertToSlug(blog.title)}-${
                         index + 1
@@ -45,6 +45,9 @@ const Blog = ({ data }) => {
                       </a>
                     </Link>
                   </div>
+                  {roleInfo === "admin" && (
+                    <div className="draftImage">DRAFT</div>
+                  )}
                   <div className="content">
                     <div className="row">
                       <div className="col-10">

@@ -10,29 +10,26 @@ const PostContent = ({ SingleBlog }) => {
         <div className="col-lg-10">
           <div className="cont">
             <div className="spacial">
-              {/* {SingleBlog?.postContent
-                ? SingleBlog.postContent.map((content) => {
-                    return (
-                      <div key={content.heading}>
-                        <h2>{content.heading}</h2>
-                        {content.paragraphsImg ? (
-                          <div className="img p-4">
-                            <img
-                              key={content.id}
-                              className="img-sec"
-                              src={content.paragraphsImg}
-                              alt={content.heading}
-                            />
-                          </div>
-                        ) : (
-                          ""
-                        )}
-                        <p>{content.paragraphs}</p>
+              {SingleBlog?.postContent ? (
+                SingleBlog.postContent.map((content) => (
+                  <div key={content.heading}>
+                    <h2>{content.heading}</h2>
+                    {content.paragraphsImg ? (
+                      <div className="img p-4">
+                        <img
+                          key={content.id}
+                          className="img-sec"
+                          src={content.paragraphsImg}
+                          alt={content.heading}
+                        />
                       </div>
-                    );
-                  })
-                : ""} */}
-              {SingleBlog?.data ? (
+                    ) : (
+                      ""
+                    )}
+                    <p>{content.paragraphs}</p>
+                  </div>
+                ))
+              ) : SingleBlog?.data ? (
                 <div
                   dangerouslySetInnerHTML={{ __html: SingleBlog.data }}
                 ></div>

@@ -99,6 +99,7 @@ export default function CreateBlog() {
         const storageRef = ref(storage, `blogImages/${compressedImg.name}`);
         await uploadBytes(storageRef, compressedImg);
         image = await getDownloadURL(storageRef);
+        console.log(image);
       }
       const response = await fetch("/api/Blog", {
         method: "POST",

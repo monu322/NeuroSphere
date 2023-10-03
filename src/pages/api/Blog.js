@@ -83,6 +83,7 @@ const handler = async (req, res) => {
       if (unpublish) {
         await updateDoc(ref, {
           title,
+          img: image,
           postDescriptions,
           data,
           tags: Tags,
@@ -96,6 +97,7 @@ const handler = async (req, res) => {
       }
       await updateDoc(ref, {
         title,
+        img: image,
         postDescriptions,
         data,
         tags: Tags,

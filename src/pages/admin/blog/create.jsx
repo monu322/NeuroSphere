@@ -1,7 +1,5 @@
 import { useContext, useEffect } from "react";
 import AdminLayout from "../../../layouts/admin";
-
-import BlogForm from "../../../components/Admin/Blog/BlogForm";
 import { AuthContext } from "../../../context/AuthProvider";
 import { useRouter } from "next/router";
 import CreateBlog from "../../../components/Admin/Blog/CreateBlog";
@@ -19,7 +17,6 @@ const Index = () => {
 
   return (
     <AdminLayout>
-      {/* <BlogForm /> */}
       <CreateBlog />
     </AdminLayout>
   );
