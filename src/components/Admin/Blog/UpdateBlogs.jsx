@@ -13,7 +13,7 @@ import Compressor from "compressorjs";
 const UpdateBlogForm = ({ id }) => {
   const [editorLoaded, setEditorLoaded] = useState(false);
   const [data, setData] = useState("");
-  const [blogId] = useState(id);
+  const [blogId, setBlogId] = useState(id);
   const [errMessage, setErrMessage] = useState(null);
   const [notification, setNotification] = useState("");
   const [blogData, setBlogData] = useState("");
@@ -23,6 +23,7 @@ const UpdateBlogForm = ({ id }) => {
   const [imagePreview, setImagePreview] = useState(null);
   const [save, setSave] = useState(null);
   const [unpublish, setUnpublish] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const router = useRouter();
   const initialValues = {
@@ -73,11 +74,14 @@ const UpdateBlogForm = ({ id }) => {
   };
 
   const unPublishBlog = async (values, data) => {
-    let image = "";
-    if (img && values.img) {
-      image = values.img;
-    } else if (!values.img) {
-      image = img;
+    let image;
+    if (values.img) {
+      const storageRef = ref(
+        storage,
+        `blogImages/${values.img.name + values.img.size}`
+      );
+      await uploadBytes(storageRef, values.img);
+      image = await getDownloadURL(storageRef);
     }
     const response = await fetch("/api/Blog", {
       method: "PATCH",
@@ -212,6 +216,7 @@ const UpdateBlogForm = ({ id }) => {
 
   useEffect(() => {
     if (id) {
+      setBlogId(id);
       getBlogDataWithId(id);
     }
   }, [id]);
@@ -292,6 +297,7 @@ const UpdateBlogForm = ({ id }) => {
                       type="button"
                       className="btn-blog"
                       onClick={() => {
+                        setUnpublish(false);
                         submitForm();
                       }}
                     >
@@ -402,6 +408,7 @@ const UpdateBlogForm = ({ id }) => {
                           type="file"
                           accept="image/*"
                           onChange={(event) => {
+                            setFieldValue("img", "");
                             setFieldValue("img", event.target.files[0]);
                           }}
                         />
@@ -437,6 +444,7 @@ const UpdateBlogForm = ({ id }) => {
                           type="file"
                           accept="image/*"
                           onChange={(event) => {
+                            setSelectedImage(event.target.files[0]);
                             setFieldValue(
                               "posterAvatar",
                               event.target.files[0]
