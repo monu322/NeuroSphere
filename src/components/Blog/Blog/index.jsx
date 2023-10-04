@@ -6,7 +6,12 @@ import { AuthContext } from "../../../context/AuthProvider";
 const Blog = ({ data }) => {
   let blogs;
   const { roleInfo } = useContext(AuthContext);
-  if (roleInfo === "user" || roleInfo === null || roleInfo === undefined) {
+  if (
+    roleInfo === "user" ||
+    roleInfo === null ||
+    roleInfo === undefined ||
+    roleInfo === ""
+  ) {
     blogs = data.filter((blog) => blog.isPublished === true);
   } else {
     blogs = data;
