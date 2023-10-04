@@ -76,12 +76,13 @@ const UpdateBlogForm = ({ id }) => {
   const unPublishBlog = async (values, data) => {
     let image;
     if (values.img) {
-      const storageRef = ref(
-        storage,
-        `blogImages/${values.img.name + values.img.size}`
-      );
-      await uploadBytes(storageRef, values.img);
-      image = await getDownloadURL(storageRef);
+      //   const storageRef = ref(
+      image = values.img;
+      //     storage,
+      //     `blogImages/${values.img.name + values.img.size}`
+      //   );
+      //   await uploadBytes(storageRef, values.img);
+      //   image = await getDownloadURL(storageRef);
     }
     const response = await fetch("/api/Blog", {
       method: "PATCH",
@@ -124,6 +125,7 @@ const UpdateBlogForm = ({ id }) => {
       }),
     });
     if (response.ok) {
+      setIsLoading(false);
       setIsSuccess(true);
     }
     const { message, error } = await response.json();
@@ -178,15 +180,13 @@ const UpdateBlogForm = ({ id }) => {
           router.push("/admin/drafts");
           setNotification("");
         }, 2000);
+      } else if (unpublish) {
+        await unPublishBlog(values, data);
       } else {
-        if (unpublish) {
-          await unPublishBlog(values, data);
-        } else {
-          await updateBlog(values, data);
-          setIsLoading(false);
-        }
+        await updateBlog(values, data);
       }
     }
+    setIsLoading(false);
   };
 
   const handlePreview = (Text) => {
@@ -220,9 +220,6 @@ const UpdateBlogForm = ({ id }) => {
       getBlogDataWithId(id);
     }
   }, [id]);
-  // useEffect(() => {
-  //   console.log("From the update form useeffect" + " " + isPublished);
-  // }, [isPublished]);
 
   useEffect(() => {
     setEditorLoaded(true);
@@ -408,7 +405,6 @@ const UpdateBlogForm = ({ id }) => {
                           type="file"
                           accept="image/*"
                           onChange={(event) => {
-                            setFieldValue("img", "");
                             setFieldValue("img", event.target.files[0]);
                           }}
                         />

@@ -597,6 +597,7 @@ const UpdateBlogForm = ({ id }) => {
       }),
     });
     if (response.ok) {
+      setIsLoading(false);
       setIsSuccess(true);
     }
     const { message, error } = await response.json();

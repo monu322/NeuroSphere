@@ -31,6 +31,7 @@ const PostContent = ({ SingleBlog }) => {
                 ))
               ) : SingleBlog?.data ? (
                 <div
+                  className="textContent"
                   dangerouslySetInnerHTML={{ __html: SingleBlog.data }}
                 ></div>
               ) : (

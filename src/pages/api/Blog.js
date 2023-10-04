@@ -74,8 +74,14 @@ const handler = async (req, res) => {
 
   if (req.method === "PATCH") {
     const { image, data, blogId, isPublished, unpublish } = req.body;
-    const { title, postDescriptions, tags, posterName, postMeta } =
-      req.body.values;
+    const {
+      title,
+      postDescriptions,
+      tags,
+      posterName,
+      postMeta,
+      posterAvatar,
+    } = req.body.values;
 
     try {
       const Tags = tags.split(",");
