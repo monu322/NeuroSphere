@@ -24,6 +24,7 @@ const UpdateBlogForm = ({ id }) => {
   const [save, setSave] = useState(null);
   const [unpublish, setUnpublish] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [isImageUpdated, setIsImageUpdated] = useState(false);
 
   const router = useRouter();
   const initialValues = {
@@ -108,8 +109,24 @@ const UpdateBlogForm = ({ id }) => {
   const updateBlog = async (values, data) => {
     let image = "";
     setIsPublished(true);
-    if (values.img) {
-      image = values.img;
+    if (values.img && isImageUpdated) {
+      const compressedImg = await new Promise((resolve) => {
+        new Compressor(values.img, {
+          maxWidth: 1500,
+          quality: 0.8,
+          success(result) {
+            resolve(result);
+          },
+          error(err) {
+            console.error("Image compression error:", err);
+            resolve(values.img);
+          },
+        });
+      });
+      const storageRef = ref(storage, `blogImages/${compressedImg.name}`);
+      await uploadBytes(storageRef, compressedImg);
+      image = await getDownloadURL(storageRef);
+      console.log(image);
     }
     const response = await fetch("/api/Blog", {
       method: "PATCH",
@@ -136,8 +153,24 @@ const UpdateBlogForm = ({ id }) => {
 
   const saveBlog = async (values, data) => {
     let image = "";
-    if (values.img) {
-      image = values.img;
+    if (values.img && isImageUpdated) {
+      const compressedImg = await new Promise((resolve) => {
+        new Compressor(values.img, {
+          maxWidth: 1500,
+          quality: 0.8,
+          success(result) {
+            resolve(result);
+          },
+          error(err) {
+            console.error("Image compression error:", err);
+            resolve(values.img);
+          },
+        });
+      });
+      const storageRef = ref(storage, `blogImages/${compressedImg.name}`);
+      await uploadBytes(storageRef, compressedImg);
+      image = await getDownloadURL(storageRef);
+      console.log(image);
     }
     const response = await fetch("/api/Blog", {
       method: "PATCH",
@@ -185,6 +218,7 @@ const UpdateBlogForm = ({ id }) => {
       } else {
         await updateBlog(values, data);
       }
+      setIsImageUpdated(false);
     }
     setIsLoading(false);
   };
@@ -395,7 +429,10 @@ const UpdateBlogForm = ({ id }) => {
                         />
                       </div>
                       <div className="form-group d-flex flex-column">
-                        {values.img && <PreviewImage imgUrl={values.img} />}
+                        <PreviewImage
+                          file={isImageUpdated ? values.img : null}
+                          imgUrl={isImageUpdated ? null : values.img}
+                        />
                         {!values.img ? (
                           <label htmlFor="Tag">Add Image</label>
                         ) : (
@@ -406,6 +443,7 @@ const UpdateBlogForm = ({ id }) => {
                           accept="image/*"
                           onChange={(event) => {
                             setFieldValue("img", event.target.files[0]);
+                            setIsImageUpdated(true);
                           }}
                         />
                       </div>
