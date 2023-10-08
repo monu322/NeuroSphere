@@ -54,6 +54,7 @@ const Signin = () => {
     const isAlreadyExist = null;
     querySnapshot.forEach((doc) => {
       if (doc.data().length > 0) {
+        role = doc.data().role;
         isAlreadyExist = true;
       }
     });
@@ -62,9 +63,10 @@ const Signin = () => {
         userId: user?.user.uid,
         role: "user",
       });
+      role = "user";
     }
 
-    // handleLogin(role);
+    handleLogin(role);
     router.push("/");
   };
 
