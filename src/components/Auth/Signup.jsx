@@ -1,5 +1,5 @@
 import db, { auth, googleProvider } from "../../config/fire-config";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
 import { Field, Form, Formik } from "formik";
 import Link from "next/link";
@@ -11,6 +11,7 @@ import {
 import { useRouter } from "next/router";
 import { AuthContext } from "../../context/AuthProvider";
 
+let role = "";
 const Signup = () => {
   const [errMessage, setErrMessage] = useState(null);
   const [notification, setNotification] = useState();
@@ -47,10 +48,27 @@ const Signup = () => {
   const signInWithGoogle = async () => {
     const user = await signInWithPopup(auth, googleProvider);
     const userCollection = collection(db, "users");
-    const data = await addDoc(userCollection, {
-      userId: user?.user.uid,
-      role: "user",
+    const q = query(
+      collection(db, "users"),
+      where("userId", "==", user.user.uid)
+    );
+    const querySnapshot = await getDocs(q);
+    const isAlreadyExist = null;
+    querySnapshot.forEach((doc) => {
+      if (doc.data().length > 0) {
+        role = doc.data().role;
+        isAlreadyExist = true;
+      }
     });
+    if (!isAlreadyExist) {
+      const data = await addDoc(userCollection, {
+        userId: user?.user.uid,
+        role: "user",
+      });
+      role = "user";
+    }
+
+    handleLogin(role);
     router.push("/");
   };
 
