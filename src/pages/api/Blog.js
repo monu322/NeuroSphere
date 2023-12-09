@@ -74,15 +74,22 @@ const handler = async (req, res) => {
 
   if (req.method === "PATCH") {
     const { image, data, blogId, isPublished, unpublish } = req.body;
-    const { title, postDescriptions, tags, posterName, postMeta } =
-      req.body.values;
-    console.log("From the backend" + isPublished);
+    const {
+      title,
+      postDescriptions,
+      tags,
+      posterName,
+      postMeta,
+      posterAvatar,
+    } = req.body.values;
+
     try {
       const Tags = tags.split(",");
       const ref = doc(db, "blogs", blogId);
       if (unpublish) {
         await updateDoc(ref, {
           title,
+          img: image,
           postDescriptions,
           data,
           tags: Tags,
@@ -93,17 +100,19 @@ const handler = async (req, res) => {
         return res
           .status(201)
           .json({ message: "Unpublished the Blog successfully" });
+      } else {
+        await updateDoc(ref, {
+          title,
+          img: image,
+          postDescriptions,
+          data,
+          tags: Tags,
+          posterName,
+          isPublished,
+          posterAvatar,
+          postMeta,
+        });
       }
-      await updateDoc(ref, {
-        title,
-        postDescriptions,
-        data,
-        tags: Tags,
-        posterName,
-        isPublished,
-        // posterAvatar,
-        postMeta,
-      });
       if (image) {
         await updateDoc(ref, {
           img: image,
@@ -111,7 +120,7 @@ const handler = async (req, res) => {
       }
       return res.status(201).json({ message: "Blog updated successfully" });
     } catch (error) {
-      console.error("Error creating blog:", error);
+      console.error("Error updating blog:", error);
       return res.status(500).json({ error: "Failed to update blog" });
     }
   }

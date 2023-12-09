@@ -7325,11 +7325,25 @@ footer .item .copy-right p a {
   color: #000 !important;
 }
 
-/* .ck-editor__editable ul li {
+.ck-editor__editable ul {
   color: #000 !important;
-  list-style-type: circle !important;
+  /* list-style-type: circle !important; */
 }
-.ck-editor__editable ol li {
+.ck-editor__editable ol {
   color: #000 !important;
-  list-style-type: circle !important;
-} */
+  /* list-style-type: circle !important; */
+}
+
+.postImage {
+  position: relative !important;
+}
+.draftImage {
+  display: inline-block !important;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  background-color: #56a889;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 2px;
+}

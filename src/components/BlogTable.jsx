@@ -79,11 +79,20 @@ const TableBody = ({ blog, index, onDeleteClick, key }) => {
       <td>{/* {blog.postedDate.toDate().toLocaleDateString("en-GB")} */}</td>
       <td>{blog.posterName}</td>
       <td>
-        <ButtonsAction
-          to={`blog/${blog.id}`}
-          onDeleteClick={() => onDeleteClick(blog.id)}
-          data={blog.id}
-        />
+        {blog?.postContent ? (
+          <ButtonsAction
+            to={`blogs/${blog.id}`}
+            onDeleteClick={() => onDeleteClick(blog.id)}
+            data={blog.id}
+            postContent={blog.postContent}
+          />
+        ) : (
+          <ButtonsAction
+            to={`blog/${blog.id}`}
+            onDeleteClick={() => onDeleteClick(blog.id)}
+            data={blog.id}
+          />
+        )}
       </td>
     </tr>
   );

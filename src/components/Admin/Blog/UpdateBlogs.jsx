@@ -13,7 +13,7 @@ import Compressor from "compressorjs";
 const UpdateBlogForm = ({ id }) => {
   const [editorLoaded, setEditorLoaded] = useState(false);
   const [data, setData] = useState("");
-  const [blogId] = useState(id);
+  const [blogId, setBlogId] = useState(id);
   const [errMessage, setErrMessage] = useState(null);
   const [notification, setNotification] = useState("");
   const [blogData, setBlogData] = useState("");
@@ -23,9 +23,8 @@ const UpdateBlogForm = ({ id }) => {
   const [imagePreview, setImagePreview] = useState(null);
   const [save, setSave] = useState(null);
   const [unpublish, setUnpublish] = useState(false);
-  const [postContent, setPostContent] = useState([
-    { heading: "", paragraphs: "", paragraphsImg: "" },
-  ]);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [isImageUpdated, setIsImageUpdated] = useState(false);
 
   const router = useRouter();
   const initialValues = {
@@ -75,21 +74,16 @@ const UpdateBlogForm = ({ id }) => {
     }, 2000);
   };
 
-  const handlePostContentChange = (index, field, value) => {
-    let postData = [...postContent];
-    postData[index][field] = value;
-    setPostContent(postData);
-  };
-
-  const unPublishBlog = async (values, postContent) => {
+  const unPublishBlog = async (values, data) => {
     let image;
     if (values.img) {
-      const storageRef = ref(
-        storage,
-        `blogImages/${values.img.name + values.img.size}`
-      );
-      await uploadBytes(storageRef, values.img);
-      image = await getDownloadURL(storageRef);
+      //   const storageRef = ref(
+      image = values.img;
+      //     storage,
+      //     `blogImages/${values.img.name + values.img.size}`
+      //   );
+      //   await uploadBytes(storageRef, values.img);
+      //   image = await getDownloadURL(storageRef);
     }
     const response = await fetch("/api/Blog", {
       method: "PATCH",
@@ -99,7 +93,7 @@ const UpdateBlogForm = ({ id }) => {
       body: JSON.stringify({
         values,
         image,
-        postContent,
+        data,
         blogId,
         unpublish,
       }),
@@ -112,42 +106,10 @@ const UpdateBlogForm = ({ id }) => {
     clearNotification();
     // router.push("/admin/blog");
   };
-  const updateBlog = async (values, postContent) => {
-    let image;
-    setIsPublished(true);
-    if (values.img) {
-      const storageRef = ref(
-        storage,
-        `blogImages/${values.img.name + values.img.size}`
-      );
-      await uploadBytes(storageRef, values.img);
-      image = await getDownloadURL(storageRef);
-    }
-    const response = await fetch("/api/Blog", {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        values,
-        image,
-        postContent,
-        blogId,
-        isPublished,
-      }),
-    });
-    if (response.ok) {
-      setIsSuccess(true);
-    }
-    const { message, error } = await response.json();
-    !error ? setNotification(message) : setNotification(error);
-    clearNotification();
-    // router.push("/admin/blog");
-  };
-
-  const saveBlog = async (values, data) => {
+  const updateBlog = async (values, data) => {
     let image = "";
-    if (values.img) {
+    setIsPublished(true);
+    if (values.img && isImageUpdated) {
       const compressedImg = await new Promise((resolve) => {
         new Compressor(values.img, {
           maxWidth: 1500,
@@ -161,10 +123,54 @@ const UpdateBlogForm = ({ id }) => {
           },
         });
       });
-
       const storageRef = ref(storage, `blogImages/${compressedImg.name}`);
       await uploadBytes(storageRef, compressedImg);
       image = await getDownloadURL(storageRef);
+      console.log(image);
+    }
+    const response = await fetch("/api/Blog", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        values,
+        image,
+        data,
+        blogId,
+        isPublished,
+      }),
+    });
+    if (response.ok) {
+      setIsLoading(false);
+      setIsSuccess(true);
+    }
+    const { message, error } = await response.json();
+    !error ? setNotification(message) : setNotification(error);
+    clearNotification();
+    // router.push("/admin/blog");
+  };
+
+  const saveBlog = async (values, data) => {
+    let image = "";
+    if (values.img && isImageUpdated) {
+      const compressedImg = await new Promise((resolve) => {
+        new Compressor(values.img, {
+          maxWidth: 1500,
+          quality: 0.8,
+          success(result) {
+            resolve(result);
+          },
+          error(err) {
+            console.error("Image compression error:", err);
+            resolve(values.img);
+          },
+        });
+      });
+      const storageRef = ref(storage, `blogImages/${compressedImg.name}`);
+      await uploadBytes(storageRef, compressedImg);
+      image = await getDownloadURL(storageRef);
+      console.log(image);
     }
     const response = await fetch("/api/Blog", {
       method: "PATCH",
@@ -199,7 +205,7 @@ const UpdateBlogForm = ({ id }) => {
       setSubmitting(false);
 
       if (save) {
-        await saveBlog(values, postContent);
+        await saveBlog(values, data);
         setIsLoading(false);
         setIsSuccess(true);
         setNotification("Blog saved as draft");
@@ -207,15 +213,14 @@ const UpdateBlogForm = ({ id }) => {
           router.push("/admin/drafts");
           setNotification("");
         }, 2000);
+      } else if (unpublish) {
+        await unPublishBlog(values, data);
       } else {
-        if (unpublish) {
-          await unPublishBlog(values, postContent);
-        } else {
-          await updateBlog(values, postContent);
-          setIsLoading(false);
-        }
+        await updateBlog(values, data);
       }
+      setIsImageUpdated(false);
     }
+    setIsLoading(false);
   };
 
   const handlePreview = (Text) => {
@@ -245,20 +250,14 @@ const UpdateBlogForm = ({ id }) => {
 
   useEffect(() => {
     if (id) {
+      setBlogId(id);
       getBlogDataWithId(id);
     }
   }, [id]);
-  // useEffect(() => {
-  //   console.log("From the update form useeffect" + " " + isPublished);
-  // }, [isPublished]);
 
   useEffect(() => {
     setEditorLoaded(true);
   }, []);
-
-  //   useEffect(() => {
-  //     setEditorData(data);
-  //   }, [data]);
 
   return (
     <>
@@ -329,6 +328,7 @@ const UpdateBlogForm = ({ id }) => {
                       type="button"
                       className="btn-blog"
                       onClick={() => {
+                        setUnpublish(false);
                         submitForm();
                       }}
                     >
@@ -429,7 +429,10 @@ const UpdateBlogForm = ({ id }) => {
                         />
                       </div>
                       <div className="form-group d-flex flex-column">
-                        {values.img && <PreviewImage imgUrl={values.img} />}
+                        <PreviewImage
+                          file={isImageUpdated ? values.img : null}
+                          imgUrl={isImageUpdated ? null : values.img}
+                        />
                         {!values.img ? (
                           <label htmlFor="Tag">Add Image</label>
                         ) : (
@@ -440,6 +443,7 @@ const UpdateBlogForm = ({ id }) => {
                           accept="image/*"
                           onChange={(event) => {
                             setFieldValue("img", event.target.files[0]);
+                            setIsImageUpdated(true);
                           }}
                         />
                       </div>
@@ -474,6 +478,7 @@ const UpdateBlogForm = ({ id }) => {
                           type="file"
                           accept="image/*"
                           onChange={(event) => {
+                            setSelectedImage(event.target.files[0]);
                             setFieldValue(
                               "posterAvatar",
                               event.target.files[0]

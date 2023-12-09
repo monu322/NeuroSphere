@@ -6,7 +6,12 @@ import { AuthContext } from "../../../context/AuthProvider";
 const Blog = ({ data }) => {
   let blogs;
   const { roleInfo } = useContext(AuthContext);
-  if (roleInfo === "user" || roleInfo === null) {
+  if (
+    roleInfo === "user" ||
+    roleInfo === null ||
+    roleInfo === undefined ||
+    roleInfo === ""
+  ) {
     blogs = data.filter((blog) => blog.isPublished === true);
   } else {
     blogs = data;
@@ -34,17 +39,20 @@ const Blog = ({ data }) => {
                   className={`item ${index !== blogs.length - 1 && "mb-80"}`}
                   key={blog.id}
                 >
-                  <div className="img">
-                    <Link
-                      href={`/blog/${convertToSlug(blog.title)}-${
-                        index + 1
-                      }-${totalBlogs}-${blog.id}`}
-                    >
-                      <a>
-                        <img src={blog.img} alt="" />
-                      </a>
-                    </Link>
+                  <div className="img postImage">
+                    {roleInfo === "admin" && blog.isPublished === false && (
+                      <div className="draftImage">DRAFT</div>
+                    )}
                   </div>
+                  <Link
+                    href={`/blog/${convertToSlug(blog.title)}-${
+                      index + 1
+                    }-${totalBlogs}-${blog.id}`}
+                  >
+                    <a>
+                      <img src={blog.img} alt="" />
+                    </a>
+                  </Link>
                   <div className="content">
                     <div className="row">
                       <div className="col-10">

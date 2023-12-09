@@ -9,8 +9,10 @@ const PreviewImage = ({ file, imgUrl }) => {
       reader.onload = () => {
         setPreview(reader.result);
       };
+    } else {
+      setPreview(null);
     }
-  }, [file]);
+  }, [file, imgUrl]);
   return (
     <div>
       {preview ? (
