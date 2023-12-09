@@ -18,6 +18,7 @@ const ContactInfo = () => {
             </Link>
           </h5>
           <h5>{ ContactInfoData.phone }</h5>
+          <h5>{ ContactInfoData.phone2 }</h5>
         </div>
         <Split className="custom-font wow">
           <h3 data-splitting>Visit Us.</h3>
@@ -25,7 +26,7 @@ const ContactInfo = () => {
         <div className="item">
           <h6>{ ContactInfoData.address.street }, <br />{ ContactInfoData.address.city }, { ContactInfoData.address.country }</h6>
         </div>
-        <div className="social mt-50">
+        {/* <div className="social mt-50">
           <Link href="#0">
             <a className="icon">
               <i className="fab fa-facebook-f"></i>
@@ -46,7 +47,7 @@ const ContactInfo = () => {
               <i className="fab fa-behance"></i>
             </a>
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
   )
