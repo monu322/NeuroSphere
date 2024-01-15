@@ -33,11 +33,11 @@
   },
   {
     "id": 5,
-    "iconClass": "pe-7s-paint",
-    "letr-bg": "B",
+    "iconClass": "pe-7s-config",
+    "letr-bg": "R",
     "numb": "05",
-    "title": "Branding",
-    "description": "We help you establish a strong brand identity that resonates with your target audience and sets you apart from the competition."
+    "title": "Robotics",
+    "description": "We develop cutting-edge robotic systems that redefine efficiency and precision in domestic and industrial domains."
   },
   {
     "id": 6,
