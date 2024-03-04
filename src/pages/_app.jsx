@@ -18,8 +18,7 @@ function MyApp({ Component, pageProps }) {
             name="viewport"
             content="width=device-width, initial-scale=1, maximum-scale=1"
           />
-          <Script id="gtag-script" async src="https://www.googletagmanager.com/gtag/js?id=G-VF19850667"/>
-          <Script id="gtag-js">{`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VF19850667');`}</Script>
+          
         </Head>
 
         <LoadingScreen />
@@ -31,6 +30,10 @@ function MyApp({ Component, pageProps }) {
         <Script id="charming" src="/assets/js/charming.min.js" />
         <Script id="isotope" src="/assets/js/isotope.pkgd.min.js" />
         <Script id="init" src="/assets/js/main.js" strategy="lazyOnload" />
+
+        <Script id="gtag-script" async src="https://www.googletagmanager.com/gtag/js?id=G-VF19850667"/>
+        <Script id="gtag-js">{`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VF19850667');`}</Script>
+
         <Script
           id="simpleParallax"
           src="/assets/js/simpleParallax.min.js"
