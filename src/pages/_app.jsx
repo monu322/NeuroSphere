@@ -18,6 +18,8 @@ function MyApp({ Component, pageProps }) {
             name="viewport"
             content="width=device-width, initial-scale=1, maximum-scale=1"
           />
+          <Script id="gtag-script" async src="https://www.googletagmanager.com/gtag/js?id=G-VF19850667"/>
+          <Script id="gtag-js">{`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VF19850667');`}</Script>
         </Head>
 
         <LoadingScreen />
