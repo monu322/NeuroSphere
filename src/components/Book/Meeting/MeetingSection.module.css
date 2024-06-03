@@ -1,0 +1,79 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  .header h6 {
+    color: #666;
+    font-size: 18px;
+    margin: 0;
+  }
+
+  .header h4 {
+    color: black;
+    font-size: 22px;
+    margin: 0;
+  }
+  
+  .header h2 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .header p {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+  }
+  
+.infoBox {
+  display: flex;
+  align-items: flex-start;
+  /* align-items: center;  */
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  -webkit-box-shadow: 15px 11px 20px 12px rgba(179, 179, 179, 0.63);
+  -moz-box-shadow: 15px 11px 20px 12px rgba(179, 179, 179, 0.63);
+  box-shadow: 15px 11px 20px 12px rgba(179, 179, 179, 0.63);
+}
+  
+  .infoBox img {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+    color: #666;
+  }
+  
+  .infoBox h3 {
+    font-size: 14px;
+    /* margin: 0 0 10px; */
+    color: black;
+  }
+  
+  .infoBox p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+  }

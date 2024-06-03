@@ -1,0 +1,40 @@
+[
+  {
+    "letr-bg": "M",
+    "numb": "01",
+    "title": "Mobile Development",
+    "description": "We create custom mobile applications that are tailored to your business needs and providing a seamless user experience."
+  },
+  {
+    "letr-bg": "W",
+    "numb": "02",
+    "title": "Web Development",
+    "description": "We build custom, responsive database driven web solutions that are optimized for speed, security, and user engagement."
+  },
+  {
+    "letr-bg": "X",
+    "numb": "03",
+    "title": "UI & UX Design",
+    "description": "We design intuitive and visually appealing interfaces that enhance user experience and drive engagement."
+  },
+  {
+    "letr-bg": "A",
+    "numb": "04",
+    "title": "AI Consulting",
+    "description": "Our AI solutions are designed to automate processes, improve efficiency, and provide valuable insights for your business."
+  },
+  {
+    "letr-bg": "R",
+    "numb": "05",
+    "title": "Robotics",
+    "description": "We develop cutting-edge robotic systems that redefine efficiency and precision in domestic and industrial domains."
+}
+,
+  {
+    "letr-bg": "D",
+    "numb": "06",
+    "title": "Digital Marketing",
+    "description": "Our data-driven approach to digital marketing helps you reach your target audience, increase brand awareness, and drive conversions."
+  }
+  
+]
