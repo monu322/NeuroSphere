@@ -3,6 +3,7 @@ import styles from "./MeetingSection.module.css";
 import { InlineWidget } from "react-calendly";
 
 const MeetingSection = () => {
+  const meetingLink = process.env.CALENDLY_LINK
   return (
     <section id="meeting-section" className="ui-intro ">
       <div className="container">
@@ -13,7 +14,7 @@ const MeetingSection = () => {
           <div className="col-lg-6 md-mb50">
             <InlineWidget
               styles={{ minWidth: "320px", height: "1000px" }}
-              url="https://calendly.com/abhishek-_hcv/30min"
+              url={meetingLink}
             />
           </div>
           <div className="col-lg-6 md-mb50">
