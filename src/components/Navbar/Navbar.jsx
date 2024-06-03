@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+// /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import getSiblings from "../../common/getSiblings";
 import { useContext, useEffect } from "react";
@@ -154,3 +154,5 @@ const Navbar = ({ navbarRef, logoRef }) => {
 };
 
 export default Navbar;
+
+

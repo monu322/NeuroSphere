@@ -4400,9 +4400,20 @@ body {
 
 .stauts-testim {
   position: relative;
-  padding-bottom: 60px;
+  padding-bottom: 150px;
   margin-top: 80px;
 }
+
+.stauts-testim .heading {
+  margin-bottom: 20px; /* Add margin to separate the heading from the testimonials */
+}
+
+.heading-bg {
+  background-color: #f2f2f2; /* Change the background color as desired */
+  padding: 10px 20px; /* Adjust padding as needed */
+}
+
+
 
 .stauts-testim:after {
   content: "";
@@ -4471,12 +4482,13 @@ body {
   padding: 30px 40px;
   min-width: 200px;
   background: #121212;
-  margin-right: 30px;
+  margin-right: 20px;
 }
 
 .stauts-testim .img-stauts .stauts .item:last-of-type {
   background: #fff;
   color: #121212;
+  margin-right: 0;
 }
 
 .stauts-testim .img-stauts .stauts .item h4 span {
@@ -4495,7 +4507,7 @@ body {
   background: -o-linear-gradient(70deg, #2ed47c 0, #e8bf47 100%);
   background: linear-gradient(20deg, #2ed47c 0, #e8bf47 100%);
   border-radius: 30px;
-  padding: 120px 80px;
+  padding: 50px 50px;
   margin-top: -80px;
   width: 100%;
 }
@@ -4573,6 +4585,7 @@ body {
 .stauts-testim .testimonials-gr .slick-dots li button {
   display: none;
 }
+
 
 .block-sec .video-box .img {
   position: relative;

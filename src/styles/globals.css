@@ -45,6 +45,31 @@ a,
   display: block;
 }
 
+.custom-button {
+  background-color: grey;
+  border-color: grey;
+  border-radius: 50px;
+}
+
+.button-text {
+  color: white;
+}
+
+.round-container{
+  margin-left: 90px;
+  margin-bottom: 80px;
+}
+
+
+.round-container img {
+  width: 300px; /* Adjust the width as needed */
+  height: 300px; /* Adjust the height as needed */
+  border-radius: 50%; /* Makes the container round */
+   /* Hides overflow content outside the container */
+  object-fit: cover;
+}
+
+
 .lightbox-image-pager-close {
   text-align: right;
   font-size: 18px;

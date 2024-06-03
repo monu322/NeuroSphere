@@ -1,0 +1,60 @@
+
+
+{
+    "services": [
+        {
+            "title": "MOBILE APP DEVELOPMENT",
+            "points": [
+                "Access to top-tier tech talent",
+                "Comprehensive guidance throughout development",
+                "Tailored projects to meet your unique requirements",
+                "Clear goal definition to kickstart your project",
+                "Commitment to long-term partnership",
+                "Cost-effective solutions with our international team",
+                "Expertise across multiple mobile platforms",
+                "Custom-built solutions to fit your business",
+                "Seamless integration with existing infrastructure",
+                "Continuous support and maintenance services"
+            ],
+            "img" : "/agency-3/img/mobile-app.jpg"
+        },
+        {
+            "title": "WEBSITE DEVELOPMENT",
+            "points": [
+                "Cutting-edge web design and development",
+                "Responsive and mobile-friendly websites",
+                "SEO optimized for better search engine ranking",
+                "Fast and secure hosting solutions",
+                "User-friendly CMS for easy updates",
+                "Custom plugins and integrations",
+                "E-commerce solutions to boost sales",
+                "Comprehensive analytics and reporting",
+                "Accessibility compliant websites",
+                "Continuous improvement and support"
+            ],
+            "img" : "/agency-3/img/web-development.jpg"
+        },
+        {
+            "title": "CUSTOM SOFTWARE DEVELOPMENT",
+            "points": [
+                "Tailored software solutions for your business",
+                "Expertise in various programming languages",
+                "Scalable and flexible software architecture",
+                "Secure and compliant with industry standards",
+                "Automation to streamline your processes",
+                "Data migration and integration services",
+                "User-centric design for better usability",
+                "Comprehensive testing and QA",
+                "Agile methodology for fast delivery",
+                "Long-term partnership and support"
+            ],
+            "img" : "/agency-3/img/software-dev.jpg"
+        }
+    ],
+    "video": {
+        "channel": "vimeo",
+        "videoId": "127203262"
+    }
+  }
+  
+  
