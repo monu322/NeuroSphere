@@ -28,9 +28,9 @@ const Testimonials = () => {
               </div>
             </div>
 
-            <div className="col-lg-12  d-flex ">
+            <div className="col-lg-12  testimonial-box">
               {TestimonialsData.testimonials.map((testimonial) => (
-                <div className="testimonials-gr slick-dotted col-lg-4 mr-4" key={testimonial.id}>
+                <div className="testimonials-gr slick-dotted col-lg-4 col-sm-12 mb-100 mr-4" key={testimonial.id}>
                   <div className="item" key={testimonial.id}>
                     <p>{testimonial.text}</p>
                     <div className="info">
