@@ -12,7 +12,7 @@ const InfoSection = () => {
                     {IntroVersData.services.map((service, index) => (
                         <div key={index} className="row pb-70">
                             <div className={`col-lg-4 ${index % 2 === 0 ? '' : 'order-lg-2'}`}>
-                                <div className="img">
+                                <div className="img mb-4">
                                     {/* <img src="agency-3/img/mobile-app.jpg" alt="" /> */}
                                     <img src={service.img} alt="jjjj" />
                                 </div>

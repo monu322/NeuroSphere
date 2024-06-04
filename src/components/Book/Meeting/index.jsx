@@ -3,7 +3,7 @@ import styles from "./MeetingSection.module.css";
 import { InlineWidget } from "react-calendly";
 
 const MeetingSection = () => {
-  const meetingLink = process.env.CALENDLY_LINK
+  const meetingLink = process.env.CALENDLY_LINK || ''
   return (
     <section id="meeting-section" className="ui-intro ">
       <div className="container">

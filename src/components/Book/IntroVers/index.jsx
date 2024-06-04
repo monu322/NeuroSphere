@@ -10,10 +10,10 @@ const IntroVers = () => {
 
   return (
     <>
-      <section className="ui-intro pt-70 bg-gray">
+      <section className="ui-intro intro-2 bg-gray">
         <div className="container">
           <div className="row">
-            <div className="col-lg-6">
+            <div className="col-lg-6 pb100">
               <div className="cont">
                 <h4 className="gr-text">Why You Will Love...</h4>
                 {IntroVersData.paragraphs.map((para, index) => (
@@ -35,7 +35,7 @@ const IntroVers = () => {
           </div>
         </div>
       </section>
-      <NoSSR>
+      {/* <NoSSR>
         <ModalVideo
           channel={IntroVersData.video.channel}
           autoplay
@@ -43,7 +43,7 @@ const IntroVers = () => {
           videoId={IntroVersData.video.videoId}
           onClose={() => setIsOpen(false)}
         />
-      </NoSSR>
+      </NoSSR> */}
     </>
   );
 };
