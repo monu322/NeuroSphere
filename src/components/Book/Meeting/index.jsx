@@ -29,9 +29,8 @@ const MeetingSection = () => {
                 <div>
                   <h3>Our Story</h3>
                   <p>
-                    Our founder worked as a PT practice for 15 years. After
-                    selling, he started a medical billing company and learned
-                    how to train people from overseas. 
+                    Our founder worked as a Software Developer for 15 years. After
+                    his experience he setup a team to serve small and large bsuinesses with world class web and mobile app development services. 
                   </p>
                 </div>
               </div>
@@ -40,9 +39,7 @@ const MeetingSection = () => {
                 <div>
                   <h3>Our Vision</h3>
                   <p>
-                    There is an administrative position in every business and
-                    organization so that each PT has better talent, freedom, and
-                    profit.
+                    To be a trusted partner is digital transformation of small and large businesses. 
                   </p>
                 </div>
               </div>
@@ -51,9 +48,7 @@ const MeetingSection = () => {
                 <div>
                   <h3>Our Purpose</h3>
                   <p>
-                    Our founder worked as a PT practice for 15 years. After
-                    selling, he started a medical billing company and learned
-                    how to train people from overseas.
+                    To develop modern sleek highly effective software solutions at affordable cost.
                   </p>
                 </div>
               </div>
@@ -67,57 +62,3 @@ const MeetingSection = () => {
 
 export default MeetingSection;
 
-// import React from 'react';
-// import { InlineWidget } from "react-calendly";
-// import styles from './MeetingSection.module.css';
-
-// const MeetingSection = () => {
-//   return (
-//     <div className={styles.container}>
-//       <div className={styles.schedulingSection}>
-//         <div className={styles.header}>
-//           <img src="/globe.png" alt="Globe" />
-//           <h2>Schedule Your Meeting</h2>
-//           <p>Free 30-Minute Discovery Call</p>
-//         </div>
-
-//           <InlineWidget
-//             url="https://calendly.com/abhishek-_hcv/30min"
-//             styles={{
-//               height: '8x00px',
-//             }}
-//           />
-
-//       </div>
-//       <div className={styles.infoSection}>
-//         <div className={styles.infoBox}>
-//           <img src="/question.png" alt="Question" />
-//           <h3>Our Story</h3>
-//           <p>
-//             Our founder worked as a PT practice for 15 years. After selling, he
-//             started a medical billing company and learned how to train people
-//             from overseas. He was shocked at the talent that cost him so he
-//             opened what he has learned with the world.
-//           </p>
-//         </div>
-//         <div className={styles.infoBox}>
-//           <img src="/vision.png" alt="Vision" />
-//           <h3>Our Vision</h3>
-//           <p>
-//             There is an administrative position in every business and
-//             organization so that each PT has better talent, freedom, and profit.
-//             We believe we are bringing people out of poverty as we help PTs
-//             reclaim freedom.
-//           </p>
-//         </div>
-//         <div className={styles.infoBox}>
-//           <img src="/purpose.png" alt="Purpose" />
-//           <h3>Our Purpose</h3>
-//           <p>To build and strengthen families.</p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default MeetingSection;
