@@ -12,7 +12,7 @@ const InfoSection = () => {
         <>
             <section className="ui-intro pt-70">
                 <div className="container">
-                    <h4 className="gr-text text-center pb-70">OUR WORK'S</h4>
+                    <h4 className="gr-text text-center pb-70">OUR WORKS</h4>
                     {IntroVersData.services.map((service, index) => (
                         <div key={index} className="row pb-70">
                             <div className={`col-lg-4 ${index % 2 != 0 ? '' : 'order-lg-2'}`}>
