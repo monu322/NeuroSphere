@@ -760,8 +760,7 @@ const Works = ({ worksData }) => {
                 key={index}
               >
                 <div className="item-img imago wow   square-container">
-                  <Link href={`/works/${index + 1}`}>
-                    <a href={`/works/${index + 1}`} className="popimg">
+
                       <img
                         src={work.img}
                         alt="image"
@@ -769,8 +768,7 @@ const Works = ({ worksData }) => {
                       />
                      <div className="item-img-overlay"></div>
                      <div className="item-description">{work.description}</div>
-                    </a>
-                  </Link>
+
                 </div>
                 <div className="cont">
                   <h6>{work.title}</h6>
