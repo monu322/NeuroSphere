@@ -22,9 +22,9 @@ const MeetingSection = () => {
               <div className={styles.header}>
                 <img src="/assets/img/clients/1.jpg" alt="Profile" />
                 <h6>Schedule Your Meeting</h6>
-                <h4>Free 30-Minute Discovery Call</h4>
+                <h5 className="">Free 30-Minute Discovery Call</h5>
               </div>
-              <div className={styles.infoBox}>
+              <div className={`${styles.infoBox}`}>
                 <img src="agency-3/meeting/user.png" alt="Question" />
                 <div>
                   <h3>Our Story</h3>

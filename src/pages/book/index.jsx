@@ -11,6 +11,7 @@ import CallAction from "../../components/Home3/CallAction";
 import MeetingSection from "../../components/Book/Meeting";
 import Works from "../../components/Book/Works";
 import WorksData from "../../data/Book/Works.json";
+import WorksSectionTwo from "../../components/Book/WorkSectionTwo/WorkSectionTwo";
 
 const Index = () => {
   useEffect(() => {
@@ -29,6 +30,7 @@ const Index = () => {
       <InfoSection/>
       <Services />
       <MeetingSection/>
+      <WorksSectionTwo/>
       <CallAction />
     </MainLayout>
   );

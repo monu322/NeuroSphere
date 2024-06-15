@@ -37,7 +37,7 @@ const CallAction = () => {
                   .
                 </h2>
               </Split>
-              <h3 className="gr-text">
+              <h3 className="gr-text fs-5">
                 <Link href="#0">
                   <a>{ CallActionData.email }</a>
                 </Link>
