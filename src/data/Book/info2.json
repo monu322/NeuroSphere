@@ -3,51 +3,55 @@
 {
     "services": [
         {
-            "title": "EeziClean",
-            "points": [
-                "Access to top-tier tech talent",
-                "Comprehensive guidance throughout development",
-                "Tailored projects to meet your unique requirements",
-                "Clear goal definition to kickstart your project",
-                "Commitment to long-term partnership",
-                "Cost-effective solutions with our international team",
-                "Expertise across multiple mobile platforms",
-                "Custom-built solutions to fit your business",
-                "Seamless integration with existing infrastructure",
-                "Continuous support and maintenance services"
-            ],
+            "title": "EeziClean - Android & iOS App",
+            "points":[
+                "Easy booking with selectable preferences.",
+                "Real-time tracking of laundry status.",
+                "Push notifications for updates and offers.",
+                "Support for various payment methods.",
+                "User profile management.",
+                "Order history and reordering.",
+                "Rating and feedback system.",
+                "Admin panel for user data insights.",
+                "Automated reminders for services.",
+                "Integrated customer support."
+              ]
+              ,
             "img" : "/assets/img/works/eeziclean.png"
         },
         {
             "title": "Creed Real Estate",
             "points": [
-                "Cutting-edge web design and development",
-                "Responsive and mobile-friendly websites",
-                "SEO optimized for better search engine ranking",
-                "Fast and secure hosting solutions",
-                "User-friendly CMS for easy updates",
-                "Custom plugins and integrations",
-                "E-commerce solutions to boost sales",
-                "Comprehensive analytics and reporting",
-                "Accessibility compliant websites",
-                "Continuous improvement and support"
-            ],
+                "Market research and analysis.",
+                "Modern, user-friendly website.",
+                "Unique brand identity and logo.",
+                "Seamless navigation and high-quality images.",
+                "CMS for easy property updates.",
+                "SEO optimization.",
+                "Social media marketing plan.",
+                "Intuitive interface for browsing.",
+                "Easy property search functionality.",
+                "Enhanced online presence and engagement."
+              ]
+              ,
             "img" : "/assets/img/works/creed.png"
         },
         {
             "title": "Pre London",
-            "points": [
-                "Tailored software solutions for your business",
-                "Expertise in various programming languages",
-                "Scalable and flexible software architecture",
-                "Secure and compliant with industry standards",
-                "Automation to streamline your processes",
-                "Data migration and integration services",
-                "User-centric design for better usability",
-                "Comprehensive testing and QA",
-                "Agile methodology for fast delivery",
-                "Long-term partnership and support"
-            ],
+            "points":[
+                "Modern Shopify website.",
+                "Market research.",
+                "Seamless navigation and mobile optimization.",
+                "Unique brand identity.",
+                "Secure payments.",
+                "Digital marketing strategy.",
+                "Engaging content.",
+                "Targeted email campaigns.",
+                "Admin panel for insights.",
+                "Improved engagement and conversions."
+              ]
+              
+              ,
             "img" : "/assets/img/works/pre.jpg"
         }
     ],
