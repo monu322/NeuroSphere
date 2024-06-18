@@ -1,0 +1,39 @@
+[
+    {
+      "title": "Web Development",
+      "amount": "0",
+      "plan_type": "Yearly",
+      "features": [
+        "Unlimited Website Hosting",
+        "Responsive Design",
+        "SEO Tools",
+        "24/7 Support",
+        "Custom Branding"
+      ]
+    },
+    {
+      "title": "Mobile Development",
+      "amount": "49",
+      "plan_type": "Yearly",
+      "features": [
+        "Unlimited App Downloads",
+        "Cross-Platform Compatibility",
+        "App Analytics",
+        "Exclusive Support",
+        "Custom Branding"
+      ]
+    },
+    {
+      "title": "Custom Software",
+      "amount": "99",
+      "plan_type": "Yearly",
+      "features": [
+        "Dedicated Developer Team",
+        "Priority Updates",
+        "Custom Integrations",
+        "Exclusive Support",
+        "Custom Branding"
+      ]
+    }
+  ]
+  

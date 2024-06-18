@@ -10,7 +10,7 @@ const InfoSection = () => {
 
     return (
         <>
-            <section className="ui-intro pt-70">
+            <section className="ui-intro pt-70 pb-25">
                 <div className="container">
                     <h4 className="gr-text text-center pb-70">OUR WORKS</h4>
                     {IntroVersData.services.map((service, index) => (
