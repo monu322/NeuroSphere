@@ -5,8 +5,8 @@ const Intro = () => {
   return (
     <section className="ui-intro section-padding bg-gray">
       <div className="container">
-        <div className="row align-items-center"> {/* Added align-items-center to vertically center the content */}
-          <div className="col-lg-5">
+        <div className="row align-items-center "> {/* Added align-items-center to vertically center the content */}
+          <div className="col-lg-5 col-md-6">
             <div className="round-container">
               <img src="/assets/img/logo-light.png" alt="" />
             </div>

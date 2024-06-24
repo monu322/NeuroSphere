@@ -188,4 +188,37 @@
   }
 }
 
+.gallery2{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+
+.item-img {
+  position: relative;
+}
+
+.item-description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: rgba(0, 0, 0, 0.7); */
+  background: -webkit-linear-gradient(left, #48ca7d, #2bbfac, #00afef);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.item-img:hover .item-description {
+  opacity: 0.9;
+}
+
 

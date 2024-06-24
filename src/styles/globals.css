@@ -46,9 +46,10 @@ a,
 }
 
 .custom-button {
-  background-color: grey;
-  border-color: grey;
-  border-radius: 50px;
+  background: -webkit-linear-gradient(left, #48ca7d, #2bbfac, #00afef);
+  border-radius: 30px;
+  padding: 15px;
+  margin-top: 50px;
 }
 
 .button-text {
@@ -56,8 +57,9 @@ a,
 }
 
 .round-container{
-  margin-left: 90px;
   margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
 }
 
 

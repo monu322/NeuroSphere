@@ -15,14 +15,16 @@
     {
       "textBg": "01",
       "text": "The team at this company did an amazing job developing our mobile app. Their attention to detail and commitment to delivering a high-quality product was impressive. I highly recommend their app development services.",
-      "person": "Sheikh Abdulsaud, CEO of EziClean Pvt Ltd",
+      "person": "Sheikh Abdulsaud",
+      "title" : "CEO of EziClean Pvt Ltd",
       "id" : 1,
       "img" : "/assets/img/clients/6.jpg"
     },
     {
       "textBg": "02",
       "text": "We were blown away by the website that this company created for us. It was exactly what we were looking for and has helped us attract more customers and grow our business. Their web development team is top-notch.",
-      "person": "Renzel Holbun, Founder, Creed Real Estate",
+      "person": "Renzel Holbun",
+      "title" : "Founder, Creed Real Estate",
       "id" : 2,
       "img": "/assets/img/clients/7.jpg"
     },
@@ -31,7 +33,8 @@
       "textBg": "04",
       "id" : 1,
       "text": "The UI/UX design work that this company did for our platform was outstanding. They really understood our target audience and created a user interface that was intuitive and engaging. We've received a lot of positive feedback from our users.",
-      "person": "Ashlee Walsh, Owner & CEO, Pre London Ltd",
+      "person": "Ashlee Walsh",
+      "title" : "Owner & CEO, Pre London Ltd",
       "img": "/assets/img/clients/10.jpg"
     }
   ]

@@ -1,0 +1,64 @@
+
+
+{
+    "services": [
+        {
+            "title": "EeziClean - Android & iOS App",
+            "points":[
+                "Easy booking with selectable preferences.",
+                "Real-time tracking of laundry status.",
+                "Push notifications for updates and offers.",
+                "Support for various payment methods.",
+                "User profile management.",
+                "Order history and reordering.",
+                "Rating and feedback system.",
+                "Admin panel for user data insights.",
+                "Automated reminders for services.",
+                "Integrated customer support."
+              ]
+              ,
+            "img" : "/assets/img/works/eeziclean.png"
+        },
+        {
+            "title": "Creed Real Estate",
+            "points": [
+                "Market research and analysis.",
+                "Modern, user-friendly website.",
+                "Unique brand identity and logo.",
+                "Seamless navigation and high-quality images.",
+                "CMS for easy property updates.",
+                "SEO optimization.",
+                "Social media marketing plan.",
+                "Intuitive interface for browsing.",
+                "Easy property search functionality.",
+                "Enhanced online presence and engagement."
+              ]
+              ,
+            "img" : "/assets/img/works/creed.png"
+        },
+        {
+            "title": "Pre London",
+            "points":[
+                "Modern Shopify website.",
+                "Market research.",
+                "Seamless navigation and mobile optimization.",
+                "Unique brand identity.",
+                "Secure payments.",
+                "Digital marketing strategy.",
+                "Engaging content.",
+                "Targeted email campaigns.",
+                "Admin panel for insights.",
+                "Improved engagement and conversions."
+              ]
+              
+              ,
+            "img" : "/assets/img/works/pre.jpg"
+        }
+    ],
+    "video": {
+        "channel": "vimeo",
+        "videoId": "127203262"
+    }
+  }
+  
+  

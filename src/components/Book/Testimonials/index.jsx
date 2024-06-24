@@ -42,6 +42,8 @@ const Testimonials = () => {
                       <div className="cont">
                         <div className="author">
                           <h6 className="author-name">{testimonial.person}</h6>
+                          <h4 className="author-title">{testimonial.title}</h4>
+                          
                           {/* <span className="author-details">
                             {testimonial.text}
                           </span> */}

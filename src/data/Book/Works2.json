@@ -1,0 +1,358 @@
+{
+    "filters": [
+      {
+        "operator": "*",
+        "title": "All"
+      },
+      {
+        "operator": ".mob",
+        "title": "Mobile"
+      },
+      {
+        "operator": ".web",
+        "title": "Web"
+      },
+      {
+        "operator": ".ai",
+        "title": "AI"
+      },
+      {
+        "operator": ".branding",
+        "title": "Branding"
+      }
+    ],
+    "works": [
+      
+      
+      {
+        "id": 6,
+        "type": "mob",
+        "link": "https://eeziclean.com/",
+        "img": "/assets/img/works/eeziclean.png",
+        "wideImg": "/assets/img/works/eeziclean-wide.jpg",
+        "title": "EeziClean",
+        "description": "EziClean is a prominent laundry service provider offering convenient and efficient solutions for all your laundry needs.",
+        "tags": ["Utility App", "Android", "iOS"],
+        "objective": "The primary objective of EziClean project is to provide customers with a user-friendly and convenient mobile application for seamless booking and tracking of laundry services.",
+        "servicesIntro": "To achieve the objectives of EziClean project, the development process involved several stages, including mobile and web app development, testing and quality assurance, and launch.",
+        "services": [
+          {
+            "id": 1,
+            "iconClass": "pe-7s-way",
+            "title": "Planning",
+            "description": "Conducted thorough market research and analysis to understand user needs, market trends, and competition."
+          },
+          {
+            "id": 2,
+            "iconClass": "pe-7s-magic-wand",
+            "title": "UI/UX",
+            "description": "Created visually appealing app, ensuring a seamless user experience and intuitive navigation, while the admin panel's UI offered comprehensive insights into user data and app usage."
+          },
+          {
+            "id": 3,
+            "iconClass": "pe-7s-plugin",
+            "title": "Development",
+            "description": "Developed the Android and iOS apps using appropriate programming languages, frameworks, and tools such as Java/Kotlin for Android and Swift for iOS"
+          },
+          {
+            "id": 4,
+            "iconClass": "pe-7s-look",
+            "title": "Testing and QA",
+            "description": "Tested the compatibility and responsiveness of the apps and website on various devices, browsers, and operating systems."
+          },
+          {
+            "id": 5,
+            "iconClass": "pe-7s-rocket",
+            "title": "Deployment",
+            "description": "Launched the mobile apps and website to the public, making them available for download and use."
+          },
+          {
+            "id": 6,
+            "iconClass": "pe-7s-like2",
+            "title": "Maintenance",
+            "description": "Conducted ongoing maintenance, security updates, and optimizations to ensure a smooth and secure user experience."
+          }
+        ],
+        "outcomeText": "The partnership between NeuroSphere and EziClean resulted in the successful development and launch of the laundry service app, complemented by the admin panel for comprehensive insights. The outcome achieved the following key milestones:",
+        "outcomes": [
+          {
+            "id": 1,
+            "iconClass": "pe-7s-smile",
+            "title": "Enhanced Customer Experience:",
+            "description": "The app provided an intuitive and user-friendly interface, enabling customers to easily book laundry services, select preferences, and track delivery status in real-time. The seamless experience led to improved customer satisfaction."
+          },
+          {
+            "id": 2,
+            "iconClass": "pe-7s-graph2",
+            "title": "Increased Efficiency",
+            "description": "The automation of the booking process reduced manual efforts for both customers and EziClean. It streamlined operations and allowed the business to handle a larger volume of orders efficiently. The admin panel provided EziClean with valuable insights into user data and app usage, facilitating informed decision-making and operational improvements."
+          },
+          {
+            "id": 3,
+            "iconClass": "pe-7s-users",
+            "title": "Expanded Customer Base",
+            "description": "The mobile app attracted new customers who preferred the convenience of booking laundry services through a mobile platform. The increased accessibility helped EziClean tap into previously untapped market segments. The admin panel's insights allowed EziClean to understand customer behavior and preferences, enabling targeted marketing strategies to further expand their customer base."
+          }
+        ],
+        "testimonialShortText": "",
+        "testimonials": [
+          {
+            "id": 1,
+            "img": "/assets/img/clients/6.jpg",
+            "content": "NeuroSphere's expertise and exceptional app development have revolutionized our business, surpassing expectations and providing valuable insights, making them our trusted technology partner.",
+            "name": "Sheikh Abdulsaud",
+            "details": "CEO, EziClean Pvt Ltd, UAE"
+          }
+        ],
+        "skills": [
+          {
+            "id": 1,
+            "title": "Mobile App",
+            "subtitle": "Development",
+            "value": 95
+          },
+          {
+            "id": 2,
+            "title": "Web App",
+            "subtitle": "Development",
+            "value": 95
+          },
+          {
+            "id": 3,
+            "title": "UI/UX",
+            "subtitle": "Design",
+            "value": 90
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "type": "web",
+        "link": "https://www.creed-realestate.com/",
+        "img": "/assets/img/works/creed.png",
+        "wideImg": "/assets/img/works/creed-wide.jpg",
+        "title": "Creed Real Estate",
+        "description": "Your Ultimate Platform for real estate market. Released as Android, iOS and Web Apps.",
+        "tags": ["Web", "Branding", "Property CMS"],
+        "objective": "The objective was to establish a modern online presence and improve brand image by creating an interactive website for easy property browsing and showcasing expertise in the real estate market.",
+        "servicesIntro": "To achieve the objectives of the Creed Real Estate project, the development process involved several stages, including mobile and web app development, SEO, branding,  and launch.",
+        "services": [
+          {
+            "id": 1,
+            "iconClass": "pe-7s-way",
+            "title": "Planning",
+            "description": "Conducted thorough market research and analysis to understand user needs, market trends, and competition."
+          },
+          {
+            "id": 2,
+            "iconClass": "pe-7s-paper-plane",
+            "title": "Branding",
+            "description": "Undertook extensive research on the real estate market and competitor analysis to craft a unique brand identity."
+          },
+          {
+            "id": 3,
+            "iconClass": "pe-7s-magic-wand",
+            "title": "UI/UX",
+            "description": "Created a user-friendly interface with a modern aesthetic, allowing effortless browsing, viewing of high-quality images, and access to detailed property information."
+          },
+          {
+            "id": 4,
+            "iconClass": "pe-7s-plugin",
+            "title": "Development",
+            "description": "Developed a user-friendly CMS-powered website, enabling easy property listing updates and content management for the client without technical expertise."
+          },
+          {
+            "id": 5,
+            "iconClass": "pe-7s-rocket",
+            "title": "SEO",
+            "description": "Optimized the website using SEO techniques, improving search engine rankings, and devised an effective social media marketing plan to enhance online presence and engage the target audience."
+          }
+        ],
+        "outcomeText": "The collaboration between our agency and the NHS UK resulted in the successful development and deployment of an ML model to predict patient duration of stay. The key outcomes achieved were as follows:",
+        "outcomes": [
+          {
+            "id": 1,
+            "iconClass": "pe-7s-target",
+            "title": "Branding and Logo Design",
+            "description": "Delivered a unique and visually appealing logo design that effectively represented Creed Real Estate London's brand values of professionalism, trust, and elegance."
+          },
+          {
+            "id": 2,
+            "iconClass": "pe-7s-browser",
+            "title": "Website Development",
+            "description": "NeuroSphere developed a modern and user-friendly website for Creed Real Estate London, incorporating intuitive navigation, clean interface design, and seamless property browsing functionalities. The website was built using a robust content management system (CMS) that allowed the client to easily update property listings and manage website content."
+          },
+          {
+            "id": 3,
+            "iconClass": "pe-7s-config",
+            "title": "CMS Integration",
+            "description": "NeuroSphere successfully integrated a content management system into the website, enabling Creed Real Estate London to have full control over their property listings, content updates, and website management without requiring technical expertise."
+          },
+          {
+            "id": 4,
+            "iconClass": "pe-7s-like2",
+            "title": "User Experience (UX) Design",
+            "description": "The website was designed with a focus on providing an exceptional user experience. NeuroSphere's design team implemented an intuitive interface, easy property search functionality, and high-quality images to ensure that users could effortlessly browse and explore property listings."
+          },
+          {
+            "id": 5,
+            "iconClass": "pe-7s-search",
+            "title": "Search Engine Optimization (SEO)",
+            "description": "NeuroSphere implemented industry-leading SEO techniques to optimize the website for search engines. This included thorough keyword research, on-page optimization, and meta tag optimization to improve the website's rankings in search engine results pages, ultimately driving more organic traffic to the site."
+          },
+          {
+            "id": 6,
+            "iconClass": "pe-7s-graph2",
+            "title": "Digital Marketing and Social Media Strategy",
+            "description": "NeuroSphere devised an effective digital marketing and social media strategy for Creed Real Estate London. This involved leveraging various social media platforms to enhance the agency's online presence, engage with the target audience, and drive traffic to the website."
+          }
+        ],
+        "testimonialShortText": "",
+        "testimonials": [
+          {
+            "id": 1,
+            "img": "/assets/img/clients/7.jpg",
+            "content": "NeuroSphere transformed our brand image, creating a strong online presence. Their creative logo design and intuitive website exceeded expectations, leading to increased leads and conversions. Highly recommended for brand enhancement and digital leverage.",
+            "name": "Renzel Holborn",
+            "details": "CEO of Creed Real Estate London"
+          }
+        ],
+        "skills": [
+          {
+            "id": 1,
+            "title": "Branding",
+            "subtitle": "Development",
+            "value": 85
+          },
+          {
+            "id": 2,
+            "title": "Web App",
+            "subtitle": "Development",
+            "value": 90
+          },
+          {
+            "id": 3,
+            "title": "UI/UX",
+            "subtitle": "Design",
+            "value": 90
+          }
+        ]
+      },
+  
+      {
+        "id": 9,
+        "type": "branding",
+        "link": "https://www.prelondon.com/",
+        "img": "/assets/img/works/pre.jpg",
+        "wideImg": "/assets/img/works/pre-wide.jpg",
+        "title": "Pre London",
+        "description": "Pre London is an emerging online apparel store that offers modern and stylish clothing for fashion-forward individuals.",
+        "tags": ["Ecommerce", "Branding", "Marketing"],
+        "objective": "The objective was to create a modern website, develop a compelling brand identity, implement effective digital marketing strategies through social channels with retargeting, and set up targeted email campaigns to drive sales.",
+        "servicesIntro": "NeuroSphere enabled Pre London to achieve their objective by transforming their digital presence through Shopify development, branding, digital marketing strategies, and targeted email campaigns, resulting in increased sales and a strong brand identity.",
+        "services": [
+          {
+            "id": 1,
+            "iconClass": "pe-7s-way",
+            "title": "Planning",
+            "description": "Conducted thorough market research and analysis to understand user needs, market trends, and competition."
+          },
+          {
+            "id": 2,
+            "iconClass": "pe-7s-magic-wand",
+            "title": "UI/UX",
+            "description": "Ensured seamless navigation, secure payment gateways, and optimized mobile responsiveness."
+          },
+          {
+            "id": 3,
+            "iconClass": "pe-7s-plugin",
+            "title": "Shopify Development",
+            "description": "Developed visually stunning and user-friendly website."
+          },
+          {
+            "id": 4,
+            "iconClass": "pe-7s-paper-plane",
+            "title": "Branding",
+            "description": "Created a compelling brand identity that authentically reflected their vision, values, and resonated with the target audience through market research, brand story, logo, typography, color scheme, and brand guidelines."
+          },
+          {
+            "id": 5,
+            "iconClass": "pe-7s-display1",
+            "title": "Digital Marketing",
+            "description": "Developed a comprehensive digital marketing strategy for Pre London, leveraging social media channels, retargeting campaigns, and engaging content to maximize online reach and optimize conversions."
+          },
+          {
+            "id": 6,
+            "iconClass": "pe-7s--mail-open-file",
+            "title": "Email Campaigns",
+            "description": "Implemented a targeted email campaigns for Pre London, utilizing segmentation, personalized content, and diverse strategies to drive sales and enhance customer engagement."
+          }
+        ],
+        "outcomeText": "NeuroSphere's collaboration with Pre London resulted in significant improvements:",
+        "outcomes": [
+          {
+            "id": 1,
+            "iconClass": "pe-7s-browser",
+            "title": "Modern Website",
+            "description": "The Shopify-powered website provided a seamless user experience, leading to increased engagement and improved conversion rates."
+          },
+          {
+            "id": 2,
+            "iconClass": "pe-7s-target",
+            "title": "Strong Brand Identity",
+            "description": "Refreshed branding established Pre London as a distinctive and reputable brand, capturing the attention of the target audience."
+          },
+          {
+            "id": 3,
+            "iconClass": "pe-7s-like2",
+            "title": "Digital Marketing Success",
+            "description": "Social media channels and retargeting campaigns effectively reached the target audience, driving qualified traffic, boosting sales, and fostering customer loyalty."
+          },
+          {
+            "id": 4,
+            "iconClass": "pe-7s--mail-open-file",
+            "title": "Email Campaign Impact",
+            "description": "The targeted email campaigns played a crucial role in increasing sales and customer engagement, delivering personalized content and driving repeat purchases."
+          }
+        ],
+        "testimonialShortText": "",
+        "testimonials": [
+          {
+            "id": 1,
+            "img": "/assets/img/clients/10.jpg",
+            "content": "NeuroSphere's exceptional expertise and dedication transformed our online presence, resulting in skyrocketing conversion rates, a recognized and admired brand, and significant sales growth. Highly recommended for comprehensive and impactful solutions.",
+            "name": "Ashlee Walsh",
+            "details": "Founder of Pre London"
+          }
+        ],
+        "skills": [
+          {
+            "id": 1,
+            "title": "Shopify",
+            "subtitle": "Development",
+            "value": 95
+          },
+          {
+            "id": 2,
+            "title": "Branding",
+            "subtitle": "Development",
+            "value": 90
+          },
+          {
+            "id": 3,
+            "title": "Social media marketing",
+            "subtitle": "Design",
+            "value": 85
+          },
+          {
+            "id": 4,
+            "title": "Retargeting campaign implementaton",
+            "subtitle": "Design",
+            "value": 90
+          }
+        ]
+      }
+  
+    ]
+  }
+  
