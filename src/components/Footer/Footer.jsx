@@ -36,7 +36,6 @@ const Footer = ({ classText }) => {
                   <div className="cont">
                     <h6>Call Us</h6>
                     <p>{appData.phone}</p>
-                    <p>{appData.phone2}</p>
                   </div>
                 </li>
               </ul>
