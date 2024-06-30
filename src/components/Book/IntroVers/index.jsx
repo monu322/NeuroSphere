@@ -15,7 +15,7 @@ const IntroVers = () => {
           <div className="row">
             <div className="col-lg-6 pb100">
               <div className="cont">
-                <h4 className="gr-text">Why You Will Love...</h4>
+                <h4 className="gr-text">Why You Will Love Us...</h4>
                 {IntroVersData.paragraphs.map((para, index) => (
                   <p key={index}>&#10003; {para}</p>
                 ))}
@@ -23,13 +23,13 @@ const IntroVers = () => {
 
               <Link href="#meeting-section">
                 <Button className="order mt-4 custom-button">
-                  <h6 className="button-text">Speak To Our Team Today</h6>
+                  <h6 className="button-text">Book a call with us today</h6>
                 </Button>
               </Link>
             </div>
             <div className="col-lg-4 md-mb50">
               <div className="img">
-                <img src="agency-3/img/why-choose.jpg" alt="" />
+                <img src="assets/img/slides/1.jpg" alt="" />
               </div>
             </div>
           </div>

@@ -25,6 +25,7 @@ const Index = () => {
     <MainLayout>
       <Header />
       <Intro />
+      <Services />
       <Works worksData={WorksData} />
       <Testimonials />
       <IntroVers />
@@ -32,7 +33,7 @@ const Index = () => {
       <Services />
       <MeetingSection/>
       <WorksSectionTwo/>
-      <PricingTable/>
+      {/* <PricingTable/> */}
       <CallAction />
     </MainLayout>
   );

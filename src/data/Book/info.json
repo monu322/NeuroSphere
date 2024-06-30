@@ -16,7 +16,7 @@
                 "Seamless integration with existing infrastructure",
                 "Continuous support and maintenance services"
             ],
-            "img" : "/agency-3/img/mobile-app.jpg"
+            "img" : "assets/img/works/eeziclean.png"
         },
         {
             "title": "WEBSITE DEVELOPMENT",
@@ -32,7 +32,7 @@
                 "Accessibility compliant websites",
                 "Continuous improvement and support"
             ],
-            "img" : "/agency-3/img/web-development.jpg"
+            "img" : "assets/img/works/website.jpg"
         },
         {
             "title": "CUSTOM SOFTWARE DEVELOPMENT",
@@ -48,7 +48,7 @@
                 "Agile methodology for fast delivery",
                 "Long-term partnership and support"
             ],
-            "img" : "/agency-3/img/software-dev.jpg"
+            "img" : "assets/img/works/infaweb.jpg"
         }
     ],
     "video": {

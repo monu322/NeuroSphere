@@ -77,7 +77,7 @@ const Footer = ({ classText }) => {
               <div className="logo">
                 <img src={appData.lightLogo} alt="" />
               </div>
-              <div className="social pl-4">
+              {/* <div className="social pl-4">
                 <Link href="#0">
                   <a>
                     <i className="fab fa-facebook-f"></i>
@@ -98,7 +98,7 @@ const Footer = ({ classText }) => {
                     <i className="fab fa-youtube"></i>
                   </a>
                 </Link>
-              </div>
+              </div> */}
               <div className="copy-right">
                 <p>
                   {`© ` + new Date().getFullYear() + " " + appData.footerText}{" "}

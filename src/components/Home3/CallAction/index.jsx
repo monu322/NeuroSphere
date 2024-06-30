@@ -45,7 +45,7 @@ const CallAction = () => {
             </div>
           </div>
           <div className="col-md-4 col-lg-3 valign">
-            <Link href="/contact">
+            <Link href="#meeting-section">
               <a className="btn-curve btn-lit"><span>Get In Touch</span></a>
             </Link>
           </div>
